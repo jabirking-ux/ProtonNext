@@ -29,6 +29,9 @@ env/
 *.Setup.exe
 installer/Output/
 installer/*.exe
+installer/publish/
+payload.zip
+*.zip
 
 # Retain essential compiled helper engine binaries
 !ProtonVPN-Next-CLI/engine/pvpn-engine.exe

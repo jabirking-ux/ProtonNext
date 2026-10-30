@@ -22,11 +22,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Install NSIS
-        run: |
-          choco install nsis -y --no-progress
-          echo "C:\Program Files (x86)\NSIS" >> $env:GITHUB_PATH
-
       - name: Setup .NET 8 SDK
         uses: actions/setup-dotnet@v4
         with:
@@ -50,8 +45,8 @@ jobs:
       - name: Build ProtonVPN Client (Release x64)
         run: dotnet build win-app/src/Client/ProtonVPN.Client/ProtonVPN.Client.csproj -c Release -p:Platform=x64 --no-restore
 
-      - name: Compile NSIS Installer
-        run: makensis installer\ProtonNext.nsi
+      - name: Build Fast Handmade Installer
+        run: python installer/build_installer.py
 
       - name: Upload Installer Artifact
         uses: actions/upload-artifact@v4
