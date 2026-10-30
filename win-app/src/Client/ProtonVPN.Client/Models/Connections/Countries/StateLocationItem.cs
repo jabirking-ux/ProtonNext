@@ -61,7 +61,7 @@ public class StateLocationItem : StateLocationItemBase
 
     protected override IEnumerable<ConnectionItemBase> GetSubItems()
     {
-        return ServersLoader.GetServersByState(State)
+        return ServersLoader.GetServersByState(State).Where(s => s.IsFree())
                             .Select(s => LocationItemFactory.GetServer(s, isSearchItem: IsSearchItem));
     }
 }

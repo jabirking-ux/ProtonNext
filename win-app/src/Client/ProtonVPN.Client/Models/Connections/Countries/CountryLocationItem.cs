@@ -63,11 +63,13 @@ public class CountryLocationItem : CountryLocationItemBase
     {
         IEnumerable<ConnectionItemBase> states =
             ServersLoader.GetStatesByCountryCode(ExitCountryCode)
+                         .Where(state => ServersLoader.GetServersByState(state).Any(s => s.IsFree()))
                          .Select(state => LocationItemFactory.GetState(state, showBaseLocation: false, isSearchItem: IsSearchItem));
 
         return states.Any()
             ? states
             : ServersLoader.GetCitiesByCountryCode(ExitCountryCode)
+                           .Where(city => ServersLoader.GetServersByCity(city).Any(s => s.IsFree()))
                            .Select(city => LocationItemFactory.GetCity(city, showBaseLocation: false, isSearchItem: IsSearchItem));
     }
 }

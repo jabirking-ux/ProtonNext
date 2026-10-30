@@ -33,3 +33,6 @@ installer/*.exe
 # Retain essential compiled helper engine binaries
 !ProtonVPN-Next-CLI/engine/pvpn-engine.exe
 !ProtonVPN-Next-CLI/engine/wintun.dll
+
+ProtonNext-Setup.exe
+

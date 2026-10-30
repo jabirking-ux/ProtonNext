@@ -61,7 +61,7 @@ public class CityLocationItem : CityLocationItemBase
 
     protected override IEnumerable<ConnectionItemBase> GetSubItems()
     {
-        return ServersLoader.GetServersByCity(City)
+        return ServersLoader.GetServersByCity(City).Where(s => s.IsFree())
                             .Select(s => LocationItemFactory.GetServer(s, isSearchItem: IsSearchItem));
     }
 }

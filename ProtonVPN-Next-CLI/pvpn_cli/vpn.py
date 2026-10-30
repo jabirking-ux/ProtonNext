@@ -157,20 +157,22 @@ class ProtonVpnApi:
 
     def get_best_server(self) -> Optional[Dict[str, Any]]:
         """Get the server with the lowest load available for the current account tier."""
+        import random
         tier = self.get_max_tier()
         with sqlite3.connect(self.db.db_path) as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            # Find logical server with lowest load and tier <= tier
+            # Find logical servers with lowest load and tier <= tier
             cursor.execute("""
                 SELECT raw_json FROM servers
                 WHERE tier <= ?
                 ORDER BY load ASC, name ASC
-                LIMIT 1
+                LIMIT 8
             """, (tier,))
-            row = cursor.fetchone()
-            if row:
-                return json.loads(row[0])
+            rows = cursor.fetchall()
+            if rows:
+                selected = random.choice(rows[:min(5, len(rows))])
+                return json.loads(selected[0])
             return None
 
     def get_max_tier(self) -> int:

@@ -62,8 +62,13 @@ public class AllCountriesComponentViewModel : CountriesComponentViewModelBase
     {
         IEnumerable<ConnectionItemBase> genericCountries = base.GetItems();
 
+        var freeCodes = ServersLoader.GetFreeCountries()
+            .Select(fc => fc.Code)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
         IEnumerable<ConnectionItemBase> countries =
             ServersLoader.GetCountries()
+                         .Where(c => freeCodes.Contains(c.Code))
                          .Select(c => LocationItemFactory.GetCountry(c));
 
         return genericCountries

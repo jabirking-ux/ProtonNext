@@ -154,7 +154,12 @@ public partial class MapComponentViewModel : ViewModelBase,
 
     private void InvalidateCountries()
     {
+        var freeCodes = _serversCache.FreeCountries
+            .Select(fc => fc.Code)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
         Countries = _serversCache.Countries
+            .Where(c => freeCodes.Contains(c.Code))
             .Select(c =>
             {
                 (double Latitude, double Longitude)? coordinates = _coordinatesProvider.GetCoordinates(c);
