@@ -1,0 +1,146 @@
+/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using CommunityToolkit.Mvvm.Input;
+using ProtonVPN.Client.Core.Bases;
+using ProtonVPN.Client.Core.Bases.ViewModels;
+using ProtonVPN.Client.Core.Messages;
+using ProtonVPN.Client.Core.Services.Activation;
+using ProtonVPN.Client.EventMessaging.Contracts;
+using ProtonVPN.Client.Handlers;
+using ProtonVPN.Client.Logic.Connection.Contracts;
+using ProtonVPN.Client.Logic.Connection.Contracts.Messages;
+using ProtonVPN.Client.Logic.Users.Contracts.Messages;
+using ProtonVPN.Client.Settings.Contracts;
+using ProtonVPN.StatisticalEvents.Contracts;
+
+namespace ProtonVPN.Client.UI.Main.Home.Upsell;
+
+public partial class ConnectionCardUpsellBannerViewModel : ActivatableViewModelBase,
+    IConnectionCardUpsellBannerModerator,
+    IEventMessageReceiver<ConnectionStatusChangedMessage>,
+    IEventMessageReceiver<VpnPlanChangedMessage>,
+    IEventMessageReceiver<ChangeServerAttemptInvalidatedMessage>,
+    IEventMessageReceiver<P2PWarningWindowClosedMessage>,
+    IEventMessageReceiver<P2PTrafficDetectedMessage>
+{
+    private readonly IConnectionManager _connectionManager;
+    private readonly IChangeServerModerator _changeServerModerator;
+    private readonly ISettings _settings;
+    private readonly IUpsellCarouselWindowActivator _upsellCarouselWindowActivator;
+    private readonly IP2PDetectionWindowActivator _p2pDetectionWindowActivator;
+
+    private bool _wasP2PtrafficDetected;
+
+    private bool IsP2PWarningNotificationWithinCooldown =>
+        (DateTime.UtcNow - _settings.LastP2PWarningNotificationUtcDate).TotalHours < RestrictionsHandler.NOTIFICATION_COOLDOWN_IN_HOURS;
+
+    public bool IsP2PUpsellBannerVisible => false;
+
+    public bool IsWrongCountryBannerVisible => false;
+
+    public bool IsBannerVisible => false;
+
+    public ConnectionCardUpsellBannerViewModel(
+        IConnectionManager connectionManager,
+        IChangeServerModerator changeServerModerator,
+        ISettings settings,
+        IUpsellCarouselWindowActivator upsellCarouselWindowActivator,
+        IP2PDetectionWindowActivator p2pDetectionWindowActivator,
+        IViewModelHelper viewModelHelper)
+        : base(viewModelHelper)
+    {
+        _connectionManager = connectionManager;
+        _changeServerModerator = changeServerModerator;
+        _settings = settings;
+        _upsellCarouselWindowActivator = upsellCarouselWindowActivator;
+        _p2pDetectionWindowActivator = p2pDetectionWindowActivator;
+    }
+
+    public void Receive(ChangeServerAttemptInvalidatedMessage message)
+    {
+        if (IsActive)
+        {
+            ExecuteOnUIThread(InvalidateBanner);
+        }
+    }
+
+    public void Receive(ConnectionStatusChangedMessage message)
+    {
+        if (!_connectionManager.IsConnected)
+        {
+            _wasP2PtrafficDetected = false;
+        }
+
+        if (IsActive)
+        {
+            ExecuteOnUIThread(InvalidateBanner);
+        }
+    }
+
+    public void Receive(VpnPlanChangedMessage message)
+    {
+        if (IsActive)
+        {
+            ExecuteOnUIThread(InvalidateBanner);
+        }
+    }
+
+    public void Receive(P2PWarningWindowClosedMessage message)
+    {
+        _wasP2PtrafficDetected = true;
+
+        if (IsActive)
+        {
+            ExecuteOnUIThread(InvalidateBanner);
+        }
+    }
+
+    public void Receive(P2PTrafficDetectedMessage message)
+    {
+        _wasP2PtrafficDetected = true;
+
+        if (IsActive)
+        {
+            ExecuteOnUIThread(InvalidateBanner);
+        }
+    }
+
+    [RelayCommand]
+    public Task UpgradeAsync()
+    {
+        ModalSource modalSource = IsP2PUpsellBannerVisible ? ModalSource.P2P : ModalSource.Countries;
+
+        return _upsellCarouselWindowActivator.ActivateAsync(new UpsellModalContext(modalSource, ModalTrigger.HomeBanner));
+    }
+
+    protected override void OnActivated()
+    {
+        base.OnActivated();
+
+        InvalidateBanner();
+    }
+
+    private void InvalidateBanner()
+    {
+        OnPropertyChanged(nameof(IsBannerVisible));
+        OnPropertyChanged(nameof(IsWrongCountryBannerVisible));
+        OnPropertyChanged(nameof(IsP2PUpsellBannerVisible));
+    }
+}

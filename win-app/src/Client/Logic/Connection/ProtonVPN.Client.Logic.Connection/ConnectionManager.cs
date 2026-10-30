@@ -1,0 +1,507 @@
+/*
+ * Copyright (c) 2026 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System.Data;
+using ProtonVPN.Client.EventMessaging.Contracts;
+using ProtonVPN.Client.Logic.Auth.Contracts;
+using ProtonVPN.Client.Logic.Auth.Contracts.Messages;
+using ProtonVPN.Client.Logic.Connection.Contracts.Enums;
+using ProtonVPN.Client.Logic.Connection.Contracts.GuestHole;
+using ProtonVPN.Client.Logic.Connection.Contracts.Messages;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Features;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.FreeServers;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.Servers;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.Countries;
+using ProtonVPN.Client.Logic.Connection.Contracts.RequestCreators;
+using ProtonVPN.Client.Logic.Connection.Extensions;
+using ProtonVPN.Client.Logic.Connection.GuestHole;
+using ProtonVPN.Client.Logic.Connection.Statistics;
+using ProtonVPN.Client.Logic.Servers.Contracts;
+using ProtonVPN.Client.Logic.Servers.Contracts.Models;
+using ProtonVPN.Client.Logic.Services.Contracts;
+using ProtonVPN.Client.Settings.Contracts;
+using ProtonVPN.Crypto.Contracts;
+using ProtonVPN.EntityMapping.Contracts;
+using ProtonVPN.Logging.Contracts;
+using ProtonVPN.Logging.Contracts.Events.AppLogs;
+using ProtonVPN.Logging.Contracts.Events.ConnectionLogs;
+using ProtonVPN.Logging.Contracts.Events.ConnectLogs;
+using ProtonVPN.ProcessCommunication.Contracts.Entities.Crypto;
+using ProtonVPN.ProcessCommunication.Contracts.Entities.LocalAgent;
+using ProtonVPN.ProcessCommunication.Contracts.Entities.Vpn;
+using ProtonVPN.StatisticalEvents.Contracts.Dimensions;
+using ConnectionDetails = ProtonVPN.Client.Logic.Connection.Contracts.Models.ConnectionDetails;
+using IpAddressInfo = ProtonVPN.Common.Core.Vpn.IpAddressInfo;
+using VpnProtocol = ProtonVPN.Common.Core.Networking.VpnProtocol;
+
+namespace ProtonVPN.Client.Logic.Connection;
+
+public class ConnectionManager : IInternalConnectionManager, IGuestHoleConnector,
+    IEventMessageReceiver<ConnectionDetailsIpcEntity>,
+    IEventMessageReceiver<ConnectionCertificateUpdatedMessage>,
+    IEventMessageReceiver<GuestHoleStatusChangedMessage>
+{
+    private readonly TimeSpan _reconnectInterval = TimeSpan.FromMinutes(1);
+    private readonly Random _random = new();
+
+    private readonly ILogger _logger;
+    private readonly ISettings _settings;
+    private readonly IVpnServiceCaller _vpnServiceCaller;
+    private readonly IEventMessageSender _eventMessageSender;
+    private readonly IEntityMapper _entityMapper;
+    private readonly IConnectionRequestCreator _connectionRequestCreator;
+    private readonly IReconnectionRequestCreator _reconnectionRequestCreator;
+    private readonly IDisconnectionRequestCreator _disconnectionRequestCreator;
+    private readonly IServersLoader _serversLoader;
+    private readonly IFavoriteServersStorage _favoriteServersStorage;
+    private readonly IGuestHoleServersFileStorage _guestHoleServersFileStorage;
+    private readonly IGuestHoleConnectionRequestCreator _guestHoleConnectionRequestCreator;
+    private readonly IConnectionStatisticalEventsManager _statisticalEventManager;
+    private readonly IConnectionKeyManager _connectionKeyManager;
+
+    private DateTime _minReconnectionDateUtc = DateTime.MinValue;
+
+    private bool _isNetworkBlocked;
+    private bool _isConnectionStatusHandled;
+    private bool _isGuestHoleActive;
+
+    private VpnStateIpcEntity? _cachedMessage;
+    private IpAddressInfo? _cachedServerIpAddress;
+
+    private VpnStatusIpcEntity? _currentStatus = VpnStatusIpcEntity.Disconnected;
+    private VpnErrorTypeIpcEntity? _currentError = VpnErrorTypeIpcEntity.None;
+
+    public ConnectionStatus ConnectionStatus { get; private set; }
+    public IConnectionIntent? CurrentConnectionIntent { get; private set; }
+    public ConnectionDetails? CurrentConnectionDetails { get; private set; }
+
+    public bool IsDisconnected => ConnectionStatus == ConnectionStatus.Disconnected;
+    public bool IsConnecting => ConnectionStatus == ConnectionStatus.Connecting;
+    public bool IsConnected => ConnectionStatus == ConnectionStatus.Connected;
+    public bool IsConnectAllowed => _currentError != VpnErrorTypeIpcEntity.BaseFilteringEngineServiceNotRunning;
+    public bool IsNetworkBlocked => _isNetworkBlocked;
+    public bool IsTwoFactorError => !IsDisconnected && _currentError.IsTwoFactorError();
+    public bool IsMobileHotspotError => _currentError == VpnErrorTypeIpcEntity.InterfaceHasForwardingEnabled;
+
+    public ConnectionManager(
+        ILogger logger,
+        ISettings settings,
+        IVpnServiceCaller vpnServiceCaller,
+        IEventMessageSender eventMessageSender,
+        IEntityMapper entityMapper,
+        IConnectionRequestCreator connectionRequestCreator,
+        IReconnectionRequestCreator reconnectionRequestCreator,
+        IDisconnectionRequestCreator disconnectionRequestCreator,
+        IServersLoader serversLoader,
+        IFavoriteServersStorage favoriteServersStorage,
+        IGuestHoleServersFileStorage guestHoleServersFileStorage,
+        IGuestHoleConnectionRequestCreator guestHoleConnectionRequestCreator,
+        IConnectionStatisticalEventsManager statisticalEventManager,
+        IConnectionKeyManager connectionKeyManager)
+    {
+        _logger = logger;
+        _settings = settings;
+        _vpnServiceCaller = vpnServiceCaller;
+        _eventMessageSender = eventMessageSender;
+        _entityMapper = entityMapper;
+        _connectionRequestCreator = connectionRequestCreator;
+        _reconnectionRequestCreator = reconnectionRequestCreator;
+        _disconnectionRequestCreator = disconnectionRequestCreator;
+        _serversLoader = serversLoader;
+        _favoriteServersStorage = favoriteServersStorage;
+        _guestHoleServersFileStorage = guestHoleServersFileStorage;
+        _guestHoleConnectionRequestCreator = guestHoleConnectionRequestCreator;
+        _guestHoleConnectionRequestCreator = guestHoleConnectionRequestCreator;
+        _statisticalEventManager = statisticalEventManager;
+        _connectionKeyManager = connectionKeyManager;
+    }
+
+    public async Task ConnectAsync(
+        VpnTriggerDimension connectionTrigger,
+        IConnectionIntent? connectionIntent = null)
+    {
+        _statisticalEventManager.SetConnectionAttempt(connectionTrigger, ConnectionStatus);
+
+        if (connectionIntent?.Location is ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.Countries.SingleCountryLocationIntent sc)
+        {
+            bool hasFree = _serversLoader.GetFreeCountries().Any(c => c.Code.Equals(sc.CountryCode, StringComparison.OrdinalIgnoreCase));
+            if (!hasFree)
+            {
+                _logger.Warn<ConnectTriggerLog>($"[CONNECTION_PROCESS] Blocked connection to non-free country {sc.CountryCode}.");
+                return;
+            }
+        }
+        else if (connectionIntent?.Location is ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.Servers.SingleServerLocationIntent ss)
+        {
+            if (!ss.Server.Name.Contains("FREE", StringComparison.OrdinalIgnoreCase))
+            {
+                _logger.Warn<ConnectTriggerLog>($"[CONNECTION_PROCESS] Blocked connection to paid server {ss.Server.Name}.");
+                return;
+            }
+        }
+
+        connectionIntent ??= ConnectionIntent.FreeDefault;
+        connectionIntent = ChangeConnectionIntent(connectionIntent, CreateNewIntentIfUserPlanIsFree);
+
+        CurrentConnectionIntent = connectionIntent;
+
+        _logger.Info<ConnectTriggerLog>($"[CONNECTION_PROCESS] Connection attempt to: {connectionIntent}. Triggered by {connectionTrigger}.", stackTraceDepth: 2);
+
+        ConnectionRequestIpcEntity request = await _connectionRequestCreator.CreateAsync(connectionIntent);
+
+        await SendRequestIfValidAsync(request);
+    }
+
+    public async Task ConnectToGuestHoleAsync()
+    {
+        IOrderedEnumerable<GuestHoleServerContract> servers = (await _guestHoleServersFileStorage.GetAsync()).OrderBy(_ => _random.Next());
+        if (!servers.Any())
+        {
+            throw new GuestHoleException("No guest hole servers provided.");
+        }
+
+        ConnectionRequestIpcEntity request = await _guestHoleConnectionRequestCreator.CreateAsync(servers);
+
+        _logger.Info<ConnectTriggerLog>("Guest hole connection requested.");
+        await _vpnServiceCaller.ConnectAsync(request);
+    }
+
+    public async Task DisconnectFromGuestHoleAsync()
+    {
+        DisconnectionRequestIpcEntity request = _disconnectionRequestCreator.Create(VpnError.NoneKeepEnabledKillSwitch);
+
+        await _vpnServiceCaller.DisconnectAsync(request);
+    }
+
+    private IConnectionIntent CreateNewIntentIfUserPlanIsFree(IConnectionIntent connectionIntent)
+    {
+        if (connectionIntent.Location is SingleServerLocationIntent ss && ss.Server.Name.Contains("FREE", StringComparison.OrdinalIgnoreCase))
+        {
+            return connectionIntent;
+        }
+
+        if (connectionIntent.Location is SingleCountryLocationIntent sc && _serversLoader.GetFreeCountries().Any(c => c.Code.Equals(sc.CountryCode, StringComparison.OrdinalIgnoreCase)))
+        {
+            return connectionIntent;
+        }
+
+        if (connectionIntent.Location is FreeServerLocationIntent)
+        {
+            return connectionIntent;
+        }
+
+        return new ConnectionIntent(FreeServerLocationIntent.Default, connectionIntent.Feature);
+    }
+
+    private async Task<bool> SendRequestIfValidAsync(ConnectionRequestIpcEntity request)
+    {
+        VpnError error = request.GetVpnError();
+        if (error == VpnError.None)
+        {
+            await _vpnServiceCaller.ConnectAsync(request);
+            return true;
+        }
+        else
+        {
+            _logger.Error<ConnectionErrorLog>($"Failed to connect due to '{error}' error detected.");
+
+            await DisconnectAsync(VpnTriggerDimension.Auto);
+
+            _eventMessageSender.Send(new ConnectionErrorMessage { VpnError = error });
+            return false;
+        }
+    }
+
+    /// <returns>True if reconnecting. False if not.</returns>
+    public async Task<bool> ReconnectIfNotRecentlyReconnectedAsync()
+    {
+        if (DateTime.UtcNow > _minReconnectionDateUtc)
+        {
+            return await ReconnectAsync(VpnTriggerDimension.Auto);
+        }
+
+        return false;
+    }
+
+    /// <summary>Reconnects if the most recent action was a Connect and not a Disconnect.</summary>
+    /// <returns>True if reconnecting. False if not.</returns>
+    public async Task<bool> ReconnectAsync(VpnTriggerDimension reconnectionTrigger)
+    {
+        // If there is no internet connection or the attempt to reach the guest hole servers fails,
+        // we should not trigger reconnection logic, since all guest hole servers have already been tried.
+        if (_isGuestHoleActive)
+        {
+            return false;
+        }
+
+        _minReconnectionDateUtc = DateTime.UtcNow + _reconnectInterval;
+
+        IConnectionIntent? connectionIntent = CurrentConnectionIntent;
+        if (connectionIntent is null)
+        {
+            await DisconnectAsync(VpnTriggerDimension.Auto);
+            return false;
+        }
+
+        _statisticalEventManager.SetReconnectionAttempt(reconnectionTrigger, ConnectionStatus);
+
+        connectionIntent = ChangeConnectionIntent(connectionIntent, CreateNewIntentIfUserPlanIsFree);
+
+        CurrentConnectionIntent = connectionIntent;
+
+        _logger.Info<ConnectTriggerLog>($"[CONNECTION_PROCESS] Reconnection attempt to: {connectionIntent}. Triggered by {reconnectionTrigger}.", stackTraceDepth: 1);
+
+        ConnectionRequestIpcEntity request = await _reconnectionRequestCreator.CreateAsync(connectionIntent);
+
+        return await SendRequestIfValidAsync(request);
+    }
+
+    public async Task DisconnectAsync(VpnTriggerDimension disconnectionTrigger)
+    {
+        _statisticalEventManager.SetDisconnectionAttempt(disconnectionTrigger, ConnectionStatus);
+
+        _logger.Info<ConnectTriggerLog>($"[CONNECTION_PROCESS] Disconnection attempt. Triggered by {disconnectionTrigger}.", stackTraceDepth: 2);
+
+        CurrentConnectionIntent = null;
+
+        DisconnectionRequestIpcEntity request = _disconnectionRequestCreator.Create();
+
+        await _vpnServiceCaller.DisconnectAsync(request);
+    }
+
+    public async Task HandleAsync(VpnStateIpcEntity message)
+    {
+        _cachedMessage = message;
+
+        IConnectionIntent connectionIntent = CurrentConnectionIntent ?? ConnectionIntent.Default;
+        bool isToForceStatusUpdate = _isNetworkBlocked != message.NetworkBlocked || !_isConnectionStatusHandled;
+
+        _isConnectionStatusHandled = true;
+        _isNetworkBlocked = message.NetworkBlocked;
+
+        if (!_isGuestHoleActive)
+        {
+            if (message.Status is VpnStatusIpcEntity.Pinging or VpnStatusIpcEntity.Connected)
+            {
+                VpnProtocol vpnProtocol = _entityMapper.Map<VpnProtocolIpcEntity, VpnProtocol>(message.VpnProtocol);
+                Server? server = GetCurrentServer(message, vpnProtocol);
+                PhysicalServer? physicalServer = server?.Servers.FirstOrDefault(FilterPhysicalServerByVpnState(message, vpnProtocol))
+                    ?? server?.Servers.FirstOrDefault(ps => !string.IsNullOrEmpty(message.EndpointIp) && ps.EntryIp == message.EndpointIp)
+                    ?? server?.Servers.FirstOrDefault(ps => !string.IsNullOrEmpty(message.Label) && (ps.Label.Equals(message.Label, StringComparison.OrdinalIgnoreCase) || ps.Domain.Equals(message.Label, StringComparison.OrdinalIgnoreCase)))
+                    ?? server?.Servers.FirstOrDefault();
+
+                if (server is not null && physicalServer is not null)
+                {
+                    _favoriteServersStorage.SetCurrentServerId(server.Id);
+
+                    if (CurrentConnectionDetails is null || !CurrentConnectionDetails.OriginalConnectionIntent.IsSameAs(connectionIntent))
+                    {
+                        CurrentConnectionDetails = new ConnectionDetails(
+                            connectionIntent,
+                            server,
+                            physicalServer,
+                            vpnProtocol,
+                            message.EndpointPort);
+                    }
+                    else
+                    {
+                        CurrentConnectionDetails.UpdateServer(server, physicalServer, vpnProtocol, message.EndpointPort);
+                    }
+
+                    if (_cachedServerIpAddress is not null)
+                    {
+                        CurrentConnectionDetails.UpdateServerIpAddress(_cachedServerIpAddress.Value);
+                        _cachedServerIpAddress = null;
+                    }
+                }
+                else
+                {
+                    _logger.Warn<AppLog>($"The status changed to Connected. Associated server is null or partial. EndpointIp: '{message.EndpointIp}', Label: '{message.Label}'");
+                }
+            }
+            else if (message.Status == VpnStatusIpcEntity.Disconnected)
+            {
+                CurrentConnectionDetails = null;
+                _favoriteServersStorage.SetCurrentServerId(null);
+            }
+        }
+
+        if (message.Status != VpnStatusIpcEntity.ActionRequired ||
+            message.Error.IsTwoFactorError())
+        {
+            SetConnectionStatus(message.Status, message.Error, isToForceStatusUpdate);
+        }
+    }
+
+    private Server? GetCurrentServer(VpnStateIpcEntity state, VpnProtocol vpnProtocol)
+    {
+        IEnumerable<Server> servers = _serversLoader.GetServers();
+        if (servers == null || !servers.Any())
+        {
+            return CurrentConnectionDetails?.Server;
+        }
+
+        // 1. Direct match by EndpointIp
+        if (!string.IsNullOrEmpty(state.EndpointIp))
+        {
+            Server? match = servers.FirstOrDefault(s => s.Servers.Any(ps => ps.EntryIp == state.EndpointIp));
+            if (match != null) return match;
+        }
+
+        // 2. Direct match by Label or Name
+        if (!string.IsNullOrEmpty(state.Label))
+        {
+            Server? match = servers.FirstOrDefault(s => s.Name.Equals(state.Label, StringComparison.OrdinalIgnoreCase) ||
+                                               s.Servers.Any(ps => ps.Label.Equals(state.Label, StringComparison.OrdinalIgnoreCase) ||
+                                                                   ps.Domain.Equals(state.Label, StringComparison.OrdinalIgnoreCase)));
+            if (match != null) return match;
+        }
+
+        // 3. Match by country from state.Label (e.g. CA, CA-FREE#20)
+        if (!string.IsNullOrEmpty(state.Label))
+        {
+            string code = state.Label.Length == 2 ? state.Label : (state.Label.Length > 2 && state.Label.Contains('-') ? state.Label.Substring(0, 2) : "");
+            if (!string.IsNullOrEmpty(code))
+            {
+                Server? countryMatch = servers.FirstOrDefault(s => s.ExitCountry.Equals(code, StringComparison.OrdinalIgnoreCase));
+                if (countryMatch != null) return countryMatch;
+            }
+        }
+
+        // 4. Match by CurrentConnectionIntent location
+        if (CurrentConnectionIntent?.Location is ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.Countries.SingleCountryLocationIntent scIntent)
+        {
+            Server? intentMatch = servers.FirstOrDefault(s => s.ExitCountry.Equals(scIntent.CountryCode, StringComparison.OrdinalIgnoreCase));
+            if (intentMatch != null) return intentMatch;
+        }
+
+        // 5. Exact match by physical server filter
+        Server? physicalMatch = servers.FirstOrDefault(s => s.Servers.Any(FilterPhysicalServerByVpnState(state, vpnProtocol)));
+        if (physicalMatch != null) return physicalMatch;
+
+        return CurrentConnectionDetails?.Server ?? servers.FirstOrDefault();
+    }
+
+    private Func<PhysicalServer, bool> FilterPhysicalServerByVpnState(VpnStateIpcEntity state, VpnProtocol vpnProtocol)
+    {
+        return physicalServer => 
+            (!string.IsNullOrEmpty(state.EndpointIp) && physicalServer.EntryIp == state.EndpointIp) ||
+            (!string.IsNullOrEmpty(state.Label) && (physicalServer.Label.Equals(state.Label, StringComparison.OrdinalIgnoreCase) || physicalServer.Domain.Equals(state.Label, StringComparison.OrdinalIgnoreCase))) ||
+            (physicalServer.RelayIpByProtocol is not null &&
+             physicalServer.RelayIpByProtocol.ContainsKey(vpnProtocol) &&
+             physicalServer.RelayIpByProtocol[vpnProtocol] == state.EndpointIp);
+    }
+
+    private void SetConnectionStatus(
+        VpnStatusIpcEntity status,
+        VpnErrorTypeIpcEntity error,
+        bool forceSendStatusUpdate = false)
+    {
+        if (_currentStatus == status && _currentError == error && !forceSendStatusUpdate)
+        {
+            return;
+        }
+
+        _currentStatus = status;
+        _currentError = error;
+
+        CurrentConnectionDetails?.UpdateStatus(status);
+
+        ConnectionStatus = MapConnectionStatus(status, error);
+
+        _eventMessageSender.Send(new ConnectionStatusChangedMessage(ConnectionStatus));
+
+        _logger.Info<ConnectTriggerLog>($"[CONNECTION_PROCESS] Status updated to {ConnectionStatus}" +
+            $"{(_isGuestHoleActive ? " (Guest hole)" : string.Empty)}." +
+            $"{(IsConnected ? $" Connected to server {CurrentConnectionDetails?.ServerName}" : string.Empty)}");
+
+        _statisticalEventManager.OnVpnStateChanged(status, error, CurrentConnectionDetails);
+    }
+
+    private ConnectionStatus MapConnectionStatus(VpnStatusIpcEntity status, VpnErrorTypeIpcEntity error)
+    {
+        return status == VpnStatusIpcEntity.ActionRequired && error.IsTwoFactorError()
+            ? ConnectionStatus.Connecting
+            : _entityMapper.Map<VpnStatusIpcEntity, ConnectionStatus>(status);
+    }
+
+    public void Receive(ConnectionDetailsIpcEntity message)
+    {
+        IpAddressInfo serverIpAddress = _entityMapper.Map<VpnServerAddressIpcEntity, IpAddressInfo>(message.ServerIpAddress);
+        _cachedServerIpAddress = serverIpAddress;
+
+        CurrentConnectionDetails?.UpdateServerIpAddress(serverIpAddress);
+
+        _eventMessageSender.Send(new ConnectionDetailsChangedMessage
+        {
+            ClientCountryCode = message.ClientCountryIsoCode,
+            ClientIpAddress = message.ClientIpAddress,
+            ServerIpAddress = serverIpAddress,
+        });
+    }
+
+    public async void Receive(ConnectionCertificateUpdatedMessage message)
+    {
+        AsymmetricKeyPair? clientKeyPair = _connectionKeyManager.GetKeyPairOrNull();
+
+        if (message.Certificate is not null && clientKeyPair is not null)
+        {
+            await _vpnServiceCaller.UpdateLocalAgentTlsCredentialsAsync(new LocalAgentTlsCredentialsIpcEntity()
+            {
+                ConnectionCertificate = new ConnectionCertificateIpcEntity()
+                {
+                    Pem = message.Certificate.Value.Pem,
+                    ExpirationDateUtc = message.Certificate.Value.ExpirationUtcDate.UtcDateTime,
+                },
+                ClientKeyPair = _entityMapper.Map<AsymmetricKeyPair, AsymmetricKeyPairIpcEntity>(clientKeyPair),
+            });
+        }
+    }
+
+    public async Task InitializeAsync(IConnectionIntent? connectionIntent)
+    {
+        CurrentConnectionIntent = connectionIntent;
+
+        if (_cachedMessage is not null)
+        {
+            await HandleAsync(_cachedMessage);
+        }
+
+        await _vpnServiceCaller.RequestConnectionDetailsAsync();
+    }
+
+    public void Receive(GuestHoleStatusChangedMessage message)
+    {
+        _isGuestHoleActive = message.IsActive;
+    }
+
+    private IConnectionIntent ChangeConnectionIntent(IConnectionIntent connectionIntent, Func<IConnectionIntent, IConnectionIntent> changeIntentFunc)
+    {
+        IConnectionIntent newConnectionIntent = changeIntentFunc(connectionIntent);
+        if (newConnectionIntent != connectionIntent)
+        {
+            _logger.Info<ConnectTriggerLog>($"[CONNECTION_PROCESS] The connection intent is changing from " +
+                                            $"{connectionIntent} to {newConnectionIntent}.");
+        }
+
+        return newConnectionIntent;
+    }
+}

@@ -1,0 +1,110 @@
+﻿/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System;
+using System.Threading.Tasks;
+using ProtonVPN.Common.Core.Networking;
+using ProtonVPN.Configurations.Contracts;
+using ProtonVPN.Logging.Contracts;
+using ProtonVPN.Logging.Contracts.Events.NetworkLogs;
+using ProtonVPN.OperatingSystems.Network.Contracts;
+using ProtonVPN.Service.Settings;
+
+namespace ProtonVPN.Service.Firewall;
+
+internal class Ipv6 : IIpv6
+{
+    private const string APP_NAME = "ProtonVPN";
+
+    private readonly ILogger _logger;
+    private readonly IStaticConfiguration _staticConfig;
+    private readonly IServiceSettings _serviceSettings;
+    private readonly INetworkUtilities _networkUtilities;
+
+    public Ipv6(
+        ILogger logger,
+        IStaticConfiguration staticConfig,
+        IServiceSettings serviceSettings,
+        INetworkUtilities networkUtilities)
+    {
+        _logger = logger;
+        _staticConfig = staticConfig;
+        _serviceSettings = serviceSettings;
+        _networkUtilities = networkUtilities;
+    }
+
+    public VpnProtocol VpnProtocol { get; private set; } = VpnProtocol.Smart;
+    public bool IsEnabled { get; private set; } = true;
+
+    public Task DisableAsync(VpnProtocol vpnProtocol)
+    {
+        return Task.Run(() => Disable(vpnProtocol));
+    }
+
+    public Task EnableAsync(VpnProtocol vpnProtocol)
+    {
+        return Task.Run(() => Enable(vpnProtocol));
+    }
+
+    public Task EnableOnVPNInterfaceAsync(VpnProtocol vpnProtocol)
+    {
+        return Task.Run(() => EnableOnVPNInterface(vpnProtocol));
+    }
+
+    public void Enable(VpnProtocol vpnProtocol)
+    {
+        if (LoggingAction(_networkUtilities.EnableIPv6OnAllAdapters, vpnProtocol, "Enabling"))
+        {
+            VpnProtocol = vpnProtocol;
+            IsEnabled = true;
+        }
+    }
+
+    private void Disable(VpnProtocol vpnProtocol)
+    {
+        if (LoggingAction(_networkUtilities.DisableIPv6OnAllAdapters, vpnProtocol, "Disabling"))
+        {
+            VpnProtocol = vpnProtocol;
+            IsEnabled = false;
+        }
+    }
+
+    private void EnableOnVPNInterface(VpnProtocol vpnProtocol)
+    {
+        LoggingAction(_networkUtilities.EnableIPv6, vpnProtocol, "Enabling on VPN interface");
+    }
+
+    private bool LoggingAction(Action<string, string> action, VpnProtocol vpnProtocol, string actionMessage)
+    {
+        try
+        {
+            _logger.Info<NetworkLog>($"IPv6: {actionMessage}");
+            action(APP_NAME, _staticConfig.GetHardwareId(vpnProtocol, _serviceSettings.OpenVpnAdapter));
+            _logger.Info<NetworkLog>($"IPv6: {actionMessage} succeeded");
+
+            return true;
+        }
+        catch (NetworkUtilException e)
+        {
+            _logger.Error<NetworkLog>($"IPV6: {actionMessage} failed, error code {e.Code}");
+
+            return false;
+        }
+    }
+}

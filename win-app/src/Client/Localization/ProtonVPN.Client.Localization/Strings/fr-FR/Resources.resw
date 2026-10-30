@@ -1,0 +1,3916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_VpnPlan_Free">
+    <value>Proton VPN Free</value>
+  </data>
+  <data name="Automation_Properties_ConnectionDetails_Page">
+    <value>Page des informations de connexion</value>
+  </data>
+  <data name="Automation_Properties_ConnectionPreferences_Page">
+    <value>Page de préférences de connexion</value>
+  </data>
+  <data name="Automation_Properties_Connection_Card_Component">
+    <value>Carte de connexion</value>
+  </data>
+  <data name="Automation_Properties_KillSwitch_Page">
+    <value>Page Arrêt d'urgence (kill switch)</value>
+  </data>
+  <data name="Automation_Properties_LocationDetails_Page">
+    <value>Page des informations d'emplacement</value>
+  </data>
+  <data name="Automation_Properties_Login_Page">
+    <value>Page de connexion</value>
+  </data>
+  <data name="Automation_Properties_Main_Page">
+    <value>Page principale</value>
+  </data>
+  <data name="Automation_Properties_NetShield_Page">
+    <value>Page NetShield</value>
+  </data>
+  <data name="Automation_Properties_NoServers_Page">
+    <value>Aucun serveur disponible</value>
+  </data>
+  <data name="Automation_Properties_PortForwarding_Page">
+    <value>Page de redirection de port</value>
+  </data>
+  <data name="Automation_Properties_Profile_Page">
+    <value>Page du profil</value>
+  </data>
+  <data name="Automation_Properties_Settings_Advanced_Page">
+    <value>Page des paramètres avancés</value>
+  </data>
+  <data name="Automation_Properties_Settings_Common_Page">
+    <value>Page de paramètres communs</value>
+  </data>
+  <data name="Automation_Properties_Settings_Page">
+    <value>Page des paramètres</value>
+  </data>
+  <data name="Automation_Properties_Sidebar">
+    <value>Barre latérale</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Countries_Page">
+    <value>Page des pays</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Gateways_Page">
+    <value>Page des passerelles</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Page">
+    <value>Page des connexions</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Profiles_Page">
+    <value>Page des profils</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Recents_Page">
+    <value>Page des connexions récentes</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Search_Results_Page">
+    <value>Résultats de la recherche</value>
+  </data>
+  <data name="Automation_Properties_SplitTunneling_Page">
+    <value>Page Split tunneling</value>
+  </data>
+  <data name="City_Fastest">
+    <value>Ville la plus rapide</value>
+  </data>
+  <data name="City_Random">
+    <value>Ville aléatoire</value>
+  </data>
+  <data name="Common_Actions_Add">
+    <value>Ajouter</value>
+  </data>
+  <data name="Common_Actions_Back">
+    <value>Retour</value>
+  </data>
+  <data name="Common_Actions_Cancel">
+    <value>Annuler</value>
+  </data>
+  <data name="Common_Actions_Change">
+    <value>Modifier</value>
+  </data>
+  <data name="Common_Actions_Close">
+    <value>Fermer</value>
+  </data>
+  <data name="Common_Actions_Connect">
+    <value>Connecter</value>
+  </data>
+  <data name="Common_Actions_ContactUs">
+    <value>Nous contacter</value>
+  </data>
+  <data name="Common_Actions_Delete">
+    <value>Supprimer</value>
+  </data>
+  <data name="Common_Actions_Disconnect">
+    <value>Déconnecter</value>
+  </data>
+  <data name="Common_Actions_Duplicate">
+    <value>Dupliquer</value>
+  </data>
+  <data name="Common_Actions_Edit">
+    <value>Modifier</value>
+  </data>
+  <data name="Common_Actions_Enable">
+    <value>Activer</value>
+  </data>
+  <data name="Common_Actions_Exit_ProtonVPN">
+    <value>Quitter Proton VPN </value>
+  </data>
+  <data name="Common_Actions_GotIt">
+    <value>J'ai compris</value>
+  </data>
+  <data name="Common_Actions_Install">
+    <value>Installer</value>
+  </data>
+  <data name="Common_Actions_MoveDown">
+    <value>Déplacer vers le bas</value>
+  </data>
+  <data name="Common_Actions_MoveUp">
+    <value>Déplacer vers le haut</value>
+  </data>
+  <data name="Common_Actions_Reconnect">
+    <value>Se reconnecter</value>
+  </data>
+  <data name="Common_Actions_Refresh">
+    <value>Actualiser</value>
+  </data>
+  <data name="Common_Actions_Remove">
+    <value>Retirer</value>
+  </data>
+  <data name="Common_Actions_Restart">
+    <value>Redémarrer</value>
+  </data>
+  <data name="Common_Actions_Save">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Common_Actions_TryAgain">
+    <value>Réessayer</value>
+  </data>
+  <data name="Common_Actions_Update">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="Common_Actions_Upgrade">
+    <value>Changer d'abonnement</value>
+  </data>
+  <data name="Common_Confirmation_KillSwitch_Message">
+    <value>L'arrêt d'urgence (kill switch) est activé. Pour utiliser internet sans VPN, désactivez l'arrêt d'urgence (kill switch) avancé.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnectedWithKillSwitch_Message">
+    <value>L'arrêt d'urgence (kill switch) est activé. Si vous continuez, vous serez déconnecté d'internet.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnected_Message">
+    <value>Vous allez être déconnecté du VPN.</value>
+  </data>
+  <data name="Common_Links_LearnMore">
+    <value>En savoir plus</value>
+  </data>
+  <data name="Common_Message_AppNotFound">
+    <value>L'application est introuvable.</value>
+  </data>
+  <data name="Common_States_Off">
+    <value>Désactivé</value>
+  </data>
+  <data name="Common_States_On">
+    <value>Activé</value>
+  </data>
+  <data name="Common_Tags_Beta">
+    <value>BÊTA</value>
+    <comment>This tag indicates that this version of the app is currently in beta (early access)</comment>
+  </data>
+  <data name="Common_Tags_New">
+    <value>NOUVEAU</value>
+    <comment>This tag indicates that a newer version of the app is currently available</comment>
+  </data>
+  <data name="Common_Tags_Recommended">
+    <value>Recommandé</value>
+    <comment>This tag indicates that a given option in the settings is recommended by Proton</comment>
+  </data>
+  <data name="Components_Update_GetMostFromYourVpn">
+    <value>Mettez à jour vers la dernière version de l'application pour profiter de tous les avantages de votre VPN.</value>
+  </data>
+  <data name="Components_Update_MoreLikelyIssues">
+    <value>Il est possible de rencontrer des problèmes avec les anciennes versions de Proton VPN.</value>
+  </data>
+  <data name="Components_Update_UpdateAvailable">
+    <value>Mise à jour disponible</value>
+  </data>
+  <data name="Components_Update_UpdateProtonVpn">
+    <value>Mettre à jour Proton VPN</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded">
+    <value>Vos préférences excluent tous les serveurs disponibles. Ajustez les exclusions afin de vous connecter.</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded_Action">
+    <value>Emplacements exclus</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Description">
+    <value>Pour corriger cela, fermez ou désinstallez l'application associée à :</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Title">
+    <value>Une autre application semble empêcher Proton VPN de se connecter</value>
+  </data>
+  <data name="Connection_Error_EditProfile">
+    <value>Modifier le profil</value>
+  </data>
+  <data name="Connection_Error_MissingConnectionCertificate">
+    <value>Proton VPN n'a pas pu obtenir l'authentification du certificat suite à une erreur réseau.</value>
+  </data>
+  <data name="Connection_Error_MobileHotspotEnabled">
+    <value>La connexion a été bloquée par les paramètres réseau de votre appareil. Cela peut être causé par un point d'accès mobile, une autre application VPN ou un logiciel de machine virtuelle. Veuillez vérifier votre configuration réseau ou contacter le support pour obtenir de l'aide.</value>
+  </data>
+  <data name="Connection_Error_NoServers">
+    <value>Tous les serveurs de votre sélection sont indisponibles. Veuillez élargir votre sélection ou réessayer plus tard.</value>
+  </data>
+  <data name="Connection_Error_NoServers_Profile">
+    <value>Le serveur sélectionné pour « {0} » n'est pas disponible. Veuillez sélectionner un autre serveur ou réessayer plus tard.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Connection_Error_NoTapAdapters">
+    <value>Il manque la carte réseau.</value>
+  </data>
+  <data name="Connection_Error_ReportAnIssue">
+    <value>Signaler un bug</value>
+  </data>
+  <data name="Connection_Error_RpcServerUnavailable">
+    <value>Proton VPN ne peut pas se connecter parce que le serveur RPC n'est pas disponible sur votre système.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedFreeUser">
+    <value>Vous avez atteint le nombre maximum d'appareils. Vous devez déconnecter un autre appareil pour connecter celui-ci ou bien passer à l'abonnement Plus pour pouvoir connecter jusqu'à 10 appareils en même temps.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedPaidUser">
+    <value>Vous avez atteint le nombre maximum d'appareils connectés. Veuillez déconnecter un autre appareil pour connecter celui-ci.</value>
+  </data>
+  <data name="Connection_Error_TapAdapterInUse">
+    <value>Votre carte réseau est utilisée.</value>
+  </data>
+  <data name="Connection_Error_TapRequiresUpdate">
+    <value>La version de la carte réseau est obsolète.</value>
+  </data>
+  <data name="Connection_Error_Title">
+    <value>Échec de la connexion.</value>
+  </data>
+  <data name="Connection_Error_TlsCertificate">
+    <value>Il y a un problème de validation du certificat du serveur VPN, ce qui peut indiquer que la connexion réseau est altérée ou que le serveur auquel vous essayez de vous connecter a un problème de configuration. Signalez le problème à notre service client pour obtenir de l'aide.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Description">
+    <value>Afin de vous connecter au VPN, veuillez vous rendre sur le portail A2F de votre organisation et appuyer sur votre clé de sécurité.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Title">
+    <value>Authentification à deux facteurs (A2F) requise</value>
+  </data>
+  <data name="Connection_Error_Unknown">
+    <value>Veuillez vérifier votre connexion Internet et réessayer. Si cela ne fonctionne pas, contactez notre équipe du service client. 
+
+Code d'erreur : {0}</value>
+  </data>
+  <data name="Connection_Error_ViewPossibleSolutions">
+    <value>Afficher les correctifs</value>
+  </data>
+  <data name="Connection_Error_WireGuardAdapterInUse">
+    <value>L'adaptateur WireGuard de votre appareil est en cours d'utilisation. Déconnectez-vous de tout autre VPN en cours d'exécution sur votre appareil, puis réessayez.</value>
+  </data>
+  <data name="Connection_Feedback_Question">
+    <value>Comment est votre connexion ?</value>
+  </data>
+  <data name="Connection_Intent_AutoSelected">
+    <value>Sélection automatique depuis</value>
+    <comment>Appears in the connection card for free users. A set of flags is displayed after the text (eg. Auto-selected from [us-flag] [jp-flag]...)</comment>
+  </data>
+  <data name="Connection_Via_SecureCore">
+    <value>via {0}</value>
+    <comment>Label used when connecting through Secure Core. {0} is a place holder for the name of the country the user is going through.</comment>
+  </data>
+  <data name="Connections_Cities_One">
+    <value>Ville ({0})</value>
+  </data>
+  <data name="Connections_Cities_Other">
+    <value>Villes ({0})</value>
+  </data>
+  <data name="Connections_City">
+    <value>Ville</value>
+  </data>
+  <data name="Connections_City_Restricted">
+    <value>Les serveurs de cette ville sont disponibles avec VPN Plus.</value>
+  </data>
+  <data name="Connections_City_UnderMaintenance">
+    <value>Tous les serveurs de cette ville sont en maintenance.</value>
+  </data>
+  <data name="Connections_Countries_One">
+    <value>Pays ({0})</value>
+  </data>
+  <data name="Connections_Countries_Other">
+    <value>Pays ({0})</value>
+  </data>
+  <data name="Connections_Country">
+    <value>Pays</value>
+  </data>
+  <data name="Connections_Country_Middle">
+    <value>Pays de transit</value>
+  </data>
+  <data name="Connections_Country_Restricted">
+    <value>Les serveurs de ce pays sont disponibles avec VPN Plus.</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance">
+    <value>Tous les serveurs de ce pays sont en maintenance.</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance_Title">
+    <value>Connexion impossible</value>
+  </data>
+  <data name="Connections_Fastest">
+    <value>La plus rapide</value>
+  </data>
+  <data name="Connections_Free_Servers_One">
+    <value>Serveur gratuit</value>
+  </data>
+  <data name="Connections_Free_Servers_Other">
+    <value>Serveurs gratuits</value>
+  </data>
+  <data name="Connections_Gateway">
+    <value>Passerelle </value>
+  </data>
+  <data name="Connections_Gateway_Restricted">
+    <value>Les serveurs de cette passerelle sont disponibles avec VPN Plus.</value>
+  </data>
+  <data name="Connections_Gateway_UnderMaintenance">
+    <value>Tous les serveurs de cette passerelle sont en maintenance.</value>
+  </data>
+  <data name="Connections_Gateways_One">
+    <value>Passerelle ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Other">
+    <value>Passerelles ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Server">
+    <value>Serveur dédié</value>
+  </data>
+  <data name="Connections_Gateways_Servers_One">
+    <value>Serveur dédié ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Other">
+    <value>Serveurs dédiés ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_One">
+    <value>Ville P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Other">
+    <value>Villes P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_One">
+    <value>Pays P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Other">
+    <value>Pays P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Servers_One">
+    <value>Serveur P2P</value>
+  </data>
+  <data name="Connections_P2P_Servers_Other">
+    <value>Serveurs P2P</value>
+  </data>
+  <data name="Connections_P2P_States_One">
+    <value>État P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Other">
+    <value>États P2P ({0})</value>
+  </data>
+  <data name="Connections_Profiles_One">
+    <value>Profil ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Other">
+    <value>Profils ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Create">
+    <value>Créer un profil</value>
+    <comment>"Create profile" is more appropriate for the empty profiles page, when you have no profiles</comment>
+  </data>
+  <data name="Connections_Profiles_Delete">
+    <value>Supprimer le profil</value>
+  </data>
+  <data name="Connections_Profiles_Delete_Message">
+    <value>« {0} » sera définitivement retiré.</value>
+    <comment>{0} is a placeholder for the name of the profile.</comment>
+  </data>
+  <data name="Connections_Profiles_Delete_Title">
+    <value>Supprimer le profil ?</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Description">
+    <value>Les profils sont des connexions enregistrées tenant compte de vos préférences de protocole, de serveur et d'emplacement.</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Title">
+    <value>Créez votre premier profil</value>
+  </data>
+  <data name="Connections_Profiles_Location_Header">
+    <value>Sélectionnez un emplacement et un type de connexion</value>
+  </data>
+  <data name="Connections_Profiles_Name">
+    <value>Attribuez un nom à votre profil</value>
+  </data>
+  <data name="Connections_Profiles_Name_Default">
+    <value>Sans titre</value>
+    <comment>This will be used as the default profile name if the user creates a profile without entering a name</comment>
+  </data>
+  <data name="Connections_Profiles_Name_Duplicate">
+    <value>Copie de {0}</value>
+    <comment>This will be used as the profile name when duplicating a profile. {0} is a placeholder for the original profile name.</comment>
+  </data>
+  <data name="Connections_Profiles_New">
+    <value>Nouveau profil</value>
+    <comment>"New profile" is more appropriate when you already have a profile</comment>
+  </data>
+  <data name="Connections_Profiles_NotAvailable_Tooltip">
+    <value>Les profils sont disponibles avec VPN Plus.</value>
+    <comment>The text in the tooltip when hovering a profile and the user has a free plan</comment>
+  </data>
+  <data name="Connections_Recents_One">
+    <value>Récente ({0})</value>
+  </data>
+  <data name="Connections_Recents_Other">
+    <value>Récentes ({0})</value>
+  </data>
+  <data name="Connections_Recents_Empty_Description">
+    <value>Voir votre historique de connexion.</value>
+  </data>
+  <data name="Connections_Recents_Empty_Title">
+    <value>Aucune connexion récente pour le moment</value>
+  </data>
+  <data name="Connections_Recents_Pinned_One">
+    <value>Épinglée ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Other">
+    <value>Épinglées ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_One">
+    <value>Pays Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Other">
+    <value>Pays Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_One">
+    <value>Serveur Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Other">
+    <value>Serveurs Secure Core</value>
+  </data>
+  <data name="Connections_Server_Restricted">
+    <value>Serveur disponible avec VPN Plus</value>
+  </data>
+  <data name="Connections_Server_UnderMaintenance">
+    <value>Ce serveur est en maintenance.</value>
+  </data>
+  <data name="Connections_Servers_One">
+    <value>Serveur</value>
+  </data>
+  <data name="Connections_Servers_Other">
+    <value>Serveurs</value>
+  </data>
+  <data name="Connections_State">
+    <value>État</value>
+  </data>
+  <data name="Connections_State_Restricted">
+    <value>Les serveurs dans cet état sont disponibles avec VPN Plus.</value>
+    <comment>Message appears as a tooltip whenever a free user is trying to connect to a state. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_State_UnderMaintenance">
+    <value>Tous les serveurs dans cet état sont en maintenance.</value>
+    <comment>Message appears as a tooltip whenever all the servers from that state are under maintenance. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_States_One">
+    <value>État ({0})</value>
+  </data>
+  <data name="Connections_States_Other">
+    <value>États ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_One">
+    <value>Pays Tor ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Other">
+    <value>Pays Tor ({0})</value>
+  </data>
+  <data name="Connections_Tor_Servers_One">
+    <value>Serveur Tor</value>
+  </data>
+  <data name="Connections_Tor_Servers_Other">
+    <value>Serveurs Tor</value>
+  </data>
+  <data name="Countries">
+    <value>Pays</value>
+  </data>
+  <data name="Countries_All">
+    <value>Tous</value>
+  </data>
+  <data name="Countries_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Countries_P2P_Description">
+    <value>Téléchargez des fichiers sur les réseaux P2P (peer-to-peer) et améliorez votre expérience des jeux en ligne et des appels vidéo.</value>
+  </data>
+  <data name="Countries_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Countries_SecureCore_Description">
+    <value>Ajoutez une autre couche de chiffrement à votre connexion VPN.</value>
+  </data>
+  <data name="Countries_ServerLoad">
+    <value>Charge du serveur</value>
+  </data>
+  <data name="Countries_SmartRouting">
+    <value>Smart Routing</value>
+  </data>
+  <data name="Countries_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Countries_Tor_Description">
+    <value>Utilisez le réseau Tor sur votre connexion VPN pour plus de protection de votre vie privée.</value>
+  </data>
+  <data name="Country_Fastest">
+    <value>Pays le plus rapide</value>
+  </data>
+  <data name="Country_Fastest_ExcludingMyCountry">
+    <value>Le plus rapide (à l'exclusion de mon pays)</value>
+  </data>
+  <data name="Country_Random">
+    <value>Pays aléatoire</value>
+  </data>
+  <data name="Country_Random_ExcludingMyCountry">
+    <value>Aléatoire (à l'exclusion de mon pays)</value>
+  </data>
+  <data name="Country_val_AD">
+    <value>Andorre</value>
+    <comment>The name of AD country</comment>
+  </data>
+  <data name="Country_val_AE">
+    <value>Émirats arabes unis</value>
+    <comment>The name of AE country</comment>
+  </data>
+  <data name="Country_val_AF">
+    <value>Afghanistan</value>
+    <comment>The name of AF country</comment>
+  </data>
+  <data name="Country_val_AG">
+    <value>Antigua-et-Barbuda</value>
+    <comment>The name of AG country</comment>
+  </data>
+  <data name="Country_val_AI">
+    <value>Anguilla</value>
+    <comment>The name of AI country</comment>
+  </data>
+  <data name="Country_val_AL">
+    <value>Albanie</value>
+    <comment>The name of AL country</comment>
+  </data>
+  <data name="Country_val_AM">
+    <value>Arménie</value>
+    <comment>The name of AM country</comment>
+  </data>
+  <data name="Country_val_AO">
+    <value>Angola</value>
+    <comment>The name of AO country</comment>
+  </data>
+  <data name="Country_val_AQ">
+    <value>Antarctique</value>
+    <comment>The name of AQ country</comment>
+  </data>
+  <data name="Country_val_AR">
+    <value>Argentine</value>
+    <comment>The name of AR country</comment>
+  </data>
+  <data name="Country_val_AS">
+    <value>Samoa américaines</value>
+    <comment>The name of AS country</comment>
+  </data>
+  <data name="Country_val_AT">
+    <value>Autriche</value>
+    <comment>The name of AT country</comment>
+  </data>
+  <data name="Country_val_AU">
+    <value>Australie</value>
+    <comment>The name of AU country</comment>
+  </data>
+  <data name="Country_val_AW">
+    <value>Aruba</value>
+    <comment>The name of AW country</comment>
+  </data>
+  <data name="Country_val_AX">
+    <value>Îles d'Åland</value>
+    <comment>The name of AX country</comment>
+  </data>
+  <data name="Country_val_AZ">
+    <value>Azerbaïdjan</value>
+    <comment>The name of AZ country</comment>
+  </data>
+  <data name="Country_val_BA">
+    <value>Bosnie-Herzégovine</value>
+    <comment>The name of BA country</comment>
+  </data>
+  <data name="Country_val_BB">
+    <value>Barbade</value>
+    <comment>The name of BB country</comment>
+  </data>
+  <data name="Country_val_BD">
+    <value>Bangladesh</value>
+    <comment>The name of BD country</comment>
+  </data>
+  <data name="Country_val_BE">
+    <value>Belgique</value>
+    <comment>The name of BE country</comment>
+  </data>
+  <data name="Country_val_BF">
+    <value>Burkina Faso</value>
+    <comment>The name of BF country</comment>
+  </data>
+  <data name="Country_val_BG">
+    <value>Bulgarie</value>
+    <comment>The name of BG country</comment>
+  </data>
+  <data name="Country_val_BH">
+    <value>Bahreïn</value>
+    <comment>The name of BH country</comment>
+  </data>
+  <data name="Country_val_BI">
+    <value>Burundi</value>
+    <comment>The name of BI country</comment>
+  </data>
+  <data name="Country_val_BJ">
+    <value>Bénin</value>
+    <comment>The name of BJ country</comment>
+  </data>
+  <data name="Country_val_BL">
+    <value>Saint-Barthélémy</value>
+    <comment>The name of BL country</comment>
+  </data>
+  <data name="Country_val_BM">
+    <value>Bermudes</value>
+    <comment>The name of BM country</comment>
+  </data>
+  <data name="Country_val_BN">
+    <value>Brunéi Darussalam</value>
+    <comment>The name of BN country</comment>
+  </data>
+  <data name="Country_val_BO">
+    <value>Bolivie</value>
+    <comment>The name of BO country</comment>
+  </data>
+  <data name="Country_val_BQ">
+    <value>Bonaire, Saint-Eustache et Saba</value>
+    <comment>The name of BQ country</comment>
+  </data>
+  <data name="Country_val_BR">
+    <value>Brésil</value>
+    <comment>The name of BR country</comment>
+  </data>
+  <data name="Country_val_BS">
+    <value>Bahamas</value>
+    <comment>The name of BS country</comment>
+  </data>
+  <data name="Country_val_BT">
+    <value>Bhoutan</value>
+    <comment>The name of BT country</comment>
+  </data>
+  <data name="Country_val_BV">
+    <value>Île Bouvet</value>
+    <comment>The name of BV country</comment>
+  </data>
+  <data name="Country_val_BW">
+    <value>Botswana</value>
+    <comment>The name of BW country</comment>
+  </data>
+  <data name="Country_val_BY">
+    <value>Biélorussie</value>
+    <comment>The name of BY country</comment>
+  </data>
+  <data name="Country_val_BZ">
+    <value>Bélize</value>
+    <comment>The name of BZ country</comment>
+  </data>
+  <data name="Country_val_CA">
+    <value>Canada</value>
+    <comment>The name of CA country</comment>
+  </data>
+  <data name="Country_val_CC">
+    <value>Îles Cocos (Keeling)</value>
+    <comment>The name of CC country</comment>
+  </data>
+  <data name="Country_val_CD">
+    <value>Congo - République Démocratique du Congo</value>
+    <comment>The name of CD country</comment>
+  </data>
+  <data name="Country_val_CF">
+    <value>République centrafricaine</value>
+    <comment>The name of CF country</comment>
+  </data>
+  <data name="Country_val_CG">
+    <value>Congo</value>
+    <comment>The name of CG country</comment>
+  </data>
+  <data name="Country_val_CH">
+    <value>Suisse</value>
+    <comment>The name of CH country</comment>
+  </data>
+  <data name="Country_val_CI">
+    <value>Côte d'Ivoire</value>
+    <comment>The name of CI country</comment>
+  </data>
+  <data name="Country_val_CK">
+    <value>Îles Cook</value>
+    <comment>The name of CK country</comment>
+  </data>
+  <data name="Country_val_CL">
+    <value>Chili</value>
+    <comment>The name of CL country</comment>
+  </data>
+  <data name="Country_val_CM">
+    <value>Cameroun</value>
+    <comment>The name of CM country</comment>
+  </data>
+  <data name="Country_val_CN">
+    <value>Chine</value>
+    <comment>The name of CN country</comment>
+  </data>
+  <data name="Country_val_CO">
+    <value>Colombie</value>
+    <comment>The name of CO country</comment>
+  </data>
+  <data name="Country_val_CR">
+    <value>Costa Rica</value>
+    <comment>The name of CR country</comment>
+  </data>
+  <data name="Country_val_CU">
+    <value>Cuba</value>
+    <comment>The name of CU country</comment>
+  </data>
+  <data name="Country_val_CV">
+    <value>Cap-Vert</value>
+    <comment>The name of CV country</comment>
+  </data>
+  <data name="Country_val_CW">
+    <value>Curaçao</value>
+    <comment>The name of CW country</comment>
+  </data>
+  <data name="Country_val_CX">
+    <value>Île Christmas</value>
+    <comment>The name of CX country</comment>
+  </data>
+  <data name="Country_val_CY">
+    <value>Chypre</value>
+    <comment>The name of CY country</comment>
+  </data>
+  <data name="Country_val_CZ">
+    <value>Tchéquie</value>
+    <comment>The name of CZ country</comment>
+  </data>
+  <data name="Country_val_DE">
+    <value>Allemagne</value>
+    <comment>The name of DE country</comment>
+  </data>
+  <data name="Country_val_DJ">
+    <value>Djibouti</value>
+    <comment>The name of DJ country</comment>
+  </data>
+  <data name="Country_val_DK">
+    <value>Danemark</value>
+    <comment>The name of DK country</comment>
+  </data>
+  <data name="Country_val_DM">
+    <value>Dominique</value>
+    <comment>The name of DM country</comment>
+  </data>
+  <data name="Country_val_DO">
+    <value>République dominicaine</value>
+    <comment>The name of DO country</comment>
+  </data>
+  <data name="Country_val_DZ">
+    <value>Algérie</value>
+    <comment>The name of DZ country</comment>
+  </data>
+  <data name="Country_val_EC">
+    <value>Équateur</value>
+    <comment>The name of EC country</comment>
+  </data>
+  <data name="Country_val_EE">
+    <value>Estonie</value>
+    <comment>The name of EE country</comment>
+  </data>
+  <data name="Country_val_EG">
+    <value>Égypte</value>
+    <comment>The name of EG country</comment>
+  </data>
+  <data name="Country_val_EH">
+    <value>Sahara Occidental</value>
+    <comment>The name of EH country</comment>
+  </data>
+  <data name="Country_val_ER">
+    <value>Érythrée</value>
+    <comment>The name of ER country</comment>
+  </data>
+  <data name="Country_val_ES">
+    <value>Espagne</value>
+    <comment>The name of ES country</comment>
+  </data>
+  <data name="Country_val_ET">
+    <value>Éthiopie</value>
+    <comment>The name of ET country</comment>
+  </data>
+  <data name="Country_val_FI">
+    <value>Finlande</value>
+    <comment>The name of FI country</comment>
+  </data>
+  <data name="Country_val_FJ">
+    <value>Fidji</value>
+    <comment>The name of FJ country</comment>
+  </data>
+  <data name="Country_val_FK">
+    <value>Îles Malouines</value>
+    <comment>The name of FK country</comment>
+  </data>
+  <data name="Country_val_FM">
+    <value>Micronésie</value>
+    <comment>The name of FM country</comment>
+  </data>
+  <data name="Country_val_FO">
+    <value>Îles Féroé</value>
+    <comment>The name of FO country</comment>
+  </data>
+  <data name="Country_val_FR">
+    <value>France</value>
+    <comment>The name of FR country</comment>
+  </data>
+  <data name="Country_val_GA">
+    <value>Gabon</value>
+    <comment>The name of GA country</comment>
+  </data>
+  <data name="Country_val_GB">
+    <value>Royaume-Uni</value>
+    <comment>The name of GB country</comment>
+  </data>
+  <data name="Country_val_GD">
+    <value>Grenade</value>
+    <comment>The name of GD country</comment>
+  </data>
+  <data name="Country_val_GE">
+    <value>Géorgie</value>
+    <comment>The name of GE country</comment>
+  </data>
+  <data name="Country_val_GF">
+    <value>Guyane française</value>
+    <comment>The name of GF country</comment>
+  </data>
+  <data name="Country_val_GG">
+    <value>Guernesey</value>
+    <comment>The name of GG country</comment>
+  </data>
+  <data name="Country_val_GH">
+    <value>Ghana</value>
+    <comment>The name of GH country</comment>
+  </data>
+  <data name="Country_val_GI">
+    <value>Gibraltar</value>
+    <comment>The name of GI country</comment>
+  </data>
+  <data name="Country_val_GL">
+    <value>Groenland</value>
+    <comment>The name of GL country</comment>
+  </data>
+  <data name="Country_val_GM">
+    <value>Gambie</value>
+    <comment>The name of GM country</comment>
+  </data>
+  <data name="Country_val_GN">
+    <value>Guinée</value>
+    <comment>The name of GN country</comment>
+  </data>
+  <data name="Country_val_GP">
+    <value>Guadeloupe</value>
+    <comment>The name of GP country</comment>
+  </data>
+  <data name="Country_val_GQ">
+    <value>Guinée équatoriale</value>
+    <comment>The name of GQ country</comment>
+  </data>
+  <data name="Country_val_GR">
+    <value>Grèce</value>
+    <comment>The name of GR country</comment>
+  </data>
+  <data name="Country_val_GS">
+    <value>Géorgie du Sud-et-les Îles Sandwich du Sud</value>
+    <comment>The name of GS country</comment>
+  </data>
+  <data name="Country_val_GT">
+    <value>Guatémala</value>
+    <comment>The name of GT country</comment>
+  </data>
+  <data name="Country_val_GU">
+    <value>Guam</value>
+    <comment>The name of GU country</comment>
+  </data>
+  <data name="Country_val_GW">
+    <value>Guinée-Bissau</value>
+    <comment>The name of GW country</comment>
+  </data>
+  <data name="Country_val_GY">
+    <value>Guyana</value>
+    <comment>The name of GY country</comment>
+  </data>
+  <data name="Country_val_HK">
+    <value>Hong Kong</value>
+    <comment>The name of HK country</comment>
+  </data>
+  <data name="Country_val_HM">
+    <value>Îles Heard et McDonald</value>
+    <comment>The name of HM country</comment>
+  </data>
+  <data name="Country_val_HN">
+    <value>Honduras</value>
+    <comment>The name of HN country</comment>
+  </data>
+  <data name="Country_val_HR">
+    <value>Croatie</value>
+    <comment>The name of HR country</comment>
+  </data>
+  <data name="Country_val_HT">
+    <value>Haïti</value>
+    <comment>The name of HT country</comment>
+  </data>
+  <data name="Country_val_HU">
+    <value>Hongrie</value>
+    <comment>The name of HU country</comment>
+  </data>
+  <data name="Country_val_ID">
+    <value>Indonésie</value>
+    <comment>The name of ID country</comment>
+  </data>
+  <data name="Country_val_IE">
+    <value>Irlande</value>
+    <comment>The name of IE country</comment>
+  </data>
+  <data name="Country_val_IL">
+    <value>Israël</value>
+    <comment>The name of IL country</comment>
+  </data>
+  <data name="Country_val_IM">
+    <value>Île de Man</value>
+    <comment>The name of IM country</comment>
+  </data>
+  <data name="Country_val_IN">
+    <value>Inde</value>
+    <comment>The name of IN country</comment>
+  </data>
+  <data name="Country_val_IO">
+    <value>Territoire britannique de l'océan Indien</value>
+    <comment>The name of IO country</comment>
+  </data>
+  <data name="Country_val_IQ">
+    <value>Irak</value>
+    <comment>The name of IQ country</comment>
+  </data>
+  <data name="Country_val_IR">
+    <value>Iran</value>
+    <comment>The name of IR country</comment>
+  </data>
+  <data name="Country_val_IS">
+    <value>Islande</value>
+    <comment>The name of IS country</comment>
+  </data>
+  <data name="Country_val_IT">
+    <value>Italie</value>
+    <comment>The name of IT country</comment>
+  </data>
+  <data name="Country_val_JE">
+    <value>Jersey</value>
+    <comment>The name of JE country</comment>
+  </data>
+  <data name="Country_val_JM">
+    <value>Jamaïque</value>
+    <comment>The name of JM country</comment>
+  </data>
+  <data name="Country_val_JO">
+    <value>Jordanie</value>
+    <comment>The name of JO country</comment>
+  </data>
+  <data name="Country_val_JP">
+    <value>Japon</value>
+    <comment>The name of JP country</comment>
+  </data>
+  <data name="Country_val_KE">
+    <value>Kenya</value>
+    <comment>The name of KE country</comment>
+  </data>
+  <data name="Country_val_KG">
+    <value>Kirghizistan</value>
+    <comment>The name of KG country</comment>
+  </data>
+  <data name="Country_val_KH">
+    <value>Cambodge</value>
+    <comment>The name of KH country</comment>
+  </data>
+  <data name="Country_val_KI">
+    <value>Kiribati</value>
+    <comment>The name of KI country</comment>
+  </data>
+  <data name="Country_val_KM">
+    <value>Comores</value>
+    <comment>The name of KM country</comment>
+  </data>
+  <data name="Country_val_KN">
+    <value>Saint-Christophe-et-Niévès</value>
+    <comment>The name of KN country</comment>
+  </data>
+  <data name="Country_val_KP">
+    <value>Corée du Nord</value>
+    <comment>The name of KP country</comment>
+  </data>
+  <data name="Country_val_KR">
+    <value>Corée du Sud</value>
+    <comment>The name of KR country</comment>
+  </data>
+  <data name="Country_val_KW">
+    <value>Koweït</value>
+    <comment>The name of KW country</comment>
+  </data>
+  <data name="Country_val_KY">
+    <value>Îles Caïmans</value>
+    <comment>The name of KY country</comment>
+  </data>
+  <data name="Country_val_KZ">
+    <value>Kazakhstan</value>
+    <comment>The name of KZ country</comment>
+  </data>
+  <data name="Country_val_LA">
+    <value>Laos</value>
+    <comment>The name of LA country</comment>
+  </data>
+  <data name="Country_val_LB">
+    <value>Liban</value>
+    <comment>The name of LB country</comment>
+  </data>
+  <data name="Country_val_LC">
+    <value>Sainte-Lucie</value>
+    <comment>The name of LC country</comment>
+  </data>
+  <data name="Country_val_LI">
+    <value>Liechtenstein</value>
+    <comment>The name of LI country</comment>
+  </data>
+  <data name="Country_val_LK">
+    <value>Sri Lanka</value>
+    <comment>The name of LK country</comment>
+  </data>
+  <data name="Country_val_LR">
+    <value>Liberia</value>
+    <comment>The name of LR country</comment>
+  </data>
+  <data name="Country_val_LS">
+    <value>Lesotho</value>
+    <comment>The name of LS country</comment>
+  </data>
+  <data name="Country_val_LT">
+    <value>Lituanie</value>
+    <comment>The name of LT country</comment>
+  </data>
+  <data name="Country_val_LU">
+    <value>Luxembourg</value>
+    <comment>The name of LU country</comment>
+  </data>
+  <data name="Country_val_LV">
+    <value>Lettonie</value>
+    <comment>The name of LV country</comment>
+  </data>
+  <data name="Country_val_LY">
+    <value>Libye</value>
+    <comment>The name of LY country</comment>
+  </data>
+  <data name="Country_val_MA">
+    <value>Maroc</value>
+    <comment>The name of MA country</comment>
+  </data>
+  <data name="Country_val_MC">
+    <value>Monaco</value>
+    <comment>The name of MC country</comment>
+  </data>
+  <data name="Country_val_MD">
+    <value>Moldavie</value>
+    <comment>The name of MD country</comment>
+  </data>
+  <data name="Country_val_ME">
+    <value>Monténégro</value>
+    <comment>The name of ME country</comment>
+  </data>
+  <data name="Country_val_MF">
+    <value>Saint-Martin (partie française)</value>
+    <comment>The name of MF country</comment>
+  </data>
+  <data name="Country_val_MG">
+    <value>Madagascar</value>
+    <comment>The name of MG country</comment>
+  </data>
+  <data name="Country_val_MH">
+    <value>Îles Marshall</value>
+    <comment>The name of MH country</comment>
+  </data>
+  <data name="Country_val_MK">
+    <value>Macédoine</value>
+    <comment>The name of MK country</comment>
+  </data>
+  <data name="Country_val_ML">
+    <value>Mali</value>
+    <comment>The name of ML country</comment>
+  </data>
+  <data name="Country_val_MM">
+    <value>Myanmar/Birmanie</value>
+    <comment>The name of MM country</comment>
+  </data>
+  <data name="Country_val_MN">
+    <value>Mongolie</value>
+    <comment>The name of MN country</comment>
+  </data>
+  <data name="Country_val_MO">
+    <value>Macao</value>
+    <comment>The name of MO country</comment>
+  </data>
+  <data name="Country_val_MP">
+    <value>Îles Mariannes du Nord</value>
+    <comment>The name of MP country</comment>
+  </data>
+  <data name="Country_val_MQ">
+    <value>Martinique</value>
+    <comment>The name of MQ country</comment>
+  </data>
+  <data name="Country_val_MR">
+    <value>Mauritanie</value>
+    <comment>The name of MR country</comment>
+  </data>
+  <data name="Country_val_MS">
+    <value>Montserrat</value>
+    <comment>The name of MS country</comment>
+  </data>
+  <data name="Country_val_MT">
+    <value>Malte</value>
+    <comment>The name of MT country</comment>
+  </data>
+  <data name="Country_val_MU">
+    <value>Maurice</value>
+    <comment>The name of MU country</comment>
+  </data>
+  <data name="Country_val_MV">
+    <value>Maldives</value>
+    <comment>The name of MV country</comment>
+  </data>
+  <data name="Country_val_MW">
+    <value>Malawi</value>
+    <comment>The name of MW country</comment>
+  </data>
+  <data name="Country_val_MX">
+    <value>Mexique</value>
+    <comment>The name of MX country</comment>
+  </data>
+  <data name="Country_val_MY">
+    <value>Malaisie</value>
+    <comment>The name of MY country</comment>
+  </data>
+  <data name="Country_val_MZ">
+    <value>Mozambique</value>
+    <comment>The name of MZ country</comment>
+  </data>
+  <data name="Country_val_NA">
+    <value>Namibie</value>
+    <comment>The name of NA country</comment>
+  </data>
+  <data name="Country_val_NC">
+    <value>Nouvelle-Calédonie</value>
+    <comment>The name of NC country</comment>
+  </data>
+  <data name="Country_val_NE">
+    <value>Niger</value>
+    <comment>The name of NE country</comment>
+  </data>
+  <data name="Country_val_NF">
+    <value>Île Norfolk</value>
+    <comment>The name of NF country</comment>
+  </data>
+  <data name="Country_val_NG">
+    <value>Nigeria</value>
+    <comment>The name of NG country</comment>
+  </data>
+  <data name="Country_val_NI">
+    <value>Nicaragua</value>
+    <comment>The name of NI country</comment>
+  </data>
+  <data name="Country_val_NL">
+    <value>Pays-Bas</value>
+    <comment>The name of NL country</comment>
+  </data>
+  <data name="Country_val_NO">
+    <value>Norvège</value>
+    <comment>The name of NO country</comment>
+  </data>
+  <data name="Country_val_NP">
+    <value>Népal</value>
+    <comment>The name of NP country</comment>
+  </data>
+  <data name="Country_val_NR">
+    <value>Nauru</value>
+    <comment>The name of NR country</comment>
+  </data>
+  <data name="Country_val_NU">
+    <value>Niué</value>
+    <comment>The name of NU country</comment>
+  </data>
+  <data name="Country_val_NZ">
+    <value>Nouvelle-Zélande</value>
+    <comment>The name of NZ country</comment>
+  </data>
+  <data name="Country_val_OM">
+    <value>Oman</value>
+    <comment>The name of OM country</comment>
+  </data>
+  <data name="Country_val_PA">
+    <value>Panama</value>
+    <comment>The name of PA country</comment>
+  </data>
+  <data name="Country_val_PE">
+    <value>Pérou</value>
+    <comment>The name of PE country</comment>
+  </data>
+  <data name="Country_val_PF">
+    <value>Polynésie française</value>
+    <comment>The name of PF country</comment>
+  </data>
+  <data name="Country_val_PG">
+    <value>Papouasie-Nouvelle-Guinée</value>
+    <comment>The name of PG country</comment>
+  </data>
+  <data name="Country_val_PH">
+    <value>Philippines</value>
+    <comment>The name of PH country</comment>
+  </data>
+  <data name="Country_val_PK">
+    <value>Pakistan</value>
+    <comment>The name of PK country</comment>
+  </data>
+  <data name="Country_val_PL">
+    <value>Pologne</value>
+    <comment>The name of PL country</comment>
+  </data>
+  <data name="Country_val_PM">
+    <value>Saint-Pierre-et-Miquelon</value>
+    <comment>The name of PM country</comment>
+  </data>
+  <data name="Country_val_PN">
+    <value>Îles Pitcairn</value>
+    <comment>The name of PN country</comment>
+  </data>
+  <data name="Country_val_PR">
+    <value>Porto Rico</value>
+    <comment>The name of PR country</comment>
+  </data>
+  <data name="Country_val_PS">
+    <value>Palestine</value>
+    <comment>The name of PS country</comment>
+  </data>
+  <data name="Country_val_PT">
+    <value>Portugal</value>
+    <comment>The name of PT country</comment>
+  </data>
+  <data name="Country_val_PW">
+    <value>Palaos</value>
+    <comment>The name of PW country</comment>
+  </data>
+  <data name="Country_val_PY">
+    <value>Paraguay</value>
+    <comment>The name of PY country</comment>
+  </data>
+  <data name="Country_val_QA">
+    <value>Qatar</value>
+    <comment>The name of QA country</comment>
+  </data>
+  <data name="Country_val_RE">
+    <value>La Réunion</value>
+    <comment>The name of RE country</comment>
+  </data>
+  <data name="Country_val_RO">
+    <value>Roumanie</value>
+    <comment>The name of RO country</comment>
+  </data>
+  <data name="Country_val_RS">
+    <value>Serbie</value>
+    <comment>The name of RS country</comment>
+  </data>
+  <data name="Country_val_RU">
+    <value>Russie</value>
+    <comment>The name of RU country</comment>
+  </data>
+  <data name="Country_val_RW">
+    <value>Rwanda</value>
+    <comment>The name of RW country</comment>
+  </data>
+  <data name="Country_val_SA">
+    <value>Arabie Saoudite</value>
+    <comment>The name of SA country</comment>
+  </data>
+  <data name="Country_val_SB">
+    <value>Îles Salomon</value>
+    <comment>The name of SB country</comment>
+  </data>
+  <data name="Country_val_SC">
+    <value>Seychelles</value>
+    <comment>The name of SC country</comment>
+  </data>
+  <data name="Country_val_SD">
+    <value>Soudan</value>
+    <comment>The name of SD country</comment>
+  </data>
+  <data name="Country_val_SE">
+    <value>Suède</value>
+    <comment>The name of SE country</comment>
+  </data>
+  <data name="Country_val_SG">
+    <value>Singapour</value>
+    <comment>The name of SG country</comment>
+  </data>
+  <data name="Country_val_SH">
+    <value>Sainte-Hélène, Ascension et Tristan da Cunha</value>
+    <comment>The name of SH country</comment>
+  </data>
+  <data name="Country_val_SI">
+    <value>Slovénie</value>
+    <comment>The name of SI country</comment>
+  </data>
+  <data name="Country_val_SJ">
+    <value>Svalbard et Jan Mayen</value>
+    <comment>The name of SJ country</comment>
+  </data>
+  <data name="Country_val_SK">
+    <value>Slovaquie</value>
+    <comment>The name of SK country</comment>
+  </data>
+  <data name="Country_val_SL">
+    <value>Sierra Leone</value>
+    <comment>The name of SL country</comment>
+  </data>
+  <data name="Country_val_SM">
+    <value>Saint-Marin</value>
+    <comment>The name of SM country</comment>
+  </data>
+  <data name="Country_val_SN">
+    <value>Sénégal</value>
+    <comment>The name of SN country</comment>
+  </data>
+  <data name="Country_val_SO">
+    <value>Somalie</value>
+    <comment>The name of SO country</comment>
+  </data>
+  <data name="Country_val_SR">
+    <value>Suriname</value>
+    <comment>The name of SR country</comment>
+  </data>
+  <data name="Country_val_SS">
+    <value>Soudan du Sud</value>
+    <comment>The name of SS country</comment>
+  </data>
+  <data name="Country_val_ST">
+    <value>Sao Tomé-et-Principe</value>
+    <comment>The name of ST country</comment>
+  </data>
+  <data name="Country_val_SV">
+    <value>Salvador</value>
+    <comment>The name of SV country</comment>
+  </data>
+  <data name="Country_val_SX">
+    <value>Saint-Martin (partie néerlandaise)</value>
+    <comment>The name of SX country</comment>
+  </data>
+  <data name="Country_val_SY">
+    <value>Syrie</value>
+    <comment>The name of SY country</comment>
+  </data>
+  <data name="Country_val_SZ">
+    <value>Eswatini</value>
+    <comment>The name of SZ country</comment>
+  </data>
+  <data name="Country_val_TC">
+    <value>Îles Turques-et-Caïques</value>
+    <comment>The name of TC country</comment>
+  </data>
+  <data name="Country_val_TD">
+    <value>Tchad</value>
+    <comment>The name of TD country</comment>
+  </data>
+  <data name="Country_val_TF">
+    <value>Terres australes françaises</value>
+    <comment>The name of TF country</comment>
+  </data>
+  <data name="Country_val_TG">
+    <value>Togo</value>
+    <comment>The name of TG country</comment>
+  </data>
+  <data name="Country_val_TH">
+    <value>Thaïlande</value>
+    <comment>The name of TH country</comment>
+  </data>
+  <data name="Country_val_TJ">
+    <value>Tadjikistan</value>
+    <comment>The name of TJ country</comment>
+  </data>
+  <data name="Country_val_TK">
+    <value>Tokelau</value>
+    <comment>The name of TK country</comment>
+  </data>
+  <data name="Country_val_TL">
+    <value>Timor oriental</value>
+    <comment>The name of TL country</comment>
+  </data>
+  <data name="Country_val_TM">
+    <value>Turkménistan</value>
+    <comment>The name of TM country</comment>
+  </data>
+  <data name="Country_val_TN">
+    <value>Tunisie</value>
+    <comment>The name of TN country</comment>
+  </data>
+  <data name="Country_val_TO">
+    <value>Tonga</value>
+    <comment>The name of TO country</comment>
+  </data>
+  <data name="Country_val_TR">
+    <value>Turquie</value>
+    <comment>The name of TR country</comment>
+  </data>
+  <data name="Country_val_TT">
+    <value>Trinité-et-Tobago</value>
+    <comment>The name of TT country</comment>
+  </data>
+  <data name="Country_val_TV">
+    <value>Tuvalu</value>
+    <comment>The name of TV country</comment>
+  </data>
+  <data name="Country_val_TW">
+    <value>Taïwan</value>
+    <comment>The name of TW country</comment>
+  </data>
+  <data name="Country_val_TZ">
+    <value>Tanzanie</value>
+    <comment>The name of TZ country</comment>
+  </data>
+  <data name="Country_val_UA">
+    <value>Ukraine</value>
+    <comment>The name of UA country</comment>
+  </data>
+  <data name="Country_val_UG">
+    <value>Ouganda</value>
+    <comment>The name of UG country</comment>
+  </data>
+  <data name="Country_val_UK">
+    <value>Royaume-Uni</value>
+    <comment>The name of UK country</comment>
+  </data>
+  <data name="Country_val_UM">
+    <value>Îles mineures éloignées des États-Unis</value>
+    <comment>The name of UM country</comment>
+  </data>
+  <data name="Country_val_US">
+    <value>États-Unis</value>
+    <comment>The name of US country</comment>
+  </data>
+  <data name="Country_val_UY">
+    <value>Uruguay</value>
+    <comment>The name of UY country</comment>
+  </data>
+  <data name="Country_val_UZ">
+    <value>Ouzbékistan</value>
+    <comment>The name of UZ country</comment>
+  </data>
+  <data name="Country_val_VA">
+    <value>Vatican</value>
+    <comment>The name of VA country</comment>
+  </data>
+  <data name="Country_val_VC">
+    <value>Saint-Vincent et les Grenadines</value>
+    <comment>The name of VC country</comment>
+  </data>
+  <data name="Country_val_VE">
+    <value>Vénézuéla</value>
+    <comment>The name of VE country</comment>
+  </data>
+  <data name="Country_val_VG">
+    <value>Îles Vierges britanniques</value>
+    <comment>The name of VG country</comment>
+  </data>
+  <data name="Country_val_VI">
+    <value>Îles Vierges, États-Unis</value>
+    <comment>The name of VI country</comment>
+  </data>
+  <data name="Country_val_VN">
+    <value>Vietnam</value>
+    <comment>The name of VN country</comment>
+  </data>
+  <data name="Country_val_VU">
+    <value>Vanuatu</value>
+    <comment>The name of VU country</comment>
+  </data>
+  <data name="Country_val_WF">
+    <value>Wallis-et-Futuna</value>
+    <comment>The name of WF country</comment>
+  </data>
+  <data name="Country_val_WS">
+    <value>Samoa</value>
+    <comment>The name of WS country</comment>
+  </data>
+  <data name="Country_val_XK">
+    <value>Kosovo</value>
+    <comment>The name of XK country</comment>
+  </data>
+  <data name="Country_val_YE">
+    <value>Yémen</value>
+    <comment>The name of YE country</comment>
+  </data>
+  <data name="Country_val_YT">
+    <value>Mayotte</value>
+    <comment>The name of YT country</comment>
+  </data>
+  <data name="Country_val_ZA">
+    <value>Afrique du Sud</value>
+    <comment>The name of ZA country</comment>
+  </data>
+  <data name="Country_val_ZM">
+    <value>Zambie</value>
+    <comment>The name of ZM country</comment>
+  </data>
+  <data name="Country_val_ZW">
+    <value>Zimbabwe</value>
+    <comment>The name of ZW country</comment>
+  </data>
+  <data name="Country_val_ZZ">
+    <value>Inconnu</value>
+    <comment>The name of ZZ (unknown or not specified) country</comment>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Description">
+    <value>Le service Base Filtering Engine (BFE) sur votre appareil Windows est désactivé. Ce service doit être activé pour que Proton VPN fonctionne correctement.</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_HowToEnable">
+    <value>Comment activer le service Base Filtering Engine ?</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Title">
+    <value>Activez le service Base Filtering Engine pour continuer</value>
+  </data>
+  <data name="Dialogs_ChangeServer_GetUnlimitedServerChanges">
+    <value>Changez de serveur autant de fois que vous le souhaitez avec VPN Plus.</value>
+  </data>
+  <data name="Dialogs_ChangeServer_MaximumServerChangesReached">
+    <value>Vous avez atteint le nombre de changements maximal de serveurs Free pour le moment</value>
+  </data>
+  <data name="Dialogs_Common_GetStarted">
+    <value>Commencer</value>
+  </data>
+  <data name="Dialogs_Common_SubscriptionExpired">
+    <value>L'abonnement est arrivé à expiration.</value>
+  </data>
+  <data name="Dialogs_Common_UpgradeToGetPlusFeatures">
+    <value>Améliorez votre abonnement pour accéder à nouveau aux serveurs et fonctionnalités Plus.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Description">
+    <value>Il semble que le service Proton VPN soit désactivé. Vous devrez réactiver le service pour vous connecter.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Title">
+    <value>Activez le service Windows pour continuer</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_One">
+    <value>Proton Free vous connecte automatiquement au serveur gratuit le plus rapide dans {0} pays disponible. C'est en général le serveur le plus proche de votre localisation géographique.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Other">
+    <value>Proton Free vous connecte automatiquement au serveur gratuit le plus rapide parmi les {0} disponibles de votre pays. C'est en général le serveur le plus proche de votre localisation géographique.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_One">
+    <value>Pays avec des serveurs gratuits ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Other">
+    <value>Pays avec des serveurs gratuits ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Title">
+    <value>Connexions gratuites</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_CommentLabel">
+    <value>Faites-nous savoir pourquoi vous avez attribué cette note.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorSubtitle">
+    <value>Nous n'avons pas pu envoyer votre commentaire. Nous vous invitons à vérifier votre connexion et à réessayer.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorTitle">
+    <value>Une erreur s'est produite.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_HighRateDescription">
+    <value>10 : Très probable</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_LowRateDescription">
+    <value>0 : Très peu probable</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Optional">
+    <value>Facultatif</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ShareAnonymously">
+    <value>Partager anonymement</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessSubtitle">
+    <value>Vos commentaires nous aident à améliorer Proton VPN.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessTitle">
+    <value>Merci pour vos commentaires</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Title">
+    <value>Quelle est la probabilité que vous recommandiez Proton VPN à un ami ?</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_TryAgain">
+    <value>Réessayer</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Description">
+    <value>Passez à la version supérieure pour débloquer les serveurs P2P (peer-to-peer) afin de profiter d'une connexion rapide pour les jeux en ligne et le téléchargement de torrents, ou mettez fin à votre activité P2P pour rétablir votre connexion.</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Title">
+    <value>Le P2P n'est pas autorisé sur les serveurs VPN gratuits</value>
+  </data>
+  <data name="Dialogs_P2PDetection_WindowTitle">
+    <value>Découvrez VPN Plus</value>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email">
+    <value>Adresse e-mail</value>
+    <comment>The label for user e-mail address in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email_Description">
+    <value>exemple@domaine.fr</value>
+    <comment>The watermark text displayed in empty user e-mail text box in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs">
+    <value>Envoyer les journaux d'erreurs</value>
+    <comment>The label for the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs_Description">
+    <value>Les journaux d'erreurs nous indiquent ce qui n'a pas fonctionné et les actions qui ont conduit à votre problème. Ils sont utilisés uniquement pour aider nos ingénieurs à corriger les bugs.</value>
+    <comment>The tooltip displayed on the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Header">
+    <value>Quel est le problème ?</value>
+  </data>
+  <data name="Dialogs_ReportIssue_NoLogsWarning">
+    <value>Les journaux d'erreurs nous aident à comprendre les causes de votre problème. Si vous ne les incluez pas, nous ne serons peut-être pas en mesure de mener une analyse approfondie.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes">
+    <value>Solutions rapides</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Footer">
+    <value>Cela n'a pas fonctionné ?</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Header">
+    <value>Ces conseils peuvent vous aider à résoudre votre problème plus rapidement.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_DoneAction">
+    <value>Terminé</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail">
+    <value>Une erreur s'est produite.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail_Description">
+    <value>Nous n'avons pas pu envoyer votre rapport. Nous vous invitons à vérifier votre connexion et réessayer.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success">
+    <value>Le rapport a été envoyé.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success_Description">
+    <value>Merci pour vos commentaires. Nous reviendrons vers vous dès que possible.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_SendReport">
+    <value>Envoyer le rapport</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Steps">
+    <value>Étape {0} sur {1}</value>
+    <comment>Steps header for the Report an issue dialog. {0} is a placeholder for the current step. {1} is a placeholder for the total number of steps. (eg. Step 1 of 3)</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Title">
+    <value>Signaler un bug</value>
+  </data>
+  <data name="Dialogs_StreamingDetection_WindowTitle">
+    <value>Découvrez VPN Plus</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Description">
+    <value>Les serveurs VPN Plus vous permettent de regarder vos films et séries préférés du monde entier.</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Title">
+    <value>Passez à l'abonnement supérieur pour contourner les blocages VPN</value>
+  </data>
+  <data name="Dialogs_SubscriptionExpired_MaybeLater">
+    <value>Peut-être plus tard</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Description">
+    <value>Il semble que votre appareil utilise un serveur proxy. Cela pourrait interférer avec la protection de votre VPN.</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Title">
+    <value>Un serveur proxy a été détecté.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus">
+    <value>Désactivez le logiciel antivirus ou pare-feu</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus_Description">
+    <value>Ces logiciels peuvent interférer avec les connexions VPN.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet">
+    <value>Vérifiez votre connexion internet.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet_Description">
+    <value>Vérifiez que vous êtes en ligne et que votre connexion est stable.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Description">
+    <value>Ces solutions rapides peuvent vous aider à vous connecter à Proton.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork">
+    <value>Utilisez un autre réseau.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork_Description">
+    <value>Essayez un autre réseau wifi ou utilisez plutôt vos données mobiles.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage">
+    <value>Vérifiez l'état des services.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage_Description">
+    <value>Assurez-vous d'abord que les services Proton fonctionnent normalement.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Title">
+    <value>Aide pour la connexion</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOff">
+    <value>Cela vous déconnectera du VPN. Toutes les connexions internet actives seront temporairement non protégées.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOn">
+    <value>Cela vous déconnectera du VPN et désactivera temporairement l'arrêt d'urgence (kill switch). Toutes les connexions internet actives seront temporairement non protégées.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Install">
+    <value>Installer la mise à jour ?</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Restart">
+    <value>Redémarrez Proton VPN pour terminer la mise à jour</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Description">
+    <value>Il semble que l'horloge de votre système ne soit pas synchronisée. Ceci peut causer des problèmes de connexion au VPN.</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_PrimaryButton">
+    <value>Comment mettre à jour l'horloge système ?</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Title">
+    <value>Mettre à jour l'horloge système</value>
+  </data>
+  <data name="Dialogs_WelcomeB2B_Description">
+    <value>Simple, fluide et sécurisé. Protégez-vous en ligne et accédez en toute sécurité aux sites, logiciels et fichiers de votre organisation.</value>
+  </data>
+  <data name="Dialogs_WelcomeToProton_Title">
+    <value>Bienvenue sur Proton VPN</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_Description">
+    <value>Naviguez en toute confidentialité, accédez au contenu bloqué et profitez de la liberté numérique sans limites de données ni de vitesse.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs">
+    <value>Le VPN qui n'enregistre pas vos activités.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs_Description">
+    <value>Vos activités en ligne sont protégées par les lois suisses sur la protection de la vie privée. Nous ne suivrons jamais vos activités et nous ne partagerons jamais vos informations avec des tiers.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely">
+    <value>Naviguez librement où que vous soyez</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_One">
+    <value>Masquez votre emplacement virtuel et utilisez internet depuis {0} pays disponible.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Other">
+    <value>Masquez votre emplacement virtuel et utilisez internet depuis l'un de nos {0} pays disponibles.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices">
+    <value>Protégez 10 appareils en même temps</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices_Description">
+    <value>Une protection VPN complète pour votre télévision, navigateur, mobile, ordinateur de bureau et bien plus encore.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream">
+    <value>Regarder en haute définition</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream_Description">
+    <value>Regardez des films et des émissions de télévision du monde entier sans compromis sur la vitesse ou la qualité.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Title">
+    <value>Bienvenue dans VPN Plus</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Description">
+    <value>Vous avez déverrouillé toutes les fonctionnalités premium de Proton VPN, Mail, Calendar, Drive et Pass.</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Title">
+    <value>Bienvenue dans {0}</value>
+    <comment>Title to welcome the user after an account upgrade. {0} is a placeholder for the name of the new plan (eg. Proton Unlimited, Proton Duo, Proton Family).</comment>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Description">
+    <value>Vous pouvez maintenant vous connecter à des imprimantes, des hautparleurs et d'autres appareils sur votre réseau local (LAN), en contournant le tunnel VPN.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Title">
+    <value>Connexions LAN</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Description">
+    <value>Lorsque vous activez la redirection de port, vous verrez votre numéro de port actif sur l'écran d'accueil.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Title">
+    <value>Numéro de port actif</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TakeALook">
+    <value>Consulter</value>
+  </data>
+  <data name="Dialogs_WhatsNew_Title">
+    <value>Nouveautés</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Description">
+    <value>Vous pouvez maintenant connecter, déconnecter et modifier votre connexion par défaut depuis la zone de notification.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Title">
+    <value>Nouvelle application de la barre d'état système</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_ExcludeLocations">
+    <value>Exclure des emplacements</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Message">
+    <value>Si vous ne souhaitez pas être connecté automatiquement à certains emplacements, vous pouvez les exclure des connexions les plus rapides et aléatoires.</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Skip">
+    <value>Ignorer</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Title">
+    <value>Ce n'est pas le pays que vous vouliez ?</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_ActionButton">
+    <value>Exclure des emplacements</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_CloseButton">
+    <value>Peut-être plus tard</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Subtitle">
+    <value>Vous pouvez désormais exclure des pays ou des villes des connexions les plus rapides et aléatoires.</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Title">
+    <value>Évitez les emplacements non désirés</value>
+  </data>
+  <data name="Exit_Confirmation_Title">
+    <value>Quitter Proton VPN ?</value>
+  </data>
+  <data name="Exit_Message">
+    <value>Déconnexion du VPN...</value>
+  </data>
+  <data name="Exit_Title">
+    <value>Quitter Proton VPN </value>
+  </data>
+  <data name="Flyouts_Country_Description1">
+    <value>Naviguer sans VPN vous expose aux restrictions internet en fonction de votre emplacement.</value>
+  </data>
+  <data name="Flyouts_Country_Description2">
+    <value>Les sites web peuvent utiliser des géo-blocages pour restreindre l'accès au contenu selon les emplacements. Les gouvernements peuvent également ordonner aux FAI (Fournisseurs d'accès internet) de bloquer certains sites web dans leur pays.</value>
+  </data>
+  <data name="Flyouts_Country_Description3">
+    <value>Un VPN donne l'impression que vous surfez depuis un autre endroit, vous protégeant ainsi de la surveillance et de la censure.</value>
+  </data>
+  <data name="Flyouts_Country_Title">
+    <value>Pays</value>
+  </data>
+  <data name="Flyouts_Country_Warning">
+    <value>Connectez-vous à un VPN pour changer votre emplacement virtuel</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Connected">
+    <value>Votre IP VPN masque votre véritable adresse IP. Cela donne l'impression que vous naviguez à partir de votre emplacement VPN, de sorte que votre activité en ligne ne puisse pas être liée à votre appareil.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected1">
+    <value>Ce code unique peut être utilisé par les sites web et les FAI (Fournisseurs d'accès internet) pour lier votre emplacement et votre historique de navigation à votre appareil.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected2">
+    <value>Un VPN masque votre adresse IP, ce qui complique la traçabilité de vos activités.</value>
+  </data>
+  <data name="Flyouts_IpAddress_KnowledgeBaseLinkTitle">
+    <value>Qu’est-ce qu’une adresse IP ?</value>
+  </data>
+  <data name="Flyouts_IpAddress_Title">
+    <value>Adresse IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIp">
+    <value>IP du VPN</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv4">
+    <value>VPN IPv4</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv6">
+    <value>VPN IPv6</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIp">
+    <value>Votre IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIpIsVisible">
+    <value>Votre adresse IP est visible.</value>
+  </data>
+  <data name="Flyouts_Isp_Description1">
+    <value>Votre FAI (Fournisseur d'Accès Internet) est l'entreprise qui vous connecte à internet.</value>
+  </data>
+  <data name="Flyouts_Isp_Description2">
+    <value>Il peut enregistrer vos activités en ligne. Dans certains pays, il peut vendre vos données à des annonceurs. Dans d'autres, il peut être obligé de les transmettre au gouvernement.</value>
+  </data>
+  <data name="Flyouts_Isp_Description3">
+    <value>Un VPN masque votre adresse IP, vous protégeant ainsi des interférences de votre FAI.</value>
+  </data>
+  <data name="Flyouts_Isp_KnowledgeBaseLinkTitle">
+    <value>Qu'est-ce qu'un fournisseur d'accès internet (FAI) ?</value>
+  </data>
+  <data name="Flyouts_Isp_Title">
+    <value>Fournisseur</value>
+  </data>
+  <data name="Flyouts_Isp_Warning">
+    <value>Votre fournisseur peut voir quels sites internet vous visitez.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Advanced_Success">
+    <value>Bloque tous les accès internet quand vous n'êtes pas connecté à Proton VPN.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info">
+    <value>Votre adresse IP pourrait être exposée si votre connexion VPN est interrompue.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info_Disconnected">
+    <value>L'Arrêt d'urgence (kill switch) avancé désactive votre connexion internet pour protéger votre adresse IP tant que vous n'êtes pas connecté à Proton VPN.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Standard_Success">
+    <value>Si votre connexion VPN est interrompue, vous serez déconnecté d'internet jusqu'à ce que le VPN soit rétabli.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Connected">
+    <value>La fonction Arrêt d'urgence (kill switch) avancé reste activée même si vous vous déconnectez volontairement du VPN.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Disconnected">
+    <value>Pour revenir en ligne, connectez-vous au VPN ou désactivez l'Arrêt d'urgence (kill switch) avancé.</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackersAdultContent_Success">
+    <value>Vous êtes protégé contre les publicités, les traqueurs, les logiciels malveillants et le contenu pour adultes.</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackers_Success">
+    <value>Vous êtes protégé contre les publicités, traqueurs et logiciel malveillant.</value>
+  </data>
+  <data name="Flyouts_NetShield_Info">
+    <value>Protégez votre navigation sur les sites internet et les applications.</value>
+  </data>
+  <data name="Flyouts_NetShield_MalwareOnly_Success">
+    <value>Vous êtes protégé uniquement contre les logiciels malveillants.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Description">
+    <value>Bloquez les publicités, les traqueurs, les logiciels malveillants et le contenu pour adultes avec VPN Plus.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Title">
+    <value>Profitez d'une navigation sans publicité</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort">
+    <value>Numéro de port actif</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Error">
+    <value>Impossible de récupérer le numéro de port actif. Redémarrez votre connexion et réessayez.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Info">
+    <value>Saisissez le numéro de port actif dans votre client torrent ou application P2P pour des performances améliorées.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Info">
+    <value>Améliore les vitesses de téléchargement peer-to-peer (P2P)</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Description">
+    <value>Boostez les performances du partage de fichiers en peer-to-peer (P2P) avec VPN Plus.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Title">
+    <value>Améliorez la vitesse du P2P</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Warning">
+    <value>Connectez-vous à un serveur P2P pour améliorer les vitesses de téléchargement de torrent</value>
+  </data>
+  <data name="Flyouts_Protocol_Description">
+    <value>Un protocole VPN définit comment le trafic est chiffré et transmis via le VPN.</value>
+  </data>
+  <data name="Flyouts_Protocol_KnowledgeBaseLinkTitle">
+    <value>Quel est le meilleur protocole VPN ?</value>
+  </data>
+  <data name="Flyouts_Protocol_Title">
+    <value>Protocole</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Description">
+    <value>La charge du serveur indique à quel point le serveur est proche de sa capacité maximale. Une charge de serveur élevée peut ralentir votre connexion.</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High">
+    <value>Élevée (91-100 %)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High_Description">
+    <value>Le VPN peut fonctionner plus lentement que d'habitude.</value>
+  </data>
+  <data name="Flyouts_ServerLoad_KnowledgeBaseLinkTitle">
+    <value>Qu'est-ce que la charge d'un serveur ?</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low">
+    <value>Faible (1-75 %)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low_Description">
+    <value>Vitesses extrêmement élevées</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium">
+    <value>Moyenne (76-90 %)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium_Description">
+    <value>Peu probable que cela affecte la vitesse de connexion</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Title">
+    <value>Charge du serveur</value>
+  </data>
+  <data name="Flyouts_Speed_Description1">
+    <value>Affiche la quantité de données qui passent par le tunnel VPN en temps réel.</value>
+  </data>
+  <data name="Flyouts_Speed_Description2">
+    <value>Cela dépend de l'activité actuelle de votre appareil. Dans la plupart des cas, cela ne représente pas la vitesse maximale du VPN.</value>
+  </data>
+  <data name="Flyouts_Speed_Download">
+    <value>Téléchargé</value>
+    <comment>Refers to the download speed (e.g., Download [new line] 10 MB/s).</comment>
+  </data>
+  <data name="Flyouts_Speed_KnowledgeBaseLinkTitle">
+    <value>Vitesse et trafic VPN en quelques mots</value>
+  </data>
+  <data name="Flyouts_Speed_Title">
+    <value>Trafic actuel</value>
+  </data>
+  <data name="Flyouts_Speed_Upload">
+    <value>Envoyé</value>
+    <comment>Refers to the upload speed (e.g., Upload [new line] 2.5 MB/s).</comment>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_One">
+    <value>Application exclue ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Other">
+    <value>Applications exclues ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_One">
+    <value>Adresse IP exclue ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Other">
+    <value>Adresses IP exclues ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Info">
+    <value>Permet aux applications et adresses IP de confiance de se connecter sans protection VPN.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Inverse_Info">
+    <value>Seules ces applications et adresses IP sélectionnées se connectent par VPN. Tout le reste du trafic n'est pas protégé.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_One">
+    <value>Application protégée ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Other">
+    <value>Applications protégées ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_One">
+    <value>Adresse IP protégée ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Other">
+    <value>Adresses IP protégées ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Standard_Info">
+    <value>Ces applications et adresses IP se connectent sans protection VPN. Tout autre trafic est protégé.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Description">
+    <value>Grâce à VPN Plus, répartissez votre trafic entre ce qui doit passer par le VPN et ce qui ne le doit pas.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Title">
+    <value>Obtenez le meilleur des deux mondes.</value>
+  </data>
+  <data name="Flyouts_Volume_Description">
+    <value>Affiche la quantité totale de données passées par le tunnel VPN depuis que vous vous êtes connecté.</value>
+  </data>
+  <data name="Flyouts_Volume_Download">
+    <value>Téléchargé</value>
+    <comment>Refers to the downloaded volume (e.g., Download [new line] 250 MB).</comment>
+  </data>
+  <data name="Flyouts_Volume_Title">
+    <value>Trafic total</value>
+  </data>
+  <data name="Flyouts_Volume_Upload">
+    <value>Envoyé</value>
+    <comment>Refers to the uploaded volume (e.g., Upload [new line] 250 MB).</comment>
+  </data>
+  <data name="Format_Size_Bytes">
+    <value>{0} o</value>
+    <comment>Format a size in Bytes. {0} is a place holder for the number of Bytes (eg. 30 B)</comment>
+  </data>
+  <data name="Format_Size_Exabytes">
+    <value>{0} Eo</value>
+    <comment>Format a size in Exabytes. {0} is a place holder for the number of Exabytes (eg. 30 EB)</comment>
+  </data>
+  <data name="Format_Size_Gigabytes">
+    <value>{0} Go</value>
+    <comment>Format a size in Gigabytes. {0} is a place holder for the number of Gigabytes (eg. 30 GB)</comment>
+  </data>
+  <data name="Format_Size_Kilobytes">
+    <value>{0} Ko</value>
+    <comment>Format a size in Kilobytes. {0} is a place holder for the number of Kilobytes (eg. 30 KB)</comment>
+  </data>
+  <data name="Format_Size_Megabytes">
+    <value>{0} Mo</value>
+    <comment>Format a size in Megabytes. {0} is a place holder for the number of Megabytes (eg. 30 MB)</comment>
+  </data>
+  <data name="Format_Size_Petabytes">
+    <value>{0} Po</value>
+    <comment>Format a size in Petabytes. {0} is a place holder for the number of Petabytes (eg. 30 PB)</comment>
+  </data>
+  <data name="Format_Size_Terabytes">
+    <value>{0} To</value>
+    <comment>Format a size in Terabytes. {0} is a place holder for the number of Terabytes (eg. 30 TB)</comment>
+  </data>
+  <data name="Format_SpeedUnit">
+    <value>Trafic actuel ({0})</value>
+    <comment>This string is used to format speed measurements in various units. The placeholder {0} will be replaced by the appropriate unit of measurement, such as B/s (Bytes per second), kB/s (Kilobytes per second), MB/s (Megabytes per second), and so on.</comment>
+  </data>
+  <data name="Format_Speed_BytesPerSecond">
+    <value>{0} o/s</value>
+    <comment>Format a speed in Bytes per second. {0} is a place holder for the number of Bytes per second (eg. 30 B/s)</comment>
+  </data>
+  <data name="Format_Speed_ExabytesPerSecond">
+    <value>{0} Eo/s</value>
+    <comment>Format a speed in Exabytes per second. {0} is a place holder for the number of Exabytes per second (eg. 30 EB/s)</comment>
+  </data>
+  <data name="Format_Speed_GigabytesPerSecond">
+    <value>{0} Go/s</value>
+    <comment>Format a speed in Gigabytes per second. {0} is a place holder for the number of Gigabytes per second (eg. 30 GB/s)</comment>
+  </data>
+  <data name="Format_Speed_KilobytesPerSecond">
+    <value>{0} Ko/s</value>
+    <comment>Format a speed in Kilobytes per second. {0} is a place holder for the number of Kilobytes per second (eg. 30 KB/s)</comment>
+  </data>
+  <data name="Format_Speed_MegabytesPerSecond">
+    <value>{0} Mo/s</value>
+    <comment>Format a speed in Megabytes per second. {0} is a place holder for the number of Megabytes per second (eg. 30 MB/s)</comment>
+  </data>
+  <data name="Format_Speed_PetabytesPerSecond">
+    <value>{0} Po/s</value>
+    <comment>Format a speed in Petabytes per second. {0} is a place holder for the number of Petabytes per second (eg. 30 PB/s)</comment>
+  </data>
+  <data name="Format_Speed_TerabytesPerSecond">
+    <value>{0} To/s</value>
+    <comment>Format a speed in Terabytes per second. {0} is a place holder for the number of Terabytes per second (eg. 30 TB/s)</comment>
+  </data>
+  <data name="Format_Time_Day_One">
+    <value>{0} jour</value>
+  </data>
+  <data name="Format_Time_Day_Other">
+    <value>{0} jours</value>
+  </data>
+  <data name="Format_Time_DayHour_One">
+    <value>{0} jour {1} h</value>
+  </data>
+  <data name="Format_Time_DayHour_Other">
+    <value>{0} jours {1} h</value>
+  </data>
+  <data name="Format_Time_Hours">
+    <value>{0} h</value>
+    <comment>Format a time as a number of hours. {0} is a placeholder for the number of hours (eg. 1 hr or 20 hr). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutes">
+    <value>{0} h {1} min</value>
+    <comment>Format a time as a number of hours and minutes. {0} is a placeholder for the number of hours and {1} for the number of minutes (eg. 5 hr 36 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutesSeconds_Short">
+    <value>hh\:mm\:ss</value>
+    <comment>Format a time as a number of hours, minutes and seconds in a short format. 'hh' is a placeholder for the number of hours, 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. hh\:mm\:ss gives 01:05:36).</comment>
+  </data>
+  <data name="Format_Time_Hours_Ago_One">
+    <value>Il y a {0} heure</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Other">
+    <value>Il y a {0} heures</value>
+  </data>
+  <data name="Format_Time_Minutes">
+    <value>{0} min</value>
+    <comment>Format a time as a number of minutes. {0} is a placeholder for the number of minutes (eg. 1 min or 20 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds">
+    <value>{0} min {1} s</value>
+    <comment>Format a time as a number of minutes and seconds. {0} is a placeholder for the number of minutes and {1} for the number of seconds (eg. 5 min 36 sec). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds_Short">
+    <value>mm\:ss</value>
+    <comment>Format a time as a number of minutes and seconds in a short format. 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. mm\:ss gives 05:36).</comment>
+  </data>
+  <data name="Format_Time_Minutes_Ago_One">
+    <value>Il y a {0} minute</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Other">
+    <value>Il y a {0} minutes</value>
+  </data>
+  <data name="Format_Time_Seconds">
+    <value>{0} s</value>
+    <comment>Format a time as a number of seconds. {0} is a placeholder for the number of second (eg. 1 sec or 20 sec). Use abbreviations for seconds, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_Seconds_Ago_One">
+    <value>Il y a {0} seconde</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Other">
+    <value>il y a {0} secondes</value>
+  </data>
+  <data name="FreeConnections_P2PUpsell">
+    <value>Téléchargez des fichiers depuis BitTorrent ou d'autres protocoles de partage de fichiers.</value>
+  </data>
+  <data name="FreeConnections_SecureCoreUpsell">
+    <value>Ajoutez une couche de chiffrement à votre connexion VPN.</value>
+  </data>
+  <data name="FreeConnections_TorUpsell">
+    <value>Utilisez le réseau Tor sur votre connexion VPN pour plus de protection de votre vie privée.</value>
+  </data>
+  <data name="FreeConnections_WorldwideCoverageUpsell">
+    <value>Profitez de serveurs dans le monde entier en passant à VPN Plus.</value>
+  </data>
+  <data name="Gateway_Fastest">
+    <value>La passerelle la plus rapide</value>
+  </data>
+  <data name="Gateway_Random">
+    <value>Passerelle aléatoire</value>
+  </data>
+  <data name="Gateways_Page_Description">
+    <value>Connectez-vous à une passerelle afin d'accéder au VPN de votre organisation.</value>
+  </data>
+  <data name="Gateways_Page_Title">
+    <value>Passerelles</value>
+  </data>
+  <data name="Home_Account_SignOut">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="Home_Account_SignOut_Confirmation_Title">
+    <value>Se déconnecter de {0} ?</value>
+    <comment>{0} is a placeholder for the username</comment>
+  </data>
+  <data name="Home_ConnectionCard_ChangeDefaultConnection">
+    <value>Modifier la connexion par défaut</value>
+  </data>
+  <data name="Home_ConnectionCard_ChangeServer">
+    <value>Changer de serveur</value>
+  </data>
+  <data name="Home_ConnectionDetails_AdvancedKillSwitchActivated">
+    <value>La fonctionnalité Arrêt d'urgence (kill switch) avancé est activée.</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectToRestoreConnection">
+    <value>Connectez-vous à un VPN pour restaurer votre connexion internet.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Connecting">
+    <value>Connexion</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectingSubLabel">
+    <value>Protection de votre identité numérique...</value>
+  </data>
+  <data name="Home_ConnectionDetails_Country">
+    <value>Pays</value>
+  </data>
+  <data name="Home_ConnectionDetails_Isp">
+    <value>Fournisseur</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protected">
+    <value>Protégé</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protocol">
+    <value>Protocole</value>
+  </data>
+  <data name="Home_ConnectionDetails_ServerLoad">
+    <value>Charge du serveur</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Description">
+    <value>Veuillez-vous réauthentifier dans le portail A2F de votre organisation pour continuer.</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Title">
+    <value>A2F expiré</value>
+  </data>
+  <data name="Home_ConnectionDetails_Unprotected">
+    <value>Sans protection</value>
+  </data>
+  <data name="Home_ConnectionDetails_UnprotectedSubLabel">
+    <value>Chiffrez vos activités en ligne en vous connectant à un VPN.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Volume">
+    <value>Trafic total</value>
+  </data>
+  <data name="Home_ConnectionDetails_VpnIp">
+    <value>Adresse IP du VPN</value>
+  </data>
+  <data name="Home_ConnectionDetails_YourIpAddress">
+    <value>Votre adresse IP</value>
+  </data>
+  <data name="Home_FreeConnections_About">
+    <value>Plus d'informations à propos des connexions gratuites</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_One">
+    <value>Publicité bloquée</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Other">
+    <value>Publicités bloquées</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Description">
+    <value>Les publicités sont des bannières promotionnelles ou des pop-ups qui s'affichent sur les sites internet et les applications.</value>
+  </data>
+  <data name="Home_NetShield_DataSaved">
+    <value>Données économisées</value>
+  </data>
+  <data name="Home_NetShield_DataSaved_Description">
+    <value>Estimation des données économisées en bloquant les publicités, traqueurs et logiciels malveillants.</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_One">
+    <value>Traqueur bloqué</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Other">
+    <value>Traqueurs bloqués</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Description">
+    <value>Les traqueurs sont des cookies et des sites internet tiers qui collectent, stockent et vendent les informations de vos activités en ligne.</value>
+  </data>
+  <data name="Home_Recents_Pin">
+    <value>Épingler</value>
+  </data>
+  <data name="Home_Recents_Restricted">
+    <value>Le serveur est disponible avec VPN Plus.</value>
+  </data>
+  <data name="Home_Recents_ServerUnderMaintenance">
+    <value>Le serveur est en cours de maintenance.</value>
+  </data>
+  <data name="Home_Recents_Title">
+    <value>Connexions récentes</value>
+  </data>
+  <data name="Home_Recents_Unpin">
+    <value>Désépingler</value>
+  </data>
+  <data name="Home_TitleBar_Menu_About">
+    <value>À propos</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Account">
+    <value>Compte</value>
+  </data>
+  <data name="Home_TitleBar_Menu_ExitTheApp">
+    <value>Quitter l'application</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help">
+    <value>Aide</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help_WhatsTheIssue">
+    <value>Quel est le problème ?</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Settings">
+    <value>Paramètres</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Signout">
+    <value>Déconnexion</value>
+  </data>
+  <data name="Home_TitleBar_Menu_UpdateNow">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="LoadingPage_Tip">
+    <value>Un monde meilleur commence par la protection de la vie privée et la liberté numérique.</value>
+  </data>
+  <data name="Login_Error_GetSessionDetailsFailed">
+    <value>Une erreur s'est produite lors de la récupération des informations de la session. Veuillez réessayer.</value>
+  </data>
+  <data name="Login_Error_GuestHoleFailedDueToMobileHotspot">
+    <value>La connexion n'a pas abouti à cause des paramètres réseau de votre appareil. Cela peut être causé par un point d'accès mobile, une autre application VPN ou un logiciel de machine virtuelle. Veuillez vérifier votre configuration réseau ou contacter le support pour obtenir de l'aide.</value>
+  </data>
+  <data name="Login_Error_IncorrectTwoFactorCode">
+    <value>Code incorrect. Nous vous invitons à réessayer.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Message">
+    <value>Un fichier nécessaire à la connexion est manquant dans votre installation. Veuillez réinstaller Proton VPN pour résoudre ce problème.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Title">
+    <value>Impossible de se connecter</value>
+  </data>
+  <data name="Login_Error_SessionExpired">
+    <value>Votre session a expiré. Nous vous invitons à vous reconnecter.</value>
+    <comment>The message displayed in Login window when expired session is detected</comment>
+  </data>
+  <data name="Login_Error_SsoAuthFailed">
+    <value>Échec de l'authentification unique (SSO). Veuillez réessayer.</value>
+  </data>
+  <data name="Login_Error_TwoFactorFailed">
+    <value>Échec de l'authentification à deux facteurs. Nous vous invitons à vous reconnecter.</value>
+  </data>
+  <data name="Login_Error_WebAuthnNotSupported">
+    <value>L'authentification par clé de sécurité n'est pas prise en charge par votre appareil ou votre connexion Bureau à distance.</value>
+  </data>
+  <data name="Login_TwoFactorForm_Authenticate">
+    <value>S'authentifier</value>
+    <comment>Authenticate button inside two factor form during login</comment>
+  </data>
+  <data name="Login_TwoFactorForm_Subtitle">
+    <value>Code d'authentification à 6 chiffres</value>
+  </data>
+  <data name="Login_TwoFactorForm_Title">
+    <value>Authentification à deux facteurs</value>
+  </data>
+  <data name="Login_TwoFactor_Authenticator">
+    <value>Application d'authentification</value>
+  </data>
+  <data name="Login_TwoFactor_Digit1">
+    <value>Premier chiffre</value>
+  </data>
+  <data name="Login_TwoFactor_Digit2">
+    <value>Deuxième chiffre</value>
+  </data>
+  <data name="Login_TwoFactor_Digit3">
+    <value>Troisième chiffre</value>
+  </data>
+  <data name="Login_TwoFactor_Digit4">
+    <value>Quatrième chiffre</value>
+  </data>
+  <data name="Login_TwoFactor_Digit5">
+    <value>Cinquième chiffre</value>
+  </data>
+  <data name="Login_TwoFactor_Digit6">
+    <value>Sixième chiffre</value>
+  </data>
+  <data name="Login_TwoFactor_EnterCode">
+    <value>Saisissez votre code</value>
+  </data>
+  <data name="Login_TwoFactor_NoMethodAvailable">
+    <value>Aucune méthode d'authentification à deux facteurs connue n'a été trouvée.</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey">
+    <value>Clé de sécurité</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey_Description">
+    <value>Insérez la clé U2F ou FIDO liée à votre Proton Account.</value>
+  </data>
+  <data name="Main_Loading">
+    <value>Chargement en cours. Veuillez patienter...</value>
+    <comment>Message in the loading screen when starting the app</comment>
+  </data>
+  <data name="Main_Loading_SigningIn">
+    <value>La connexion est en cours. Veuillez patienter...</value>
+    <comment>Message in the loading screen when signing in</comment>
+  </data>
+  <data name="Main_Loading_SigningIn_Longer">
+    <value>Cela prend plus de temps que d'habitude, mais nous y travaillons.</value>
+    <comment>Message in the loading screen when sign in action takes longer than expected</comment>
+  </data>
+  <data name="Main_Loading_SigningOut">
+    <value>La déconnexion est en cours. Veuillez patienter...</value>
+    <comment>Message in the loading screen when signing out</comment>
+  </data>
+  <data name="Map_ConnectTo">
+    <value>Connexion - {0}</value>
+    <comment>A label inside a map pin tooltip. {0} is a placeholder for country, state or city. (eg. "Connect - United States", "Connect - New York")</comment>
+  </data>
+  <data name="NoServers_ContactUs">
+    <value>Nous contacter</value>
+  </data>
+  <data name="NoServers_FailedToLoad">
+    <value>Nous n'avons pas pu charger la liste des serveurs.</value>
+  </data>
+  <data name="NoServers_NeedHelp">
+    <value>Assistance</value>
+  </data>
+  <data name="NoServers_SignOut">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="NoServers_Tip">
+    <value>Demandez à votre administrateur d'activer l'accès VPN pour votre compte.</value>
+  </data>
+  <data name="NoServers_Title">
+    <value>Aucune connexion VPN disponible</value>
+  </data>
+  <data name="NoServers_UnderMaintenance_Tip">
+    <value>Impossible de charger les serveurs. Cliquez sur Actualiser pour mettre à jour la liste des serveurs.</value>
+  </data>
+  <data name="Notifications_KillSwitch_Description">
+    <value>Pour protéger votre adresse IP, la fonction Arrêt d'urgence (kill switch) bloque votre connexion internet.</value>
+  </data>
+  <data name="Notifications_PortForwarding_CopyPortNumber">
+    <value>Copier le numéro de port</value>
+  </data>
+  <data name="Notifications_PortForwarding_Description">
+    <value>Allez dans votre client torrent ou application P2P et saisissez ce numéro.</value>
+  </data>
+  <data name="Notifications_SessionLimit_Description">
+    <value>Vous avez atteint la limite maximale d'appareils. Pour vous reconnecter au VPN, veuillez vous déconnecter d'un autre appareil.</value>
+  </data>
+  <data name="Notifications_SubscriptionExpired_Description_Connected">
+    <value>Votre abonnement passe à Proton Free et nous vous reconnectons au serveur gratuit le plus rapide.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Description">
+    <value>Les réseaux wifi publics sont plus vulnérables aux menaces de sécurité. Connectez-vous au VPN pour surfer en toute sécurité.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Title">
+    <value>Une connexion wifi non sécurisée a été détectée.</value>
+  </data>
+  <data name="NpsSurvey_Title">
+    <value>Enquête de Proton VPN</value>
+    <comment>The window title displayed at the top of the NPS (Net Promoter Score) survey</comment>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Description">
+    <value>Pour inclure les adresses IPv6, vous devez autoriser les connexions IPv6 via le tunnel VPN.</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_PrimaryButton">
+    <value>Activer IPv6</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_SecondaryButton">
+    <value>Plus tard</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Title">
+    <value>L'IPv6 a été désactivé</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Action">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Message">
+    <value>Cette version de l'application est obsolète. Vous devez la mettre à jour avant de continuer à utiliser Proton VPN.</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Title">
+    <value>Mettre à jour Proton VPN pour continuer</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Description">
+    <value>Nos serveurs P2P (peer-to-peer) vous permettent d'accéder aux réseaux P2P tout en protégeant votre adresse IP et vos activités en ligne.</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Header">
+    <value>Qu'est-ce qu'un VPN P2P ?</value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Description">
+    <value>Les réseaux P2P permettent à deux appareils de se connecter et de transférer des données sans passer par un serveur central. </value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Header">
+    <value>Qu'est-ce qu'un réseau P2P ?</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Description">
+    <value>  •  Téléchargement de fichiers torrent
+  •  Amélioration des performances des jeux en ligne et appels vidéo
+  •  Connexion à des périphériques du réseau local (LAN)</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Header">
+    <value>À quoi servent les réseaux P2P ?</value>
+  </data>
+  <data name="Overlay_P2P_LearnMore">
+    <value>Qu'est-ce que le P2P ?</value>
+  </data>
+  <data name="Overlay_P2P_Title">
+    <value>P2P</value>
+  </data>
+  <data name="Overlay_Profile_Description1">
+    <value>Les profils sont des connexions VPN personnalisées que vous pouvez adapter à vos besoins et enregistrer pour un accès rapide.</value>
+  </data>
+  <data name="Overlay_Profile_Description2">
+    <value>Définissez votre emplacement préféré et optimisez vos paramètres pour la sécurité, les performances, le gaming ou toute autre utilisation.</value>
+  </data>
+  <data name="Overlay_Profile_LearnMore">
+    <value>Qu'est-ce qu'un profil VPN ?</value>
+  </data>
+  <data name="Overlay_Profile_Title">
+    <value>Profils</value>
+  </data>
+  <data name="Overlay_SecureCore_Description1">
+    <value>La fonctionnalité Secure Core vous connecte à votre serveur de destination via un second serveur VPN à sécurité maximale.</value>
+  </data>
+  <data name="Overlay_SecureCore_Description2">
+    <value>Ce niveau de protection plus élevé peut entraîner une latence accrue et des vitesses plus lentes.</value>
+  </data>
+  <data name="Overlay_SecureCore_LearnMore">
+    <value>Qu'est-ce que Secure Core ?</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection">
+    <value>Connexion VPN
+Secure Core</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Latency">
+    <value>Latence plus élevée</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Privacy">
+    <value>Confidentialité avancée</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection">
+    <value>Connexion VPN
+Standard</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Latency">
+    <value>Latence plus faible</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Privacy">
+    <value>Confidentialité élevée</value>
+  </data>
+  <data name="Overlay_SecureCore_Title">
+    <value>Secure Core</value>
+  </data>
+  <data name="Overlay_ServerLoad_Description">
+    <value>La charge du serveur indique à quel point un serveur est proche de sa capacité maximale.
+
+Une charge de serveur élevée peut ralentir votre connexion.</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Description">
+    <value>Le VPN peut fonctionner plus lentement que d'habitude.</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Title">
+    <value>Élevée (91-100 %)</value>
+  </data>
+  <data name="Overlay_ServerLoad_LearnMore">
+    <value>Qu'est-ce que la charge d'un serveur ?</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Description">
+    <value>Vitesses extrêmement élevées</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Title">
+    <value>Faible (1-75 %)</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Description">
+    <value>Peu probable que cela affecte la vitesse du VPN</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Title">
+    <value>Moyenne (76-90 %)</value>
+  </data>
+  <data name="Overlay_ServerLoad_Title">
+    <value>Charge du serveur</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description1">
+    <value>La fonctionnalité Smart Routing permet de fournir une couverture VPN dans des pays difficiles d'accès.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description2">
+    <value>Lorsque vous vous connectez à un serveur Smart Routing, il apparaîtra que vous surfez depuis le pays de destination, même si le serveur physique se trouve ailleurs.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description3">
+    <value>La fonctionnalité Smart Routing est généralement utilisée pour contourner les lois anti-confidentialité et d'autres formes de censure.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Header">
+    <value>Le pays dans lequel les serveurs sont physiquement situés est {0}, mais le pays à partir duquel vous semblerez naviguer est {1}.</value>
+    <comment>{0} is a placeholder for the physical server location country. {1} is a placeholder for the destination country
+    Warning: country names are inserted in the nominative case. For INFLECTED languages, use alternative wording as follows:
+    Connects you to your destination country ({1}) through servers that are physically located somewhere else ({0})</comment>
+  </data>
+  <data name="Overlay_SmartRouting_LearnMore">
+    <value>Qu'est-ce que le Smart Routing ?</value>
+  </data>
+  <data name="Overlay_SmartRouting_Title">
+    <value>Smart Routing</value>
+  </data>
+  <data name="Overlay_Tor_Description">
+    <value>Connectez-vous à un serveur Tor pour accéder aux sites cachés et services masqués depuis le navigateur de votre choix.</value>
+  </data>
+  <data name="Overlay_Tor_LearnMore">
+    <value>Comment accéder au réseau Tor ?</value>
+  </data>
+  <data name="Overlay_Tor_Title">
+    <value>Tor</value>
+  </data>
+  <data name="Profile_CustomSettings_Description">
+    <value>Les paramètres de profil remplaceront vos paramètres VPN lors de la connexion.</value>
+  </data>
+  <data name="Profile_CustomSettings_Header">
+    <value>Ajouter des paramètres personnalisés</value>
+  </data>
+  <data name="Profile_CustomSettings_Hide">
+    <value>Masquer les paramètres</value>
+  </data>
+  <data name="Profile_CustomSettings_Show">
+    <value>Afficher les paramètres</value>
+  </data>
+  <data name="Profile_NatType_Conflict_Description">
+    <value>Cela désactivera la redirection de port pour ce profil.</value>
+  </data>
+  <data name="Profile_NetShield_Conflict_Description">
+    <value>Cela désactivera le DNS personnalisé de ce profil.</value>
+  </data>
+  <data name="Profile_Options_Application">
+    <value>Application</value>
+  </data>
+  <data name="Profile_Options_Application_Select">
+    <value>Sélectionner une application</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Application">
+    <value>Ouvrir une application</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_PrivateBrowsingMode">
+    <value>Utiliser le mode navigation privée</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Website">
+    <value>Ouvrir un site internet</value>
+  </data>
+  <data name="Profile_Options_Description">
+    <value>Ouvrez automatiquement un site internet ou une application de votre choix lorsque vous vous connectez à ce profil.</value>
+  </data>
+  <data name="Profile_Options_Header">
+    <value>Connexion et ouverture</value>
+  </data>
+  <data name="Profile_Options_Url">
+    <value>URL du site web</value>
+  </data>
+  <data name="Profile_Options_Url_Error">
+    <value>Entrez une URL valide.</value>
+  </data>
+  <data name="Profile_PortForwarding_Conflict_Description">
+    <value>Cela définira le type de NAT de ce profil sur Strict (type 3).</value>
+  </data>
+  <data name="Profiles_Default_Gaming">
+    <value>Jeux vidéos</value>
+  </data>
+  <data name="Profiles_Default_MaxSecurity">
+    <value>Sécurité maximale</value>
+  </data>
+  <data name="Profiles_Default_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Profiles_Default_RandomConnection">
+    <value>Connexion aléatoire</value>
+  </data>
+  <data name="Profiles_Default_Streaming">
+    <value>Streaming États-Unis</value>
+  </data>
+  <data name="Profiles_Default_WorkSchool">
+    <value>Travail ou école</value>
+  </data>
+  <data name="Profiles_Page_Description">
+    <value>Configurez vos propres paramètres VPN et connectez-vous en un clic</value>
+  </data>
+  <data name="Profiles_Page_Title">
+    <value>Profils</value>
+  </data>
+  <data name="Search_InputBox_Placeholder">
+    <value>Naviguer depuis...</value>
+  </data>
+  <data name="Search_NoInput_CityOrState">
+    <value>Ville ou État américain</value>
+    <comment>The word used for one single city and one single United States state</comment>
+  </data>
+  <data name="Search_NoInput_Country">
+    <value>Pays</value>
+    <comment>The word used for one single country</comment>
+  </data>
+  <data name="Search_NoInput_Server">
+    <value>Serveur</value>
+    <comment>The word used for one single server</comment>
+  </data>
+  <data name="Search_NoInput_TrySearchingFor">
+    <value>Essayez de rechercher...</value>
+  </data>
+  <data name="Search_NoResults_Description">
+    <value>Essayez un autre mot-clé.</value>
+  </data>
+  <data name="Search_NoResults_Title">
+    <value>Aucun résultat trouvé.</value>
+  </data>
+  <data name="Server">
+    <value>Serveur</value>
+  </data>
+  <data name="Server_Fastest">
+    <value>Serveur le plus rapide</value>
+  </data>
+  <data name="Server_Fastest_Free">
+    <value>Serveur gratuit le plus rapide</value>
+  </data>
+  <data name="Server_Feature_B2B">
+    <value>Passerelle </value>
+  </data>
+  <data name="Server_Feature_B2B_Description">
+    <value>Accédez aux serveurs de votre organisation</value>
+  </data>
+  <data name="Server_Feature_None">
+    <value>Standard</value>
+  </data>
+  <data name="Server_Feature_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Server_Feature_P2P_Description">
+    <value>Optimisé pour le torrent</value>
+  </data>
+  <data name="Server_Feature_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Server_Feature_SecureCore_Description">
+    <value>Double protection</value>
+  </data>
+  <data name="Server_Feature_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Server_Free">
+    <value>Serveur gratuit</value>
+  </data>
+  <data name="Server_Random">
+    <value>Serveur aléatoire</value>
+  </data>
+  <data name="Servers">
+    <value>Serveurs</value>
+  </data>
+  <data name="Settings_About_Changelog">
+    <value>Journal des modifications</value>
+  </data>
+  <data name="Settings_About_CurrentVersion">
+    <value>Version actuelle</value>
+  </data>
+  <data name="Settings_About_FailedToFetch">
+    <value>Les informations du journal des modifications n'ont pas pu être chargées.</value>
+  </data>
+  <data name="Settings_About_LearnMore">
+    <value>En savoir plus</value>
+  </data>
+  <data name="Settings_About_Licensing">
+    <value>Licence</value>
+  </data>
+  <data name="Settings_About_Loading">
+    <value>Chargement</value>
+  </data>
+  <data name="Settings_About_Title">
+    <value>À propos</value>
+  </data>
+  <data name="Settings_Account_Account">
+    <value>Compte</value>
+  </data>
+  <data name="Settings_Account_Exit">
+    <value>Quitter l'application</value>
+  </data>
+  <data name="Settings_Account_SignOut">
+    <value>Déconnexion</value>
+  </data>
+  <data name="Settings_AppVersion">
+    <value>Version de l'application</value>
+  </data>
+  <data name="Settings_Censorship_Footer">
+    <value>Ces statistiques ne contiennent pas votre adresse IP, elles ne peuvent pas être utilisées pour vous identifier. Nous ne les partagerons jamais avec des tiers.</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports">
+    <value>Partager des rapports de plantage anonymes</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports_Description">
+    <value>Les rapports de plantage nous aident à corriger les bugs, à détecter les pare-feux et à éviter le blocage de VPN.</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics">
+    <value>Partager des statistiques d'utilisation anonymes</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics_Description">
+    <value>Les données d'utilisation nous aident à contourner les blocages VPN et à améliorer les performances de l'application.</value>
+  </data>
+  <data name="Settings_Common_Apply">
+    <value>Appliquer</value>
+    <comment>Apply action. Used to apply changes made on a settings page</comment>
+  </data>
+  <data name="Settings_Common_IpAddresses_AlreadyExists">
+    <value>L'adresse a déjà été ajoutée.</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Invalid">
+    <value>Saisissez une adresse IPv4 ou IPv6 valide.</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Watermark">
+    <value>192.0.2.0</value>
+    <comment>Watermark for the IP Address field in the Custom DNS servers settings page</comment>
+  </data>
+  <data name="Settings_Connection">
+    <value>Connexion</value>
+  </data>
+  <data name="Settings_Connection_AdvancedSettings">
+    <value>Paramètres Avancé</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting">
+    <value>Routage alternatif</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting_Description">
+    <value>Si les services Proton sont bloqués en raison de restrictions de réseau, nous essaierons d'utiliser un autre routage de réseau pour vous connecter à nos sites.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers">
+    <value>Serveurs DNS personnalisés</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_AddNew">
+    <value>Ajouter un nouveau serveur DNS</value>
+    <comment>Label above an input field where users can enter a new DNS server IP address.</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Description">
+    <value>Vous ne pourrez pas utiliser l'option NetShield si vous êtes connecté à un serveur DNS personnalisé.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Title">
+    <value>Activer les serveurs DNS personnalisés ?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Description">
+    <value>Connectez-vous à Proton VPN en utilisant votre propre système de noms de domaine (DNS). Utilisez uniquement des serveurs DNS auxquels vous faites confiance.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Footer">
+    <value>Nous allons essayer de vous connecter à ces serveurs dans l'ordre. Si aucun ne fonctionne, le DNS de Proton VPN sera utilisé par défaut.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_FormattedHeader">
+    <value>Serveurs DNS ({0})</value>
+    <comment>Header for the list of Custom DNS servers defined. {0} is a placeholder for the number of DNS servers in the list. (eg. "DNS servers (4)")</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Header">
+    <value>Serveurs DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Select">
+    <value>Sélectionnez des serveurs DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6">
+    <value>Support IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection">
+    <value>Protection contre les fuites d'adresses IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection_Description">
+    <value>Bloquer le trafic IPv6 qui ne passe pas par le tunnel VPN pour empêcher les fuites de données.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6_Description">
+    <value>Autoriser le trafic IPv6 à accéder au tunnel VPN pour optimiser la compatibilité avec les sites internet et services de IPv6.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections">
+    <value>Autoriser les connexions LAN</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_Description">
+    <value>Vous pouvez vous connecter à des imprimantes, des enceintes et d'autres appareils du réseau local.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Description">
+    <value>Utiliser le mDNS pour se connecter aux appareils en utilisant des noms comme 'Mon-Imprimante' ou 'routeur.local' au lieu des adresses IP. Le DNS standard continue d'être acheminé via le tunnel VPN. Désactivé par défaut pour des vitesses VPN plus rapides.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Title">
+    <value>Accéder aux appareils par le nom</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType">
+    <value>Type de NAT</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Description">
+    <value>Vous ne pourrez pas utiliser la redirection de port avec un NAT modéré.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Title">
+    <value>Activer le NAT modéré ?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Description">
+    <value>Sélectionnez un type de traduction d'adresse réseau pour votre connexion.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate">
+    <value>Modéré (type 2)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate_Description">
+    <value>Il existe certaines restrictions sur les données entrant dans votre réseau. Cette option est parfaite pour les jeux vidéo en ligne.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict">
+    <value>Strict (type 3)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict_Description">
+    <value>Restreint les données entrant dans votre réseau. Cette option est plus sûre, mais peut compliquer les connexions P2P pour les jeux vidéo.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tap">
+    <value>Route le trafic réseau. Plus lent que TUN, mais nécessaire pour certaines configurations réseau héritées ou particulières.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tun_Description">
+    <value>Achemine le trafic entre différents réseaux. TUN peut être plus rapide et plus stable que TAP.</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences">
+    <value>Préférences de connexion</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences_Description">
+    <value>Connexions par défaut et emplacements exclus</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenDisabled">
+    <value>La fonctionnalité DNS personnalisé ne peut pas être activée, car vous êtes connecté à un profil avec NetShield activé.</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenEnabled">
+    <value>La fonctionnalité DNS personnalisé est désactivée, car vous êtes actuellement connecté à un profil avec NetShield activé.</value>
+  </data>
+  <data name="Settings_Connection_Default">
+    <value>Connexion par défaut</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest">
+    <value>Pays le plus rapide</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest_Description">
+    <value>Le meilleur serveur selon votre emplacement</value>
+  </data>
+  <data name="Settings_Connection_Default_Last">
+    <value>Dernière connexion</value>
+  </data>
+  <data name="Settings_Connection_Default_Last_Description">
+    <value>Votre connexion récente la plus utilisée</value>
+  </data>
+  <data name="Settings_Connection_Default_Random">
+    <value>Pays aléatoire</value>
+  </data>
+  <data name="Settings_Connection_Default_Random_Description">
+    <value>Serveur différent à chaque connexion</value>
+  </data>
+  <data name="Settings_Connection_Default_Recents">
+    <value>Connexions récentes</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations">
+    <value>Emplacements exclus</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Cities">
+    <value>Villes</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Countries">
+    <value>Pays</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Description">
+    <value>Les emplacements sélectionnés ne seront jamais choisis pour les connexions les plus rapides et aléatoires.</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_NoLocations">
+    <value>Aucun emplacement disponible</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Search">
+    <value>Sélectionner...</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_States">
+    <value>États</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch">
+    <value>Arrêt d'urgence (kill switch)</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced">
+    <value>Paramètres avancés</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced_Description">
+    <value>Autorisez l'accès à internet uniquement quand vous êtes connecté à Proton VPN. La fonctionnalité Arrêt d'urgence (kill switch) avancé restera active même si vous redémarrez votre appareil.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Description">
+    <value>Protège votre adresse IP en vous déconnectant d'internet si vous perdez votre connexion VPN.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard">
+    <value>Standard</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard_Description">
+    <value>Se déconnecter automatiquement d'internet en cas de perte de la connexion VPN</value>
+  </data>
+  <data name="Settings_Connection_NetShield">
+    <value>NetShield</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackers">
+    <value>Bloquez les pubs, traqueurs et logiciels malveillants</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackersAdultContent">
+    <value>Bloquez les publicités, les traqueurs, les logiciels malveillants et le contenu pour adultes</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockMalwareOnly">
+    <value>Bloquer uniquement les logiciels malveillants</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Description">
+    <value>Vous ne pourrez pas vous connecter à un serveur DNS personnalisé si NetShield est activé.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Information">
+    <value>NetShield n'est pas compatible avec un DNS personnalisé.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Title">
+    <value>Voulez-vous activer NetShield ?</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Description">
+    <value>Protégez votre navigation sur les sites internet et les applications.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Footer">
+    <value>Certains sites internet peuvent ne pas se charger correctement quand les publicités et les traqueurs sont bloqués.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_PrivacyPanel">
+    <value>NetShield Privacy Panel</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding">
+    <value>Redirection de port</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort">
+    <value>Numéro de port actif :</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort_Copy">
+    <value>Copier le numéro de port</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Description">
+    <value>Vous ne pourrez pas utiliser le NAT modérée si la redirection de port est activée.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Title">
+    <value>Voulez-vous activer la redirection de port ?</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Description">
+    <value>Améliore les vitesses de téléchargement, de torrent et de jeu en ligne en permettant des connexions P2P directes via un port désigné.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Footer">
+    <value>Pour utiliser le transfert de port, veuillez vous connecter à un serveur qui prend en charge le P2P.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_LastChanged">
+    <value>Dernière modification : {0}</value>
+    <comment>Indicates when the active port was changed for the last time. {0} is a placeholder for the time. (eg. "Last changed: 5 minutes ago" or "Last changed: May 20, at 14:32")</comment>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Loading">
+    <value>Chargement en cours...</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications">
+    <value>Notifications</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications_Description">
+    <value>Soyez averti lorsque votre numéro de port actif change.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Unavailable">
+    <value>Indisponible</value>
+  </data>
+  <data name="Settings_Connection_Protocol">
+    <value>Protocole</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling">
+    <value>Split tunneling</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Description">
+    <value>Sélectionnez les applications qui seront exclues de la connexion VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_FormattedHeader">
+    <value>Applications exclues ({0})</value>
+    <comment>Header for the list of apps to exclude for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Excluded apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Header">
+    <value>Applications exclues</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_FilesFilterName">
+    <value>Fichiers d'application</value>
+    <comment>Describe the name of the filter used to select executable files in the Open file dialog</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Description">
+    <value>Sélectionnez les applications qui seront incluses dans la connexion VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_FormattedHeader">
+    <value>Applications incluses ({0})</value>
+    <comment>Header for the list of apps to include for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Included apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Header">
+    <value>Applications inclues</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Select">
+    <value>Sélectionner les applications</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Description">
+    <value>Personnalisez votre connexion en décidant quelles applications et adresses IP sont protégées par le VPN.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse">
+    <value>Mode d'inclusion</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Description">
+    <value>Seules les applications et adresses IP sélectionnées se connectent par VPN. Tout le reste du trafic n'est pas protégé.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Short">
+    <value>Inclure</value>
+    <comment>Shorter version (if possible) of "Include mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_AddNew">
+    <value>Ajouter une nouvelle adresse IPv4 ou IPv6</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Description">
+    <value>Sélectionnez les adresses IP qui seront exclues de la connexion VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_FormattedHeader">
+    <value>Adresses IP exclues ({0})</value>
+    <comment>Header for the list of IP addresses to exclude for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Excluded IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Header">
+    <value>Adresses IP exclues</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Description">
+    <value>Sélectionnez les adresses IP qui seront incluses dans la connexion VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_FormattedHeader">
+    <value>Adresses IP incluses ({0})</value>
+    <comment>Header for the list of IP addresses to include for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Included IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Header">
+    <value>Adresses IP incluses</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Select">
+    <value>Sélectionner des adresses IP</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard">
+    <value>Mode d'exclusion</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Description">
+    <value>Les applications et adresses IP sélectionnées sont exclues de votre connexion VPN.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Short">
+    <value>Exclure</value>
+    <comment>Shorter version (if possible) of "Exclude mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_VpnAccelerator">
+    <value>VPN Accelerator</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Action">
+    <value>Abandonner les modifications</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Cancel">
+    <value>Continuer les modifications</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Title">
+    <value>Abandonner les modifications non enregistrées ?</value>
+  </data>
+  <data name="Settings_General">
+    <value>Général</value>
+  </data>
+  <data name="Settings_General_AutoStartup">
+    <value>Démarrage automatique</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect">
+    <value>Connexion automatique</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect_Description">
+    <value>Se connecte automatiquement à votre connexion par défaut à l'ouverture de Proton VPN.</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch">
+    <value>Démarrage automatique</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Description">
+    <value>Proton VPN s'ouvrira automatiquement quand vous vous connecterez à votre appareil</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Desktop">
+    <value>Ouvrir sur le bureau</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_SystemTray">
+    <value>Réduire dans la barre d'état du système</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Taskbar">
+    <value>Réduire dans la barre des tâches</value>
+  </data>
+  <data name="Settings_General_AutoStartup_Description">
+    <value>Configurer l'application pour qu'elle se lance ou se connecte automatiquement.</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates">
+    <value>Mises à jour automatiques</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates_Description">
+    <value>Vérifier et installer automatiquement les mises à jour de Proton VPN.</value>
+  </data>
+  <data name="Settings_General_BetaAccess">
+    <value>Accès à la version bêta</value>
+  </data>
+  <data name="Settings_General_BetaAccess_Description">
+    <value>Bénéficiez d'un accès en avant-première et aidez-nous à tester les nouvelles versions de Proton VPN.</value>
+  </data>
+  <data name="Settings_General_Language">
+    <value>Langue</value>
+  </data>
+  <data name="Settings_General_Notifications">
+    <value>Notifications</value>
+  </data>
+  <data name="Settings_General_Notifications_Description">
+    <value>Soyez averti lorsque votre état de connexion change.</value>
+  </data>
+  <data name="Settings_General_OpenVpnNetworkDriver">
+    <value>Pilote réseau OpenVPN</value>
+  </data>
+  <data name="Settings_General_Theme">
+    <value>Thème</value>
+  </data>
+  <data name="Settings_Improve">
+    <value>Améliorer Proton</value>
+  </data>
+  <data name="Settings_Improve_Censorship">
+    <value>Aidez-nous à combattre la censure</value>
+  </data>
+  <data name="Settings_OperatingSystemVersion">
+    <value>Version du système d'exploitation</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description1">
+    <value>Ce paramètre est connecté à votre profil actif.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description2">
+    <value>Modifiez votre profil pour apporter des changements ou déconnectez-vous pour modifier les paramètres généraux du VPN.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Tagline">
+    <value>Ces paramètres sont connectés au profil « {0} » et ne peuvent être gérés que dans les profils.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Settings_OverriddenByProfile_Title">
+    <value>Gérer {0} dans les profils</value>
+    <comment>{0} is a placeholder for the name of the settings being overridden by the profile. (eg. Manage NetShield in Profiles)</comment>
+  </data>
+  <data name="Settings_Page_Title">
+    <value>Paramètres</value>
+  </data>
+  <data name="Settings_Protocols_Explanation">
+    <value>Un protocole VPN détermine la manière dont les données circulent entre un serveur VPN et votre appareil.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Description">
+    <value>Établi, testé et sécurisé. OpenVPN est fiable dans de mauvaises conditions de réseau, mais peut ne pas être aussi rapide que d'autres protocoles.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Description">
+    <value>Reconnu, éprouvé et sécurisé. OpenVPN sollicite davantage votre batterie que d'autres protocoles.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Description">
+    <value>Notre nouvelle infrastructure basée sur WireGuard, conçue pour offrir une stabilité, des fonctionnalités et une résistance à la censure améliorées.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Description">
+    <value>Notre nouvelle infrastructure basée sur WireGuard, conçue pour offrir une stabilité, des fonctionnalités et une résistance à la censure améliorées.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Title">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Description">
+    <value>Notre nouvelle infrastructure basée sur WireGuard, conçue pour offrir une stabilité, des fonctionnalités et une résistance à la censure améliorées.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Description">
+    <value>Utilisez l'implémentation de WireGuard spécifique à Proton VPN. Il s'agit d'une fonctionnalité expérimentale, vous pourriez donc rencontrer une certaine instabilité.</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Title">
+    <value>Protocoles Proton</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Description">
+    <value>Sélectionne automatiquement le meilleur protocole pour votre connexion.</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Title">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_Protocols_TcpCategory">
+    <value>Fiabilité (TCP)</value>
+  </data>
+  <data name="Settings_Protocols_UdpCategory">
+    <value>Vitesse (UDP)</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Description">
+    <value>Protocole de pointe en matière de sécurité et de performance.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Description">
+    <value>Contourne les blocages VPN en dissimulant votre connexion VPN à la censure. Stealth résiste à l'inspection approfondie des paquets (DPI), mais peut ne pas être aussi rapide que d'autres protocoles.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Title">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Description">
+    <value>Protocole de pointe en matière de sécurité et de performance.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Reconnection_Title">
+    <value>Reconnectez-vous pour appliquer les changements</value>
+  </data>
+  <data name="Settings_RestoreDefault">
+    <value>Restaurer les paramètres par défaut</value>
+  </data>
+  <data name="Settings_RestoreDefaultAndReconnect_Confirmation_Action">
+    <value>Restaurer et reconnecter</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Action">
+    <value>Restaurer les paramètres par défaut</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Message">
+    <value>Ceci réinitialisera vos paramètres Proton VPN à leurs valeurs d'origine.</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Title">
+    <value>Restaurer les paramètres par défaut ?</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnTcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnUdp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunUdp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTls">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardUdp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_Support">
+    <value>Support</value>
+  </data>
+  <data name="Settings_Support_DebugLogs">
+    <value>Journaux de débogage</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Application">
+    <value>Journaux de l'application</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_ErrorMessage">
+    <value>Le dossier des journaux est introuvable.</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Service">
+    <value>Journaux de service</value>
+  </data>
+  <data name="Settings_Support_ReportIssue">
+    <value>Signaler un problème</value>
+  </data>
+  <data name="Settings_Support_SupportCenter">
+    <value>Espace Aide &amp; Support</value>
+  </data>
+  <data name="Settings_Theme_Dark">
+    <value>Sombre</value>
+  </data>
+  <data name="Settings_Theme_Default">
+    <value>Par défaut</value>
+  </data>
+  <data name="Settings_Theme_Light">
+    <value>Clair</value>
+  </data>
+  <data name="Settings_VpnAccelerator_Description">
+    <value>Augmentez votre vitesse de connexion jusqu'à 400 % grâce à des technologies d'amélioration des performances.</value>
+  </data>
+  <data name="SignIn_Form_AdvancedKillSwitchDescription">
+    <value>La fonction Arrêt d'urgence (kill switch) avancé bloque votre connexion internet.</value>
+  </data>
+  <data name="SignIn_Form_BestSecureVpnForSpeed">
+    <value>Le meilleur VPN sécurisé pour la vitesse</value>
+  </data>
+  <data name="SignIn_Form_CreateAccount">
+    <value>Créer un compte</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_Description">
+    <value>Saisissez les informations de votre compte Proton.</value>
+  </data>
+  <data name="SignIn_Form_DisableKillSwitch">
+    <value>Désactiver la fonctionnalité Arrêt d'urgence</value>
+  </data>
+  <data name="SignIn_Form_Email">
+    <value>E-mail</value>
+  </data>
+  <data name="SignIn_Form_ForgotUsername">
+    <value>Nom d'utilisateur oublié</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_Help">
+    <value>Aide</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_NoLogsPolicy">
+    <value>Politique de non-journalisation (no log)</value>
+  </data>
+  <data name="SignIn_Form_OpenSource">
+    <value>Open source</value>
+  </data>
+  <data name="SignIn_Form_Password">
+    <value>Mot de passe</value>
+  </data>
+  <data name="SignIn_Form_PasswordError">
+    <value>Saisissez votre mot de passe.</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a password</comment>
+  </data>
+  <data name="SignIn_Form_ReportAnIssue">
+    <value>Signaler un problème</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_ResetPassword">
+    <value>Mot de passe oublié</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_SignIn">
+    <value>Connexion</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_SignInWithSso">
+    <value>Se connecter avec l'authentification unique (SSO)</value>
+  </data>
+  <data name="SignIn_Form_SwissBased">
+    <value>Basé en Suisse</value>
+  </data>
+  <data name="SignIn_Form_Title">
+    <value>Connexion</value>
+  </data>
+  <data name="SignIn_Form_TroubleSigningIn">
+    <value>Centre d'assistance</value>
+    <comment>A button at the bottom of the login window inside Get help popup</comment>
+  </data>
+  <data name="SignIn_Form_Username">
+    <value>E-mail ou nom d'utilisateur</value>
+  </data>
+  <data name="SignIn_Form_UsernameError">
+    <value>Saisissez votre adresse e-mail ou nom d'utilisateur</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a username</comment>
+  </data>
+  <data name="SignIn_KillSwitch_Disabled">
+    <value>L'arrêt d'urgence (kill switch) a été désactivé.</value>
+  </data>
+  <data name="State_Fastest">
+    <value>L’État le plus rapide</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="State_Random">
+    <value>État aléatoire</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="SystemNotification_Connected">
+    <value>Vous êtes maintenant protégé.</value>
+  </data>
+  <data name="SystemNotification_ConnectedTo">
+    <value>Connecté à {0}.</value>
+    <comment>{0} is a placeholder for a country and server name (eg. Connected to Netherlands #342342).</comment>
+  </data>
+  <data name="SystemNotification_Disconnected">
+    <value>Déconnecté</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Description">
+    <value>Débloquez le téléchargement de torrents et les jeux en ligne via les protocoles P2P (peer-to-peer) avec les serveurs VPN payants.</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Title">
+    <value>P2P non disponible avec VPN Free</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Description">
+    <value>Certains sites web et services de streaming bloquent les utilisateurs de VPN gratuits. Passez à Proton VPN Plus pour contourner ces blocages.</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Title">
+    <value>Site bloqué ?</value>
+  </data>
+  <data name="System_Tray_Actions_Connect">
+    <value>Connecter</value>
+  </data>
+  <data name="System_Tray_Actions_Disconnect">
+    <value>Déconnecter</value>
+  </data>
+  <data name="System_Tray_Actions_ExitApplication">
+    <value>Quitter</value>
+  </data>
+  <data name="System_Tray_Actions_OpenApplication">
+    <value>Ouvrir {0}</value>
+    <comment>Button displayed in the tray icon to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_ExitApplication">
+    <value>Quitter</value>
+  </data>
+  <data name="Tray_Actions_OpenApplication">
+    <value>Ouvrir {0}</value>
+    <comment>Button displayed in the tray window to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_OpenApplicationToSignIn">
+    <value>Ouvrir l'application pour se connecter</value>
+  </data>
+  <data name="Unit_BytesPerSecond">
+    <value>o/s</value>
+    <comment>Unit for Bytes per second</comment>
+  </data>
+  <data name="Unit_ExabytesPerSecond">
+    <value>Eo/s</value>
+    <comment>Unit for Exabytes per second</comment>
+  </data>
+  <data name="Unit_GigabytesPerSecond">
+    <value>Go/s</value>
+    <comment>Unit for Gigabytes per second</comment>
+  </data>
+  <data name="Unit_KilobytesPerSecond">
+    <value>Ko/s</value>
+    <comment>Unit for Kilobytes per second</comment>
+  </data>
+  <data name="Unit_MegabytesPerSecond">
+    <value>Mo/s</value>
+    <comment>Unit for Megabytes per second</comment>
+  </data>
+  <data name="Unit_PetabytesPerSecond">
+    <value>Po/s</value>
+    <comment>Unit for Petabytes per second</comment>
+  </data>
+  <data name="Unit_TerabytesPerSecond">
+    <value>To/s</value>
+    <comment>Unit for Terabytes per second</comment>
+  </data>
+  <data name="UpsellBanner_P2P_Description">
+    <value>Téléchargez des fichiers depuis BitTorrent ou d'autres protocoles de partage de fichiers.</value>
+  </data>
+  <data name="UpsellBanner_P2P_Title">
+    <value>Support P2P</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Description">
+    <value>Changez d'abonnement pour choisir n'importe quel serveur.</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Title">
+    <value>Ce n'est pas le pays que vous vouliez ?</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings">
+    <value>Accédez à la personnalisation avancée du VPN.</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_DNS">
+    <value>Connectez-vous au VPN avec votre système de nom de domaine personnalisé (DNS).</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_LAN">
+    <value>Accédez aux appareils de votre réseau local (LAN) tout en étant connecté.</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_ModerateNAT">
+    <value>Améliorez votre expérience de jeu en utilisant un NAT de type 2 (modéré).</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices">
+    <value>Connectez jusqu'à 10 appareils en même temps.</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms">
+    <value>Utilisez Proton VPN sur différentes plateformes.</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Android">
+    <value>Android et Android TV</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Browser">
+    <value>Navigateur</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Linux">
+    <value>Linux</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_MacOS">
+    <value>macOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Windows">
+    <value>Windows</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_iOS">
+    <value>iOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Privacy">
+    <value>Sécurité et respect de la vie privée sur tous vos appareils</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield">
+    <value>Profitez d'une navigation sans publicité</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Block">
+    <value>Bloquez les publicités et les traqueurs avec NetShield.</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Protection">
+    <value>Protégez votre appareil contre les logiciels malveillants.</value>
+  </data>
+  <data name="Upsell_Carousel_P2P">
+    <value>Débloquez les téléchargements et le partage de fichiers peer-to-peer (P2P).</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Discretion">
+    <value>Masquez votre adresse IP à votre fournisseur de service et vos pairs.</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_PortForwarding">
+    <value>Augmentez les vitesses VPN peer-to-peer (P2P) avec la redirection de port.</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Speed">
+    <value>Vitesses d'importation et de téléchargement augmentées</value>
+  </data>
+  <data name="Upsell_Carousel_Platforms_More">
+    <value>+ plus</value>
+    <comment>This label indicates that there are more platforms available than the ones listed. The plus sign is important.</comment>
+  </data>
+  <data name="Upsell_Carousel_Profiles">
+    <value>Accédez rapidement aux connexions que vous utilisez souvent</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Convenience">
+    <value>Définissez un profil comme connexion par défaut et connectez-vous en 1 clic.</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Creation">
+    <value>Créez et enregistrez vos propres configurations VPN à l'aide de profils.</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Customization">
+    <value>Personnalisez votre emplacement, votre protocole et vos paramètres</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore">
+    <value>Ajoutez une protection supplémentaire à votre connexion.</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Encryption">
+    <value>Doublez le chiffrement avec Secure Core.</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Protection">
+    <value>Protégez-vous des attaques réseau.</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Routing">
+    <value>Passez par des serveurs ultra-sécurisés en Suisse, en Suède et en Islande.</value>
+  </data>
+  <data name="Upsell_Carousel_Speed">
+    <value>Profitez d'une navigation ultra-rapide</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Acceleration">
+    <value>Surfez jusqu'à 400 % plus rapidement avec VPN Accelerator</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Access">
+    <value>Accédez à des serveurs plus rapides et moins occupés.</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Traffic">
+    <value>Profitez de vitesses de connexion jusqu'à 10 Gbit/s</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling">
+    <value>Obtenez le meilleur des deux mondes.</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Browsing">
+    <value>Surfez à partir de deux endroits en même temps avec le Split tunneling.</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Configuration">
+    <value>Autorisez les applications et les adresses IP de confiance à se connecter directement à internet, en protégeant tout le reste avec votre VPN.</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming">
+    <value>Regardez vos films et séries préférés en streaming.</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Access">
+    <value>Accédez à des chaînes de télévision et films bloqués géographiquement depuis n'importe où dans le monde.</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_BBC">
+    <value>BBC iPlayer</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Disney">
+    <value>Disney+</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_HBO">
+    <value>HBO Max</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Netflix">
+    <value>Netflix</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_PrimeVideo">
+    <value>Amazon Prime Video</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Speed">
+    <value>Regardez des vidéos en 4K sans mise en mémoire tampon ni ralentissement ou limitation.</value>
+  </data>
+  <data name="Upsell_Carousel_Title">
+    <value>Découvrez VPN Plus</value>
+  </data>
+  <data name="Upsell_Carousel_Tor">
+    <value>Accédez au réseau Tor pour plus de confidentialité.</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Access">
+    <value>Accédez à des services et à des sites cachés</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Browsing">
+    <value>Parcourez le réseau Tor avec votre navigateur habituel.</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Protection">
+    <value>Protégez vos données personnelles quand vous naviguez.</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage">
+    <value>Accédez à plus de {0} dans {1}.</value>
+    <comment>Title for the worldwide coverage upsell feature page. {0} is a placeholder for the number of servers (eg. 100 secure servers) and {1} for the number of countries available (eg. 60 countries).</comment>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Censorship">
+    <value>Contournez la censure avec des fonctionnalités avancées de sécurité</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_One">
+    <value>{0} pays</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Other">
+    <value>{0} pays</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Features">
+    <value>Streaming, torrenting et bien plus encore, en toute sécurité.</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Selection">
+    <value>Sélectionnez n'importe quel pays de notre réseau mondial</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_One">
+    <value>{0} serveur sécurisé</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Other">
+    <value>{0} serveurs sécurisés</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp_Description">
+    <value>Reconnu, testé et sécurisé</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp_Description">
+    <value>Reconnu, testé et sécurisé</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp_Description">
+    <value>Protocole de pointe en matière de sécurité et de performance</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls_Description">
+    <value>Ceci contourne les blocages VPN en dissimulant votre connexion à la censure.</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp_Description">
+    <value>Protocole de pointe en matière de sécurité et de performance</value>
+  </data>
+  <data name="VpnProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp_Description">
+    <value>Protocole de pointe en matière de sécurité et de performance</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls">
+    <value>Stealth</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls_Description">
+    <value>Ceci contourne les blocages VPN en dissimulant votre connexion à la censure.</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp_Description">
+    <value>Protocole de pointe en matière de sécurité et de performance</value>
+  </data>
+</root>

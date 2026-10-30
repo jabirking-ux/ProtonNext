@@ -1,0 +1,4120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_VpnPlan_Free">
+    <value>Proton VPN Free</value>
+  </data>
+  <data name="Automation_Properties_ConnectionDetails_Page">
+    <value>Падрабязнасці старонкі падключэння</value>
+  </data>
+  <data name="Automation_Properties_ConnectionPreferences_Page">
+    <value>Старонка параметраў падключэння</value>
+  </data>
+  <data name="Automation_Properties_Connection_Card_Component">
+    <value>Картка падключэння</value>
+  </data>
+  <data name="Automation_Properties_KillSwitch_Page">
+    <value>Старонка Kill Switch</value>
+  </data>
+  <data name="Automation_Properties_LocationDetails_Page">
+    <value>Старонка падрабязнасцяў месцазнаходжання</value>
+  </data>
+  <data name="Automation_Properties_Login_Page">
+    <value>Старонка ўваходу</value>
+  </data>
+  <data name="Automation_Properties_Main_Page">
+    <value>Галоўная старонка</value>
+  </data>
+  <data name="Automation_Properties_NetShield_Page">
+    <value>Старонка NetShield</value>
+  </data>
+  <data name="Automation_Properties_NoServers_Page">
+    <value>Адсутнічае старонка з серверамі</value>
+  </data>
+  <data name="Automation_Properties_PortForwarding_Page">
+    <value>Старонка перанакіравання партоў</value>
+  </data>
+  <data name="Automation_Properties_Profile_Page">
+    <value>Старонка профілю</value>
+  </data>
+  <data name="Automation_Properties_Settings_Advanced_Page">
+    <value>Дадатковыя налады старонкі</value>
+  </data>
+  <data name="Automation_Properties_Settings_Common_Page">
+    <value>Агульныя налады старонкі</value>
+  </data>
+  <data name="Automation_Properties_Settings_Page">
+    <value>Налады старонкі</value>
+  </data>
+  <data name="Automation_Properties_Sidebar">
+    <value>Бакавая панэль</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Countries_Page">
+    <value>Старонка краін</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Gateways_Page">
+    <value>Старонка шлюзоў</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Page">
+    <value>Старонка падключэнняў</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Profiles_Page">
+    <value>Старонка профіляў</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Recents_Page">
+    <value>Старонка нядаўніх</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Search_Results_Page">
+    <value>Вынікі пошуку</value>
+  </data>
+  <data name="Automation_Properties_SplitTunneling_Page">
+    <value>Старонка Split Tunneling</value>
+  </data>
+  <data name="City_Fastest">
+    <value>Найхутчэйшы горад</value>
+  </data>
+  <data name="City_Random">
+    <value>Выпадковы горад</value>
+  </data>
+  <data name="Common_Actions_Add">
+    <value>Дадаць</value>
+  </data>
+  <data name="Common_Actions_Back">
+    <value>Назад</value>
+  </data>
+  <data name="Common_Actions_Cancel">
+    <value>Скасаваць</value>
+  </data>
+  <data name="Common_Actions_Change">
+    <value>Змяніць</value>
+  </data>
+  <data name="Common_Actions_Close">
+    <value>Закрыць</value>
+  </data>
+  <data name="Common_Actions_Connect">
+    <value>Падключыцца</value>
+  </data>
+  <data name="Common_Actions_ContactUs">
+    <value>Звязацца з намі</value>
+  </data>
+  <data name="Common_Actions_Delete">
+    <value>Выдаліць</value>
+  </data>
+  <data name="Common_Actions_Disconnect">
+    <value>Адключыцца</value>
+  </data>
+  <data name="Common_Actions_Duplicate">
+    <value>Дубліраваць</value>
+  </data>
+  <data name="Common_Actions_Edit">
+    <value>Рэдагаваць</value>
+  </data>
+  <data name="Common_Actions_Enable">
+    <value>Уключыць</value>
+  </data>
+  <data name="Common_Actions_Exit_ProtonVPN">
+    <value>Выйсці з Proton VPN</value>
+  </data>
+  <data name="Common_Actions_GotIt">
+    <value>Зразумела</value>
+  </data>
+  <data name="Common_Actions_Install">
+    <value>Усталяваць</value>
+  </data>
+  <data name="Common_Actions_MoveDown">
+    <value>Перамясціць уніз</value>
+  </data>
+  <data name="Common_Actions_MoveUp">
+    <value>Перамясціць уверх</value>
+  </data>
+  <data name="Common_Actions_Reconnect">
+    <value>Перападключыцца</value>
+  </data>
+  <data name="Common_Actions_Refresh">
+    <value>Абнавіць</value>
+  </data>
+  <data name="Common_Actions_Remove">
+    <value>Выдаліць</value>
+  </data>
+  <data name="Common_Actions_Restart">
+    <value>Перазапусціць</value>
+  </data>
+  <data name="Common_Actions_Save">
+    <value>Захаваць</value>
+  </data>
+  <data name="Common_Actions_TryAgain">
+    <value>Паспрабаваць яшчэ раз</value>
+  </data>
+  <data name="Common_Actions_Update">
+    <value>Абнавіць</value>
+  </data>
+  <data name="Common_Actions_Upgrade">
+    <value>Палепшыць</value>
+  </data>
+  <data name="Common_Confirmation_KillSwitch_Message">
+    <value>Пашыраны Kill Switch уключаны. Адключыце гэту функцыю, каб карыстацца інтэрнэтам без VPN.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnectedWithKillSwitch_Message">
+    <value>Пашыраны Kill Switch уключаны. Вы будзеце адключаны ад інтэрнэту, калі працягніце.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnected_Message">
+    <value>Вы будзеце адключаны ад VPN.</value>
+  </data>
+  <data name="Common_Links_LearnMore">
+    <value>Даведацца больш</value>
+  </data>
+  <data name="Common_Message_AppNotFound">
+    <value>Праграма не знойдзена</value>
+  </data>
+  <data name="Common_States_Off">
+    <value>Выключана</value>
+  </data>
+  <data name="Common_States_On">
+    <value>Уключана</value>
+  </data>
+  <data name="Common_Tags_Beta">
+    <value>БЭТА</value>
+    <comment>This tag indicates that this version of the app is currently in beta (early access)</comment>
+  </data>
+  <data name="Common_Tags_New">
+    <value>НОВАЕ</value>
+    <comment>This tag indicates that a newer version of the app is currently available</comment>
+  </data>
+  <data name="Common_Tags_Recommended">
+    <value>Рэкамендавана</value>
+    <comment>This tag indicates that a given option in the settings is recommended by Proton</comment>
+  </data>
+  <data name="Components_Update_GetMostFromYourVpn">
+    <value>Атрымайце яшчэ больш ад свайго VPN, абнавіўшы праграму да апошняй версіі.</value>
+  </data>
+  <data name="Components_Update_MoreLikelyIssues">
+    <value>Хутчэй за ўсё ў вас з'явяцца праблемы са старымі версіямі Proton VPN.</value>
+  </data>
+  <data name="Components_Update_UpdateAvailable">
+    <value>Даступна абнаўленне</value>
+  </data>
+  <data name="Components_Update_UpdateProtonVpn">
+    <value>Абнавіць Proton VPN</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded">
+    <value>Вашы параметры выключаюць усе даступныя серверы. Змяніце выключэнні для падключэння.</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded_Action">
+    <value>Выключаныя месцазнаходжанні</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Description">
+    <value>Для выпраўлення, закрыйце або выдаліце праграму звязаную з:</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Title">
+    <value>Іншая праграма можа перашкаджаць Proton VPN падключыцца.</value>
+  </data>
+  <data name="Connection_Error_EditProfile">
+    <value>Рэдагаваць профіль</value>
+  </data>
+  <data name="Connection_Error_MissingConnectionCertificate">
+    <value>Proton VPN не ўдалося атрымаць сертыфікат аўтэнтыфікацыі з-за таго, што ў сетцы ёсць праблемы.</value>
+  </data>
+  <data name="Connection_Error_MobileHotspotEnabled">
+    <value>Падключэнне было заблакіравана наладамі сеткі на вашай прыладзе. Прычынай гэтага можа быць мабільны пункт доступу, іншая праграма VPN або праграмнае забеспячэнне віртуальнай машыны. Паглядзіце канфігурацыю сваёй сеткі або звярніцеся ў службу падтрымкі, каб атрымаць дадатковыя звесткі.</value>
+  </data>
+  <data name="Connection_Error_NoServers">
+    <value>Усе выбраныя вамі серверы недаступны. Пашырце выбар або паспрабуйце пазней.</value>
+  </data>
+  <data name="Connection_Error_NoServers_Profile">
+    <value>Выбраны вамі сервер для '{0}' у цяперашні час недаступны. Выберыце іншы сервер або паспрабуйце яшчэ раз пазней.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Connection_Error_NoTapAdapters">
+    <value>Адсутнічае сеткавы адаптар.</value>
+  </data>
+  <data name="Connection_Error_ReportAnIssue">
+    <value>Паведаміць аб праблеме</value>
+  </data>
+  <data name="Connection_Error_RpcServerUnavailable">
+    <value>Proton VPN не можа падключыцца, бо сервер RPC недаступны ў вашай сістэме.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedFreeUser">
+    <value>Вы дасягнулі максімальнай колькасці прылад. Адключыце адну з прылад, каб падключыць гэту. Вы таксама можаце палепшыць свой тарыфны план да PLUS для падключэння да 10 прылад адначасова.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedPaidUser">
+    <value>Вы дасягнулі максімальнай колькасці прылад. Адключыце адну з прылад, каб падключыць гэту.</value>
+  </data>
+  <data name="Connection_Error_TapAdapterInUse">
+    <value>Ваш сеткавы адаптар у дадзены момант выкарыстоўваецца.</value>
+  </data>
+  <data name="Connection_Error_TapRequiresUpdate">
+    <value>Неактуальная версія сеткавага адаптара.</value>
+  </data>
+  <data name="Connection_Error_Title">
+    <value>Збой падключэння</value>
+  </data>
+  <data name="Connection_Error_TlsCertificate">
+    <value>Выяўлена праблема з праверкай сертыфіката сервера VPN, якая можа ўказваць на тое, што сеткавае падключэнне перахоплена або сервер да якога вы спрабуеце падключыцца мае праблемы з канфігурацыяй. Звярніцеся ў нашу службу падтрымкі, адправіўшы нам справаздачу з праблемай.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Description">
+    <value>Перайдзіце на партал 2ФА вашай арганізацыі і націсніце на ключ бяспекі, каб падключыцца да VPN.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Title">
+    <value>Патрабуецца двухфактарная аўтэнтыфікацыя (2ФА)</value>
+  </data>
+  <data name="Connection_Error_Unknown">
+    <value>Праверце падключэнне да інтэрнэту і паспрабуйце яшчэ раз. Калі гэта не дапаможа, звярніцеся ў нашу службу падтрымкі кліентаў.
+
+Код памылкі: {0}</value>
+  </data>
+  <data name="Connection_Error_ViewPossibleSolutions">
+    <value>Паглядзець выпраўленні</value>
+  </data>
+  <data name="Connection_Error_WireGuardAdapterInUse">
+    <value>Адаптар прылады WireGuard у цяперашні час выкарыстоўваецца. Адключыце любы іншы VPN, які запушчаны на вашай прыладзе і паспрабуйце яшчэ раз.</value>
+  </data>
+  <data name="Connection_Feedback_Question">
+    <value>Як вы ацэньваеце сваё падключэнне?</value>
+  </data>
+  <data name="Connection_Intent_AutoSelected">
+    <value>Аўтаматычны выбар з</value>
+    <comment>Appears in the connection card for free users. A set of flags is displayed after the text (eg. Auto-selected from [us-flag] [jp-flag]...)</comment>
+  </data>
+  <data name="Connection_Via_SecureCore">
+    <value>праз {0}</value>
+    <comment>Label used when connecting through Secure Core. {0} is a place holder for the name of the country the user is going through.</comment>
+  </data>
+  <data name="Connections_Cities_One">
+    <value>Горад ({0})</value>
+  </data>
+  <data name="Connections_Cities_Few">
+    <value>Гарады ({0})</value>
+  </data>
+  <data name="Connections_Cities_Many">
+    <value>Гарады ({0})</value>
+  </data>
+  <data name="Connections_Cities_Other">
+    <value>Гарады ({0})</value>
+  </data>
+  <data name="Connections_City">
+    <value>Горад</value>
+  </data>
+  <data name="Connections_City_Restricted">
+    <value>Серверы ў гэтым горадзе даступны з VPN Plus</value>
+  </data>
+  <data name="Connections_City_UnderMaintenance">
+    <value>Усе серверы ў гэтым горадзе на тэхнічным абслугоўванні</value>
+  </data>
+  <data name="Connections_Countries_One">
+    <value>Краіна ({0})</value>
+  </data>
+  <data name="Connections_Countries_Few">
+    <value>Краіны ({0})</value>
+  </data>
+  <data name="Connections_Countries_Many">
+    <value>Краіны ({0})</value>
+  </data>
+  <data name="Connections_Countries_Other">
+    <value>Краіны ({0})</value>
+  </data>
+  <data name="Connections_Country">
+    <value>Краіна</value>
+  </data>
+  <data name="Connections_Country_Middle">
+    <value>Прамежкавая краіна</value>
+  </data>
+  <data name="Connections_Country_Restricted">
+    <value>Серверы ў гэтай краіне даступны з VPN Plus</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance">
+    <value>Усе серверы ў гэтай краіне на тэхнічным абслугоўванні</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance_Title">
+    <value>Немагчыма падключыцца</value>
+  </data>
+  <data name="Connections_Fastest">
+    <value>Найхутчэйшы</value>
+  </data>
+  <data name="Connections_Free_Servers_One">
+    <value>Бясплатны сервер</value>
+  </data>
+  <data name="Connections_Free_Servers_Few">
+    <value>Бясплатныя серверы</value>
+  </data>
+  <data name="Connections_Free_Servers_Many">
+    <value>Бясплатныя серверы</value>
+  </data>
+  <data name="Connections_Free_Servers_Other">
+    <value>Бясплатныя серверы</value>
+  </data>
+  <data name="Connections_Gateway">
+    <value>Шлюз</value>
+  </data>
+  <data name="Connections_Gateway_Restricted">
+    <value>Серверы ў гэтым шлюзе даступны з VPN Plus</value>
+  </data>
+  <data name="Connections_Gateway_UnderMaintenance">
+    <value>Усе серверы ў гэтым шлюзе на тэхнічным абслугоўванні</value>
+  </data>
+  <data name="Connections_Gateways_One">
+    <value>Шлюз ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Few">
+    <value>Шлюзы ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Many">
+    <value>Шлюзы ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Other">
+    <value>Шлюзы ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Server">
+    <value>Вылучаны сервер</value>
+  </data>
+  <data name="Connections_Gateways_Servers_One">
+    <value>Вылучаны сервер ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Few">
+    <value>Вылучаныя серверы ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Many">
+    <value>Вылучаныя серверы ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Other">
+    <value>Вылучаныя серверы ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_One">
+    <value>Горад P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Few">
+    <value>Гарады P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Many">
+    <value>Гарады P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Other">
+    <value>Гарады P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_One">
+    <value>Краіна P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Few">
+    <value>Краіны P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Many">
+    <value>Краіны P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Other">
+    <value>Краіны P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_Servers_One">
+    <value>Сервер P2P</value>
+  </data>
+  <data name="Connections_P2P_Servers_Few">
+    <value>Серверы P2P</value>
+  </data>
+  <data name="Connections_P2P_Servers_Many">
+    <value>Серверы P2P</value>
+  </data>
+  <data name="Connections_P2P_Servers_Other">
+    <value>Серверы P2P</value>
+  </data>
+  <data name="Connections_P2P_States_One">
+    <value>Штат P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Few">
+    <value>Штаты P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Many">
+    <value>Штаты P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Other">
+    <value>Штаты P2P ({0})</value>
+  </data>
+  <data name="Connections_Profiles_One">
+    <value>Профіль ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Few">
+    <value>Профілі ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Many">
+    <value>Профілі ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Other">
+    <value>Профілі ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Create">
+    <value>Стварыць профіль</value>
+    <comment>"Create profile" is more appropriate for the empty profiles page, when you have no profiles</comment>
+  </data>
+  <data name="Connections_Profiles_Delete">
+    <value>Выдаліць профіль</value>
+  </data>
+  <data name="Connections_Profiles_Delete_Message">
+    <value>Профіль з назвай '{0}' будзе незваротна выдалены.</value>
+    <comment>{0} is a placeholder for the name of the profile.</comment>
+  </data>
+  <data name="Connections_Profiles_Delete_Title">
+    <value>Выдаліць профіль?</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Description">
+    <value>Профілі - гэта захаваныя падключэнні з месцазнаходжаннем, серверам і пратаколам, якія вы выбіралі раней.</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Title">
+    <value>Стварыце свой першы профіль</value>
+  </data>
+  <data name="Connections_Profiles_Location_Header">
+    <value>Выберыце тып падключэння і месцазнаходжанне</value>
+  </data>
+  <data name="Connections_Profiles_Name">
+    <value>Дайце назву свайму профілю</value>
+  </data>
+  <data name="Connections_Profiles_Name_Default">
+    <value>Без назвы</value>
+    <comment>This will be used as the default profile name if the user creates a profile without entering a name</comment>
+  </data>
+  <data name="Connections_Profiles_Name_Duplicate">
+    <value>Копія {0}</value>
+    <comment>This will be used as the profile name when duplicating a profile. {0} is a placeholder for the original profile name.</comment>
+  </data>
+  <data name="Connections_Profiles_New">
+    <value>Новы профіль</value>
+    <comment>"New profile" is more appropriate when you already have a profile</comment>
+  </data>
+  <data name="Connections_Profiles_NotAvailable_Tooltip">
+    <value>Профілі даступны з VPN Plus</value>
+    <comment>The text in the tooltip when hovering a profile and the user has a free plan</comment>
+  </data>
+  <data name="Connections_Recents_One">
+    <value>Нядаўнія ({0})</value>
+  </data>
+  <data name="Connections_Recents_Few">
+    <value>Нядаўнія ({0})</value>
+  </data>
+  <data name="Connections_Recents_Many">
+    <value>Нядаўнія ({0})</value>
+  </data>
+  <data name="Connections_Recents_Other">
+    <value>Нядаўнія ({0})</value>
+  </data>
+  <data name="Connections_Recents_Empty_Description">
+    <value>Паглядзець сваю гісторыю падключэнняў.</value>
+  </data>
+  <data name="Connections_Recents_Empty_Title">
+    <value>Пакуль нядаўніх няма</value>
+  </data>
+  <data name="Connections_Recents_Pinned_One">
+    <value>Замацавана ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Few">
+    <value>Замацавана ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Many">
+    <value>Замацавана ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Other">
+    <value>Замацавана ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_One">
+    <value>Краіна Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Few">
+    <value>Краіны Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Many">
+    <value>Краіны Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Other">
+    <value>Краіны Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_One">
+    <value>Сервер Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Few">
+    <value>Серверы Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Many">
+    <value>Серверы Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Other">
+    <value>Серверы Secure Core</value>
+  </data>
+  <data name="Connections_Server_Restricted">
+    <value>Серверы даступныя з VPN Plus</value>
+  </data>
+  <data name="Connections_Server_UnderMaintenance">
+    <value>Гэты сервер на тэхнічным абслугоўванні</value>
+  </data>
+  <data name="Connections_Servers_One">
+    <value>Сервер</value>
+  </data>
+  <data name="Connections_Servers_Few">
+    <value>Серверы</value>
+  </data>
+  <data name="Connections_Servers_Many">
+    <value>Серверы</value>
+  </data>
+  <data name="Connections_Servers_Other">
+    <value>Серверы</value>
+  </data>
+  <data name="Connections_State">
+    <value>Штат</value>
+  </data>
+  <data name="Connections_State_Restricted">
+    <value>Серверы ў гэтым штаце даступны з VPN Plus.</value>
+    <comment>Message appears as a tooltip whenever a free user is trying to connect to a state. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_State_UnderMaintenance">
+    <value>Усе серверы ў гэтым штаце на тэхнічным абслугоўванні.</value>
+    <comment>Message appears as a tooltip whenever all the servers from that state are under maintenance. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_States_One">
+    <value>Штат ({0})</value>
+  </data>
+  <data name="Connections_States_Few">
+    <value>Штаты ({0})</value>
+  </data>
+  <data name="Connections_States_Many">
+    <value>Штаты ({0})</value>
+  </data>
+  <data name="Connections_States_Other">
+    <value>Штаты ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_One">
+    <value>Краіна Tor ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Few">
+    <value>Краіны Tor ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Many">
+    <value>Краіны Tor ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Other">
+    <value>Краіны Tor ({0})</value>
+  </data>
+  <data name="Connections_Tor_Servers_One">
+    <value>Сервер Tor</value>
+  </data>
+  <data name="Connections_Tor_Servers_Few">
+    <value>Серверы Tor</value>
+  </data>
+  <data name="Connections_Tor_Servers_Many">
+    <value>Серверы Tor</value>
+  </data>
+  <data name="Connections_Tor_Servers_Other">
+    <value>Серверы Tor</value>
+  </data>
+  <data name="Countries">
+    <value>Краіны</value>
+  </data>
+  <data name="Countries_All">
+    <value>Усе</value>
+  </data>
+  <data name="Countries_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Countries_P2P_Description">
+    <value>Спампоўвайце файлы праз сеткі P2P (peer-to-peer) і паляпшайце досвед у камп'ютарных гульнях і відэазванках.</value>
+  </data>
+  <data name="Countries_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Countries_SecureCore_Description">
+    <value>Дадайце яшчэ адзін слой шыфравання ў сваё падключэнне па VPN.</value>
+  </data>
+  <data name="Countries_ServerLoad">
+    <value>Загружанасць сервера</value>
+  </data>
+  <data name="Countries_SmartRouting">
+    <value>Smart Routing</value>
+  </data>
+  <data name="Countries_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Countries_Tor_Description">
+    <value>Выкарыстоўвайце сетку Tor праз ваша падключэнне да VPN для дадатковай прыватнасці.</value>
+  </data>
+  <data name="Country_Fastest">
+    <value>Найхутчэйшыя краіны</value>
+  </data>
+  <data name="Country_Fastest_ExcludingMyCountry">
+    <value>Найхутчэйшы (за выключэннем маёй краіны)</value>
+  </data>
+  <data name="Country_Random">
+    <value>Выпадковая краіна</value>
+  </data>
+  <data name="Country_Random_ExcludingMyCountry">
+    <value>Выпадковая (за выключэннем маёй краіны)</value>
+  </data>
+  <data name="Country_val_AD">
+    <value>Андора</value>
+    <comment>The name of AD country</comment>
+  </data>
+  <data name="Country_val_AE">
+    <value>Аб’яднаныя Арабскія Эміраты</value>
+    <comment>The name of AE country</comment>
+  </data>
+  <data name="Country_val_AF">
+    <value>Афганістан</value>
+    <comment>The name of AF country</comment>
+  </data>
+  <data name="Country_val_AG">
+    <value>Антыгуа і Барбуда</value>
+    <comment>The name of AG country</comment>
+  </data>
+  <data name="Country_val_AI">
+    <value>Ангілья</value>
+    <comment>The name of AI country</comment>
+  </data>
+  <data name="Country_val_AL">
+    <value>Албанія</value>
+    <comment>The name of AL country</comment>
+  </data>
+  <data name="Country_val_AM">
+    <value>Арменія</value>
+    <comment>The name of AM country</comment>
+  </data>
+  <data name="Country_val_AO">
+    <value>Ангола</value>
+    <comment>The name of AO country</comment>
+  </data>
+  <data name="Country_val_AQ">
+    <value>Антарктыда</value>
+    <comment>The name of AQ country</comment>
+  </data>
+  <data name="Country_val_AR">
+    <value>Аргенціна</value>
+    <comment>The name of AR country</comment>
+  </data>
+  <data name="Country_val_AS">
+    <value>Амерыканскае Самоа</value>
+    <comment>The name of AS country</comment>
+  </data>
+  <data name="Country_val_AT">
+    <value>Аўстрыя</value>
+    <comment>The name of AT country</comment>
+  </data>
+  <data name="Country_val_AU">
+    <value>Аўстралія</value>
+    <comment>The name of AU country</comment>
+  </data>
+  <data name="Country_val_AW">
+    <value>Аруба</value>
+    <comment>The name of AW country</comment>
+  </data>
+  <data name="Country_val_AX">
+    <value>Аландскія астравы</value>
+    <comment>The name of AX country</comment>
+  </data>
+  <data name="Country_val_AZ">
+    <value>Азербайджан</value>
+    <comment>The name of AZ country</comment>
+  </data>
+  <data name="Country_val_BA">
+    <value>Боснія і Герцагавіна</value>
+    <comment>The name of BA country</comment>
+  </data>
+  <data name="Country_val_BB">
+    <value>Барбадас</value>
+    <comment>The name of BB country</comment>
+  </data>
+  <data name="Country_val_BD">
+    <value>Бангладэш</value>
+    <comment>The name of BD country</comment>
+  </data>
+  <data name="Country_val_BE">
+    <value>Бельгія</value>
+    <comment>The name of BE country</comment>
+  </data>
+  <data name="Country_val_BF">
+    <value>Буркіна-Фасо</value>
+    <comment>The name of BF country</comment>
+  </data>
+  <data name="Country_val_BG">
+    <value>Балгарыя</value>
+    <comment>The name of BG country</comment>
+  </data>
+  <data name="Country_val_BH">
+    <value>Бахрэйн</value>
+    <comment>The name of BH country</comment>
+  </data>
+  <data name="Country_val_BI">
+    <value>Бурундзі</value>
+    <comment>The name of BI country</comment>
+  </data>
+  <data name="Country_val_BJ">
+    <value>Бенін</value>
+    <comment>The name of BJ country</comment>
+  </data>
+  <data name="Country_val_BL">
+    <value>Сен-Бартэльмі</value>
+    <comment>The name of BL country</comment>
+  </data>
+  <data name="Country_val_BM">
+    <value>Бермудскія астравы</value>
+    <comment>The name of BM country</comment>
+  </data>
+  <data name="Country_val_BN">
+    <value>Бруней-Дарусалам</value>
+    <comment>The name of BN country</comment>
+  </data>
+  <data name="Country_val_BO">
+    <value>Балівія</value>
+    <comment>The name of BO country</comment>
+  </data>
+  <data name="Country_val_BQ">
+    <value>Банайрэ, Сінт-Эстатыус і Саба</value>
+    <comment>The name of BQ country</comment>
+  </data>
+  <data name="Country_val_BR">
+    <value>Бразілія</value>
+    <comment>The name of BR country</comment>
+  </data>
+  <data name="Country_val_BS">
+    <value>Багамскія астравы</value>
+    <comment>The name of BS country</comment>
+  </data>
+  <data name="Country_val_BT">
+    <value>Бутан</value>
+    <comment>The name of BT country</comment>
+  </data>
+  <data name="Country_val_BV">
+    <value>Востраў Буве</value>
+    <comment>The name of BV country</comment>
+  </data>
+  <data name="Country_val_BW">
+    <value>Батсвана</value>
+    <comment>The name of BW country</comment>
+  </data>
+  <data name="Country_val_BY">
+    <value>Беларусь</value>
+    <comment>The name of BY country</comment>
+  </data>
+  <data name="Country_val_BZ">
+    <value>Беліз</value>
+    <comment>The name of BZ country</comment>
+  </data>
+  <data name="Country_val_CA">
+    <value>Канада</value>
+    <comment>The name of CA country</comment>
+  </data>
+  <data name="Country_val_CC">
+    <value>Какосавыя астравы (Кілінг)</value>
+    <comment>The name of CC country</comment>
+  </data>
+  <data name="Country_val_CD">
+    <value>Дэмакратычная Рэспубліка Конга</value>
+    <comment>The name of CD country</comment>
+  </data>
+  <data name="Country_val_CF">
+    <value>Цэнтральна-Афрыканская Рэспубліка</value>
+    <comment>The name of CF country</comment>
+  </data>
+  <data name="Country_val_CG">
+    <value>Конга</value>
+    <comment>The name of CG country</comment>
+  </data>
+  <data name="Country_val_CH">
+    <value>Швейцарыя</value>
+    <comment>The name of CH country</comment>
+  </data>
+  <data name="Country_val_CI">
+    <value>Кот-д’Івуар</value>
+    <comment>The name of CI country</comment>
+  </data>
+  <data name="Country_val_CK">
+    <value>Астравы Кука</value>
+    <comment>The name of CK country</comment>
+  </data>
+  <data name="Country_val_CL">
+    <value>Чылі</value>
+    <comment>The name of CL country</comment>
+  </data>
+  <data name="Country_val_CM">
+    <value>Камерун</value>
+    <comment>The name of CM country</comment>
+  </data>
+  <data name="Country_val_CN">
+    <value>Кітай</value>
+    <comment>The name of CN country</comment>
+  </data>
+  <data name="Country_val_CO">
+    <value>Калумбія</value>
+    <comment>The name of CO country</comment>
+  </data>
+  <data name="Country_val_CR">
+    <value>Коста-Рыка</value>
+    <comment>The name of CR country</comment>
+  </data>
+  <data name="Country_val_CU">
+    <value>Куба</value>
+    <comment>The name of CU country</comment>
+  </data>
+  <data name="Country_val_CV">
+    <value>Каба-Вердэ</value>
+    <comment>The name of CV country</comment>
+  </data>
+  <data name="Country_val_CW">
+    <value>Кюрасаа</value>
+    <comment>The name of CW country</comment>
+  </data>
+  <data name="Country_val_CX">
+    <value>Востраў Каляд</value>
+    <comment>The name of CX country</comment>
+  </data>
+  <data name="Country_val_CY">
+    <value>Кіпр</value>
+    <comment>The name of CY country</comment>
+  </data>
+  <data name="Country_val_CZ">
+    <value>Чэхія</value>
+    <comment>The name of CZ country</comment>
+  </data>
+  <data name="Country_val_DE">
+    <value>Германія</value>
+    <comment>The name of DE country</comment>
+  </data>
+  <data name="Country_val_DJ">
+    <value>Джыбуці</value>
+    <comment>The name of DJ country</comment>
+  </data>
+  <data name="Country_val_DK">
+    <value>Данія</value>
+    <comment>The name of DK country</comment>
+  </data>
+  <data name="Country_val_DM">
+    <value>Дамініка</value>
+    <comment>The name of DM country</comment>
+  </data>
+  <data name="Country_val_DO">
+    <value>Дамініканская Рэспубліка</value>
+    <comment>The name of DO country</comment>
+  </data>
+  <data name="Country_val_DZ">
+    <value>Алжыр</value>
+    <comment>The name of DZ country</comment>
+  </data>
+  <data name="Country_val_EC">
+    <value>Эквадор</value>
+    <comment>The name of EC country</comment>
+  </data>
+  <data name="Country_val_EE">
+    <value>Эстонія</value>
+    <comment>The name of EE country</comment>
+  </data>
+  <data name="Country_val_EG">
+    <value>Егіпет</value>
+    <comment>The name of EG country</comment>
+  </data>
+  <data name="Country_val_EH">
+    <value>Заходняя Сахара</value>
+    <comment>The name of EH country</comment>
+  </data>
+  <data name="Country_val_ER">
+    <value>Эрытрэя</value>
+    <comment>The name of ER country</comment>
+  </data>
+  <data name="Country_val_ES">
+    <value>Іспанія</value>
+    <comment>The name of ES country</comment>
+  </data>
+  <data name="Country_val_ET">
+    <value>Эфіопія</value>
+    <comment>The name of ET country</comment>
+  </data>
+  <data name="Country_val_FI">
+    <value>Фінляндыя</value>
+    <comment>The name of FI country</comment>
+  </data>
+  <data name="Country_val_FJ">
+    <value>Фіджы</value>
+    <comment>The name of FJ country</comment>
+  </data>
+  <data name="Country_val_FK">
+    <value>Фалклендскія (Мальвінскія) астравы</value>
+    <comment>The name of FK country</comment>
+  </data>
+  <data name="Country_val_FM">
+    <value>Мікранезія</value>
+    <comment>The name of FM country</comment>
+  </data>
+  <data name="Country_val_FO">
+    <value>Фарэрскія астравы</value>
+    <comment>The name of FO country</comment>
+  </data>
+  <data name="Country_val_FR">
+    <value>Францыя</value>
+    <comment>The name of FR country</comment>
+  </data>
+  <data name="Country_val_GA">
+    <value>Габон</value>
+    <comment>The name of GA country</comment>
+  </data>
+  <data name="Country_val_GB">
+    <value>Вялікабрытанія</value>
+    <comment>The name of GB country</comment>
+  </data>
+  <data name="Country_val_GD">
+    <value>Грэнада</value>
+    <comment>The name of GD country</comment>
+  </data>
+  <data name="Country_val_GE">
+    <value>Грузія</value>
+    <comment>The name of GE country</comment>
+  </data>
+  <data name="Country_val_GF">
+    <value>Французская Гвіяна</value>
+    <comment>The name of GF country</comment>
+  </data>
+  <data name="Country_val_GG">
+    <value>Гернсі</value>
+    <comment>The name of GG country</comment>
+  </data>
+  <data name="Country_val_GH">
+    <value>Гана</value>
+    <comment>The name of GH country</comment>
+  </data>
+  <data name="Country_val_GI">
+    <value>Гібралтар</value>
+    <comment>The name of GI country</comment>
+  </data>
+  <data name="Country_val_GL">
+    <value>Грэнландыя</value>
+    <comment>The name of GL country</comment>
+  </data>
+  <data name="Country_val_GM">
+    <value>Гамбія</value>
+    <comment>The name of GM country</comment>
+  </data>
+  <data name="Country_val_GN">
+    <value>Гвінея</value>
+    <comment>The name of GN country</comment>
+  </data>
+  <data name="Country_val_GP">
+    <value>Гвадэлупа</value>
+    <comment>The name of GP country</comment>
+  </data>
+  <data name="Country_val_GQ">
+    <value>Экватарыяльная Гвінея</value>
+    <comment>The name of GQ country</comment>
+  </data>
+  <data name="Country_val_GR">
+    <value>Грэцыя</value>
+    <comment>The name of GR country</comment>
+  </data>
+  <data name="Country_val_GS">
+    <value>Паўднёвая Джорджыя і Паўднёвыя Сандвічавы астравы</value>
+    <comment>The name of GS country</comment>
+  </data>
+  <data name="Country_val_GT">
+    <value>Гватэмала</value>
+    <comment>The name of GT country</comment>
+  </data>
+  <data name="Country_val_GU">
+    <value>Гуам</value>
+    <comment>The name of GU country</comment>
+  </data>
+  <data name="Country_val_GW">
+    <value>Гвінея-Бісау</value>
+    <comment>The name of GW country</comment>
+  </data>
+  <data name="Country_val_GY">
+    <value>Гаяна</value>
+    <comment>The name of GY country</comment>
+  </data>
+  <data name="Country_val_HK">
+    <value>Ганконг</value>
+    <comment>The name of HK country</comment>
+  </data>
+  <data name="Country_val_HM">
+    <value>Востраў Херд і Астравы Мак-Доналд</value>
+    <comment>The name of HM country</comment>
+  </data>
+  <data name="Country_val_HN">
+    <value>Гандурас</value>
+    <comment>The name of HN country</comment>
+  </data>
+  <data name="Country_val_HR">
+    <value>Харватыя</value>
+    <comment>The name of HR country</comment>
+  </data>
+  <data name="Country_val_HT">
+    <value>Гаіці</value>
+    <comment>The name of HT country</comment>
+  </data>
+  <data name="Country_val_HU">
+    <value>Венгрыя</value>
+    <comment>The name of HU country</comment>
+  </data>
+  <data name="Country_val_ID">
+    <value>Інданезія</value>
+    <comment>The name of ID country</comment>
+  </data>
+  <data name="Country_val_IE">
+    <value>Ірландыя</value>
+    <comment>The name of IE country</comment>
+  </data>
+  <data name="Country_val_IL">
+    <value>Ізраіль</value>
+    <comment>The name of IL country</comment>
+  </data>
+  <data name="Country_val_IM">
+    <value>Востраў Мэн</value>
+    <comment>The name of IM country</comment>
+  </data>
+  <data name="Country_val_IN">
+    <value>Індыя</value>
+    <comment>The name of IN country</comment>
+  </data>
+  <data name="Country_val_IO">
+    <value>Брытанская тэрыторыя ў Індыйскім акіяне</value>
+    <comment>The name of IO country</comment>
+  </data>
+  <data name="Country_val_IQ">
+    <value>Ірак</value>
+    <comment>The name of IQ country</comment>
+  </data>
+  <data name="Country_val_IR">
+    <value>Іран</value>
+    <comment>The name of IR country</comment>
+  </data>
+  <data name="Country_val_IS">
+    <value>Ісландыя</value>
+    <comment>The name of IS country</comment>
+  </data>
+  <data name="Country_val_IT">
+    <value>Італія</value>
+    <comment>The name of IT country</comment>
+  </data>
+  <data name="Country_val_JE">
+    <value>Джэрсі</value>
+    <comment>The name of JE country</comment>
+  </data>
+  <data name="Country_val_JM">
+    <value>Ямайка</value>
+    <comment>The name of JM country</comment>
+  </data>
+  <data name="Country_val_JO">
+    <value>Іарданія</value>
+    <comment>The name of JO country</comment>
+  </data>
+  <data name="Country_val_JP">
+    <value>Японія</value>
+    <comment>The name of JP country</comment>
+  </data>
+  <data name="Country_val_KE">
+    <value>Кенія</value>
+    <comment>The name of KE country</comment>
+  </data>
+  <data name="Country_val_KG">
+    <value>Кыргызстан</value>
+    <comment>The name of KG country</comment>
+  </data>
+  <data name="Country_val_KH">
+    <value>Камбоджа</value>
+    <comment>The name of KH country</comment>
+  </data>
+  <data name="Country_val_KI">
+    <value>Кірыбаці</value>
+    <comment>The name of KI country</comment>
+  </data>
+  <data name="Country_val_KM">
+    <value>Каморскія астравы</value>
+    <comment>The name of KM country</comment>
+  </data>
+  <data name="Country_val_KN">
+    <value>Сэнт-Кітс і Нэвіс</value>
+    <comment>The name of KN country</comment>
+  </data>
+  <data name="Country_val_KP">
+    <value>Паўночная Карэя</value>
+    <comment>The name of KP country</comment>
+  </data>
+  <data name="Country_val_KR">
+    <value>Паўднёвая Карэя</value>
+    <comment>The name of KR country</comment>
+  </data>
+  <data name="Country_val_KW">
+    <value>Кувейт</value>
+    <comment>The name of KW country</comment>
+  </data>
+  <data name="Country_val_KY">
+    <value>Кайманавы астравы</value>
+    <comment>The name of KY country</comment>
+  </data>
+  <data name="Country_val_KZ">
+    <value>Казахстан</value>
+    <comment>The name of KZ country</comment>
+  </data>
+  <data name="Country_val_LA">
+    <value>Лаос</value>
+    <comment>The name of LA country</comment>
+  </data>
+  <data name="Country_val_LB">
+    <value>Ліван</value>
+    <comment>The name of LB country</comment>
+  </data>
+  <data name="Country_val_LC">
+    <value>Сент-Люсія</value>
+    <comment>The name of LC country</comment>
+  </data>
+  <data name="Country_val_LI">
+    <value>Ліхтэнштэйн</value>
+    <comment>The name of LI country</comment>
+  </data>
+  <data name="Country_val_LK">
+    <value>Шры-Ланка</value>
+    <comment>The name of LK country</comment>
+  </data>
+  <data name="Country_val_LR">
+    <value>Ліберыя</value>
+    <comment>The name of LR country</comment>
+  </data>
+  <data name="Country_val_LS">
+    <value>Лесота</value>
+    <comment>The name of LS country</comment>
+  </data>
+  <data name="Country_val_LT">
+    <value>Літва</value>
+    <comment>The name of LT country</comment>
+  </data>
+  <data name="Country_val_LU">
+    <value>Люксембург</value>
+    <comment>The name of LU country</comment>
+  </data>
+  <data name="Country_val_LV">
+    <value>Латвія</value>
+    <comment>The name of LV country</comment>
+  </data>
+  <data name="Country_val_LY">
+    <value>Лівія</value>
+    <comment>The name of LY country</comment>
+  </data>
+  <data name="Country_val_MA">
+    <value>Марока</value>
+    <comment>The name of MA country</comment>
+  </data>
+  <data name="Country_val_MC">
+    <value>Манака</value>
+    <comment>The name of MC country</comment>
+  </data>
+  <data name="Country_val_MD">
+    <value>Малдова</value>
+    <comment>The name of MD country</comment>
+  </data>
+  <data name="Country_val_ME">
+    <value>Чарнагорыя</value>
+    <comment>The name of ME country</comment>
+  </data>
+  <data name="Country_val_MF">
+    <value>Сен-Мартэн (французская частка)</value>
+    <comment>The name of MF country</comment>
+  </data>
+  <data name="Country_val_MG">
+    <value>Мадагаскар</value>
+    <comment>The name of MG country</comment>
+  </data>
+  <data name="Country_val_MH">
+    <value>Маршалавы астравы</value>
+    <comment>The name of MH country</comment>
+  </data>
+  <data name="Country_val_MK">
+    <value>Македонія</value>
+    <comment>The name of MK country</comment>
+  </data>
+  <data name="Country_val_ML">
+    <value>Малі</value>
+    <comment>The name of ML country</comment>
+  </data>
+  <data name="Country_val_MM">
+    <value>М’янма</value>
+    <comment>The name of MM country</comment>
+  </data>
+  <data name="Country_val_MN">
+    <value>Манголія</value>
+    <comment>The name of MN country</comment>
+  </data>
+  <data name="Country_val_MO">
+    <value>Макаа</value>
+    <comment>The name of MO country</comment>
+  </data>
+  <data name="Country_val_MP">
+    <value>Паўночныя Марыянскія астравы</value>
+    <comment>The name of MP country</comment>
+  </data>
+  <data name="Country_val_MQ">
+    <value>Марцініка</value>
+    <comment>The name of MQ country</comment>
+  </data>
+  <data name="Country_val_MR">
+    <value>Маўрытанія</value>
+    <comment>The name of MR country</comment>
+  </data>
+  <data name="Country_val_MS">
+    <value>Мантсерат</value>
+    <comment>The name of MS country</comment>
+  </data>
+  <data name="Country_val_MT">
+    <value>Мальта</value>
+    <comment>The name of MT country</comment>
+  </data>
+  <data name="Country_val_MU">
+    <value>Маўрыкій</value>
+    <comment>The name of MU country</comment>
+  </data>
+  <data name="Country_val_MV">
+    <value>Мальдывы</value>
+    <comment>The name of MV country</comment>
+  </data>
+  <data name="Country_val_MW">
+    <value>Малаві</value>
+    <comment>The name of MW country</comment>
+  </data>
+  <data name="Country_val_MX">
+    <value>Мексіка</value>
+    <comment>The name of MX country</comment>
+  </data>
+  <data name="Country_val_MY">
+    <value>Малайзія</value>
+    <comment>The name of MY country</comment>
+  </data>
+  <data name="Country_val_MZ">
+    <value>Мазамбік</value>
+    <comment>The name of MZ country</comment>
+  </data>
+  <data name="Country_val_NA">
+    <value>Намібія</value>
+    <comment>The name of NA country</comment>
+  </data>
+  <data name="Country_val_NC">
+    <value>Новая Каледонія</value>
+    <comment>The name of NC country</comment>
+  </data>
+  <data name="Country_val_NE">
+    <value>Нігер</value>
+    <comment>The name of NE country</comment>
+  </data>
+  <data name="Country_val_NF">
+    <value>Востраў Норфалк</value>
+    <comment>The name of NF country</comment>
+  </data>
+  <data name="Country_val_NG">
+    <value>Нігерыя</value>
+    <comment>The name of NG country</comment>
+  </data>
+  <data name="Country_val_NI">
+    <value>Нікарагуа</value>
+    <comment>The name of NI country</comment>
+  </data>
+  <data name="Country_val_NL">
+    <value>Нідэрланды</value>
+    <comment>The name of NL country</comment>
+  </data>
+  <data name="Country_val_NO">
+    <value>Нарвегія</value>
+    <comment>The name of NO country</comment>
+  </data>
+  <data name="Country_val_NP">
+    <value>Непал</value>
+    <comment>The name of NP country</comment>
+  </data>
+  <data name="Country_val_NR">
+    <value>Науру</value>
+    <comment>The name of NR country</comment>
+  </data>
+  <data name="Country_val_NU">
+    <value>Ніуэ</value>
+    <comment>The name of NU country</comment>
+  </data>
+  <data name="Country_val_NZ">
+    <value>Новая Зеландыя</value>
+    <comment>The name of NZ country</comment>
+  </data>
+  <data name="Country_val_OM">
+    <value>Аман</value>
+    <comment>The name of OM country</comment>
+  </data>
+  <data name="Country_val_PA">
+    <value>Панама</value>
+    <comment>The name of PA country</comment>
+  </data>
+  <data name="Country_val_PE">
+    <value>Перу</value>
+    <comment>The name of PE country</comment>
+  </data>
+  <data name="Country_val_PF">
+    <value>Французская Палінезія</value>
+    <comment>The name of PF country</comment>
+  </data>
+  <data name="Country_val_PG">
+    <value>Папуа-Новая Гвінея</value>
+    <comment>The name of PG country</comment>
+  </data>
+  <data name="Country_val_PH">
+    <value>Філіпіны</value>
+    <comment>The name of PH country</comment>
+  </data>
+  <data name="Country_val_PK">
+    <value>Пакістан</value>
+    <comment>The name of PK country</comment>
+  </data>
+  <data name="Country_val_PL">
+    <value>Польшча</value>
+    <comment>The name of PL country</comment>
+  </data>
+  <data name="Country_val_PM">
+    <value>Сен-П’ер і Мікелон</value>
+    <comment>The name of PM country</comment>
+  </data>
+  <data name="Country_val_PN">
+    <value>Астравы Піткэрн</value>
+    <comment>The name of PN country</comment>
+  </data>
+  <data name="Country_val_PR">
+    <value>Пуэрта-Рыка</value>
+    <comment>The name of PR country</comment>
+  </data>
+  <data name="Country_val_PS">
+    <value>Палесціна</value>
+    <comment>The name of PS country</comment>
+  </data>
+  <data name="Country_val_PT">
+    <value>Партугалія</value>
+    <comment>The name of PT country</comment>
+  </data>
+  <data name="Country_val_PW">
+    <value>Палау</value>
+    <comment>The name of PW country</comment>
+  </data>
+  <data name="Country_val_PY">
+    <value>Парагвай</value>
+    <comment>The name of PY country</comment>
+  </data>
+  <data name="Country_val_QA">
+    <value>Катар</value>
+    <comment>The name of QA country</comment>
+  </data>
+  <data name="Country_val_RE">
+    <value>Рэюньён</value>
+    <comment>The name of RE country</comment>
+  </data>
+  <data name="Country_val_RO">
+    <value>Румынія</value>
+    <comment>The name of RO country</comment>
+  </data>
+  <data name="Country_val_RS">
+    <value>Сербія</value>
+    <comment>The name of RS country</comment>
+  </data>
+  <data name="Country_val_RU">
+    <value>Расія</value>
+    <comment>The name of RU country</comment>
+  </data>
+  <data name="Country_val_RW">
+    <value>Руанда</value>
+    <comment>The name of RW country</comment>
+  </data>
+  <data name="Country_val_SA">
+    <value>Саудаўская Аравія</value>
+    <comment>The name of SA country</comment>
+  </data>
+  <data name="Country_val_SB">
+    <value>Саламонавы астравы</value>
+    <comment>The name of SB country</comment>
+  </data>
+  <data name="Country_val_SC">
+    <value>Сейшэльскія астравы</value>
+    <comment>The name of SC country</comment>
+  </data>
+  <data name="Country_val_SD">
+    <value>Судан</value>
+    <comment>The name of SD country</comment>
+  </data>
+  <data name="Country_val_SE">
+    <value>Швецыя</value>
+    <comment>The name of SE country</comment>
+  </data>
+  <data name="Country_val_SG">
+    <value>Сінгапур</value>
+    <comment>The name of SG country</comment>
+  </data>
+  <data name="Country_val_SH">
+    <value>Астравы Святой Алены, Ушэсця і Трыстан-да-Кунья</value>
+    <comment>The name of SH country</comment>
+  </data>
+  <data name="Country_val_SI">
+    <value>Славенія</value>
+    <comment>The name of SI country</comment>
+  </data>
+  <data name="Country_val_SJ">
+    <value>Шпіцберген і Ян-Маен</value>
+    <comment>The name of SJ country</comment>
+  </data>
+  <data name="Country_val_SK">
+    <value>Славакія</value>
+    <comment>The name of SK country</comment>
+  </data>
+  <data name="Country_val_SL">
+    <value>Сьера-Леонэ</value>
+    <comment>The name of SL country</comment>
+  </data>
+  <data name="Country_val_SM">
+    <value>Сан-Марына</value>
+    <comment>The name of SM country</comment>
+  </data>
+  <data name="Country_val_SN">
+    <value>Сенегал</value>
+    <comment>The name of SN country</comment>
+  </data>
+  <data name="Country_val_SO">
+    <value>Самалі</value>
+    <comment>The name of SO country</comment>
+  </data>
+  <data name="Country_val_SR">
+    <value>Сурынам</value>
+    <comment>The name of SR country</comment>
+  </data>
+  <data name="Country_val_SS">
+    <value>Паўднёвы Судан</value>
+    <comment>The name of SS country</comment>
+  </data>
+  <data name="Country_val_ST">
+    <value>Сан-Тамэ і Прынсіпі</value>
+    <comment>The name of ST country</comment>
+  </data>
+  <data name="Country_val_SV">
+    <value>Сальвадор</value>
+    <comment>The name of SV country</comment>
+  </data>
+  <data name="Country_val_SX">
+    <value>Сен-Мартэн (нідэрландская частка)</value>
+    <comment>The name of SX country</comment>
+  </data>
+  <data name="Country_val_SY">
+    <value>Сірыя</value>
+    <comment>The name of SY country</comment>
+  </data>
+  <data name="Country_val_SZ">
+    <value>Эсваціні</value>
+    <comment>The name of SZ country</comment>
+  </data>
+  <data name="Country_val_TC">
+    <value>Астравы Цёркс і Кайкас</value>
+    <comment>The name of TC country</comment>
+  </data>
+  <data name="Country_val_TD">
+    <value>Чад</value>
+    <comment>The name of TD country</comment>
+  </data>
+  <data name="Country_val_TF">
+    <value>Французскія Паўднёвыя тэрыторыі</value>
+    <comment>The name of TF country</comment>
+  </data>
+  <data name="Country_val_TG">
+    <value>Тога</value>
+    <comment>The name of TG country</comment>
+  </data>
+  <data name="Country_val_TH">
+    <value>Тайланд</value>
+    <comment>The name of TH country</comment>
+  </data>
+  <data name="Country_val_TJ">
+    <value>Таджыкістан</value>
+    <comment>The name of TJ country</comment>
+  </data>
+  <data name="Country_val_TK">
+    <value>Такелау</value>
+    <comment>The name of TK country</comment>
+  </data>
+  <data name="Country_val_TL">
+    <value>Тымор-Лешці</value>
+    <comment>The name of TL country</comment>
+  </data>
+  <data name="Country_val_TM">
+    <value>Туркменістан</value>
+    <comment>The name of TM country</comment>
+  </data>
+  <data name="Country_val_TN">
+    <value>Туніс</value>
+    <comment>The name of TN country</comment>
+  </data>
+  <data name="Country_val_TO">
+    <value>Тонга</value>
+    <comment>The name of TO country</comment>
+  </data>
+  <data name="Country_val_TR">
+    <value>Турцыя</value>
+    <comment>The name of TR country</comment>
+  </data>
+  <data name="Country_val_TT">
+    <value>Трынідад і Табага</value>
+    <comment>The name of TT country</comment>
+  </data>
+  <data name="Country_val_TV">
+    <value>Тувалу</value>
+    <comment>The name of TV country</comment>
+  </data>
+  <data name="Country_val_TW">
+    <value>Тайвань</value>
+    <comment>The name of TW country</comment>
+  </data>
+  <data name="Country_val_TZ">
+    <value>Танзанія</value>
+    <comment>The name of TZ country</comment>
+  </data>
+  <data name="Country_val_UA">
+    <value>Украіна</value>
+    <comment>The name of UA country</comment>
+  </data>
+  <data name="Country_val_UG">
+    <value>Уганда</value>
+    <comment>The name of UG country</comment>
+  </data>
+  <data name="Country_val_UK">
+    <value>Вялікабрытанія</value>
+    <comment>The name of UK country</comment>
+  </data>
+  <data name="Country_val_UM">
+    <value>Малыя аддаленыя астравы ЗША</value>
+    <comment>The name of UM country</comment>
+  </data>
+  <data name="Country_val_US">
+    <value>ЗША</value>
+    <comment>The name of US country</comment>
+  </data>
+  <data name="Country_val_UY">
+    <value>Уругвай</value>
+    <comment>The name of UY country</comment>
+  </data>
+  <data name="Country_val_UZ">
+    <value>Узбекістан</value>
+    <comment>The name of UZ country</comment>
+  </data>
+  <data name="Country_val_VA">
+    <value>Ватыкан</value>
+    <comment>The name of VA country</comment>
+  </data>
+  <data name="Country_val_VC">
+    <value>Сент-Вінсент і Грэнадзіны</value>
+    <comment>The name of VC country</comment>
+  </data>
+  <data name="Country_val_VE">
+    <value>Венесуэла</value>
+    <comment>The name of VE country</comment>
+  </data>
+  <data name="Country_val_VG">
+    <value>Брытанскія Віргінскія астравы</value>
+    <comment>The name of VG country</comment>
+  </data>
+  <data name="Country_val_VI">
+    <value>Віргінскія астравы (ЗША)</value>
+    <comment>The name of VI country</comment>
+  </data>
+  <data name="Country_val_VN">
+    <value>В’етнам</value>
+    <comment>The name of VN country</comment>
+  </data>
+  <data name="Country_val_VU">
+    <value>Вануату</value>
+    <comment>The name of VU country</comment>
+  </data>
+  <data name="Country_val_WF">
+    <value>Уоліс і Футуна</value>
+    <comment>The name of WF country</comment>
+  </data>
+  <data name="Country_val_WS">
+    <value>Самоа</value>
+    <comment>The name of WS country</comment>
+  </data>
+  <data name="Country_val_XK">
+    <value>Косава</value>
+    <comment>The name of XK country</comment>
+  </data>
+  <data name="Country_val_YE">
+    <value>Емен</value>
+    <comment>The name of YE country</comment>
+  </data>
+  <data name="Country_val_YT">
+    <value>Маёта</value>
+    <comment>The name of YT country</comment>
+  </data>
+  <data name="Country_val_ZA">
+    <value>Паўднёва-Афрыканская Рэспубліка</value>
+    <comment>The name of ZA country</comment>
+  </data>
+  <data name="Country_val_ZM">
+    <value>Замбія</value>
+    <comment>The name of ZM country</comment>
+  </data>
+  <data name="Country_val_ZW">
+    <value>Зімбабвэ</value>
+    <comment>The name of ZW country</comment>
+  </data>
+  <data name="Country_val_ZZ">
+    <value>Невядома</value>
+    <comment>The name of ZZ (unknown or not specified) country</comment>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Description">
+    <value>Сэрвіс Base Filtering Engine (BFE) адключаны на вашай прыладзе Windows. Неабходна ўключыць гэты сэрвіс для правільнай працы Proton VPN.</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_HowToEnable">
+    <value>Як уключыць Base Filtering Engine</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Title">
+    <value>Уключыце Base Filtering Engine для працягу</value>
+  </data>
+  <data name="Dialogs_ChangeServer_GetUnlimitedServerChanges">
+    <value>Змяняйце серверы без абмежаванняў з VPN Plus</value>
+  </data>
+  <data name="Dialogs_ChangeServer_MaximumServerChangesReached">
+    <value>На дадзены момант вы дасягнулі максімальнай колькасці пераключэнняў на бясплатных серверах</value>
+  </data>
+  <data name="Dialogs_Common_GetStarted">
+    <value>Пачаць</value>
+  </data>
+  <data name="Dialogs_Common_SubscriptionExpired">
+    <value>Падпіска пратэрмінавана</value>
+  </data>
+  <data name="Dialogs_Common_UpgradeToGetPlusFeatures">
+    <value>Палепшыце, каб зноў атрымаць доступ да сервераў і іншых функцый падпіскі Plus.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Description">
+    <value>Здаецца, што сэрвіс Proton VPN адключаны. Вам неабходна ўключыць яго паўторна, каб падключыцца.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Title">
+    <value>Уключыце сэрвіс Windows для працягу</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_One">
+    <value>Proton Free аўтаматычна падключае вас да найхутчэйшага даступнага сервера з нашай {0} бясплатнай краіны. Звычайна гэта самы блізкі сервер адносна вашага месцазнаходжання.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Few">
+    <value>Proton Free аўтаматычна падключае вас да найхутчэйшага даступнага сервера з нашых {0} бясплатных краін. Звычайна гэта самы блізкі сервер адносна вашага месцазнаходжання.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Many">
+    <value>Proton Free аўтаматычна падключае вас да найхутчэйшага даступнага сервера з нашых {0} бясплатных краін. Звычайна гэта самы блізкі сервер адносна вашага месцазнаходжання.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Other">
+    <value>Proton Free аўтаматычна падключае вас да найхутчэйшага даступнага сервера з нашых {0} бясплатных краін. Звычайна гэта самы блізкі сервер адносна вашага месцазнаходжання.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_One">
+    <value>Краіна з бясплатнымі серверамі ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Few">
+    <value>Краіны з бясплатнымі серверамі({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Many">
+    <value>Краіны з бясплатнымі серверамі ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Other">
+    <value>Краіны з бясплатнымі серверамі ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Title">
+    <value>Бясплатныя падключэнні</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_CommentLabel">
+    <value>Растлумачце, чаму вы так нас ацанілі</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorSubtitle">
+    <value>Не ўдалося адправіць ваш водгук. Праверце сваё падключэнне і паўтарыце спробу.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorTitle">
+    <value>Нешта пайшло не так</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_HighRateDescription">
+    <value>10 - гэта вельмі верагодна</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_LowRateDescription">
+    <value>0 - гэта вельмі малаверагодна</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Optional">
+    <value>Неабавязкова</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ShareAnonymously">
+    <value>Абагуліць ананімна</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessSubtitle">
+    <value>Ваш водгук дапамагае нам удасканальваць Proton VPN.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessTitle">
+    <value>Дзякуй за ваш водгук</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Title">
+    <value>З якой верагоднасцю вы парэкамендуеце Proton VPN сябру?</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_TryAgain">
+    <value>Паспрабаваць яшчэ раз</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Description">
+    <value>Палепшыце, каб разблакіраваць аднарангавыя серверы (P2P) для дынамічных гульняў у інтэрнэце і спампоўвання торэнтаў або спыніце сваю актыўнасць P2P для аднаўлення падключэння.</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Title">
+    <value>P2P забаронены на бясплатных серверах VPN</value>
+  </data>
+  <data name="Dialogs_P2PDetection_WindowTitle">
+    <value>Пазнаёмцеся з VPN Plus</value>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email">
+    <value>Электронная пошта</value>
+    <comment>The label for user e-mail address in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email_Description">
+    <value>pryklad@damen.com</value>
+    <comment>The watermark text displayed in empty user e-mail text box in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs">
+    <value>Адправіць журналы з памылкамі</value>
+    <comment>The label for the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs_Description">
+    <value>Журналы памылак паказваюць, што пайшло не так і якія падзеі прывялі да праблемы. Мы будзем выкарыстоўваць іх выключна для таго, каб дапамагчы нашым інжынерам выправіць памылкі.</value>
+    <comment>The tooltip displayed on the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Header">
+    <value>У чым ваша праблема?</value>
+  </data>
+  <data name="Dialogs_ReportIssue_NoLogsWarning">
+    <value>Журнал з памылкамі дазваляе нам зразумець самую сутнасць вашай праблемы. Калі вы не ўключыце яго, то ў нас не будзе магчымасці даследаваць праблему цалкам.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes">
+    <value>Хуткія выпраўленні</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Footer">
+    <value>Не працуе?</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Header">
+    <value>Гэтыя парады дапамогуць хутчэй вырашыць вашу праблему.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_DoneAction">
+    <value>Гатова</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail">
+    <value>Нешта пайшло не так</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail_Description">
+    <value>Не ўдалося адправіць вашу справаздачу. Праверце сваё падключэнне і паўтарыце спробу.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success">
+    <value>Справаздача адпраўлена</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success_Description">
+    <value>Дзякуй за водгук. Вы атрымаеце адказ у бліжэйшы час.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_SendReport">
+    <value>Адправіць справаздачу</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Steps">
+    <value>Крок {0} з {1}</value>
+    <comment>Steps header for the Report an issue dialog. {0} is a placeholder for the current step. {1} is a placeholder for the total number of steps. (eg. Step 1 of 3)</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Title">
+    <value>Паведаміць аб праблеме</value>
+  </data>
+  <data name="Dialogs_StreamingDetection_WindowTitle">
+    <value>Пазнаёмцеся з VPN Plus</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Description">
+    <value>Серверы VPN Plus дазволяць вам атрымліваць асалоду ад абраных фільмаў і тэлеперадач па ўсім свеце.</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Title">
+    <value>Палепшыць, каб абыходзіць блакіроўкі VPN</value>
+  </data>
+  <data name="Dialogs_SubscriptionExpired_MaybeLater">
+    <value>Магчыма пазней</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Description">
+    <value>Здаецца, што ваша прылада выкарыстоўвае проксі-сервер. Гэта можа перашкодзіць абароне VPN.</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Title">
+    <value>Выяўлены проксі-сервер</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus">
+    <value>Выключыце антывірус або міжсеткавы экран</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus_Description">
+    <value>Гэтыя праграмы могуць канфліктаваць з падключэннямі па VPN</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet">
+    <value>Праверце сваё падключэнне да інтэрнэту</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet_Description">
+    <value>Пераканайцеся, што вы падключаны да інтэрнэту і ваша падключэнне з'яўляецца стабільным.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Description">
+    <value>Гэтыя хуткія выпраўленні дапамогуць вам падключыцца да Proton.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork">
+    <value>Скарыстацца іншай сеткай</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork_Description">
+    <value>Паспрабуйце пераключыцца на сетку Wi-Fi або скарыстайцеся мабільнымі данымі.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage">
+    <value>Праверце статус старонкі</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage_Description">
+    <value>Спачатку пераканайцеся, што сэрвісы Proton працуюць у звычайным рэжыме.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Title">
+    <value>Дапамога па падключэнні</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOff">
+    <value>Гэта дзеянне адключыць вас ад VPN. Любыя актыўныя падключэнні праз інтэрнэт будуць часова неабаронены.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOn">
+    <value>Гэта дзеянне адключыць вас ад VPN, а Kill Switch нейкі час не будзе працаваць. Любыя актыўныя падключэнні праз інтэрнэт будуць часова неабаронены.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Install">
+    <value>Усталяваць абнаўленне?</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Restart">
+    <value>Перазапусціць Proton VPN, каб завяршыць абнаўленне</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Description">
+    <value>Здаецца, што ваш сістэмны гадзіннік не сінхранізаваны. Гэта можа выклікаць праблемы з падключэннем да VPN.</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_PrimaryButton">
+    <value>Як абнавіць сістэмны гадзіннік</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Title">
+    <value>Абнавіце сістэмны гадзіннік</value>
+  </data>
+  <data name="Dialogs_WelcomeB2B_Description">
+    <value>Просты. Бесперабойны. Бяспечны. Абараніце сябе ў інтэрнэце і атрымайце бяспечны доступ да сайтаў сваёй арганізацыі, праграм і файлаў.</value>
+  </data>
+  <data name="Dialogs_WelcomeToProton_Title">
+    <value>Вітаем у Proton VPN</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_Description">
+    <value>Прыватны прагляд, доступ да заблакіраванага змесціва і задавальненне ад лічбавай свабоды без абмежаванняў па аб'ёму і хуткасці перададзеных даных.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs">
+    <value>Сертыфікаваны VPN без журналаў</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs_Description">
+    <value>Ваша актыўнасць абаронена швейцарскімі законамі аб прыватнасці. Нашы праграмныя прадукты ніколі не адсочваюць вашу актыўнасць у інтэрнэце, а звесткі не абагульваюцца са староннімі асобамі.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely">
+    <value>Свабодны прагляд з любога месца</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_One">
+    <value>Схавайце сваё віртуальнае месцазнаходжанне і карыстайцеся інтэрнэтам у любой краіне (даступна {0} краіна).</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Few">
+    <value>Схавайце сваё віртуальнае месцазнаходжанне і карыстайцеся інтэрнэтам у любой краіне (даступна {0} краіны).</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Many">
+    <value>Схавайце сваё віртуальнае месцазнаходжанне і карыстайцеся інтэрнэтам у любой краіне (даступна {0} краін).</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Other">
+    <value>Схавайце сваё віртуальнае месцазнаходжанне і карыстайцеся інтэрнэтам у любой краіне (даступна {0} краін).</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices">
+    <value>Абараніце да 10 прылад адначасова</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices_Description">
+    <value>Пашырце абарону VPN на свой камп'ютар, мабільную прыладу, браўзер, тэлевізар і г.д.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream">
+    <value>Глядзіце трансляцыі ў высокай якасці</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream_Description">
+    <value>Глядзіце фільмы і тэлевізійныя праграмы з усяго свету. Вам не давядзецца ахвяраваць хуткасцю або якасцю.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Title">
+    <value>Вітаем у VPN Plus</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Description">
+    <value>Вы разблакіравалі ўсе прэміяльныя функцыі праграм Proton VPN, Mail, Calendar, Drive і Pass.</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Title">
+    <value>Вітаем у {0}</value>
+    <comment>Title to welcome the user after an account upgrade. {0} is a placeholder for the name of the new plan (eg. Proton Unlimited, Proton Duo, Proton Family).</comment>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Description">
+    <value>Цяпер вы можаце падключацца да прынтараў, дынамікаў і іншых прылад у лакальнай сетцы (LAN), абыходзячы тунэль VPN.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Title">
+    <value>Падключэнні па LAN</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Description">
+    <value>Цяпер вы можаце бачыць нумар актыўнага парта на галоўным экране, калі функцыя перанакіравання партоў уключана.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Title">
+    <value>Нумар актыўнага парта</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TakeALook">
+    <value>Паглядзець</value>
+  </data>
+  <data name="Dialogs_WhatsNew_Title">
+    <value>Што новага</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Description">
+    <value>Цяпер вы можаце падключаць, адключаць і змяняць ваша прадвызначанае падключэнне з сістэмнага латка.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Title">
+    <value>Новая праграма ў сістэмным латку</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_ExcludeLocations">
+    <value>Выключыць месцазнаходжанні</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Message">
+    <value>Вы можаце выключыць месцазнаходжанні з найхутчэйшых краін, калі ёсць такія, да якіх вы не хочаце аўтаматычна падключацца.</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Skip">
+    <value>Прапусціць</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Title">
+    <value>Не тая краіна, якую хацелі?</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_ActionButton">
+    <value>Выключыць месцазнаходжанні</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_CloseButton">
+    <value>Магчыма пазней</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Subtitle">
+    <value>Цяпер вы можаце выключыць краіны або гарады з найхутчэйшых і выпадковых падключэнняў.</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Title">
+    <value>Пазбягайце непажаданых месцазнаходжанняў</value>
+  </data>
+  <data name="Exit_Confirmation_Title">
+    <value>Выйсці з Proton VPN?</value>
+  </data>
+  <data name="Exit_Message">
+    <value>Адключэнне ад VPN...</value>
+  </data>
+  <data name="Exit_Title">
+    <value>Выйсці з Proton VPN</value>
+  </data>
+  <data name="Flyouts_Country_Description1">
+    <value>Прагляд без VPN падвяргае вас абмежаванням на падставе вашага месцазнаходжання ў інтэрнэце.</value>
+  </data>
+  <data name="Flyouts_Country_Description2">
+    <value>Адміністратары вэб-сайтаў могуць абмяжоўваць доступ да змесціва па геаграфічнай прыкмеце. Урады таксама могуць даручыць пастаўшчыкам паслуг інтэрнэту (правайдарам інтэрнэту або ISP) блакіраваць пэўныя вэб-сайты ў сваёй краіне.</value>
+  </data>
+  <data name="Flyouts_Country_Description3">
+    <value>VPN стварае ўражанне, што вы праглядаеце сайт з іншага месца, абараняючы вас ад назірання і цэнзуры.</value>
+  </data>
+  <data name="Flyouts_Country_Title">
+    <value>Краіна</value>
+  </data>
+  <data name="Flyouts_Country_Warning">
+    <value>Падключыцеся да VPN, каб змяніць сваё віртуальнае месцазнаходжанне</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Connected">
+    <value>Ваш IP-адрас у VPN маскіруе ваш рэальны IP-адрас. Гэта выглядае так, быццам вы праглядаеце старонкі з месцазнаходжання да якога падключыліся праз VPN. Дзякуючы гэтаму вашу актыўнасць у інтэрнэце нельга звязаць з вашай прыладай.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected1">
+    <value>Гэты ўнікальны код можа быць выкарыстаны вэб-сайтамі і пастаўшчыком паслуг інтэрнэту (ISP), каб звязаць ваша месцазнаходжанне і гісторыю прагляду старонак на вашай прыладзе.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected2">
+    <value>VPN маскіруе ваш IP-адрас, што ўскладняе адсочванне дзейнасці ў вашым напрамку.</value>
+  </data>
+  <data name="Flyouts_IpAddress_KnowledgeBaseLinkTitle">
+    <value>Што такое IP-адрас?</value>
+  </data>
+  <data name="Flyouts_IpAddress_Title">
+    <value>IP-адрас</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIp">
+    <value>VPN IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv4">
+    <value>VPN IPv4</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv6">
+    <value>VPN IPv6</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIp">
+    <value>Ваш IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIpIsVisible">
+    <value>Ваш IP-адрас бачны</value>
+  </data>
+  <data name="Flyouts_Isp_Description1">
+    <value>Пастаўшчык паслуг інтэрнэту (ISP) - гэта кампанія, якая забяспечвае вам доступ у інтэрнэт.</value>
+  </data>
+  <data name="Flyouts_Isp_Description2">
+    <value>Яны могуць адсочваць вашу актыўнасць у сетцы, а ў некаторых краінах прадаваць вашы даныя рэкламадаўцам. У іншых краінах гэтыя звесткі могуць запатрабаваць перадаць ураду.</value>
+  </data>
+  <data name="Flyouts_Isp_Description3">
+    <value>VPN хавае ваш IP-адрас і абараняе вас ад умяшання пастаўшчыкоў паслуг інтэрнэту.</value>
+  </data>
+  <data name="Flyouts_Isp_KnowledgeBaseLinkTitle">
+    <value>Што такое пастаўшчык паслуг інтэрнэту (ISP)?</value>
+  </data>
+  <data name="Flyouts_Isp_Title">
+    <value>Пастаўшчык</value>
+  </data>
+  <data name="Flyouts_Isp_Warning">
+    <value>Ваш пастаўшчык інтэрнэту бачыць, якія вэб-сайты вы наведваеце</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Advanced_Success">
+    <value>Блакіраваць увесь доступ у інтэрнэт, калі падключэнне да Proton VPN адсутнічае</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info">
+    <value>Пры страце падключэння па VPN ваш IP-адрас можа быць скампраметаваны</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info_Disconnected">
+    <value>Пашыраны Kill Switch адключае інтэрнэт для абароны вашага IP-адраса, пакуль адсутнічае падключэнне да Proton VPN.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Standard_Success">
+    <value>Вы будзе адключаны ад інтэрнэту пакуль падключэнне па VPN не будзе адноўлена, калі раптам падключэнне да сервера VPN будзе згублена.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Connected">
+    <value>Пашыраны Kill Switch дзейнічае, нават калі вы наўмысна адключаецеся ад VPN</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Disconnected">
+    <value>Падключыцеся да VPN або адключыце пашыраны Kill Switch, каб аднавіць падключэнне да інтэрнэту.</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackersAdultContent_Success">
+    <value>Вы абаронены ад рэкламы, праграм сачэння, шкодных праграм і змесціва для дарослых.</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackers_Success">
+    <value>Вы абаронены ад рэкламы, праграм сачэння і шкодных праграм.</value>
+  </data>
+  <data name="Flyouts_NetShield_Info">
+    <value>Абараніце свой прагляд на вэб-сайтах і ў праграмах.</value>
+  </data>
+  <data name="Flyouts_NetShield_MalwareOnly_Success">
+    <value>Вы абаронены толькі ад шкодных праграм.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Description">
+    <value>Блакіруйце рэкламу, праграмы сачэння, шкодныя праграмы і змесціва для дарослых з дапамогай VPN Plus.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Title">
+    <value>Атрымлівайце асалоду ад прагляду старонак у інтэрнэце без рэкламы</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort">
+    <value>Нумар актыўнага парта</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Error">
+    <value>Немагчыма атрымаць нумар актыўнага парта. Перазапусціце ваша падключэнне і паспрабуйце яшчэ раз.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Info">
+    <value>Увядзіце нумар актыўнага парта ў свой кліент торэнт або праграму P2P для паляпшэння прадукцыйнасці.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Info">
+    <value>Палепшыце хуткасць спампоўвання аднарангавага падключэння</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Description">
+    <value>Павялічце прадукцыйнасць абагульвання файлаў у аднарангавых сетках (P2P) з тарыфным планам VPN Plus.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Title">
+    <value>Павялічце хуткасць P2P</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Warning">
+    <value>Падключыцеся да сервера P2P, каб палепшыць хуткасць торэнтаў</value>
+  </data>
+  <data name="Flyouts_Protocol_Description">
+    <value>Пратакол VPN вызначае, як шыфруецца трафік і перадаецца праз VPN.</value>
+  </data>
+  <data name="Flyouts_Protocol_KnowledgeBaseLinkTitle">
+    <value>Які пратакол VPN самы лепшы?</value>
+  </data>
+  <data name="Flyouts_Protocol_Title">
+    <value>Пратакол</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Description">
+    <value>Загружанасць сервера паказвае на колькі вычарпана яго максімальная ёмістасць. Высокая загружанасць сервера можа запаволіць ваша падключэнне.</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High">
+    <value>Высокая (91 - 100%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High_Description">
+    <value>VPN можа працаваць павольней за звычайнае падключэнне</value>
+  </data>
+  <data name="Flyouts_ServerLoad_KnowledgeBaseLinkTitle">
+    <value>Што такое загружанасць сервера?</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low">
+    <value>Нізкая (1 - 75%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low_Description">
+    <value>Звышвысокія хуткасці</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium">
+    <value>Сярэдняя (76 - 90%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium_Description">
+    <value>Малаверагодна, што акажа ўплыў на хуткасць падключэння</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Title">
+    <value>Загружанасць сервера</value>
+  </data>
+  <data name="Flyouts_Speed_Description1">
+    <value>Паказвае, колькі даных праходзіць праз тунэль VPN у рэжыме рэальнага часу.</value>
+  </data>
+  <data name="Flyouts_Speed_Description2">
+    <value>Гэтыя даныя заснаваны на бягучай актыўнасці вашай прылады і яны не паказваюць максімальную хуткасць VPN.</value>
+  </data>
+  <data name="Flyouts_Speed_Download">
+    <value>Спампавана</value>
+    <comment>Refers to the download speed (e.g., Download [new line] 10 MB/s).</comment>
+  </data>
+  <data name="Flyouts_Speed_KnowledgeBaseLinkTitle">
+    <value>Тлумачэнне хуткасці і трафіку VPN</value>
+  </data>
+  <data name="Flyouts_Speed_Title">
+    <value>Бягучы трафік</value>
+  </data>
+  <data name="Flyouts_Speed_Upload">
+    <value>Запампавана</value>
+    <comment>Refers to the upload speed (e.g., Upload [new line] 2.5 MB/s).</comment>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_One">
+    <value>Выключаная праграма: ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Few">
+    <value>Выключаныя праграмы: ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Many">
+    <value>Выключаныя праграмы: ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Other">
+    <value>Выключаныя праграмы: ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_One">
+    <value>Выключаны IP-адрас ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Few">
+    <value>Выключаныя IP-адрасы ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Many">
+    <value>Выключаныя IP-адрасы ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Other">
+    <value>Выключаныя IP-адрасы ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Info">
+    <value>Дазваляе давераным праграмам і IP-адрасам падключацца без абароны па VPN</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Inverse_Info">
+    <value>Толькі гэтыя праграмы і IP-адрасы будуць падключаны праз VPN. Увесь астатні трафік застанецца неабароненым.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_One">
+    <value>Абароненых праграм: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Few">
+    <value>Абароненых праграм: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Many">
+    <value>Абароненых праграм: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Other">
+    <value>Абароненых праграм: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_One">
+    <value>Абароненых IP-адрасоў: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Few">
+    <value>Абароненых IP-адрасоў: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Many">
+    <value>Абароненых IP-адрасоў: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Other">
+    <value>Абароненых IP-адрасоў: {0}</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Standard_Info">
+    <value>Гэтыя праграмы і IP-адрасы падключаюцца без абароны па VPN. Увесь астатні трафік будзе абаронены.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Description">
+    <value>З тарыфным планам VPN Plus вы зможаце раздзяляць свой трафік на той, які будзе праходзіць праз тунэлі VPN і на той, які будзе абыходзіцца без іх.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Title">
+    <value>Атрымлівайце лепшае ад абодвух светаў</value>
+  </data>
+  <data name="Flyouts_Volume_Description">
+    <value>Паказвае агульную колькасць даных, якія перададзены праз тунэль VPN з моманту падключэння.</value>
+  </data>
+  <data name="Flyouts_Volume_Download">
+    <value>Спампавана</value>
+    <comment>Refers to the downloaded volume (e.g., Download [new line] 250 MB).</comment>
+  </data>
+  <data name="Flyouts_Volume_Title">
+    <value>Агульны трафік</value>
+  </data>
+  <data name="Flyouts_Volume_Upload">
+    <value>Запампавана</value>
+    <comment>Refers to the uploaded volume (e.g., Upload [new line] 250 MB).</comment>
+  </data>
+  <data name="Format_Size_Bytes">
+    <value>{0} Б</value>
+    <comment>Format a size in Bytes. {0} is a place holder for the number of Bytes (eg. 30 B)</comment>
+  </data>
+  <data name="Format_Size_Exabytes">
+    <value>{0} ЭБ</value>
+    <comment>Format a size in Exabytes. {0} is a place holder for the number of Exabytes (eg. 30 EB)</comment>
+  </data>
+  <data name="Format_Size_Gigabytes">
+    <value>{0} ГБ</value>
+    <comment>Format a size in Gigabytes. {0} is a place holder for the number of Gigabytes (eg. 30 GB)</comment>
+  </data>
+  <data name="Format_Size_Kilobytes">
+    <value>{0} КБ</value>
+    <comment>Format a size in Kilobytes. {0} is a place holder for the number of Kilobytes (eg. 30 KB)</comment>
+  </data>
+  <data name="Format_Size_Megabytes">
+    <value>{0} МБ</value>
+    <comment>Format a size in Megabytes. {0} is a place holder for the number of Megabytes (eg. 30 MB)</comment>
+  </data>
+  <data name="Format_Size_Petabytes">
+    <value>{0} ПБ</value>
+    <comment>Format a size in Petabytes. {0} is a place holder for the number of Petabytes (eg. 30 PB)</comment>
+  </data>
+  <data name="Format_Size_Terabytes">
+    <value>{0} ТБ</value>
+    <comment>Format a size in Terabytes. {0} is a place holder for the number of Terabytes (eg. 30 TB)</comment>
+  </data>
+  <data name="Format_SpeedUnit">
+    <value>Бягучы трафік ({0})</value>
+    <comment>This string is used to format speed measurements in various units. The placeholder {0} will be replaced by the appropriate unit of measurement, such as B/s (Bytes per second), kB/s (Kilobytes per second), MB/s (Megabytes per second), and so on.</comment>
+  </data>
+  <data name="Format_Speed_BytesPerSecond">
+    <value>{0} Б/с</value>
+    <comment>Format a speed in Bytes per second. {0} is a place holder for the number of Bytes per second (eg. 30 B/s)</comment>
+  </data>
+  <data name="Format_Speed_ExabytesPerSecond">
+    <value>{0} ЭБ/с</value>
+    <comment>Format a speed in Exabytes per second. {0} is a place holder for the number of Exabytes per second (eg. 30 EB/s)</comment>
+  </data>
+  <data name="Format_Speed_GigabytesPerSecond">
+    <value>{0} ГБ/с</value>
+    <comment>Format a speed in Gigabytes per second. {0} is a place holder for the number of Gigabytes per second (eg. 30 GB/s)</comment>
+  </data>
+  <data name="Format_Speed_KilobytesPerSecond">
+    <value>{0} КБ/с</value>
+    <comment>Format a speed in Kilobytes per second. {0} is a place holder for the number of Kilobytes per second (eg. 30 KB/s)</comment>
+  </data>
+  <data name="Format_Speed_MegabytesPerSecond">
+    <value>{0} МБ/с</value>
+    <comment>Format a speed in Megabytes per second. {0} is a place holder for the number of Megabytes per second (eg. 30 MB/s)</comment>
+  </data>
+  <data name="Format_Speed_PetabytesPerSecond">
+    <value>{0} ПБ/с</value>
+    <comment>Format a speed in Petabytes per second. {0} is a place holder for the number of Petabytes per second (eg. 30 PB/s)</comment>
+  </data>
+  <data name="Format_Speed_TerabytesPerSecond">
+    <value>{0} ТБ/с</value>
+    <comment>Format a speed in Terabytes per second. {0} is a place holder for the number of Terabytes per second (eg. 30 TB/s)</comment>
+  </data>
+  <data name="Format_Time_Day_One">
+    <value>{0} дзень</value>
+  </data>
+  <data name="Format_Time_Day_Few">
+    <value>{0} дні</value>
+  </data>
+  <data name="Format_Time_Day_Many">
+    <value>{0} дзён</value>
+  </data>
+  <data name="Format_Time_Day_Other">
+    <value>{0} дзён</value>
+  </data>
+  <data name="Format_Time_DayHour_One">
+    <value>{0} дзень {1} гадз</value>
+  </data>
+  <data name="Format_Time_DayHour_Few">
+    <value>{0} дні {1} гадз</value>
+  </data>
+  <data name="Format_Time_DayHour_Many">
+    <value>{0} дзён {1} гадз</value>
+  </data>
+  <data name="Format_Time_DayHour_Other">
+    <value>{0} дні {1} гадз</value>
+  </data>
+  <data name="Format_Time_Hours">
+    <value>{0} гадз</value>
+    <comment>Format a time as a number of hours. {0} is a placeholder for the number of hours (eg. 1 hr or 20 hr). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutes">
+    <value>{0} гадз {1} хв</value>
+    <comment>Format a time as a number of hours and minutes. {0} is a placeholder for the number of hours and {1} for the number of minutes (eg. 5 hr 36 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutesSeconds_Short">
+    <value>hh\:mm\:ss</value>
+    <comment>Format a time as a number of hours, minutes and seconds in a short format. 'hh' is a placeholder for the number of hours, 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. hh\:mm\:ss gives 01:05:36).</comment>
+  </data>
+  <data name="Format_Time_Hours_Ago_One">
+    <value>{0} гадзіну таму</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Few">
+    <value>{0} гадзіны таму</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Many">
+    <value>{0} гадзін таму</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Other">
+    <value>{0} гадзін таму</value>
+  </data>
+  <data name="Format_Time_Minutes">
+    <value>{0} хв</value>
+    <comment>Format a time as a number of minutes. {0} is a placeholder for the number of minutes (eg. 1 min or 20 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds">
+    <value>{0} хв {1} сек</value>
+    <comment>Format a time as a number of minutes and seconds. {0} is a placeholder for the number of minutes and {1} for the number of seconds (eg. 5 min 36 sec). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds_Short">
+    <value>mm\:ss</value>
+    <comment>Format a time as a number of minutes and seconds in a short format. 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. mm\:ss gives 05:36).</comment>
+  </data>
+  <data name="Format_Time_Minutes_Ago_One">
+    <value>{0} хвіліну таму</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Few">
+    <value>{0} хвіліны таму</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Many">
+    <value>{0} хвілін таму</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Other">
+    <value>{0} хвілін таму</value>
+  </data>
+  <data name="Format_Time_Seconds">
+    <value>{0} сек</value>
+    <comment>Format a time as a number of seconds. {0} is a placeholder for the number of second (eg. 1 sec or 20 sec). Use abbreviations for seconds, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_Seconds_Ago_One">
+    <value>{0} секунду таму</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Few">
+    <value>{0} секунды таму</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Many">
+    <value>{0} секунд таму</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Other">
+    <value>{0} секунд таму</value>
+  </data>
+  <data name="FreeConnections_P2PUpsell">
+    <value>Спампоўвайце файлы праз BitTorrent і іншыя пратаколы абагульвання файлаў</value>
+  </data>
+  <data name="FreeConnections_SecureCoreUpsell">
+    <value>Дадайце яшчэ адзін слой шыфравання ў сваё падключэнне па VPN</value>
+  </data>
+  <data name="FreeConnections_TorUpsell">
+    <value>Выкарыстоўвайце сетку Tor праз ваша падключэнне да VPN для дадатковай прыватнасці</value>
+  </data>
+  <data name="FreeConnections_WorldwideCoverageUpsell">
+    <value>Тарыфны план VPN Plus забяспечвае пакрыццё ўсяго свету</value>
+  </data>
+  <data name="Gateway_Fastest">
+    <value>Найхутчэйшы шлюз</value>
+  </data>
+  <data name="Gateway_Random">
+    <value>Выпадковы шлюз</value>
+  </data>
+  <data name="Gateways_Page_Description">
+    <value>Падключыцеся да шлюза, каб атрымаць доступ да VPN у сваёй арганізацыі.</value>
+  </data>
+  <data name="Gateways_Page_Title">
+    <value>Шлюзы</value>
+  </data>
+  <data name="Home_Account_SignOut">
+    <value>Выйсці</value>
+  </data>
+  <data name="Home_Account_SignOut_Confirmation_Title">
+    <value>Выйсці з {0}?</value>
+    <comment>{0} is a placeholder for the username</comment>
+  </data>
+  <data name="Home_ConnectionCard_ChangeDefaultConnection">
+    <value>Змяніць прадвызначанае падключэнне</value>
+  </data>
+  <data name="Home_ConnectionCard_ChangeServer">
+    <value>Змяніць сервер</value>
+  </data>
+  <data name="Home_ConnectionDetails_AdvancedKillSwitchActivated">
+    <value>Пашыраны Kill Switch актываваны</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectToRestoreConnection">
+    <value>Падключыцеся да VPN, каб аднавіць сваё падключэнне да інтэрнэту.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Connecting">
+    <value>Падключэнне</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectingSubLabel">
+    <value>Абарона вашай лічбавай ідэнтычнасці...</value>
+  </data>
+  <data name="Home_ConnectionDetails_Country">
+    <value>Краіна</value>
+  </data>
+  <data name="Home_ConnectionDetails_Isp">
+    <value>Пастаўшчык</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protected">
+    <value>Абаронена</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protocol">
+    <value>Пратакол</value>
+  </data>
+  <data name="Home_ConnectionDetails_ServerLoad">
+    <value>Загружанасць сервера</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Description">
+    <value>Аўтарызуйцеся паўторна на партале 2ФА вашай арганізацыі, каб працягнуць.</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Title">
+    <value>2ФА пратэрмінаваны</value>
+  </data>
+  <data name="Home_ConnectionDetails_Unprotected">
+    <value>Неабаронена</value>
+  </data>
+  <data name="Home_ConnectionDetails_UnprotectedSubLabel">
+    <value>Зашыфруйце сваю актыўнасць у інтэрнэце падключыўшыся да VPN.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Volume">
+    <value>Агульны трафік</value>
+  </data>
+  <data name="Home_ConnectionDetails_VpnIp">
+    <value>VPN IP</value>
+  </data>
+  <data name="Home_ConnectionDetails_YourIpAddress">
+    <value>Ваш IP-адрас</value>
+  </data>
+  <data name="Home_FreeConnections_About">
+    <value>Больш звестак аб бясплатных падключэннях</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_One">
+    <value>рэклама заблакіравана</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Few">
+    <value>рэкламы заблакіравана</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Many">
+    <value>рэклам заблакіравана</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Other">
+    <value>рэклам заблакіравана</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Description">
+    <value>Рэклама і рэкламныя банеры або ўсплывальныя вокны, якія з'яўляецца на вэб-сайтах і ў праграмах.</value>
+  </data>
+  <data name="Home_NetShield_DataSaved">
+    <value>даных захавана</value>
+  </data>
+  <data name="Home_NetShield_DataSaved_Description">
+    <value>Прыблізная колькасць захаваных даных пры блакіраванні непажаданай рэкламы, праграм сачэння і шкодных праграм.</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_One">
+    <value>праграма сачэння спынена</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Few">
+    <value>праграмы сачэння спынена</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Many">
+    <value>праграм сачэння спынена</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Other">
+    <value>праграм сачэння спынена</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Description">
+    <value>Праграмы сачэння - гэта файлы cookies і староннія вэб-сайты, якія збіраюць, захоўваюць і прадаюць інфармацыю аб вашай актыўнасці ў інтэрнэце.</value>
+  </data>
+  <data name="Home_Recents_Pin">
+    <value>Замацаваць</value>
+  </data>
+  <data name="Home_Recents_Restricted">
+    <value>Серверы даступныя з VPN Plus</value>
+  </data>
+  <data name="Home_Recents_ServerUnderMaintenance">
+    <value>Сервер на тэхнічным абслугоўванні</value>
+  </data>
+  <data name="Home_Recents_Title">
+    <value>Нядаўнія</value>
+  </data>
+  <data name="Home_Recents_Unpin">
+    <value>Адмацаваць</value>
+  </data>
+  <data name="Home_TitleBar_Menu_About">
+    <value>Аб праграме</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Account">
+    <value>Уліковы запіс</value>
+  </data>
+  <data name="Home_TitleBar_Menu_ExitTheApp">
+    <value>Выйсці з праграмы</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help">
+    <value>Даведка</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help_WhatsTheIssue">
+    <value>У чым ваша праблема?</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Settings">
+    <value>Налады</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Signout">
+    <value>Выйсці</value>
+  </data>
+  <data name="Home_TitleBar_Menu_UpdateNow">
+    <value>Абнавіць</value>
+  </data>
+  <data name="LoadingPage_Tip">
+    <value>Лепшы свет пачынаецца з прыватнасці і лічбавай свабоды.</value>
+  </data>
+  <data name="Login_Error_GetSessionDetailsFailed">
+    <value>Адбылася праблема пры атрыманні падрабязнасцяў сеанса. Паспрабуйце яшчэ раз.</value>
+  </data>
+  <data name="Login_Error_GuestHoleFailedDueToMobileHotspot">
+    <value>Немагчыма ўвайсці з-за налад сеткі на вашай прыладзе. Прычынай гэтага можа быць мабільны пункт доступу, іншая праграма VPN або праграмнае забеспячэнне віртуальнай машыны. Паглядзіце канфігурацыю сваёй сеткі або звярніцеся ў службу падтрымкі, каб атрымаць дадатковыя звесткі.</value>
+  </data>
+  <data name="Login_Error_IncorrectTwoFactorCode">
+    <value>Няправільны код. Паспрабуйце яшчэ раз.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Message">
+    <value>У вашым усталёвачным пакеце адсутнічае файл, які неабходны для ўваходу. Пераўсталюйце Proton VPN, каб выправіць гэту праблему.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Title">
+    <value>Немагчыма ўвайсці</value>
+  </data>
+  <data name="Login_Error_SessionExpired">
+    <value>Ваш сеанс пратэрмінаваны. Увайдзіце яшчэ раз.</value>
+    <comment>The message displayed in Login window when expired session is detected</comment>
+  </data>
+  <data name="Login_Error_SsoAuthFailed">
+    <value>Збой аўтэнтыфікацыі SSO. Паспрабуйце яшчэ раз.</value>
+  </data>
+  <data name="Login_Error_TwoFactorFailed">
+    <value>Збой двухфактарнай аўтэнтыфікацыі. Увайдзіце яшчэ раз.</value>
+  </data>
+  <data name="Login_Error_WebAuthnNotSupported">
+    <value>Аўтэнтыфікацыя ключом бяспекі недаступна для вашай прылады або на вашым падключэнні да аддаленага працоўнага стала.</value>
+  </data>
+  <data name="Login_TwoFactorForm_Authenticate">
+    <value>Аўтэнтыфікаваць</value>
+    <comment>Authenticate button inside two factor form during login</comment>
+  </data>
+  <data name="Login_TwoFactorForm_Subtitle">
+    <value>6-значны код аўтэнтыфікацыі</value>
+  </data>
+  <data name="Login_TwoFactorForm_Title">
+    <value>Двухфактарная аўтэнтыфікацыя</value>
+  </data>
+  <data name="Login_TwoFactor_Authenticator">
+    <value>Праграма аўтэнтыфікацыі</value>
+  </data>
+  <data name="Login_TwoFactor_Digit1">
+    <value>Першая лічба</value>
+  </data>
+  <data name="Login_TwoFactor_Digit2">
+    <value>Другая лічба</value>
+  </data>
+  <data name="Login_TwoFactor_Digit3">
+    <value>Трэцяя лічба</value>
+  </data>
+  <data name="Login_TwoFactor_Digit4">
+    <value>Чацвёртая лічба</value>
+  </data>
+  <data name="Login_TwoFactor_Digit5">
+    <value>Пятая лічба</value>
+  </data>
+  <data name="Login_TwoFactor_Digit6">
+    <value>Шостая лічба</value>
+  </data>
+  <data name="Login_TwoFactor_EnterCode">
+    <value>Увядзіце свой код.</value>
+  </data>
+  <data name="Login_TwoFactor_NoMethodAvailable">
+    <value>Не знойдзена вядомых спосабаў двухфактарнай аўтэнтыфікацыі.</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey">
+    <value>Ключ бяспекі</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey_Description">
+    <value>Устаўце ключ U2F або FIDO, які звязаны з вашым уліковым запісам Proton.</value>
+  </data>
+  <data name="Main_Loading">
+    <value>Загружаецца. Пачакайце…</value>
+    <comment>Message in the loading screen when starting the app</comment>
+  </data>
+  <data name="Main_Loading_SigningIn">
+    <value>Адбываецца ўваход. Пачакайце…</value>
+    <comment>Message in the loading screen when signing in</comment>
+  </data>
+  <data name="Main_Loading_SigningIn_Longer">
+    <value>Гэта заняло больш часу, чым звычайна. Адбываецца ўваход.</value>
+    <comment>Message in the loading screen when sign in action takes longer than expected</comment>
+  </data>
+  <data name="Main_Loading_SigningOut">
+    <value>Адбываецца выхад. Пачакайце…</value>
+    <comment>Message in the loading screen when signing out</comment>
+  </data>
+  <data name="Map_ConnectTo">
+    <value>Падключыць - {0}</value>
+    <comment>A label inside a map pin tooltip. {0} is a placeholder for country, state or city. (eg. "Connect - United States", "Connect - New York")</comment>
+  </data>
+  <data name="NoServers_ContactUs">
+    <value>Звязацца з намі</value>
+  </data>
+  <data name="NoServers_FailedToLoad">
+    <value>Немагчыма загрузіць спіс сервераў.</value>
+  </data>
+  <data name="NoServers_NeedHelp">
+    <value>Неабходна дапамога?</value>
+  </data>
+  <data name="NoServers_SignOut">
+    <value>Выйсці</value>
+  </data>
+  <data name="NoServers_Tip">
+    <value>Папрасіце свайго адміністратара ўключыць доступ да VPN для вашага ўліковага запісу.</value>
+  </data>
+  <data name="NoServers_Title">
+    <value>Няма даступных падключэнняў па VPN</value>
+  </data>
+  <data name="NoServers_UnderMaintenance_Tip">
+    <value>Ніводны сервер не ўдалося загрузіць. Націсніце "Абнавіць" для абнаўлення спіса з серверамі.</value>
+  </data>
+  <data name="Notifications_KillSwitch_Description">
+    <value>Kill Switch заблакіруе падключэнне да інтэрнэту, каб абараніць ваш IP-адрас.</value>
+  </data>
+  <data name="Notifications_PortForwarding_CopyPortNumber">
+    <value>Скапіяваць нумар парта</value>
+  </data>
+  <data name="Notifications_PortForwarding_Description">
+    <value>Перайдзіце ў свой кліент торэнт або праграму P2P і ўвядзіце гэты нумар.</value>
+  </data>
+  <data name="Notifications_SessionLimit_Description">
+    <value>Дасягнута абмежаванне па максімальнай колькасці прылад. Адключыце якую-небудзь прыладу, каб перападключыцца да VPN.</value>
+  </data>
+  <data name="Notifications_SubscriptionExpired_Description_Connected">
+    <value>Ваш тарыфны план быў паніжаны да Proton Free. Вы будзеце перападключаны да найхутчэйшага з бясплатных сервераў.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Description">
+    <value>Публічныя сеткі Wi-Fi найбольш уразлівыя да пагроз бяспекі. Падключыцеся да VPN для бяспечнага прагляду.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Title">
+    <value>Выяўлена неабароненае падключэнне па Wi-Fi</value>
+  </data>
+  <data name="NpsSurvey_Title">
+    <value>Proton VPN - Апытанне</value>
+    <comment>The window title displayed at the top of the NPS (Net Promoter Score) survey</comment>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Description">
+    <value>Вам неабходна дазволіць падключэнні па IPv6 праз тунэль VPN, каб уключыць IPv6-адрасы.</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_PrimaryButton">
+    <value>Уключыць IPv6</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_SecondaryButton">
+    <value>Не цяпер</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Title">
+    <value>IPv6 адключаны</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Action">
+    <value>Абнавіць</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Message">
+    <value>Гэта версія праграмы састарэла. Вы павінны абнавіць праграму, каб працягнуць выкарыстоўваць Proton VPN.</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Title">
+    <value>Абнавіце Proton VPN, каб працягнуць</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Description">
+    <value>Нашы серверы P2P (peer-to-peer) даюць вам доступ да сетак P2P адначасова абараняючы ваш IP-адрас і актыўнасць у інтэрнэце.</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Header">
+    <value>Што такое P2P VPN?</value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Description">
+    <value>Сеткі P2P дазваляюць двум прыладам падключацца і абменьвацца данымі без удзелу цэнтральнага сервера. </value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Header">
+    <value>Што такое сетка P2P?</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Description">
+    <value>  •  Спампоўванне файлаў торэнт
+  •  Палепшаная прадукцыйнасць сеткавых гульняў і відэазванкоў
+  •  Падключэнне прылад да лакальнай сеткі (LAN)</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Header">
+    <value>Для чаго выкарыстоўвацца сеткі P2P?</value>
+  </data>
+  <data name="Overlay_P2P_LearnMore">
+    <value>Што такое P2P?</value>
+  </data>
+  <data name="Overlay_P2P_Title">
+    <value>P2P</value>
+  </data>
+  <data name="Overlay_Profile_Description1">
+    <value>Профілі - гэта карыстальніцкія падключэнні па VPN, якія вы можаце адаптаваць пад свае патрабаванні для хуткага доступу.</value>
+  </data>
+  <data name="Overlay_Profile_Description2">
+    <value>Задайце пажаданае месцазнаходжанне і аптымізуйце налады для бяспекі, прадукцыйнасці, сеткавых гульняў або для любых іншых сцэнарыяў.</value>
+  </data>
+  <data name="Overlay_Profile_LearnMore">
+    <value>Што такое профіль VPN?</value>
+  </data>
+  <data name="Overlay_Profile_Title">
+    <value>Профілі</value>
+  </data>
+  <data name="Overlay_SecureCore_Description1">
+    <value>Secure Core падключае вас да прызначанага сервера праз прамежкавы сервер VPN з максімальнай абаронай.</value>
+  </data>
+  <data name="Overlay_SecureCore_Description2">
+    <value>Такі высокі ўзровень бяспекі можа стаць прычынай больш высокіх затрымак і запаволення хуткасці.</value>
+  </data>
+  <data name="Overlay_SecureCore_LearnMore">
+    <value>Што такое Secure Core?</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection">
+    <value>Падключэнне VPN
+Secure Core</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Latency">
+    <value>Вышэйшая затрымка</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Privacy">
+    <value>Пашыраная прыватнасць</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection">
+    <value>Стандартнае
+падключэнне па VPN</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Latency">
+    <value>Ніжэйшая затрымка</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Privacy">
+    <value>Высокая прыватнасць</value>
+  </data>
+  <data name="Overlay_SecureCore_Title">
+    <value>Secure Core</value>
+  </data>
+  <data name="Overlay_ServerLoad_Description">
+    <value>Загружанасць сервера паказвае на колькі вычарпана яго максімальная ёмістасць.
+
+Высокая загрузка сервера можа запаволіць ваша падключэнне.</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Description">
+    <value>VPN можа працаваць павольней за звычайнае падключэнне</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Title">
+    <value>Высокая (91 - 100%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_LearnMore">
+    <value>Што такое загружанасць сервера?</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Description">
+    <value>Звышвысокія хуткасці</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Title">
+    <value>Нізкая (1 - 75%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Description">
+    <value>Малаверагодна, што акажа ўплыў на хуткасць VPN</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Title">
+    <value>Сярэдняя (76 - 90%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_Title">
+    <value>Загружанасць сервера</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description1">
+    <value>Smart Routing дазваляе нам забяспечваць пакрыццё VPN у цяжкадаступных краінах.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description2">
+    <value>Калі вы падключаецеся да сервера Smart Routing, то ўсё будзе выглядаць так, быццам вы ажыццяўляеце прагляд з краіны прызначэння, хоць фізічна сервер размяшчаецца ў іншым месцы.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description3">
+    <value>Smart Routing звычайна выкарыстоўваецца для абыходу законаў супраць прыватнасці, а таксама іншых форм цэнзуры.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Header">
+    <value>Фізічна серверы размяшчаюцца ў краіне {0}, але будзе выглядаць быццам вы праглядаеце сайты з краіны {1}</value>
+    <comment>{0} is a placeholder for the physical server location country. {1} is a placeholder for the destination country
+    Warning: country names are inserted in the nominative case. For INFLECTED languages, use alternative wording as follows:
+    Connects you to your destination country ({1}) through servers that are physically located somewhere else ({0})</comment>
+  </data>
+  <data name="Overlay_SmartRouting_LearnMore">
+    <value>Што такое Smart Routing?</value>
+  </data>
+  <data name="Overlay_SmartRouting_Title">
+    <value>Smart Routing</value>
+  </data>
+  <data name="Overlay_Tor_Description">
+    <value>Падключайцеся да сервера Tor, каб атрымаць доступ да схаваных сэрвісаў і сайтаў onion праз любы браўзер.</value>
+  </data>
+  <data name="Overlay_Tor_LearnMore">
+    <value>Як атрымаць доступ да сеткі Tor</value>
+  </data>
+  <data name="Overlay_Tor_Title">
+    <value>Tor</value>
+  </data>
+  <data name="Profile_CustomSettings_Description">
+    <value>Налады профілю перавызначаць вашы налады VPN пры падключэнні.</value>
+  </data>
+  <data name="Profile_CustomSettings_Header">
+    <value>Дадаць карыстальніцкія налады</value>
+  </data>
+  <data name="Profile_CustomSettings_Hide">
+    <value>Схаваць налады</value>
+  </data>
+  <data name="Profile_CustomSettings_Show">
+    <value>Паказаць налады</value>
+  </data>
+  <data name="Profile_NatType_Conflict_Description">
+    <value>Гэта дзеянне правядзе да адключэння перанакіравання партоў для гэтага профілю.</value>
+  </data>
+  <data name="Profile_NetShield_Conflict_Description">
+    <value>Гэта правядзе да адключэння карыстальніцкіх DNS для гэтага профілю.</value>
+  </data>
+  <data name="Profile_Options_Application">
+    <value>Праграма</value>
+  </data>
+  <data name="Profile_Options_Application_Select">
+    <value>Выбраць праграму</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Application">
+    <value>Адкрыць праграму</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_PrivateBrowsingMode">
+    <value>Выкарыстоўваць рэжым прыватнага прагляду</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Website">
+    <value>Адкрыць вэб-сайт</value>
+  </data>
+  <data name="Profile_Options_Description">
+    <value>Аўтаматычна адкрываць вэб-сайт або выбраную вамі праграму пры падключэнні да гэтага профілю.</value>
+  </data>
+  <data name="Profile_Options_Header">
+    <value>Падключыцца і адкрыць</value>
+  </data>
+  <data name="Profile_Options_Url">
+    <value>URL-адрас вэб-сайта</value>
+  </data>
+  <data name="Profile_Options_Url_Error">
+    <value>Увядзіце сапраўдны URL-адрас</value>
+  </data>
+  <data name="Profile_PortForwarding_Conflict_Description">
+    <value>Гэта дзеянне прывядзе да змянення тыпу на строгі NAT для гэтага профілю (тып 3).</value>
+  </data>
+  <data name="Profiles_Default_Gaming">
+    <value>Гульні</value>
+  </data>
+  <data name="Profiles_Default_MaxSecurity">
+    <value>Максімальная бяспека</value>
+  </data>
+  <data name="Profiles_Default_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Profiles_Default_RandomConnection">
+    <value>Выпадковае падключэнне</value>
+  </data>
+  <data name="Profiles_Default_Streaming">
+    <value>Трансляцыі ЗША</value>
+  </data>
+  <data name="Profiles_Default_WorkSchool">
+    <value>Праца/школа</value>
+  </data>
+  <data name="Profiles_Page_Description">
+    <value>Зрабіце ўласную канфігурацыю налад VPN і падключайцеся адным націскам</value>
+  </data>
+  <data name="Profiles_Page_Title">
+    <value>Профілі</value>
+  </data>
+  <data name="Search_InputBox_Placeholder">
+    <value>Прагляд з...</value>
+  </data>
+  <data name="Search_NoInput_CityOrState">
+    <value>Гарады і штаты ЗША</value>
+    <comment>The word used for one single city and one single United States state</comment>
+  </data>
+  <data name="Search_NoInput_Country">
+    <value>Краіна</value>
+    <comment>The word used for one single country</comment>
+  </data>
+  <data name="Search_NoInput_Server">
+    <value>Сервер</value>
+    <comment>The word used for one single server</comment>
+  </data>
+  <data name="Search_NoInput_TrySearchingFor">
+    <value>Паспрабуйце шукаць…</value>
+  </data>
+  <data name="Search_NoResults_Description">
+    <value>Паспрабуйце іншыя ключавыя словы.</value>
+  </data>
+  <data name="Search_NoResults_Title">
+    <value>Нічога не знойдзена</value>
+  </data>
+  <data name="Server">
+    <value>Сервер</value>
+  </data>
+  <data name="Server_Fastest">
+    <value>Найхутчэйшы сервер</value>
+  </data>
+  <data name="Server_Fastest_Free">
+    <value>Найхутчэйшы бясплатны сервер</value>
+  </data>
+  <data name="Server_Feature_B2B">
+    <value>Шлюз</value>
+  </data>
+  <data name="Server_Feature_B2B_Description">
+    <value>Доступ да сервераў вашай арганізацыі</value>
+  </data>
+  <data name="Server_Feature_None">
+    <value>Стандартныя</value>
+  </data>
+  <data name="Server_Feature_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Server_Feature_P2P_Description">
+    <value>Аптымізавана для торэнт</value>
+  </data>
+  <data name="Server_Feature_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Server_Feature_SecureCore_Description">
+    <value>Падвоеная абарона</value>
+  </data>
+  <data name="Server_Feature_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Server_Free">
+    <value>Бясплатны сервер</value>
+  </data>
+  <data name="Server_Random">
+    <value>Выпадковы сервер</value>
+  </data>
+  <data name="Servers">
+    <value>Серверы</value>
+  </data>
+  <data name="Settings_About_Changelog">
+    <value>Спіс змен</value>
+  </data>
+  <data name="Settings_About_CurrentVersion">
+    <value>Бягучая версія</value>
+  </data>
+  <data name="Settings_About_FailedToFetch">
+    <value>Збой загрузкі звестак спіса змен.</value>
+  </data>
+  <data name="Settings_About_LearnMore">
+    <value>Даведацца больш</value>
+  </data>
+  <data name="Settings_About_Licensing">
+    <value>Ліцэнзаванне</value>
+  </data>
+  <data name="Settings_About_Loading">
+    <value>Загрузка</value>
+  </data>
+  <data name="Settings_About_Title">
+    <value>Аб праграме</value>
+  </data>
+  <data name="Settings_Account_Account">
+    <value>Уліковы запіс</value>
+  </data>
+  <data name="Settings_Account_Exit">
+    <value>Выйсці з праграмы</value>
+  </data>
+  <data name="Settings_Account_SignOut">
+    <value>Выйсці</value>
+  </data>
+  <data name="Settings_AppVersion">
+    <value>Версія праграмы</value>
+  </data>
+  <data name="Settings_Censorship_Footer">
+    <value>Гэта статыстыка не змяшчае ваш IP-адрас і яна не будзе выкарыстана, каб ідэнтыфікаваць вас. Вашы даныя ніколі не будуць абагульвацца са староннімі асобамі.</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports">
+    <value>Абагульваць ананімныя справаздачы аб збоях</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports_Description">
+    <value>Справаздачы аб збоях дапамагаюць нам выпраўляць памылкі, вызначаць міжсеткавыя экраны, а таксама пазбягаць блакіроўкі VPN.</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics">
+    <value>Абагульваць ананімную статыстыку выкарыстання</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics_Description">
+    <value>Даныя аб выкарыстанні дапамагаюць нам пераадольваць блакіроўкі VPN і паляпшаць прадукцыйнасць праграмы.</value>
+  </data>
+  <data name="Settings_Common_Apply">
+    <value>Прымяніць</value>
+    <comment>Apply action. Used to apply changes made on a settings page</comment>
+  </data>
+  <data name="Settings_Common_IpAddresses_AlreadyExists">
+    <value>Адрас ужо дададзены</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Invalid">
+    <value>Увядзіце сапраўдны адрас IPv4 або IPv6</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Watermark">
+    <value>192.0.2.0</value>
+    <comment>Watermark for the IP Address field in the Custom DNS servers settings page</comment>
+  </data>
+  <data name="Settings_Connection">
+    <value>Падключэнне</value>
+  </data>
+  <data name="Settings_Connection_AdvancedSettings">
+    <value>Дадатковыя налады</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting">
+    <value>Альтэрнатыўная маршрутызацыя</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting_Description">
+    <value>Будзе зроблена спроба скарыстацца альтэрнатыўным сеткавым маршрутам для падключэння да нашых сайтаў, калі сэрвісы Proton заблакіраваны з-за абмежавання сеткі.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers">
+    <value>Карыстальніцкія серверы DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_AddNew">
+    <value>Дадаць новы сервер DNS</value>
+    <comment>Label above an input field where users can enter a new DNS server IP address.</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Description">
+    <value>У вас не будзе магчымасці выкарыстоўваць NetShield пры падключэнні да карыстальніцкага сервера DNS.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Title">
+    <value>Уключыць карыстальніцкія серверы DNS?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Description">
+    <value>Падключайцеся да Proton VPN выкарыстоўваючы сваю ўласную сістэму даменных імён (DNS). Карыстайцеся толькі тымі серверамі DNS, якім вы давяраеце.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Footer">
+    <value>Будзе зроблена спроба падключыцца да гэтых сервераў па парадку. Калі ніводны з іх працаваць не будзе, то будзе выкарыстоўвацца сервер DNS ад Proton VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_FormattedHeader">
+    <value>Серверы DNS ({0})</value>
+    <comment>Header for the list of Custom DNS servers defined. {0} is a placeholder for the number of DNS servers in the list. (eg. "DNS servers (4)")</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Header">
+    <value>Серверы DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Select">
+    <value>Выберыце серверы DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6">
+    <value>Падтрымка IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection">
+    <value>Абарона ад уцечкі ў IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection_Description">
+    <value>Прадухіляе ўцечкі даных, блакіруючы трафік IPv6, які не праходзіць праз тунэль VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6_Description">
+    <value>Дазваляе трафіку IPv6 праходзіць праз тунэль VPN. Гэта паляпшае сумяшчальнасць з вэб-сайтамі і службамі, якія выкарыстоўваюць IPv6.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections">
+    <value>Дазволіць падключэнні па лакальнай сетцы</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_Description">
+    <value>Дазваляе падключацца да прынтараў, дынамікаў і іншых прылад у вашай лакальнай сетцы.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Description">
+    <value>Выкарыстоўвае mDNS для падключэння да прылад. Вы зможаце выкарыстоўваць такія назвы, як 'My-Printer' або 'router.local' замест IP-адрасоў. Стандартны DNS працягвае накіроўвацца праз тунэль VPN. Прадвызначана функцыя знаходзіцца ў выключаным стане для больш высокай хуткасці VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Title">
+    <value>Доступ да прылад па імені</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType">
+    <value>Тып NAT</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Description">
+    <value>У вас не будзе магчымасці выкарыстоўваць перанакіраванне партоў з Moderate NAT.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Title">
+    <value>Уключыць умераны NAT?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Description">
+    <value>Выберыце тып трансляцыі сеткавых адрасоў для вашага падключэння.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate">
+    <value>Умераны (тып 2)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate_Description">
+    <value>Некаторыя абмежаванні на даныя, якія трапляюць у вашу сетку. Гэты параметр найлепш пасуе для сеткавых гульняў.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict">
+    <value>Абмежаваны (тып 3)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict_Description">
+    <value>Абмяжоўваюць даныя, якія трапляюць у вашу сетку. Гэты параметр найбольш бяспечны, але можа прывесці да ўзнікнення праблем у гульнях, якія патрабуюць аднарангавага падключэння.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tap">
+    <value>Трафік сеткавага моста. Больш павольны за TUN, але патрабуецца для некаторых састарэлых або адмысловых сеткавых наладак.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tun_Description">
+    <value>Перанакіроўвае трафік паміж рознымі сеткамі. TUN можа быць хутчэй і больш стабільным, чым TAP.</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences">
+    <value>Параметры падключэння</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences_Description">
+    <value>Прадвызначанае падключэнне і выключаныя месцазнаходжанні</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenDisabled">
+    <value>Нельга ўключыць карыстальніцкі DNS, бо вы падключаны да профілю з уключаным NetShield.</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenEnabled">
+    <value>Карыстальніцкі DNS адключаны, бо ў цяперашні час вы падключаны да профілю з уключаным NetShield.</value>
+  </data>
+  <data name="Settings_Connection_Default">
+    <value>Прадвызначанае падключэнне</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest">
+    <value>Найхутчэйшыя краіны</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest_Description">
+    <value>Лепшыя серверы на падставе вашага размяшчэння</value>
+  </data>
+  <data name="Settings_Connection_Default_Last">
+    <value>Апошняе падключэнне</value>
+  </data>
+  <data name="Settings_Connection_Default_Last_Description">
+    <value>Ваша апошняе выкарыстанае падключэнне</value>
+  </data>
+  <data name="Settings_Connection_Default_Random">
+    <value>Выпадковая краіна</value>
+  </data>
+  <data name="Settings_Connection_Default_Random_Description">
+    <value>Кожны раз іншы сервер пры падключэнні</value>
+  </data>
+  <data name="Settings_Connection_Default_Recents">
+    <value>Нядаўнія</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations">
+    <value>Выключаныя месцазнаходжанні</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Cities">
+    <value>Гарады</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Countries">
+    <value>Краіны</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Description">
+    <value>Выбраныя месцазнаходжанні ніколі не будуць выкарыстоўвацца пры падключэнні да найхутчэйшых або выпадковых сервераў.</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_NoLocations">
+    <value>Няма даступных месцазнаходжанняў</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Search">
+    <value>Выбраць...</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_States">
+    <value>Штаты</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch">
+    <value>Kill Switch</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced">
+    <value>Дадаткова</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced_Description">
+    <value>Дазваляць доступ да інтэрнэту толькі, калі Proton VPN падключаны. Пашыраны Kill Switch застанецца актыўным нават, калі вы перазапусціце прыладу.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Description">
+    <value>Абараніце свой IP-адрас пры дапамозе адключэння ад інтэрнэту пры страце падключэння па VPN.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard">
+    <value>Стандартны</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard_Description">
+    <value>Аўтаматычна адключацца ад інтэрнэту, калі падключэнне з VPN страчана.</value>
+  </data>
+  <data name="Settings_Connection_NetShield">
+    <value>NetShield</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackers">
+    <value>Блакіроўка рэкламы, праграм сачэння і шкодных праграм</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackersAdultContent">
+    <value>Блакіруйце рэкламу, праграмы сачэння, шкодныя праграмы і змесціва для дарослых</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockMalwareOnly">
+    <value>Блакіраваць толькі шкодныя праграмы</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Description">
+    <value>У вас не будзе магчымасці падключацца да карыстальніцкага сервера DNS пры ўключаным NetShield.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Information">
+    <value>NetShield не сумяшчальны з карыстальніцкімі DNS.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Title">
+    <value>Уключыць NetShield?</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Description">
+    <value>Абараніце свой прагляд на вэб-сайтах і ў праграмах.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Footer">
+    <value>Некаторыя вэб-сайты могуць некарэктна загружацца, калі рэклама і праграмы сачэння заблакіраваны.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_PrivacyPanel">
+    <value>Панэль прыватнасці NetShield</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding">
+    <value>Перанакіраванне партоў</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort">
+    <value>Нумар актыўнага парта:</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort_Copy">
+    <value>Скапіяваць нумар парта</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Description">
+    <value>У вас не будзе магчымасці выкарыстоўваць Moderate NAT, калі перанакіраванне партоў уключана.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Title">
+    <value>Уключыць перанакіраванне партоў?</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Description">
+    <value>Паляпшае хуткасць торэнтаў і гульняў, дазваляючы рабіць наўпроставыя падключэнні P2P праз прызначаны порт.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Footer">
+    <value>Падключайцеся да сервера з падтрымкай P2P, каб скарыстацца функцыяй перанакіравання партоў.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_LastChanged">
+    <value>Апошняе змяненне: {0}</value>
+    <comment>Indicates when the active port was changed for the last time. {0} is a placeholder for the time. (eg. "Last changed: 5 minutes ago" or "Last changed: May 20, at 14:32")</comment>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Loading">
+    <value>Загрузка...</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications">
+    <value>Апавяшчэнні</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications_Description">
+    <value>Атрымлівайце апавяшчэнні пры змяненні нумара актыўнага парта.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Unavailable">
+    <value>Недаступна</value>
+  </data>
+  <data name="Settings_Connection_Protocol">
+    <value>Пратакол</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling">
+    <value>Split Tunneling</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Description">
+    <value>Выберыце праграмы, якія будуць выключаны з падключэння па VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_FormattedHeader">
+    <value>Выключаныя праграмы ({0})</value>
+    <comment>Header for the list of apps to exclude for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Excluded apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Header">
+    <value>Выключаныя праграмы</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_FilesFilterName">
+    <value>Файлы праграмы</value>
+    <comment>Describe the name of the filter used to select executable files in the Open file dialog</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Description">
+    <value>Выберыце праграмы, якія будуць уключаны у падключэнне па VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_FormattedHeader">
+    <value>Уключаныя праграмы ({0})</value>
+    <comment>Header for the list of apps to include for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Included apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Header">
+    <value>Уключаныя праграмы</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Select">
+    <value>Выберыце праграмы</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Description">
+    <value>Наладзьце падключэнне вырашыўшы, якія праграмы і IP-адрасы будуць абаронены VPN.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse">
+    <value>Рэжым уключэння</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Description">
+    <value>Толькі выбраныя праграмы і IP-адрасы будуць падключаны праз VPN. Увесь астатні трафік застанецца неабароненым.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Short">
+    <value>Уключае</value>
+    <comment>Shorter version (if possible) of "Include mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_AddNew">
+    <value>Дадаць новы адрас IPv4 або IPv6</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Description">
+    <value>Выберыце IP-адрасы, якія будуць выключаны з падключэння па VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_FormattedHeader">
+    <value>Выключаныя IP-адрасы ({0})</value>
+    <comment>Header for the list of IP addresses to exclude for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Excluded IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Header">
+    <value>Выключаныя IP-адрасы</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Description">
+    <value>Выберыце IP-адрасы, якія будуць уключаны ў падключэнне па VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_FormattedHeader">
+    <value>Уключаныя IP-адрасы ({0})</value>
+    <comment>Header for the list of IP addresses to include for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Included IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Header">
+    <value>Уключаныя IP-адрасы</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Select">
+    <value>Выберыце IP-адрасы</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard">
+    <value>Рэжым выключэння</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Description">
+    <value>Выбраныя праграмы і IP-адрасы выключаны з падключэння па VPN.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Short">
+    <value>Выключае</value>
+    <comment>Shorter version (if possible) of "Exclude mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_VpnAccelerator">
+    <value>VPN Accelerator</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Action">
+    <value>Скасаваць змены</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Cancel">
+    <value>Працягнуць рэдагаванне</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Title">
+    <value>Скасаваць незахаваныя змены?</value>
+  </data>
+  <data name="Settings_General">
+    <value>Агульныя</value>
+  </data>
+  <data name="Settings_General_AutoStartup">
+    <value>Аўтаматычны запуск</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect">
+    <value>Аўтаматычнае падключэнне</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect_Description">
+    <value>Аўтаматычна падключацца да прадвызначанага падключэння пры адкрыцці Proton VPN.</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch">
+    <value>Аўтаматычны запуск</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Description">
+    <value>Proton VPN будзе аўтаматычна адкрывацца пры ўваходзе ў сістэму на вашай прыладзе</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Desktop">
+    <value>Адкрыць на працоўным стале</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_SystemTray">
+    <value>Згарнуць у сістэмны латок</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Taskbar">
+    <value>Згарнуць у панэль задач</value>
+  </data>
+  <data name="Settings_General_AutoStartup_Description">
+    <value>Задавайце праграму для запуску або аўтаматычнага падключэння.</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates">
+    <value>Аўтаматычныя абнаўленні</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates_Description">
+    <value>Аўтаматычна правяраць і ўсталёўваць абнаўленні Proton VPN.</value>
+  </data>
+  <data name="Settings_General_BetaAccess">
+    <value>Доступ да бэта-версіі</value>
+  </data>
+  <data name="Settings_General_BetaAccess_Description">
+    <value>Атрымайце ранні доступ і дапамажыце нам пратэсціраваць новую версію Proton VPN.</value>
+  </data>
+  <data name="Settings_General_Language">
+    <value>Мова</value>
+  </data>
+  <data name="Settings_General_Notifications">
+    <value>Апавяшчэнні</value>
+  </data>
+  <data name="Settings_General_Notifications_Description">
+    <value>Атрымлівайце апавяшчэнні аб змяненні статусу вашага падключэння.</value>
+  </data>
+  <data name="Settings_General_OpenVpnNetworkDriver">
+    <value>Сеткавы драйвер OpenVPN</value>
+  </data>
+  <data name="Settings_General_Theme">
+    <value>Тэма</value>
+  </data>
+  <data name="Settings_Improve">
+    <value>Удасканаліць Proton</value>
+  </data>
+  <data name="Settings_Improve_Censorship">
+    <value>Дапамажыце нам змагацца з цэнзурай</value>
+  </data>
+  <data name="Settings_OperatingSystemVersion">
+    <value>Версія аперацыйнай сістэмы</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description1">
+    <value>Налада падключана да вашага актыўнага профілю.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description2">
+    <value>Адрэдагуйце свой профіль, каб зрабіць змены. Таксама вы можаце адключыцца, каб адрэдагаваць свае агульныя налады VPN.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Tagline">
+    <value>Гэтыя налады падключаны да профілю {0} і імі можна кіраваць толькі ў профілях.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Settings_OverriddenByProfile_Title">
+    <value>Кіраванне {0} у профілях</value>
+    <comment>{0} is a placeholder for the name of the settings being overridden by the profile. (eg. Manage NetShield in Profiles)</comment>
+  </data>
+  <data name="Settings_Page_Title">
+    <value>Налады</value>
+  </data>
+  <data name="Settings_Protocols_Explanation">
+    <value>Пратакол VPN вызначае, як даныя перамяшчаюцца паміж серверам VPN і вашай прыладай.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Description">
+    <value>Спраўджаны, добра пратэсціраваны і бяспечны. OpenVPN надзейна працуе нават у сетках з дрэнным злучэннем, але можа быць менш хуткім за іншыя пратаколы.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Description">
+    <value>Спраўджаны, добра пратэсціраваны і бяспечны. OpenVPN менш эфектыўна выкарыстоўвае акумулятар у параўнанні з іншымі пратаколамі.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Description">
+    <value>Наша новая структура на аснове WireGuard для павышэння стабільнасці, функцыянальнасці і ўстойлівасці да цэнзуры.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Description">
+    <value>Наша новая структура на аснове WireGuard для павышэння стабільнасці, функцыянальнасці і ўстойлівасці да цэнзуры.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Title">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Description">
+    <value>Наша новая структура на аснове WireGuard для павышэння стабільнасці, функцыянальнасці і ўстойлівасці да цэнзуры.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Description">
+    <value>Выкарыстоўвайце ўласную рэалізацыю WireGuard ад Proton VPN. Гэта эксперыментальная функцыя, таму вы можаце сутыкнуцца з некаторай нестабільнасцю.</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Title">
+    <value>Пратаколы Proton</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Description">
+    <value>Аўтаматычна выбірае лепшы пратакол для вашага падключэння.</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Title">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_Protocols_TcpCategory">
+    <value>Надзейнасць (TCP)</value>
+  </data>
+  <data name="Settings_Protocols_UdpCategory">
+    <value>Хуткасць (UDP)</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Description">
+    <value>Перадавы пратакол для бяспекі і прадукцыйнасці.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Description">
+    <value>Пераадольвае блакіроўкі VPN хаваючы ваша падключэнне па VPN ад цэнзараў. Stealth устойлівы да тэхналогіі DPI (deep packet inspection), але можа саступаць іншым пратаколам па хуткасці перадачы даных.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Title">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Description">
+    <value>Перадавы пратакол для бяспекі і прадукцыйнасці.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Reconnection_Title">
+    <value>Перападключыцца, каб прымяніць змены</value>
+  </data>
+  <data name="Settings_RestoreDefault">
+    <value>Аднавіць прадвызначаныя налады</value>
+  </data>
+  <data name="Settings_RestoreDefaultAndReconnect_Confirmation_Action">
+    <value>Аднавіць і перападключыцца</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Action">
+    <value>Аднавіць прадвызначаныя налады</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Message">
+    <value>Гэта скіне налады Proton VPN да іх першапачатковага стану.</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Title">
+    <value>Аднавіць прадвызначаныя налады?</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnTcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnUdp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunUdp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTls">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardUdp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_Support">
+    <value>Падтрымка</value>
+  </data>
+  <data name="Settings_Support_DebugLogs">
+    <value>Журналы адладак</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Application">
+    <value>Журналы праграмы</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_ErrorMessage">
+    <value>Немагчыма знайсці папку з журналамі.</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Service">
+    <value>Службовы журнал</value>
+  </data>
+  <data name="Settings_Support_ReportIssue">
+    <value>Паведаміць аб праблеме</value>
+  </data>
+  <data name="Settings_Support_SupportCenter">
+    <value>цэнтрам падтрымкі</value>
+  </data>
+  <data name="Settings_Theme_Dark">
+    <value>Цёмная</value>
+  </data>
+  <data name="Settings_Theme_Default">
+    <value>Прадвызначаная</value>
+  </data>
+  <data name="Settings_Theme_Light">
+    <value>Светлая</value>
+  </data>
+  <data name="Settings_VpnAccelerator_Description">
+    <value>Павялічце хуткасць свайго падключэння да 400% дзякуючы тэхналогіям павышэння прадукцыйнасці.</value>
+  </data>
+  <data name="SignIn_Form_AdvancedKillSwitchDescription">
+    <value>Пашыраны Kill Switch блакіруе ваша падключэнне да інтэрнэту.</value>
+  </data>
+  <data name="SignIn_Form_BestSecureVpnForSpeed">
+    <value>Найлепшы бяспечны VPN для хуткай працы</value>
+  </data>
+  <data name="SignIn_Form_CreateAccount">
+    <value>Стварыць уліковы запіс</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_Description">
+    <value>Увядзіце падрабязнасці ўліковага запісу Proton.</value>
+  </data>
+  <data name="SignIn_Form_DisableKillSwitch">
+    <value>Адключыць Kill Switch</value>
+  </data>
+  <data name="SignIn_Form_Email">
+    <value>Электронная пошта</value>
+  </data>
+  <data name="SignIn_Form_ForgotUsername">
+    <value>Забылі сваё імя карыстальніка</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_Help">
+    <value>Даведка</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_NoLogsPolicy">
+    <value>Палітыка адсутнасці журналаў актыўнасці</value>
+  </data>
+  <data name="SignIn_Form_OpenSource">
+    <value>Адкрыты зыходны код</value>
+  </data>
+  <data name="SignIn_Form_Password">
+    <value>Пароль</value>
+  </data>
+  <data name="SignIn_Form_PasswordError">
+    <value>Увядзіце пароль</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a password</comment>
+  </data>
+  <data name="SignIn_Form_ReportAnIssue">
+    <value>Паведаміць аб праблеме</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_ResetPassword">
+    <value>Не памятаю пароль</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_SignIn">
+    <value>Увайсці</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_SignInWithSso">
+    <value>Увайсці з SSO</value>
+  </data>
+  <data name="SignIn_Form_SwissBased">
+    <value>Знаходзімся ў Швейцарыі</value>
+  </data>
+  <data name="SignIn_Form_Title">
+    <value>Уваход</value>
+  </data>
+  <data name="SignIn_Form_TroubleSigningIn">
+    <value>Цэнтр падтрымкі</value>
+    <comment>A button at the bottom of the login window inside Get help popup</comment>
+  </data>
+  <data name="SignIn_Form_Username">
+    <value>Электронная пошта або імя карыстальніка</value>
+  </data>
+  <data name="SignIn_Form_UsernameError">
+    <value>Увядзіце сваю электронную пошту або імя карыстальніка</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a username</comment>
+  </data>
+  <data name="SignIn_KillSwitch_Disabled">
+    <value>Kill Switch адключаны</value>
+  </data>
+  <data name="State_Fastest">
+    <value>Найхутчэйшы штат</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="State_Random">
+    <value>Выпадковая краіна</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="SystemNotification_Connected">
+    <value>Вы абаронены</value>
+  </data>
+  <data name="SystemNotification_ConnectedTo">
+    <value>Падключана да {0}.</value>
+    <comment>{0} is a placeholder for a country and server name (eg. Connected to Netherlands #342342).</comment>
+  </data>
+  <data name="SystemNotification_Disconnected">
+    <value>Адключана</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Description">
+    <value>Разблакіруйце торэнты і гульні ў інтэрнэце праз аднарангавыя пратаколы (P2P) з дапамогай платных сервераў VPN.</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Title">
+    <value>P2P недаступны з VPN Free</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Description">
+    <value>Некаторыя вэб-сайты і сэрвісы з трансляцыямі блакіруюць карыстальнікаў, якія выкарыстоўваюць бясплатны VPN. Палепшыце да Proton VPN Plus, каб абысці гэтыя блакіроўкі.</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Title">
+    <value>Заблакіраваны вэб-сайт?</value>
+  </data>
+  <data name="System_Tray_Actions_Connect">
+    <value>Падключыцца</value>
+  </data>
+  <data name="System_Tray_Actions_Disconnect">
+    <value>Адключыцца</value>
+  </data>
+  <data name="System_Tray_Actions_ExitApplication">
+    <value>Выйсці</value>
+  </data>
+  <data name="System_Tray_Actions_OpenApplication">
+    <value>Адкрыць {0}</value>
+    <comment>Button displayed in the tray icon to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_ExitApplication">
+    <value>Выйсці</value>
+  </data>
+  <data name="Tray_Actions_OpenApplication">
+    <value>Адкрыць {0}</value>
+    <comment>Button displayed in the tray window to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_OpenApplicationToSignIn">
+    <value>Адкрыць праграму для ўваходу</value>
+  </data>
+  <data name="Unit_BytesPerSecond">
+    <value>Б/с</value>
+    <comment>Unit for Bytes per second</comment>
+  </data>
+  <data name="Unit_ExabytesPerSecond">
+    <value>ЭБ/с</value>
+    <comment>Unit for Exabytes per second</comment>
+  </data>
+  <data name="Unit_GigabytesPerSecond">
+    <value>ГБ/с</value>
+    <comment>Unit for Gigabytes per second</comment>
+  </data>
+  <data name="Unit_KilobytesPerSecond">
+    <value>КБ/с</value>
+    <comment>Unit for Kilobytes per second</comment>
+  </data>
+  <data name="Unit_MegabytesPerSecond">
+    <value>МБ/с</value>
+    <comment>Unit for Megabytes per second</comment>
+  </data>
+  <data name="Unit_PetabytesPerSecond">
+    <value>ПБ/с</value>
+    <comment>Unit for Petabytes per second</comment>
+  </data>
+  <data name="Unit_TerabytesPerSecond">
+    <value>ТБ/с</value>
+    <comment>Unit for Terabytes per second</comment>
+  </data>
+  <data name="UpsellBanner_P2P_Description">
+    <value>Спампоўвайце файлы праз BitTorrent і іншыя пратаколы абагульвання файлаў.</value>
+  </data>
+  <data name="UpsellBanner_P2P_Title">
+    <value>Падтрымка P2P</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Description">
+    <value>Палепшыце свой тарыфны план, каб выбіраць любы сервер.</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Title">
+    <value>Не тая краіна, якую хацелі?</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings">
+    <value>Разблакіруйце пашыраныя налады VPN</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_DNS">
+    <value>Падключайцеся да VPN са сваёй уласнай сістэмай даменных імён (DNS)</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_LAN">
+    <value>Атрымайце доступ да прылад у сваёй лакальнай сетцы (LAN) пры падключэнні</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_ModerateNAT">
+    <value>Павысьце свой досвед у відэагульнях пераключыўшыся на NAT тып 2 (умераны)</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices">
+    <value>Падключайце да 10 прылад адначасова</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms">
+    <value>Выкарыстоўвайце Proton VPN на іншых платформах</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Android">
+    <value>Android і Android TV</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Browser">
+    <value>Браўзер</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Linux">
+    <value>Linux</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_MacOS">
+    <value>macOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Windows">
+    <value>Windows</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_iOS">
+    <value>iOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Privacy">
+    <value>Бяспека і прыватнасць на ўсіх вашых прыладах</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield">
+    <value>Атрымлівайце асалоду ад прагляду старонак у інтэрнэце без рэкламы</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Block">
+    <value>Блакіруйце рэкламу і праграмы сачэння з дапамогай Netshield</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Protection">
+    <value>Абараняйце сваю прыладу ад шкодных праграм</value>
+  </data>
+  <data name="Upsell_Carousel_P2P">
+    <value>Разблакіруйце аднарангавае спампоўванне (P2P) і абагульванне файлаў</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Discretion">
+    <value>Хавайце свой IP-адрас ад вашага пастаўшчыка паслуг інтэрнэту і аднарангавых вузлоў</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_PortForwarding">
+    <value>Узмоцненая хуткасць P2P з перанакіраваннем партоў</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Speed">
+    <value>Павялічаныя хуткасці запампоўвання і спампоўвання</value>
+  </data>
+  <data name="Upsell_Carousel_Platforms_More">
+    <value>+ яшчэ</value>
+    <comment>This label indicates that there are more platforms available than the ones listed. The plus sign is important.</comment>
+  </data>
+  <data name="Upsell_Carousel_Profiles">
+    <value>Атрымайце хуткі доступ да падключэнняў, якімі часта карыстаецеся</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Convenience">
+    <value>Задавайце профіль у якасці свайго прадвызначанага падключэння і падключайцеся 1 націскам.</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Creation">
+    <value>Стварайце і захоўвайце свае ўласныя канфігурацыі VPN з дапамогай профіляў</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Customization">
+    <value>Наладжвайце сваё месцазнаходжанне, пратакол і налады</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore">
+    <value>Дадайце яшчэ адзін слой бяспекі ў сваё падключэнне</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Encryption">
+    <value>Падвойце сваё шыфраванне з Secure Core</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Protection">
+    <value>Абараніце сябе ад сеткавых атак</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Routing">
+    <value>Перанакіроўвайце трафік праз звышабароненыя серверы ў Швейцарыі, Швецыі і Ісландыі</value>
+  </data>
+  <data name="Upsell_Carousel_Speed">
+    <value>Прагляд на яшчэ больш высокіх хуткасцях</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Acceleration">
+    <value>Праглядайце да 400% хутчэй з VPN Accelerator</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Access">
+    <value>Карыстайцеся самымі хуткімі і найменш нагружанымі серверамі</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Traffic">
+    <value>Атрымайце хуткасць падключэння да 10 Гбіт/с</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling">
+    <value>Атрымлівайце лепшае ад абодвух светаў</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Browsing">
+    <value>Прагляд вэб-сайтаў з двух размяшчэнняў адначасова з дапамогай функцыі Split Tunneling.</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Configuration">
+    <value>Дазваляе давераным праграмам і IP-адрасам падключацца наўпрост да інтэрнэту (без VPN). Пры гэтым увесь астатні трафік будзе праходзіць праз VPN.</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming">
+    <value>Трансліруйце свае абраныя фільмы і тэлеперадачы</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Access">
+    <value>Атрымлівайце доступ да тэлеперадач і фільмаў, якія заблакіраваны па геаграфічнай прыкмеце з любога пункту ў свеце</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_BBC">
+    <value>BBC iPlayer</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Disney">
+    <value>Disney+</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_HBO">
+    <value>HBO Max</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Netflix">
+    <value>Netflix</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_PrimeVideo">
+    <value>Amazon Prime Video</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Speed">
+    <value>Глядзіце змесціва 4K без буферызацый, запаволення або абмежавання хуткасці</value>
+  </data>
+  <data name="Upsell_Carousel_Title">
+    <value>Пазнаёмцеся з VPN Plus</value>
+  </data>
+  <data name="Upsell_Carousel_Tor">
+    <value>Доступ да сеткі Tor для дадатковай прыватнасці</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Access">
+    <value>Доступ да схаванай сеткі і сайтаў onion</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Browsing">
+    <value>Праглядайце сетку Tor выкарыстоўваючы звычайны браўзер</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Protection">
+    <value>Абараняйце свае асабістыя даныя пры праглядзе вэб-сайтаў</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage">
+    <value>Доступ праз {0} у {1}</value>
+    <comment>Title for the worldwide coverage upsell feature page. {0} is a placeholder for the number of servers (eg. 100 secure servers) and {1} for the number of countries available (eg. 60 countries).</comment>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Censorship">
+    <value>Абыходзьце цэнзуру з пашыранымі функцыямі бяспекі</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_One">
+    <value>{0} краіне</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Few">
+    <value>{0} краінах</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Many">
+    <value>{0} краінах</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Other">
+    <value>{0} краінах</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Features">
+    <value>Бяспечныя трансляцыі, торэнты і іншыя перавагі</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Selection">
+    <value>Выберыце любую краіну з нашай глабальнай сеткі</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_One">
+    <value>{0} бяспечны сервер</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Few">
+    <value>{0} бяспечныя серверы</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Many">
+    <value>{0} бяспечных сервераў</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Other">
+    <value>{0} бяспечных сервераў</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp_Description">
+    <value>Спраўджаны, добра пратэсціраваны і бяспечны</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp_Description">
+    <value>Спраўджаны, добра пратэсціраваны і бяспечны</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp_Description">
+    <value>Перадавы пратакол для бяспекі і прадукцыйнасці</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls_Description">
+    <value>Пераадольвае блакіроўкі VPN хаваючы ваша падключэнне ад цэнзараў</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp_Description">
+    <value>Перадавы пратакол для бяспекі і прадукцыйнасці</value>
+  </data>
+  <data name="VpnProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp_Description">
+    <value>Перадавы пратакол для бяспекі і прадукцыйнасці</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls">
+    <value>Stealth</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls_Description">
+    <value>Пераадольвае блакіроўкі VPN хаваючы ваша падключэнне ад цэнзараў</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp_Description">
+    <value>Перадавы пратакол для бяспекі і прадукцыйнасці</value>
+  </data>
+</root>

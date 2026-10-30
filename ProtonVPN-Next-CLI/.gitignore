@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Binaries
+engine/pvpn-engine
+# engine/pvpn-engine.exe
+
+# Python
+.venv/
+__pycache__/
+
+amneziawg-android/
+__pycache__/
+
+# IDE / editor files
+.idea/
+.vscode/
+
+# Environment, logs, and local runtime data
+.env
+.env.*
+*.log
+*.db
+*.sqlite
+.DS_Store
+
+# AI Scratch/Test Scripts
+test_bcrypt.py
+amneziawg-tools/
+test_eof.py

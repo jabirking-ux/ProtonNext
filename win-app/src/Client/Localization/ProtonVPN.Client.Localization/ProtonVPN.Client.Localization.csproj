@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+        <RootNamespace>ProtonVPN.Client.Localization</RootNamespace>
+        <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+        <UseWinUI>true</UseWinUI>
+        <EnableMsixTooling>true</EnableMsixTooling>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <OutputPath>..\..\..\bin</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Strings\*\Resources.resw" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="..\..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.WindowsAppSDK" />
+        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" />
+        <PackageReference Include="ReswPlusLib" />
+        <PackageReference Include="System.Formats.Asn1" />
+        <PackageReference Include="System.Net.Http" />
+        <PackageReference Include="System.Private.Uri" />
+        <PackageReference Include="System.Security.Cryptography.X509Certificates" />
+        <PackageReference Include="System.Text.Json" />
+        <PackageReference Include="WinUI3Localizer" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\EventMessaging\ProtonVPN.Client.EventMessaging.Contracts\ProtonVPN.Client.EventMessaging.Contracts.csproj" />
+        <ProjectReference Include="..\..\Settings\ProtonVPN.Client.Settings.Contracts\ProtonVPN.Client.Settings.Contracts.csproj" />
+        <ProjectReference Include="..\ProtonVPN.Client.Localization.Contracts\ProtonVPN.Client.Localization.Contracts.csproj" />
+    </ItemGroup>
+</Project>

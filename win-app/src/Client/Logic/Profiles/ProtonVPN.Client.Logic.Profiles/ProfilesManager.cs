@@ -1,0 +1,189 @@
+﻿/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System.Collections.Specialized;
+using ProtonVPN.Client.EventMessaging.Contracts;
+using ProtonVPN.Client.Logic.Auth.Contracts.Messages;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.Servers;
+using ProtonVPN.Client.Logic.Profiles.Contracts;
+using ProtonVPN.Client.Logic.Profiles.Contracts.Messages;
+using ProtonVPN.Client.Logic.Profiles.Contracts.Models;
+using ProtonVPN.Client.Logic.Profiles.Files;
+using ProtonVPN.Client.Logic.Servers.Contracts;
+using ProtonVPN.Logging.Contracts;
+using ProtonVPN.Logging.Contracts.Events.AppLogs;
+
+namespace ProtonVPN.Client.Logic.Profiles;
+
+public class ProfilesManager : IProfilesManager,
+    IEventMessageReceiver<LoggedInMessage>
+{
+    private readonly IEventMessageSender _eventMessageSender;
+    private readonly IProfilesFileReaderWriter _profilesFileReaderWriter;
+    private readonly IFavoriteServersStorage _favoriteServersStorage;
+    private readonly IDefaultProfilesProvider _defaultProfilesProvider;
+    private readonly ILogger _logger;
+
+    private readonly object _lock = new();
+
+    private List<IConnectionProfile> _profiles = new();
+
+    public ProfilesManager(
+        ILogger logger,
+        IEventMessageSender eventMessageSender,
+        IProfilesFileReaderWriter profilesFileReaderWriter,
+        IDefaultProfilesProvider defaultProfilesProvider,
+        IFavoriteServersStorage favoriteServersStorage)
+    {
+        _logger = logger;
+        _eventMessageSender = eventMessageSender;
+        _profilesFileReaderWriter = profilesFileReaderWriter;
+        _defaultProfilesProvider = defaultProfilesProvider;
+        _favoriteServersStorage = favoriteServersStorage;
+    }
+
+    public IOrderedEnumerable<IConnectionProfile> GetAll()
+    {
+        return _profiles.OrderBy(p => p.CreationDateTimeUtc);
+    }
+
+    public IConnectionProfile? GetById(Guid profileId)
+    {
+        return _profiles.FirstOrDefault(p => p.Id == profileId);
+    }
+
+    public void OverrideProfiles(IEnumerable<IConnectionProfile> profiles)
+    {
+        lock (_lock)
+        {
+            _logger.Info<AppLog>($"Overriding {_profiles.Count} connection profiles with default profiles and {profiles.Count()} profiles");
+
+            _profiles.Clear();
+
+            _profiles.AddRange(_defaultProfilesProvider.GetDefaultProfiles());
+            _profiles.AddRange(profiles.DistinctBy(p => p.Id));
+
+            SaveAndBroadcastProfileChanges(NotifyCollectionChangedAction.Reset);
+        }
+    }
+
+    public void AddOrEditProfile(IConnectionProfile profile)
+    {
+        lock (_lock)
+        {
+            NotifyCollectionChangedAction action = NotifyCollectionChangedAction.Add;
+
+            List<IConnectionProfile> existingProfiles = _profiles.Where(p => p.Id == profile.Id).ToList();
+            foreach (IConnectionProfile existingProfile in existingProfiles)
+            {
+                _profiles.Remove(existingProfile);
+
+                action = NotifyCollectionChangedAction.Replace;
+            }
+
+            _logger.Info<AppLog>($"{(action == NotifyCollectionChangedAction.Add ? "Adding" : "Editing")} connection profile {profile.Name} with Id {profile.Id}");
+
+            profile.UpdateDateTimeUtc = DateTime.UtcNow;
+
+            _profiles.Add(profile);
+
+            SaveAndBroadcastProfileChanges(action, profile.Id);
+        }
+    }
+
+    public void DeleteProfile(Guid profileId)
+    {
+        lock (_lock)
+        {
+            List<IConnectionProfile> profiles = _profiles.Where(p => p.Id == profileId).ToList();
+            if (profiles.Count > 0)
+            {
+                foreach (IConnectionProfile profile in profiles)
+                {
+                    _logger.Info<AppLog>($"Deleting connection profile {profile.Name} with Id {profile.Id}");
+
+                    _profiles.Remove(profile);
+                }
+
+                SaveAndBroadcastProfileChanges(NotifyCollectionChangedAction.Remove, profileId);
+            }
+        }
+    }
+
+    public void Receive(LoggedInMessage message)
+    {
+        BroadcastProfileChanges(NotifyCollectionChangedAction.Reset);
+    }
+
+    private void SaveAndBroadcastProfileChanges(NotifyCollectionChangedAction action, Guid? changedProfileId = null)
+    {
+        SetFavoriteServers();
+        SaveProfiles();
+        BroadcastProfileChanges(action, changedProfileId);
+    }
+
+    private void SetFavoriteServers()
+    {
+        List<string> serverIds = _profiles
+            .Where(p => p.Location is SingleServerLocationIntent)
+            .OrderByDescending(p => p.CreationDateTimeUtc)
+            .Select(p => ((SingleServerLocationIntent)p.Location).Server.Id)
+            .ToList();
+
+        _favoriteServersStorage.SetProfileServerIds(serverIds);
+    }
+
+    public void LoadProfiles()
+    {
+        lock (_lock)
+        {
+            _profiles = _profilesFileReaderWriter.Read(out bool doesFileExists);
+
+            _logger.Info<AppLog>($"Loaded {_profiles.Count} connection profiles from file");
+
+            SetFavoriteServers();
+
+            // No profiles found and profile file does not exist, create list of default profiles
+            if (!_profiles.Any() && !doesFileExists)
+            {
+                _logger.Info<AppLog>($"No connection profiles found, creating default profiles");
+
+                _profiles.AddRange(_defaultProfilesProvider.GetDefaultProfiles());
+
+                SaveProfiles();
+            }
+        }
+    }
+
+    private void SaveProfiles()
+    {
+        _logger.Info<AppLog>($"Saving {_profiles.Count} connection profiles", stackTraceDepth: 2);
+
+        _profilesFileReaderWriter.Save(_profiles.ToList());
+    }
+
+    private void BroadcastProfileChanges(NotifyCollectionChangedAction action, Guid? changedProfileId = null)
+    {
+        _eventMessageSender.Send(new ProfilesChangedMessage()
+        {
+            Action = action,
+            ChangedProfileId = changedProfileId
+        });
+    }
+}

@@ -1,0 +1,1747 @@
+import errno
+import os
+import sys
+import locale
+import threading
+import json
+import shutil
+import subprocess
+import time
+import traceback
+import urllib.request
+import sentry_sdk
+from flask import Flask, request, jsonify, Response
+from flask_cors import CORS
+from werkzeug.exceptions import HTTPException
+from pvpn_cli.database import Database
+from pvpn_cli.auth import ProtonAuthApi
+from pvpn_cli.vpn import ProtonVpnApi
+from pvpn_cli.profiles import ProfileService, ProfileValidationError
+from pvpn_cli.sentry import init_sentry
+
+# Initialize Sentry
+init_sentry()
+
+app = Flask(__name__)
+CORS(app)
+
+global_api_token = None
+
+@app.errorhandler(Exception)
+def handle_unhandled_error(e):
+    # The GUI parses every response as JSON, so unhandled failures must not
+    # fall back to the default HTML error page.
+    if isinstance(e, HTTPException):
+        return jsonify({"success": False, "error": e.description}), e.code
+    # Flask skips got_request_exception once a handler is registered, so the
+    # exception is forwarded to Sentry explicitly.
+    sentry_sdk.capture_exception(e)
+    traceback.print_exc()
+    return jsonify({"success": False, "error": str(e)}), 500
+
+@app.before_request
+def check_api_token():
+    if request.method == "OPTIONS":
+        return
+    if global_api_token:
+        auth_header = request.headers.get("Authorization")
+        if auth_header == f"Bearer {global_api_token}":
+            return
+        query_token = request.args.get("token")
+        if query_token == global_api_token:
+            return
+        return jsonify({"success": False, "error": "Unauthorized"}), 401
+
+# Global location state
+location_state = {
+    "country_code": "",
+    "real_ip": "",
+    "last_check": 0,
+    "lock": threading.Lock()
+}
+
+# Global state for status updates
+status_state = {
+    "vpn_state": "UNKNOWN",
+    "subscribers": [],
+    "lock": threading.Lock()
+}
+
+# Connect/disconnect are serialized independently from the display state. The
+# display state may be reconstructed from disk after a GUI restart, so it must
+# never be used as a mutex.
+connection_operation_lock = threading.Lock()
+
+def tunnel_is_active():
+    """Return whether the tunnel is really usable, not just requested."""
+    try:
+        from pvpn_cli.routing import get_config_dir
+        state_file = os.path.join(get_config_dir(), "routing_state.json")
+        if not os.path.isfile(state_file):
+            return False
+        if sys.platform == "linux":
+            # routing_state.json is written before route setup. The interface is
+            # the authoritative completion signal and also survives API restarts.
+            return os.path.exists("/sys/class/net/awg0")
+        if sys.platform == "win32":
+            import psutil
+            return any("pvpn-engine" in (proc.info.get("name") or "").lower()
+                       for proc in psutil.process_iter(["name"]))
+        return True
+    except Exception:
+        return False
+
+# Handshake verification state shared by the status endpoints and the watcher.
+handshake_state = {
+    "verified": False,
+    "lock": threading.Lock(),
+}
+
+
+def awg_log_path():
+    from pvpn_cli.routing import get_config_dir
+    return os.path.join(get_config_dir(), "awg.log")
+
+
+def handshake_verification_enabled():
+    """Whether the user requires a real handshake before showing Connected."""
+    from pvpn_cli.handshake import MODE_DISABLED, read_settings
+    try:
+        mode, _timeout = read_settings()
+        return mode != MODE_DISABLED
+    except Exception:
+        return False
+
+
+def tunnel_is_verified():
+    """Tunnel is up and, when required, proven by an AmneziaWG handshake."""
+    if not tunnel_is_active():
+        return False
+    if not handshake_verification_enabled():
+        return True
+    with handshake_state["lock"]:
+        if handshake_state["verified"]:
+            return True
+    # The API may have been restarted while the tunnel was already verified.
+    from pvpn_cli.handshake import handshake_succeeded
+    if handshake_succeeded(awg_log_path()):
+        with handshake_state["lock"]:
+            handshake_state["verified"] = True
+        return True
+    return False
+
+
+# Global traffic state
+traffic_state = {
+    "speed_rx": 0,
+    "speed_tx": 0,
+    "session_rx": 0,
+    "session_tx": 0,
+    "last_abs_rx": 0,
+    "last_abs_tx": 0,
+    "is_active": False
+}
+
+# Global state for login flow
+login_state = {
+    "thread": None,
+    "status": "idle",
+    "error_message": "",
+    "event": threading.Event(),
+    "2fa_code": "",
+    "uid": ""
+}
+
+# Cache for last known status to handle DB locks
+last_status_cache = {
+    "data": None,
+    "lock": threading.Lock()
+}
+
+def get_country_from_locale():
+    """Extracts country code from system locale."""
+    try:
+        import locale
+        loc, _ = locale.getdefaultlocale()
+        if loc:
+            # Handle formats like 'ru_RU', 'en_US.UTF-8', 'ru'
+            parts = loc.replace(".", "_").split("_")
+            for p in parts:
+                if len(p) == 2 and p.isupper():
+                    return p.upper()
+            # If only language is given (e.g. 'ru'), we can't be 100% sure but 'RU' is a good guess
+            if len(parts[0]) == 2:
+                lang_to_country = {"ru": "RU", "uk": "UA", "be": "BY", "kk": "KZ", "en": "US"}
+                return lang_to_country.get(parts[0].lower())
+    except:
+        pass
+    return None
+
+def get_country_from_timezone():
+    """
+    Tries to guess the country code from the system timezone.
+    Returns ISO country code (e.g. 'US', 'RU') or 'US' as fallback.
+    """
+    try:
+        # 1. Try to read from /etc/timezone (Linux)
+        tz = ""
+        if os.path.exists("/etc/timezone"):
+            with open("/etc/timezone", "r") as f:
+                tz = f.read().strip()
+        # 2. Try to read from symlink /etc/localtime
+        elif os.path.islink("/etc/localtime"):
+            tz = os.path.realpath("/etc/localtime").split("zoneinfo/")[-1]
+
+        if not tz:
+            # Fallback for other systems or if detection fails
+            import time
+            tz = time.tzname[0]
+
+        # Mapping common timezones to country codes
+        # Expanded to include many more regions
+        mapping = {
+            # Russia
+            "Europe/Moscow": "RU", "Europe/Kaliningrad": "RU", "Europe/Samara": "RU",
+            "Europe/Volgograd": "RU", "Europe/Saratov": "RU", "Europe/Ulyanovsk": "RU",
+            "Europe/Astrakhan": "RU", "Europe/Kirov": "RU", "Asia/Yekaterinburg": "RU",
+            "Asia/Omsk": "RU", "Asia/Novosibirsk": "RU", "Asia/Barnaul": "RU",
+            "Asia/Tomsk": "RU", "Asia/Novokuznetsk": "RU", "Asia/Krasnoyarsk": "RU",
+            "Asia/Irkutsk": "RU", "Asia/Chita": "RU", "Asia/Yakutsk": "RU",
+            "Asia/Khandyga": "RU", "Asia/Vladivostok": "RU", "Asia/Ust-Nera": "RU",
+            "Asia/Magadan": "RU", "Asia/Sakhalin": "RU", "Asia/Srednekolymsk": "RU",
+            "Asia/Anadyr": "RU", "Asia/Kamchatka": "RU", "Moscow": "RU", "MSK": "RU",
+
+            # Europe
+            "Europe/London": "GB", "Europe/Dublin": "IE", "Europe/Paris": "FR",
+            "Europe/Berlin": "DE", "Europe/Rome": "IT", "Europe/Madrid": "ES",
+            "Europe/Amsterdam": "NL", "Europe/Brussels": "BE", "Europe/Zurich": "CH",
+            "Europe/Vienna": "AT", "Europe/Warsaw": "PL", "Europe/Prague": "CZ",
+            "Europe/Budapest": "HU", "Europe/Stockholm": "SE", "Europe/Oslo": "NO",
+            "Europe/Copenhagen": "DK", "Europe/Helsinki": "FI", "Europe/Athens": "GR",
+            "Europe/Istanbul": "TR", "Europe/Kiev": "UA", "Europe/Bucharest": "RO",
+            "Europe/Sofia": "BG", "Europe/Belgrade": "RS", "Europe/Bratislava": "SK",
+            "Europe/Ljubljana": "SI", "Europe/Zagreb": "HR", "Europe/Tallinn": "EE",
+            "Europe/Riga": "LV", "Europe/Vilnius": "LT", "Europe/Minsk": "BY",
+            "Europe/Chisinau": "MD", "GMT": "GB", "BST": "GB", "CET": "DE", "EET": "FI",
+
+            # North America
+            "America/New_York": "US", "America/Chicago": "US", "America/Denver": "US",
+            "America/Los_Angeles": "US", "America/Phoenix": "US", "America/Anchorage": "US",
+            "America/Honolulu": "US", "America/Toronto": "CA", "America/Vancouver": "CA",
+            "America/Mexico_City": "MX", "EST": "US", "EDT": "US", "CST": "US", "CDT": "US",
+            "MST": "US", "MDT": "US", "PST": "US", "PDT": "US",
+
+            # Asia
+            "Asia/Tokyo": "JP", "Asia/Seoul": "KR", "Asia/Shanghai": "CN",
+            "Asia/Hong_Kong": "HK", "Asia/Singapore": "SG", "Asia/Dubai": "AE",
+            "Asia/Bangkok": "TH", "Asia/Jakarta": "ID", "Asia/Ho_Chi_Minh": "VN",
+            "Asia/Manila": "PH", "Asia/Kuala_Lumpur": "MY", "Asia/Taipei": "TW",
+            "Asia/Jerusalem": "IL", "Asia/Riyadh": "SA", "Asia/Tehran": "IR",
+
+            # Australia & Oceania
+            "Australia/Sydney": "AU", "Australia/Melbourne": "AU", "Australia/Perth": "AU",
+            "Australia/Brisbane": "AU", "Australia/Adelaide": "AU", "Pacific/Auckland": "NZ",
+
+            # South America
+            "America/Sao_Paulo": "BR", "America/Buenos_Aires": "AR", "America/Santiago": "CL",
+            "America/Bogota": "CO", "America/Lima": "PE"
+        }
+
+        country = mapping.get(tz)
+        if not country:
+            # Try partial match (e.g. if tz is "Europe/Volgograd (MSK+0)")
+            for key in mapping:
+                if key in tz:
+                    return mapping[key]
+
+        return country or get_country_from_locale() or "US"
+    except:
+        return get_country_from_locale() or "US"
+
+LOCATION_PROVIDERS = (
+    # ip-api is first because it also returns the country code, but it is plain
+    # HTTP and some networks reset it outright, so HTTPS providers follow.
+    ("http://ip-api.com/json", "query", "countryCode"),
+    ("https://api.myip.com", "ip", "cc"),
+    ("https://ifconfig.co/json", "ip", "country_iso"),
+    ("https://api.ipify.org?format=json", "ip", None),
+)
+
+def fetch_public_location():
+    """Resolve the public IP and country code, trying each provider in turn.
+
+    Returns (ip, country_code, error). An empty ip means every provider failed;
+    the caller keeps the previous value, so a lookup failure never blocks the UI
+    and never clears an address that is still valid.
+    """
+    last_error = None
+    for url, ip_key, cc_key in LOCATION_PROVIDERS:
+        try:
+            request = urllib.request.Request(url, headers={"User-Agent": "pvpn-next"})
+            with urllib.request.urlopen(request, timeout=5) as response:
+                data = json.loads(response.read().decode())
+            if not isinstance(data, dict) or data.get("status") == "fail":
+                last_error = "provider rejected the request"
+                continue
+            ip = str(data.get(ip_key) or "")
+            if not ip:
+                last_error = "provider returned no address"
+                continue
+            country_code = str(data.get(cc_key) or "").upper() if cc_key else ""
+            return ip, country_code, None
+        except Exception as e:
+            last_error = e
+    return "", "", last_error
+
+def location_tracker():
+    """Background thread to fetch real IP and country code.
+
+    Never on the critical path: the UI renders a masked address until this
+    thread manages to reach a provider.
+    """
+    last_vpn_state = None
+    failures = 0
+    while True:
+        try:
+            db = Database()
+            routing_file = os.path.join(db.db_path.replace("protonvpn.db", "routing_state.json"))
+            vpn_active = os.path.exists(routing_file)
+
+            # Force refresh if VPN state changed
+            force = False
+            if vpn_active != last_vpn_state:
+                force = True
+                last_vpn_state = vpn_active
+                # Clear IP immediately on state change to show "..." in UI
+                with location_state["lock"]:
+                    location_state["real_ip"] = ""
+                    location_state["country_code"] = ""
+                notify_status_change()
+                if vpn_active:
+                    time.sleep(2) # Give VPN time to stabilize routing
+
+            new_ip, new_cc, error = fetch_public_location()
+            if new_ip:
+                with location_state["lock"]:
+                    changed = location_state["real_ip"] != new_ip
+                    location_state["country_code"] = new_cc or location_state["country_code"]
+                    location_state["real_ip"] = new_ip
+                    location_state["last_check"] = time.time()
+                failures = 0
+                if changed or force:
+                    notify_status_change()
+            else:
+                # Only the first failure of a streak is logged: a network that
+                # keeps resetting connections would otherwise flood the log with
+                # one identical line every retry.
+                failures += 1
+                if failures == 1:
+                    print(f"[WARNING] Public IP unavailable, the UI keeps a masked address: {error}", flush=True)
+
+            # Back off instead of hammering a network that is already failing.
+            with location_state["lock"]:
+                have_ip = bool(location_state["real_ip"])
+            sleep_time = 300 if have_ip else min(30 * (2 ** min(failures, 3)), 300)
+            time.sleep(sleep_time)
+
+        except Exception:
+            time.sleep(60)
+
+class SudoRequiredError(Exception): pass
+
+def cleanup_stale_cli_processes():
+    """Kill any orphaned pvpn-next.exe processes except api-server and watchdog."""
+    if sys.platform != "win32":
+        return
+    try:
+        import psutil
+        my_pid = os.getpid()
+        for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+            try:
+                if proc.info['name'] and 'pvpn-next' in proc.info['name'].lower():
+                    if proc.info['pid'] == my_pid:
+                        continue
+                    cmdline = proc.info.get('cmdline') or []
+                    cmdline_str = ' '.join(cmdline).lower()
+                    # Keep api-server, watchdog, and daemon alive
+                    if any(x in cmdline_str for x in ('api-server', '_watchdog', '_daemon')):
+                        continue
+                    print(f"[CLEANUP] Killing stale CLI process PID={proc.info['pid']}", flush=True)
+                    proc.kill()
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                pass
+    except Exception as e:
+        print(f"[WARNING] Stale process cleanup failed: {e}", flush=True)
+
+def run_cli_elevated(args, sudo_password=None):
+    """
+    Universal Linux Elevation Logic:
+    Works on NixOS (via wrappers), Arch, Ubuntu, etc.
+    """
+    import sys, subprocess, os, shutil, time
+
+    # Identify binary path safely
+    binary_name = sys.argv[0]
+    binary_path = binary_name
+
+    if not os.path.isabs(binary_name) or not os.path.exists(binary_name):
+        found_path = shutil.which(binary_name)
+        if found_path:
+            binary_path = found_path
+        else:
+            binary_path = os.path.abspath(binary_name)
+
+    if getattr(sys, 'frozen', False) or os.access(binary_path, os.X_OK):
+        base_cmd = [binary_path]
+    else:
+        base_cmd = [sys.executable, binary_path]
+
+    from pvpn_cli.routing import get_config_dir
+    config_arg = f"--config-dir={get_config_dir()}"
+    # Pass GUI mode as an argument as well as an environment variable. sudo,
+    # doas and run0 may sanitize the environment; argv is preserved.
+    full_cmd = base_cmd + [config_arg, "--gui-mode"] + args
+
+    if sys.platform == "linux":
+        # Prefer the narrowly scoped root broker. It accepts only connect and
+        # disconnect, so the GUI never needs a reusable NOPASSWD rule.
+        if args and args[0] in ("connect", "disconnect"):
+            from pvpn_cli.privileged_service import (
+                PrivilegedServiceError,
+                PrivilegedServiceUnavailable,
+                call_privileged_service,
+            )
+            try:
+                return call_privileged_service(args, get_config_dir())
+            except PrivilegedServiceUnavailable:
+                pass  # Optional service is absent; use interactive elevation.
+            except PrivilegedServiceError as exc:
+                raise RuntimeError(str(exc)) from exc
+
+        env = os.environ.copy()
+        for k in ["_MEIPASS", "_MEIPASS1", "_MEIPASS2", "_MEIPASS3"]:
+            env.pop(k, None)
+        env["PVPN_GUI_MODE"] = "1"
+        robust_path = "/run/wrappers/bin:/run/current-system/sw/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        env["PATH"] = f"{robust_path}:{env.get('PATH', '')}"
+
+        def is_sandboxed():
+            try:
+                with open("/proc/self/status", "r") as f:
+                    for line in f:
+                        if line.startswith("NoNewPrivs:") and "1" in line:
+                            return True
+            except: pass
+            return False
+
+        sandboxed = is_sandboxed()
+        systemd_run = shutil.which("systemd-run")
+
+        def get_best_path(cmd):
+            nix_wrapper = f"/run/wrappers/bin/{cmd}"
+            if os.path.exists(nix_wrapper): return nix_wrapper
+            return shutil.which(cmd)
+
+        elevate_bin = get_best_path("doas") if shutil.which("doas") else (get_best_path("sudo") or "sudo")
+
+        # 1. Try passwordless execution first (Silent check)
+        try:
+            check_cmd = [elevate_bin, "-n", "true"]
+            if subprocess.run(check_cmd, env=env, capture_output=True).returncode == 0:
+                # Use run() instead of Popen() to wait for completion and capture output.
+                # Backgrounding here causes race conditions and UI state desync.
+                # sudo/doas reset the environment, so PVPN_GUI_MODE has to be
+                # re-injected inside the elevated command. Without it the CLI
+                # sees a non-tty stdin, re-spawns itself in a terminal emulator
+                # and exits 0 without ever connecting.
+                res = subprocess.run([elevate_bin, "-n", "env", "PVPN_GUI_MODE=1"] + full_cmd, env=env, capture_output=True, text=True)
+                if res.returncode != 0:
+                    err = res.stderr or res.stdout or f"Elevated command failed with code {res.returncode}"
+                    raise Exception(err)
+                return res.stdout
+        except Exception as e:
+            # If it's not a generic exception we just raised, it might be that sudo -n failed
+            # (expected if password required). In that case, we proceed to password prompt.
+            if "Elevated command failed" not in str(e):
+                pass
+            else:
+                raise e
+
+        # Password is required
+        if not sudo_password:
+            raise SudoRequiredError("Sudo password is required")
+
+        # 2. Sudo with password provided via UI
+        sudo_bin = get_best_path("sudo") or "sudo"
+        launch_cmd = [sudo_bin, "-S", "env", "PVPN_GUI_MODE=1"] + full_cmd
+        
+        if sandboxed and systemd_run:
+            prefix = [systemd_run, "--user", "--wait", "--quiet", "--pipe", "--property=KillMode=process"]
+            for env_var in ["DISPLAY", "WAYLAND_DISPLAY", "XDG_RUNTIME_DIR", "DBUS_SESSION_BUS_ADDRESS", "XAUTHORITY"]:
+                if env_var in os.environ: prefix.append(f"--setenv={env_var}={os.environ[env_var]}")
+            prefix.append(f"--setenv=PATH={env['PATH']}")
+            launch_cmd = prefix + launch_cmd
+
+        try:
+            with open("/tmp/pvpn-next-sudo.log", "a") as f:
+                f.write(f"\n--- RUN CLI ELEVATED ---\nCMD: {launch_cmd}\n")
+            
+            import tempfile
+            with tempfile.TemporaryFile() as out_f, tempfile.TemporaryFile() as err_f:
+                proc = subprocess.Popen(launch_cmd, env=env, stdin=subprocess.PIPE, stdout=out_f, stderr=err_f)
+                proc.stdin.write(f"{sudo_password}\n".encode())
+                proc.stdin.close()
+                proc.wait()
+                out_f.seek(0)
+                err_f.seek(0)
+                outs = out_f.read()
+                errs = err_f.read()
+            
+            out_str = outs.decode() if outs else ""
+            err_str = errs.decode() if errs else ""
+
+            with open("/tmp/pvpn-next-sudo.log", "a") as f:
+                f.write(f"Return code: {proc.returncode}\nOUT: {out_str}\nERR: {err_str}\n")
+
+            if proc.returncode != 0:
+                err_lower = err_str.lower()
+                if "incorrect password" in err_lower or "sorry, try again" in err_lower or "authentication failure" in err_lower:
+                    raise Exception("Incorrect password")
+                raise Exception(f"Elevation failed. Exit {proc.returncode}\nOUT:\n{out_str}\nERR:\n{err_str}")
+            
+            return out_str + "\n" + err_str
+        except Exception as e:
+            raise e
+
+    # Windows (UAC) — track the process and wait for it to complete
+    proc = subprocess.Popen(full_cmd, creationflags=0x08000000,
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        stdout, stderr = proc.communicate(timeout=120)
+        return (stdout.decode(errors='ignore') + "\n" + stderr.decode(errors='ignore')).strip()
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        proc.communicate()
+        return "[ERROR] Elevated process timed out after 120s"
+
+@app.route("/api/events")
+def events():
+    def stream():
+        q = threading.Event()
+        with status_state["lock"]:
+            status_state["subscribers"].append(q)
+
+        try:
+            # Send initial status
+            yield f"data: {json.dumps(get_current_status_dict())}\n\n"
+
+            while True:
+                # Wait for update
+                if q.wait(timeout=30):
+                    q.clear()
+                    yield f"data: {json.dumps(get_current_status_dict())}\n\n"
+                else:
+                    # Keep-alive
+                    yield ": keep-alive\n\n"
+        finally:
+            with status_state["lock"]:
+                if q in status_state["subscribers"]:
+                    status_state["subscribers"].remove(q)
+
+    return Response(stream(), mimetype="text/event-stream")
+
+def notify_status_change():
+    with status_state["lock"]:
+        for q in status_state["subscribers"]:
+            q.set()
+
+def traffic_tracker():
+    """Background thread in API process to track real-time traffic."""
+    import psutil
+    from .routing import get_config_dir
+    db = Database()
+    routing_file = os.path.join(db.db_path.replace("protonvpn.db", "routing_state.json"))
+    iface = "awg0"
+
+    while True:
+        try:
+            # Check if stats are enabled
+            stats_enabled = db.get_setting("traffic_stats_enabled", "true") == "true"
+
+            vpn_active = os.path.exists(routing_file)
+            if vpn_active and stats_enabled:
+                stats = psutil.net_io_counters(pernic=True)
+                if iface in stats:
+                    current = stats[iface]
+                    rx = current.bytes_recv
+                    tx = current.bytes_sent
+
+                    if traffic_state["last_abs_rx"] > 0:
+                        delta_rx = rx - traffic_state["last_abs_rx"]
+                        delta_tx = tx - traffic_state["last_abs_tx"]
+
+                        if delta_rx < 0: delta_rx = 0
+                        if delta_tx < 0: delta_tx = 0
+
+                        traffic_state["speed_rx"] = delta_rx
+                        traffic_state["speed_tx"] = delta_tx
+                        traffic_state["session_rx"] += delta_rx
+                        traffic_state["session_tx"] += delta_tx
+
+                        # Update historical DB
+                        db.update_traffic_stats(delta_rx, delta_tx, 1)
+
+                    traffic_state["last_abs_rx"] = rx
+                    traffic_state["last_abs_tx"] = tx
+                    traffic_state["is_active"] = True
+
+                    # Force SSE update every second for live speed
+                    notify_status_change()
+                else:
+                    traffic_state["speed_rx"] = 0
+                    traffic_state["speed_tx"] = 0
+            else:
+                # Reset if VPN disconnected
+                if traffic_state["is_active"]:
+                    traffic_state["speed_rx"] = 0
+                    traffic_state["speed_tx"] = 0
+                    traffic_state["session_rx"] = 0
+                    traffic_state["session_tx"] = 0
+                    traffic_state["last_abs_rx"] = 0
+                    traffic_state["last_abs_tx"] = 0
+                    traffic_state["is_active"] = False
+                    notify_status_change()
+
+        except Exception:
+            pass
+        time.sleep(1)
+
+def get_current_status_dict():
+    try:
+        db = Database()
+        session = db.get_session()
+        logged_in = session is not None and "access_token" in session
+
+        max_tier = 0
+        if logged_in:
+            try:
+                max_tier = int(db.get_setting("max_tier", "0"))
+            except Exception:
+                max_tier = 0
+
+        # Connected is reported only for a tunnel that is really usable: with
+        # verification enabled that means a confirmed AmneziaWG handshake.
+        vpn_active = tunnel_is_verified()
+
+        # Logic for current state
+        current_state = status_state["vpn_state"]
+        if current_state not in ["CONNECTING", "DISCONNECTING"]:
+            current_state = "CONNECTED" if vpn_active else "DISCONNECTED"
+
+        # Fetch traffic stats
+        traffic = {
+            "speed_rx": traffic_state["speed_rx"],
+            "speed_tx": traffic_state["speed_tx"],
+            "session_rx": traffic_state["session_rx"],
+            "session_tx": traffic_state["session_tx"]
+        }
+
+        historical = db.get_historical_stats()
+
+        # Fetch location data
+        with location_state["lock"]:
+            country_code = location_state["country_code"]
+            real_ip = location_state["real_ip"] or db.get_setting("current_real_ip", "")
+
+        status_data = {
+            "logged_in": logged_in,
+            "bypass": db.get_setting("api_bypass", "0"),
+            "active_server": db.get_setting("active_server_name", ""),
+            "real_ip": real_ip,
+            "country_code": country_code,
+            "timezone_country_code": get_country_from_timezone(),
+            "max_tier": max_tier,
+            "uid": session.get("uid", "N/A") if logged_in else "N/A",
+            "has_certificate": session is not None and bool(session.get("wg_private_key")),
+            "vpn_state": current_state,
+            "server_count": db.get_server_count(),
+            "last_refresh": db.get_setting("last_server_fetch", "Never"),
+            "locale": (locale.getdefaultlocale()[0] or "en_US") if hasattr(locale, 'getdefaultlocale') else "en_US",
+            "traffic": traffic,
+            "stats": historical,
+            "traffic_stats_enabled": db.get_setting("traffic_stats_enabled", "true") == "true",
+            "default_connect_strategy": db.get_setting("default_connect_strategy", "best"),
+            "default_connect_server": db.get_setting("default_connect_server", ""),
+            "connection_verification_mode": db.get_setting("connection_verification_mode", "handshake"),
+            "handshake_timeout_seconds": db.get_setting("handshake_timeout_seconds", "5"),
+            "handshake_verified": handshake_state["verified"],
+            "os": sys.platform
+        }
+
+        with last_status_cache["lock"]:
+            last_status_cache["data"] = status_data
+
+        return status_data
+    except Exception as e:
+        print(f"[WARNING] get_current_status_dict failed (likely DB lock): {e}", flush=True)
+        with last_status_cache["lock"]:
+            if last_status_cache["data"]:
+                return last_status_cache["data"]
+        # Fallback if no cache
+        return {
+            "logged_in": False,
+            "vpn_state": "UNKNOWN",
+            "error": "Database is temporarily busy"
+        }
+
+@app.route("/api/status", methods=["GET"])
+def get_status():
+    return jsonify(get_current_status_dict())
+
+@app.route("/api/login/guest", methods=["POST"])
+def login_guest():
+    api = ProtonAuthApi()
+    try:
+        response = api.login_guest()
+
+        # Auto-initialize session (Register cert + Fetch servers) to match CLI behavior
+        try:
+            db = Database()
+            api_vpn = ProtonVpnApi()
+            session = db.get_session()
+
+            if session and not session.get("wg_private_key"):
+                from pvpn_cli.crypto import ProtonCrypto
+                wg_priv, pem_pub = ProtonCrypto.generate_vpn_keys()
+                db.update_certificate(wg_priv, pem_pub, 0, 0)
+                response = api_vpn.register_cert(pem_pub)
+                cert_data = response.get('Certificate', pem_pub)
+                exp = response.get('ExpirationTime', 0)
+                ref = response.get('RefreshTime', 0)
+                db.update_certificate(wg_priv, cert_data, exp, ref)
+                print("-> Guest Login: Certificate registered automatically.", flush=True)
+
+            if db.get_server_count() == 0:
+                api_vpn.fetch_servers()
+                api_vpn.fetch_loads()
+                print("-> Guest Login: Server list fetched automatically.", flush=True)
+        except Exception as init_err:
+            print(f"[WARNING] Guest login post-init failed: {init_err}", flush=True)
+
+        return jsonify({"success": True, "uid": response.get('UID')})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 400
+
+@app.route("/api/login/anonymous", methods=["POST"])
+def login_anonymous():
+    return login_guest()
+
+@app.route("/api/login", methods=["POST"])
+def login_user_endpoint():
+    data = request.json or {}
+    username = data.get("username")
+    password = data.get("password")
+
+    if not username or not password:
+        return jsonify({"success": False, "error": "Username and password required"}), 400
+
+    global login_state
+    if login_state["status"] == "running":
+        return jsonify({"success": False, "error": "Login already in progress"}), 400
+
+    login_state["status"] = "running"
+    login_state["error_message"] = ""
+    login_state["event"].clear()
+    login_state["2fa_code"] = ""
+    login_state["uid"] = ""
+
+    def two_factor_callback():
+        login_state["status"] = "2fa_required"
+        login_state["event"].wait()
+        return login_state["2fa_code"]
+
+    def login_worker():
+        global login_state
+        api = ProtonAuthApi()
+        try:
+            response = api.login_user(username, password, two_factor_callback)
+
+            # Auto-initialize session
+            try:
+                db = Database()
+                api_vpn = ProtonVpnApi()
+                session = db.get_session()
+                if session and not session.get("wg_private_key"):
+                    from pvpn_cli.crypto import ProtonCrypto
+                    wg_priv, pem_pub = ProtonCrypto.generate_vpn_keys()
+                    db.update_certificate(wg_priv, pem_pub, 0, 0)
+                    response = api_vpn.register_cert(pem_pub)
+                    cert_data = response.get('Certificate', pem_pub)
+                    exp = response.get('ExpirationTime', 0)
+                    ref = response.get('RefreshTime', 0)
+                    db.update_certificate(wg_priv, cert_data, exp, ref)
+                if db.get_server_count() == 0:
+                    api_vpn.fetch_servers()
+                    api_vpn.fetch_loads()
+            except Exception:
+                pass
+
+            login_state["status"] = "success"
+            login_state["uid"] = response.get('UID')
+        except Exception as e:
+            login_state["status"] = "error"
+            login_state["error_message"] = str(e)
+
+    login_state["thread"] = threading.Thread(target=login_worker)
+    login_state["thread"].daemon = True
+    login_state["thread"].start()
+
+    return jsonify({"success": True, "status": login_state["status"]})
+
+@app.route("/api/trigger-captcha", methods=["POST"])
+def trigger_captcha():
+    # Spawns trigger-captcha without --gui so it opens a browser
+    import subprocess, sys
+    try:
+        # We need to run the CLI script directly
+        if getattr(sys, 'frozen', False):
+            # PyInstaller binary
+            cmd = [sys.executable, "trigger-captcha"]
+        else:
+            # Source script
+            cmd = [sys.executable, sys.argv[0], "trigger-captcha"]
+        
+        # We use Popen so it runs in background and doesn't block
+        subprocess.Popen(cmd)
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+@app.route("/api/login/status", methods=["GET"])
+def get_login_status():
+    global login_state
+    return jsonify({
+        "status": login_state["status"],
+        "error": login_state["error_message"],
+        "uid": login_state["uid"]
+    })
+
+@app.route("/api/login/2fa", methods=["POST"])
+def submit_2fa():
+    global login_state
+    data = request.json or {}
+    code = data.get("code")
+
+    if login_state["status"] != "2fa_required":
+        return jsonify({"success": False, "error": "Not waiting for 2FA"}), 400
+
+    login_state["2fa_code"] = code
+    login_state["status"] = "running"
+    login_state["event"].set()
+
+    return jsonify({"success": True})
+
+@app.route("/api/servers/fetch", methods=["POST"])
+def fetch_servers():
+    api = ProtonVpnApi()
+    data = request.get_json(silent=True) or {}
+
+    # Priority: 1. Body param, 2. Accept-Language header, 3. System Locale
+    loc = data.get("locale")
+    if not loc:
+        accept_lang = request.headers.get("Accept-Language", "")
+        if accept_lang:
+            loc = accept_lang.split(",")[0].replace("-", "_")
+    if not loc:
+        try:
+            import locale
+            loc, _ = locale.getdefaultlocale()
+        except:
+            loc = "en_US"
+
+    print(f"-> Fetching full server list (Locale: {loc})...", flush=True)
+    try:
+        servers = api.fetch_servers()
+        if loc:
+            try:
+                city_names = api.fetch_locale(loc)
+                if city_names and city_names.get("Code") == 1000:
+                    db = Database()
+                    db.update_localized_cities(city_names.get("Cities", {}))
+                    db.set_setting("locale", loc)
+                    print(f"-> Localized city names updated for: {loc}", flush=True)
+            except Exception as le:
+                print(f"[WARNING] Failed to fetch localized city names: {le}", flush=True)
+
+        msg = f"[SUCCESS] Fetched {len(servers)} servers."
+        print(msg, flush=True)
+        return jsonify({"success": True, "count": len(servers), "message": msg})
+    except Exception as e:
+        err_msg = f"[ERROR] Failed to fetch servers: {str(e)}"
+        print(err_msg, flush=True)
+        return jsonify({"success": False, "error": str(e), "message": err_msg}), 400
+
+@app.route("/api/servers/loads", methods=["POST"])
+def fetch_loads():
+    print("-> Updating server loads from Proton API...", flush=True)
+    api = ProtonVpnApi()
+    # Ensure we don't 400 on empty body
+    _ = request.get_json(silent=True)
+    try:
+        loads = api.fetch_loads()
+        msg = f"[SUCCESS] Updated loads for {len(loads)} servers."
+        print(msg, flush=True)
+        return jsonify({"success": True, "count": len(loads), "message": msg})
+    except Exception as e:
+        err_msg = f"[ERROR] Failed to fetch loads: {str(e)}"
+        print(err_msg, flush=True)
+        return jsonify({"success": False, "error": str(e), "message": err_msg}), 400
+
+@app.route("/api/servers", methods=["GET"])
+def get_servers():
+    db = Database()
+    servers = db.get_all_servers()
+    return jsonify({"success": True, "servers": servers})
+
+@app.route("/api/cert/register", methods=["POST"])
+def register_cert():
+    data = request.json or {}
+    public_key = data.get("public_key")
+    db = Database()
+
+    extended_cert = db.get_setting("extended_cert", "false") == "true"
+    mode = "persistent" if extended_cert else None
+
+    try:
+        api = ProtonVpnApi()
+        wg_priv = None
+        if not public_key:
+            from pvpn_cli.crypto import ProtonCrypto
+            wg_priv, public_key = ProtonCrypto.generate_vpn_keys()
+
+        # The stored certificate is only replaced once the API accepted the new
+        # key, otherwise a failed registration would drop a working one.
+        response = api.register_cert(public_key, mode=mode)
+        if wg_priv:
+            cert_data = response.get('Certificate', public_key)
+            exp = response.get('ExpirationTime', 0)
+            ref = response.get('RefreshTime', 0)
+            db.update_certificate(wg_priv, cert_data, exp, ref)
+        return jsonify({"success": True, "data": response})
+    except ImportError as e:
+        return jsonify({"success": False, "error": f"Missing dependency: {e}"}), 500
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 400
+
+@app.route("/api/cert/info", methods=["GET"])
+def get_cert_info():
+    db = Database()
+    session = db.get_session()
+    if not session or not session.get("wg_private_key"):
+        return jsonify({"success": False, "error": "No certificate found"})
+        
+    import hashlib
+    # Compute a short ID from the public key or private key just for display
+    priv_key = session.get("wg_private_key")
+    cert_id = hashlib.sha256(priv_key.encode()).hexdigest()[:12].upper()
+    
+    expires_at = session.get("cert_expires_at", 0)
+    updated_at = session.get("updated_at", "")
+    from datetime import datetime
+    
+    if expires_at > 0:
+        expires_str = datetime.fromtimestamp(expires_at).strftime('%Y-%m-%d %H:%M')
+        issued_str = updated_at.split(" ")[0] if " " in updated_at else updated_at
+        if not issued_str:
+            issued_str = datetime.now().strftime('%Y-%m-%d')
+    else:
+        expires_str = "Unknown"
+        issued_str = "Unknown"
+        
+    return jsonify({
+        "success": True,
+        "cert": {
+            "id": cert_id,
+            "issued": issued_str,
+            "expires": expires_str
+        }
+    })
+
+
+@app.route("/api/locale", methods=["GET"])
+def get_locale():
+    try:
+        loc, _ = locale.getdefaultlocale()
+        return jsonify({"locale": loc or "en_US"})
+    except Exception:
+        return jsonify({"locale": "en_US"})
+
+@app.route("/api/settings/bypass", methods=["POST"])
+def set_bypass():
+    data = request.json or {}
+    strategy = data.get("strategy")
+    if strategy not in ["0", "1", "2", "3"]:
+        return jsonify({"success": False, "error": "Invalid strategy"}), 400
+
+    db = Database()
+    db.set_setting("api_bypass", strategy)
+
+    strategy_names = {
+        "0": "Direct Connection",
+        "1": "Cloudflare Proxy",
+        "2": "Netlify Proxy",
+        "3": "Deno Proxy"
+    }
+    print(f"-> API Bypass strategy changed to: {strategy_names.get(strategy, strategy)}", flush=True)
+
+    return jsonify({"success": True, "strategy": strategy})
+
+PREDEFINED_DNS = {
+    "cloudflare": "1.1.1.1, 1.0.0.1",
+    "adguard": "94.140.14.14, 94.140.15.15",
+    "google": "8.8.8.8, 8.8.4.4",
+    "proton": "10.2.0.1",
+}
+
+# Profile holding the server list typed into the GUI DNS screen.
+GUI_DNS_PROFILE = "gui-custom"
+
+
+def load_custom_dns_profiles(db):
+    try:
+        profiles = json.loads(db.get_setting("custom_dns_profiles", "{}"))
+    except (TypeError, ValueError):
+        return {}
+    return profiles if isinstance(profiles, dict) else {}
+
+
+def sync_obfuscation_to_engine(db):
+    """The GUI stores a flag plus a config name, but `connect` reads
+    active_awg_mode/active_awg_config_id. Without this bridge the toggle is
+    written to the database and then ignored by every connection."""
+    if db.get_setting("obfuscation_enabled", "false") != "true":
+        db.set_setting("active_awg_mode", "none")
+        return "-> Obfuscation disabled"
+    name = db.get_setting("obfuscation_config", "vpn-next-default")
+    cfg = db.get_awg_config(name)
+    if not cfg:
+        db.set_setting("active_awg_mode", "none")
+        return f"-> AWG config '{name}' not found, so obfuscation stays disabled"
+    db.set_setting("active_awg_mode", "config")
+    db.set_setting("active_awg_config_id", str(cfg["id"]))
+    return f"-> Obfuscation enabled with AWG config: {cfg['name']}"
+
+
+def sync_dns_to_engine(db):
+    """`connect` resolves DNS through active_dns_profile/custom_dns_profiles,
+    so the raw string from the GUI has to be mapped onto a profile."""
+    raw = (db.get_setting("custom_dns", "") or "").strip()
+    if not raw:
+        db.set_setting("active_dns_profile", "proton")
+        return "-> DNS profile set to: proton (10.2.0.1)"
+    servers = ", ".join(p.strip() for p in raw.replace(";", ",").split(",") if p.strip())
+    for name, known in PREDEFINED_DNS.items():
+        if known.lower() == servers.lower():
+            db.set_setting("active_dns_profile", name)
+            return f"-> DNS profile set to: {name}"
+    profiles = load_custom_dns_profiles(db)
+    profiles[GUI_DNS_PROFILE] = servers
+    db.set_setting("custom_dns_profiles", json.dumps(profiles))
+    db.set_setting("active_dns_profile", GUI_DNS_PROFILE)
+    return f"-> DNS profile set to: {GUI_DNS_PROFILE} ({servers})"
+
+
+def current_obfuscation(db):
+    """Report what `connect` would really use so the GUI cannot show a toggle
+    that contradicts the database, for example after a CLI command."""
+    mode = db.get_setting("active_awg_mode", "none")
+    name = db.get_setting("obfuscation_config", "vpn-next-default")
+    if mode == "config":
+        cfg_id = db.get_setting("active_awg_config_id")
+        cfg = db.get_awg_config(cfg_id) if cfg_id else None
+        return ("true", cfg["name"]) if cfg else ("false", name)
+    if mode == "custom":
+        return "true", name
+    return "false", name
+
+
+def current_custom_dns(db):
+    active = db.get_setting("active_dns_profile", "cloudflare")
+    if active == "proton":
+        return ""
+    if active in PREDEFINED_DNS:
+        return PREDEFINED_DNS[active]
+    return load_custom_dns_profiles(db).get(active, "")
+
+
+@app.route("/api/settings", methods=["GET"])
+def get_settings():
+    from pvpn_cli.routing import split_tunneling_enabled
+
+    db = Database()
+    obfuscation_enabled, obfuscation_config = current_obfuscation(db)
+    settings = {
+        "protocol": "amneziawg",
+        "connection_verification_mode": db.get_setting("connection_verification_mode", "handshake"),
+        "handshake_timeout_seconds": db.get_setting("handshake_timeout_seconds", "5"),
+        "obfuscation_enabled": obfuscation_enabled,
+        "obfuscation_config": obfuscation_config,
+        "split_tunneling": "true" if split_tunneling_enabled() else "false",
+        "custom_dns": current_custom_dns(db),
+        "kill_switch": db.get_setting("kill_switch", "false"),
+        "auto_connect": db.get_setting("auto_connect", "false"),
+        "spoof_country": db.get_setting("spoof_country", "false"),
+        "allow_lan": db.get_setting("allow_lan", "false"),
+        "vpn_port": db.get_setting("vpn_port", "0"),
+        "gui_theme": db.get_setting("gui_theme", "system"),
+        "traffic_stats_enabled": db.get_setting("traffic_stats_enabled", "true"),
+        "default_connect_strategy": db.get_setting("default_connect_strategy", "best"),
+        "default_connect_server": db.get_setting("default_connect_server", ""),
+        "extended_cert": db.get_setting("extended_cert", "false")
+    }
+    return jsonify({"success": True, "settings": settings})
+
+@app.route("/api/settings", methods=["POST"])
+def update_settings():
+    db = Database()
+    data = request.json or {}
+    messages = []
+    allowed_keys = [
+        "obfuscation_enabled", "obfuscation_config",
+        "split_tunneling", "custom_dns", "kill_switch", "auto_connect",
+        "spoof_country", "allow_lan", "vpn_port", "gui_theme",
+        "traffic_stats_enabled", "default_connect_strategy", "default_connect_server",
+        "extended_cert", "connection_verification_mode", "handshake_timeout_seconds"
+    ]
+    from pvpn_cli.handshake import normalize_mode, normalize_timeout
+    for key, value in data.items():
+        if key in allowed_keys:
+            # Verification values come from the GUI, so clamp them exactly like the CLI does.
+            if key == "connection_verification_mode":
+                value = normalize_mode(value)
+            elif key == "handshake_timeout_seconds":
+                value = normalize_timeout(value)
+            db.set_setting(key, str(value).lower() if isinstance(value, bool) else str(value))
+
+            # Mimic CLI logging style
+            msg = f"-> Setting changed: {key} = {value}"
+            if key == "custom_dns":
+                msg = f"-> DNS Configuration updated to: {value or 'Default'}"
+            elif key == "protocol":
+                msg = f"-> VPN Protocol set to: {value.upper()}"
+            elif key == "vpn_port":
+                msg = f"-> VPN Port set to: {value if value != '0' else 'Auto'}"
+            elif key == "gui_theme":
+                msg = f"-> GUI Theme saved to database: {value}"
+
+            print(msg, flush=True)
+            messages.append(msg)
+
+    # Keep both persistence layers in sync. Older builds used the database for
+    # the master switch while the new schema also records it in the JSON file.
+    if "split_tunneling" in data:
+        from pvpn_cli.split.model import set_master_enabled
+
+        set_master_enabled(
+            str(data["split_tunneling"]).strip().lower() == "true",
+            db=db,
+        )
+
+    # Mirror GUI-facing keys onto the ones the connection path actually reads.
+    if "obfuscation_enabled" in data or "obfuscation_config" in data:
+        msg = sync_obfuscation_to_engine(db)
+        print(msg, flush=True)
+        messages.append(msg)
+    if "custom_dns" in data:
+        msg = sync_dns_to_engine(db)
+        print(msg, flush=True)
+        messages.append(msg)
+
+    return jsonify({"success": True, "messages": messages})
+
+def load_split_config_file(config_path):
+    """Deprecated: kept for callers that still read the raw file."""
+    if os.path.exists(config_path):
+        try:
+            with open(config_path, "r") as f:
+                loaded = json.load(f)
+            if isinstance(loaded, dict):
+                return loaded
+        except (OSError, ValueError):
+            pass
+    return {}
+
+
+def _split_payload():
+    """Everything the GUI needs to draw the split tunneling screens."""
+    from pvpn_cli.split import manager as split_manager
+    from pvpn_cli.split import model as split_model
+
+    config = split_model.load_config()
+    status = split_manager.status()
+    return {
+        "version": config.get("version"),
+        "enabled": config.get("enabled", False),
+        "mode": config.get("mode"),
+        "exclude_lan": config.get("exclude_lan", False),
+        "items": config.get("items", []),
+        # Legacy shape, so an older window still renders the list correctly.
+        "split_items": [
+            {"type": item["type"], "value": item["value"]}
+            for item in config.get("items", [])
+            if item.get("enabled", True)
+        ],
+        "capabilities": split_manager.capabilities(),
+        "status": status,
+    }
+
+
+@app.route("/api/settings/split", methods=["GET"])
+def get_split_settings():
+    return jsonify(_split_payload())
+
+
+@app.route("/api/settings/split", methods=["POST"])
+def update_split_settings():
+    """Update the configuration and push it onto a live connection.
+
+    Saving used to write the GUI payload straight to disk and stop there, so an
+    invalid entry was stored happily and nothing changed until a reconnect.
+    """
+    from pvpn_cli.split import manager as split_manager
+    from pvpn_cli.split import model as split_model
+
+    data = request.json or {}
+    try:
+        config = split_model.update_config(data)
+    except split_model.SplitConfigError as exc:
+        return jsonify({"success": False, "error": str(exc)}), 400
+    except Exception as exc:
+        return jsonify({"success": False, "error": str(exc)}), 400
+
+    messages = [
+        "-> Split Tunneling configuration updated "
+        f"({len(config.get('items', []))} items, {config.get('mode')} mode)"
+    ]
+    print(messages[0], flush=True)
+
+    state = split_model.read_state()
+    if state and split_manager.engine_running():
+        try:
+            result = split_manager.apply(
+                tunnel_interface=state.get("tunnel_interface") or "awg0",
+                tunnel_ip4=state.get("tunnel_ip4"),
+                tunnel_ip6=state.get("tunnel_ip6"),
+                log=lambda message: print(message, flush=True),
+            )
+            messages.append("-> Applied to the active connection")
+            for warning in result.get("warnings", []):
+                messages.append(f"[WARNING] {warning}")
+        except Exception as exc:
+            messages.append(f"[WARNING] Could not update the active connection: {exc}")
+
+    payload = _split_payload()
+    payload.update({"success": True, "message": messages[0], "messages": messages})
+    return jsonify(payload)
+
+
+@app.route("/api/settings/split/reconcile", methods=["POST"])
+def reconcile_split_settings():
+    """Drop split tunneling leftovers, e.g. after an unclean shutdown."""
+    from pvpn_cli.split import manager as split_manager
+
+    result = split_manager.reconcile(log=lambda message: print(message, flush=True))
+    return jsonify({"success": True, **result})
+
+
+@app.route("/api/settings/split/processes", methods=["GET"])
+def list_split_processes():
+    """Running user applications, for the application picker."""
+    from pvpn_cli.split import manager as split_manager
+
+    try:
+        return jsonify({"success": True, "processes": split_manager.list_processes()})
+    except Exception as exc:
+        return jsonify({"success": False, "error": str(exc), "processes": []})
+
+
+@app.route("/api/settings/split/validate", methods=["POST"])
+def validate_split_item():
+    """Check one entry before it is added, so the GUI can explain refusals."""
+    from pvpn_cli.split import model as split_model
+
+    data = request.json or {}
+    value = (data.get("value") or "").strip()
+    item_type = data.get("type") or split_model.guess_type(value)
+    if not value:
+        return jsonify({"success": False, "error": "A value is required"}), 400
+    try:
+        normalized = split_model.normalize_value(item_type, value)
+    except split_model.SplitConfigError as exc:
+        return jsonify({"success": False, "error": str(exc)}), 400
+    return jsonify({"success": True, "type": item_type, "value": normalized})
+
+@app.route("/api/awg", methods=["GET"])
+def get_awg_configs():
+    db = Database()
+    configs = db.get_awg_configs()
+    return jsonify({"success": True, "configs": configs})
+
+@app.route("/api/awg", methods=["POST"])
+def add_awg_config():
+    db = Database()
+    data = request.json or {}
+    name = data.get("name")
+    params = data.get("params")
+    junk_level = data.get("junk_level", 3)
+    if not name or not params:
+        return jsonify({"success": False, "error": "name and params required"}), 400
+    db.add_awg_config(name, params, junk_level)
+    return jsonify({"success": True})
+
+@app.route("/api/awg/generate-i1", methods=["POST"])
+def generate_i1():
+    data = request.json or {}
+    domain = data.get("domain")
+    from pvpn_cli.crypto import QuicI1Generator
+    import secrets
+
+    if domain:
+        i1 = QuicI1Generator.generate_i1(domain)
+    else:
+        i1 = QuicI1Generator.generate_i1("google.com")
+
+    return jsonify({"success": True, "i1": i1})
+
+@app.route("/api/awg", methods=["DELETE"])
+def delete_awg_config():
+    db = Database()
+    data = request.json or {}
+    name = data.get("name")
+    if not name:
+        return jsonify({"success": False, "error": "name required"}), 400
+
+    if name.startswith("preset-") or name == "vpn-next-default":
+        return jsonify({"success": False, "error": "Cannot delete built-in config"}), 400
+
+    db.delete_awg_config(name)
+    return jsonify({"success": True})
+
+@app.route("/api/profiles", methods=["GET", "POST"])
+def profiles_collection():
+    service = ProfileService()
+    if request.method == "GET":
+        return jsonify({"success": True, "profiles": service.list_profiles()})
+    try:
+        profile = service.create_profile(request.json or {})
+        return jsonify({"success": True, "profile": profile}), 201
+    except ProfileValidationError as exc:
+        return jsonify({"success": False, "error": str(exc)}), 400
+
+
+@app.route("/api/profiles/<profile_id>", methods=["GET", "POST", "DELETE"])
+def profile_item(profile_id):
+    service = ProfileService()
+    if request.method == "GET":
+        profile = service.get_profile(profile_id)
+        if not profile:
+            return jsonify({"success": False, "error": "Profile not found"}), 404
+        return jsonify({"success": True, "profile": profile})
+    if request.method == "DELETE":
+        if not service.delete_profile(profile_id):
+            return jsonify({"success": False, "error": "Profile not found"}), 404
+        return jsonify({"success": True})
+    try:
+        profile = service.update_profile(profile_id, request.json or {})
+        return jsonify({"success": True, "profile": profile})
+    except KeyError:
+        return jsonify({"success": False, "error": "Profile not found"}), 404
+    except ProfileValidationError as exc:
+        return jsonify({"success": False, "error": str(exc)}), 400
+
+
+@app.route("/api/vpn/recents", methods=["GET"])
+def get_recent_connections():
+    db = Database()
+    recents = db.get_recent_connections()
+    return jsonify({"success": True, "recents": recents})
+
+@app.route("/api/vpn/connect", methods=["POST"])
+def vpn_connect():
+    """Connect synchronously and return only after the tunnel is really up."""
+    data = request.json or {}
+    profile_resolution = None
+    if data.get("profile_id"):
+        try:
+            profile_resolution = ProfileService().resolve_profile(str(data["profile_id"]))
+            server = profile_resolution["server_id"]
+        except KeyError:
+            return jsonify({"success": False, "error": "Profile not found"}), 404
+        except ProfileValidationError as exc:
+            return jsonify({"success": False, "error": str(exc)}), 400
+    else:
+        server = data.get("server")
+    if not server:
+        return jsonify({"success": False, "error": "server or profile_id required"}), 400
+
+    db = Database()
+    vpn = ProtonVpnApi()
+    if server in ("default", "fastest"):
+        strategy = "best" if server == "fastest" else db.get_setting("default_connect_strategy", "best")
+        if strategy == "best":
+            best = vpn.get_best_server()
+            server = best.get("ID") if best else None
+        elif strategy == "recent":
+            recents = db.get_recent_connections(limit=5)
+            server = next((r.get("id") for r in recents if r.get("available")), None)
+            if not server:
+                best = vpn.get_best_server()
+                server = best.get("ID") if best else None
+        elif strategy == "custom":
+            server = db.get_setting("default_connect_server") or None
+            if not server:
+                best = vpn.get_best_server()
+                server = best.get("ID") if best else None
+    if not server:
+        return jsonify({"success": False, "error": "Could not determine server to connect."}), 400
+
+    if not connection_operation_lock.acquire(blocking=False):
+        return jsonify({"success": False, "error": "Another VPN operation is already running"}), 409
+
+    output_parts = []
+    try:
+        cleanup_stale_cli_processes()
+        db.add_recent_connection(server)
+        print(f"-> GUI Connection request: {server}", flush=True)
+
+        # Reconnect based on actual tunnel health, not volatile API memory.
+        if tunnel_is_active():
+            with status_state["lock"]:
+                status_state["vpn_state"] = "DISCONNECTING"
+            notify_status_change()
+            disconnect_output = run_cli_elevated(["disconnect"], sudo_password=data.get("sudo_password"))
+            if disconnect_output:
+                output_parts.append(disconnect_output)
+            deadline = time.time() + 12
+            while tunnel_is_active() and time.time() < deadline:
+                time.sleep(0.25)
+            if tunnel_is_active():
+                raise RuntimeError("The existing VPN tunnel could not be stopped")
+
+        with status_state["lock"]:
+            status_state["vpn_state"] = "CONNECTING"
+        with handshake_state["lock"]:
+            handshake_state["verified"] = False
+        notify_status_change()
+
+        connect_args = ["connect", server]
+        awg_params = profile_resolution["awg_params"] if profile_resolution else data.get("awg")
+        port = profile_resolution["port"] if profile_resolution else int(data.get("port", 0) or 0)
+        if awg_params:
+            connect_args.append(f"awg={awg_params}")
+        if profile_resolution is not None or port:
+            connect_args.append(f"--port={port}")
+
+        connect_output = run_cli_elevated(connect_args, sudo_password=data.get("sudo_password"))
+        if connect_output:
+            output_parts.append(connect_output)
+
+        # routing_state.json is written before route setup; wait for awg0 too.
+        deadline = time.time() + 35
+        while not tunnel_is_active() and time.time() < deadline:
+            time.sleep(0.25)
+        if not tunnel_is_active():
+            raise RuntimeError("The VPN CLI exited, but the awg0 tunnel did not come up")
+
+        # The CLI already waited for the handshake; confirm it here so the GUI
+        # never shows Connected for a tunnel the peer never answered.
+        if handshake_verification_enabled():
+            from pvpn_cli.handshake import read_settings
+            _mode, handshake_timeout = read_settings()
+            deadline = time.time() + handshake_timeout + 2
+            while not tunnel_is_verified() and time.time() < deadline:
+                time.sleep(0.25)
+            if not tunnel_is_verified():
+                raise RuntimeError("The tunnel came up, but the server never answered a handshake")
+
+        with status_state["lock"]:
+            status_state["vpn_state"] = "CONNECTED"
+        notify_status_change()
+
+        if profile_resolution and profile_resolution.get("auto_open_url"):
+            from pvpn_cli.routing import get_config_dir
+            routing_file = os.path.join(get_config_dir(), "routing_state.json")
+            ProfileService.open_url_when_connected(profile_resolution["auto_open_url"], routing_file)
+
+        output = "\n".join(output_parts)
+        response = {
+            "success": True,
+            "message": f"Connected to {server}.",
+            "messages": output.splitlines() if output else [],
+            "vpn_state": "CONNECTED",
+        }
+        if profile_resolution:
+            response["profile"] = profile_resolution["profile"]
+            response["resolved_server"] = profile_resolution["server"]
+        return jsonify(response)
+    except SudoRequiredError:
+        final_state = "CONNECTED" if tunnel_is_active() else "DISCONNECTED"
+        with status_state["lock"]:
+            status_state["vpn_state"] = final_state
+        notify_status_change()
+        return jsonify({"success": False, "requires_password": True, "vpn_state": final_state}), 401
+    except Exception as exc:
+        final_state = "CONNECTED" if tunnel_is_active() else "DISCONNECTED"
+        with status_state["lock"]:
+            status_state["vpn_state"] = final_state
+        notify_status_change()
+        return jsonify({
+            "success": False,
+            "error": str(exc),
+            "messages": "\n".join(output_parts).splitlines(),
+            "vpn_state": final_state,
+        }), 400
+    finally:
+        connection_operation_lock.release()
+
+
+@app.route("/api/vpn/disconnect", methods=["POST"])
+def vpn_disconnect():
+    """Disconnect synchronously and return only after awg0 is gone."""
+    if not connection_operation_lock.acquire(blocking=False):
+        return jsonify({"success": False, "error": "Another VPN operation is already running"}), 409
+    try:
+        cleanup_stale_cli_processes()
+        print("-> GUI Disconnect request", flush=True)
+        with status_state["lock"]:
+            status_state["vpn_state"] = "DISCONNECTING"
+        notify_status_change()
+
+        data = request.json or {}
+        output = run_cli_elevated(["disconnect"], sudo_password=data.get("sudo_password"))
+        deadline = time.time() + 12
+        while tunnel_is_active() and time.time() < deadline:
+            time.sleep(0.25)
+        if tunnel_is_active():
+            raise RuntimeError("The VPN tunnel did not stop")
+
+        with status_state["lock"]:
+            status_state["vpn_state"] = "DISCONNECTED"
+        with handshake_state["lock"]:
+            handshake_state["verified"] = False
+        notify_status_change()
+        return jsonify({
+            "success": True,
+            "message": "VPN disconnected.",
+            "messages": output.splitlines() if output else [],
+            "vpn_state": "DISCONNECTED",
+        })
+    except SudoRequiredError:
+        final_state = "CONNECTED" if tunnel_is_active() else "DISCONNECTED"
+        with status_state["lock"]:
+            status_state["vpn_state"] = final_state
+        notify_status_change()
+        return jsonify({"success": False, "requires_password": True, "vpn_state": final_state}), 401
+    except Exception as exc:
+        final_state = "CONNECTED" if tunnel_is_active() else "DISCONNECTED"
+        with status_state["lock"]:
+            status_state["vpn_state"] = final_state
+        notify_status_change()
+        return jsonify({"success": False, "error": str(exc), "vpn_state": final_state}), 400
+    finally:
+        connection_operation_lock.release()
+
+
+@app.route("/api/logs", methods=["GET"])
+def get_logs():
+    from .routing import get_config_dir
+    config_dir = get_config_dir()
+    log_files = ["client.log", "daemon.log", "awg.log", "service.log"]
+    logs = {}
+    for filename in log_files:
+        path = os.path.join(config_dir, filename)
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    # Return last 1000 lines for efficiency
+                    lines = f.readlines()
+                    logs[filename] = "".join(lines[-1000:])
+            except Exception as e:
+                logs[filename] = f"Error reading log: {str(e)}"
+        else:
+            logs[filename] = "Log file not found."
+    return jsonify(logs)
+
+def reconnect_after_handshake_loss():
+    """Rebuild the tunnel after the peer stopped answering handshakes."""
+    db = Database()
+    server = db.get_setting("active_server_name", "") or "default"
+    if not connection_operation_lock.acquire(blocking=False):
+        return
+    try:
+        print(f"-> Handshake lost; reconnecting to {server}", flush=True)
+        with status_state["lock"]:
+            status_state["vpn_state"] = "CONNECTING"
+        with handshake_state["lock"]:
+            handshake_state["verified"] = False
+        notify_status_change()
+        try:
+            run_cli_elevated(["connect", server])
+        except SudoRequiredError:
+            # Without the system service an unattended reconnect cannot elevate.
+            print("[WARNING] Automatic reconnect needs the privileged service; skipping", flush=True)
+        except Exception as exc:
+            print(f"[WARNING] Automatic reconnect failed: {exc}", flush=True)
+    finally:
+        state = "CONNECTED" if tunnel_is_verified() else "DISCONNECTED"
+        with status_state["lock"]:
+            status_state["vpn_state"] = state
+        connection_operation_lock.release()
+        notify_status_change()
+
+
+def handshake_watcher():
+    """Verify the tunnel by handshake and reconnect when the peer goes silent."""
+    from pvpn_cli.handshake import (
+        HEALTH_STALLED,
+        HEALTH_VERIFIED,
+        HandshakeTracker,
+        read_settings,
+    )
+
+    tracker = HandshakeTracker()
+    while True:
+        time.sleep(1)
+        try:
+            if not handshake_verification_enabled():
+                tracker.reset()
+                continue
+
+            _mode, timeout = read_settings()
+            tracker.timeout_seconds = float(timeout)
+
+            if not tunnel_is_active():
+                tracker.reset()
+                with handshake_state["lock"]:
+                    changed = handshake_state["verified"]
+                    handshake_state["verified"] = False
+                if changed:
+                    notify_status_change()
+                continue
+
+            # Connect and disconnect own the tunnel while they run.
+            if connection_operation_lock.locked():
+                continue
+
+            health = tracker.poll(awg_log_path())
+            verified = health == HEALTH_VERIFIED
+            with handshake_state["lock"]:
+                changed = handshake_state["verified"] != verified
+                handshake_state["verified"] = verified
+            if changed:
+                notify_status_change()
+
+            if health == HEALTH_STALLED:
+                # AmneziaWG kept retrying a handshake past the deadline, so the
+                # session was dropped (typically by DPI). Rebuild it.
+                tracker.reset()
+                reconnect_after_handshake_loss()
+        except Exception as exc:
+            print(f"[WARNING] Handshake watcher error: {exc}", flush=True)
+
+
+def status_watcher():
+    """Publish real tunnel changes without racing an active operation."""
+    last_active = tunnel_is_verified()
+    with status_state["lock"]:
+        status_state["vpn_state"] = "CONNECTED" if last_active else "DISCONNECTED"
+
+    while True:
+        time.sleep(0.5)
+        active = tunnel_is_active()
+        # vpn_connect/vpn_disconnect own transitional states while their CLI
+        # subprocess is running. The watcher only reconciles idle/external changes.
+        if connection_operation_lock.locked():
+            continue
+        desired = "CONNECTED" if active else "DISCONNECTED"
+        with status_state["lock"]:
+            changed = active != last_active or status_state["vpn_state"] != desired
+            if changed:
+                status_state["vpn_state"] = desired
+        if changed:
+            last_active = active
+            notify_status_change()
+
+def run_api_server(port=34115, debug=False, api_token=None):
+    global global_api_token
+    global_api_token = api_token
+    import logging
+    log = logging.getLogger('werkzeug')
+    if debug:
+        log.setLevel(logging.INFO)
+    else:
+        log.setLevel(logging.ERROR)
+
+    # The GUI's status poll and its event stream are housekeeping, not events
+    # worth a log line each. In debug mode they used to arrive several times a
+    # second and pushed everything else out of the visible scrollback, which is
+    # how an endless run of 401s went unnoticed for so long. Failures still get
+    # through: only successful requests to these two paths are dropped.
+    class _QuietPolling(logging.Filter):
+        NOISY = ('GET /api/status ', 'GET /api/events ')
+
+        def filter(self, record):
+            message = record.getMessage()
+            if ' 200 ' not in message:
+                return True
+            return not any(path in message for path in self.NOISY)
+
+    log.addFilter(_QuietPolling())
+
+    # Start status watcher
+    watcher = threading.Thread(target=status_watcher, daemon=True)
+    watcher.start()
+
+    # Start handshake verification watcher
+    verifier = threading.Thread(target=handshake_watcher, daemon=True)
+    verifier.start()
+
+    # Start traffic tracker
+    tracker = threading.Thread(target=traffic_tracker, daemon=True)
+    tracker.start()
+
+    # Start location tracker
+    locator = threading.Thread(target=location_tracker, daemon=True)
+    locator.start()
+
+    # A reboot or a crash leaves the split-tunneling state file behind while
+    # every route and helper process is already gone. Reconciling here is what
+    # makes the feature survive a restart instead of appearing dead.
+    try:
+        from pvpn_cli.split import manager as split_manager
+
+        outcome = split_manager.reconcile(log=lambda message: print(message, flush=True))
+        if outcome.get("cleaned"):
+            print("-> Cleared split tunneling leftovers from a previous session.", flush=True)
+    except Exception as exc:
+        print(f"[WARNING] Split tunneling reconcile failed: {exc}", flush=True)
+
+    print(f"Starting API Daemon on port {port} (Debug: {debug})...", flush=True)
+    try:
+        app.run(host="127.0.0.1", port=port, debug=False, use_reloader=False)
+    except OSError as exc:
+        # Losing the bind used to be a bare traceback, which said nothing about
+        # the real situation: a second instance was starting while the first one
+        # still owned the port. The window of that second instance then talked
+        # to the surviving backend with a token it had never issued, and every
+        # request came back 401 for as long as both stayed open.
+        if exc.errno == errno.EADDRINUSE:
+            print(
+                f"[ERROR] Port {port} is already in use, most likely by another "
+                f"ProtonVPN-Next instance. Close it, or pass --port to run a "
+                f"second one alongside it.",
+                file=sys.stderr,
+                flush=True,
+            )
+            sys.exit(1)
+        raise

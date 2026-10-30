@@ -1,0 +1,17 @@
+[package]
+name = "proton-srp-cffi"
+version = "1.0.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+libc = "0.2"
+
+[dependencies.proton-srp]
+version  = "0.7"
+registry = "proton"
+
+[build-dependencies]
+winres = "0.1"

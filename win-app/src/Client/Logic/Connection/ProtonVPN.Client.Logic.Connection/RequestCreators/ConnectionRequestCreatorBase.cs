@@ -1,0 +1,222 @@
+﻿/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Features;
+using ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.FreeServers;
+using ProtonVPN.Client.Logic.Connection.Contracts.RequestCreators;
+using ProtonVPN.Client.Logic.Profiles.Contracts.Models;
+using ProtonVPN.Client.Logic.Servers.Contracts.Enums;
+using ProtonVPN.Client.Settings.Contracts;
+using ProtonVPN.Client.Settings.Contracts.Observers;
+using ProtonVPN.Common.Core.Networking;
+using ProtonVPN.EntityMapping.Contracts;
+using ProtonVPN.Logging.Contracts;
+using ProtonVPN.ProcessCommunication.Contracts.Entities.Settings;
+using ProtonVPN.ProcessCommunication.Contracts.Entities.Vpn;
+using ProtonVPN.ProcessCommunication.Contracts.Entities.Vpn.Extensions;
+
+namespace ProtonVPN.Client.Logic.Connection.RequestCreators;
+
+public abstract class ConnectionRequestCreatorBase : RequestCreatorBase
+{
+    protected readonly IFeatureFlagsObserver FeatureFlagsObserver;
+
+    protected ConnectionRequestCreatorBase(
+        ILogger logger, 
+        ISettings settings,
+        IEntityMapper entityMapper,
+        IFeatureFlagsObserver featureFlagsObserver,
+        IMainSettingsRequestCreator mainSettingsRequestCreator)
+        : base(logger, settings, entityMapper, mainSettingsRequestCreator)
+    {
+        FeatureFlagsObserver = featureFlagsObserver;
+    }
+
+    protected abstract Task<VpnCredentialsIpcEntity> GetVpnCredentialsAsync();
+
+    protected virtual VpnConfigIpcEntity GetVpnConfig(MainSettingsIpcEntity settings, IConnectionIntent? connectionIntent = null)
+    {
+        bool isPortForwardingEnabled = settings.PortForwarding && (connectionIntent is null || connectionIntent.IsPortForwardingSupported());
+        bool isCustomDnsEnabled = connectionIntent is IConnectionProfile profile && profile.Settings.IsCustomDnsServersEnabled.HasValue
+            ? profile.Settings.IsCustomDnsServersEnabled.Value
+            : Settings.IsCustomDnsServersEnabled;
+
+        return new VpnConfigIpcEntity
+        {
+            VpnProtocol = settings.VpnProtocol,
+            SplitTunnelMode = settings.SplitTunnel.Mode,
+            SplitTunnelIPs = settings.SplitTunnel.Ips.ToList(),
+            ModerateNat = settings.ModerateNat,
+            NetShieldMode = settings.NetShieldMode,
+            PortForwarding = isPortForwardingEnabled,
+            SplitTcp = settings.SplitTcp,
+            PreferredProtocols = GetPreferredProtocol(settings.VpnProtocol, connectionIntent),
+            Ports = GetPorts(),
+            CustomDns = GetCustomDns(isCustomDnsEnabled),
+            IsIpv6Enabled = Settings.IsIpv6Enabled,
+            WireGuardConnectionTimeout = settings.WireGuardConnectionTimeout,
+            DnsBlockMode = settings.DnsBlockMode,
+            ShouldDisableWeakHostSetting = DefaultSettings.ShouldDisableWeakHostSetting,
+            IsWireGuardServerRouteEnabled = DefaultSettings.IsWireGuardServerRouteEnabled,
+        };
+    }
+
+    protected IList<VpnProtocolIpcEntity> GetPreferredProtocol(VpnProtocolIpcEntity vpnProtocol, IConnectionIntent? connectionIntent)
+    {
+        if (vpnProtocol is VpnProtocolIpcEntity.Smart ||
+            vpnProtocol.IsProTun() && (!FeatureFlagsObserver.IsProTunEnabled || !Settings.AreProtonProtocolsEnabled))
+        {
+            return GetSmartProtocols(connectionIntent);
+        }
+
+        return [vpnProtocol];
+    }
+
+    private IList<VpnProtocolIpcEntity> GetSmartProtocols(IConnectionIntent? connectionIntent)
+    {
+        List<VpnProtocol> preferredProtocols = [];
+        List<VpnProtocol> fallbackProtocols = [];
+
+        // Use ProTun first when Free user, Internal user, or connecting to Tor or SecureCore servers
+        if (IsToUseProTunFirstOnSmartProtocol(connectionIntent))
+        {
+            GetSmartProtocolsWithProTunFirst(preferredProtocols, fallbackProtocols);
+        }
+        else
+        {
+            GetSmartProtocolsWithWireGuardNtFirst(preferredProtocols, fallbackProtocols);
+        }
+
+        List<VpnProtocol> result = preferredProtocols.Count > 0 ? preferredProtocols : fallbackProtocols;
+        return EntityMapper.Map<VpnProtocol, VpnProtocolIpcEntity>(result);
+    }
+
+    private bool IsToUseProTunFirstOnSmartProtocol(IConnectionIntent? connectionIntent)
+    {
+        return Settings.VpnPlan.IsFreePlan ||
+            Settings.VpnPlan.MaxTier >= (sbyte)ServerTiers.Internal ||
+            connectionIntent?.Feature is TorFeatureIntent or SecureCoreFeatureIntent;
+    }
+
+    private void GetSmartProtocolsWithProTunFirst(List<VpnProtocol> preferredProtocols, List<VpnProtocol> fallbackProtocols)
+    {
+        if (FeatureFlagsObserver.IsProTunEnabled && Settings.AreProtonProtocolsEnabled)
+        {
+            SetProtocolBucket(VpnProtocol.ProTunUdp, preferredProtocols, fallbackProtocols);
+        }
+
+        SetProtocolBucket(VpnProtocol.WireGuardUdp, preferredProtocols, fallbackProtocols);
+        SetProtocolBucket(VpnProtocol.WireGuardTcp, preferredProtocols, fallbackProtocols);
+        SetProtocolBucket(VpnProtocol.WireGuardTls, preferredProtocols, fallbackProtocols);
+
+        if (FeatureFlagsObserver.IsProTunEnabled && Settings.AreProtonProtocolsEnabled)
+        {
+            SetProtocolBucket(VpnProtocol.ProTunTcp, preferredProtocols, fallbackProtocols);
+            SetProtocolBucket(VpnProtocol.ProTunTls, preferredProtocols, fallbackProtocols);
+        }
+
+        SetProtocolBucket(VpnProtocol.OpenVpnUdp, preferredProtocols, fallbackProtocols);
+        SetProtocolBucket(VpnProtocol.OpenVpnTcp, preferredProtocols, fallbackProtocols);
+    }
+
+    private void GetSmartProtocolsWithWireGuardNtFirst(List<VpnProtocol> preferredProtocols, List<VpnProtocol> fallbackProtocols)
+    {
+        SetProtocolBucket(VpnProtocol.WireGuardUdp, preferredProtocols, fallbackProtocols);
+
+        if (FeatureFlagsObserver.IsProTunEnabled && Settings.AreProtonProtocolsEnabled)
+        {
+            SetProtocolBucket(VpnProtocol.ProTunUdp, preferredProtocols, fallbackProtocols);
+        }
+
+        SetProtocolBucket(VpnProtocol.WireGuardTcp, preferredProtocols, fallbackProtocols);
+        SetProtocolBucket(VpnProtocol.WireGuardTls, preferredProtocols, fallbackProtocols);
+
+        if (FeatureFlagsObserver.IsProTunEnabled && Settings.AreProtonProtocolsEnabled)
+        {
+            SetProtocolBucket(VpnProtocol.ProTunTcp, preferredProtocols, fallbackProtocols);
+            SetProtocolBucket(VpnProtocol.ProTunTls, preferredProtocols, fallbackProtocols);
+        }
+
+        SetProtocolBucket(VpnProtocol.OpenVpnUdp, preferredProtocols, fallbackProtocols);
+        SetProtocolBucket(VpnProtocol.OpenVpnTcp, preferredProtocols, fallbackProtocols);
+    }
+
+    private List<string> GetCustomDns(bool isCustomDnsEnabled)
+    {
+        if (!isCustomDnsEnabled)
+        {
+            return [];
+        }
+
+        List<string> result = [];
+
+        IEnumerable<string> activeIpAddresses = Settings.CustomDnsServersList.Where(s => s.IsActive).Select(s => s.IpAddress);
+        foreach (string dns in activeIpAddresses)
+        {
+            if (NetworkAddress.TryParse(dns, out NetworkAddress ipAddress))
+            {
+                if (!Settings.IsIpv6Enabled && ipAddress.IsIpV6)
+                {
+                    continue;
+                }
+
+                result.Add(dns);
+            }
+        }
+
+        return result;
+    }
+
+    private void SetProtocolBucket(VpnProtocol protocol,
+        List<VpnProtocol> preferredProtocols, List<VpnProtocol> fallbackProtocols)
+    {
+        if (Settings.DisabledSmartProtocols.Contains(protocol))
+        {
+            fallbackProtocols.Add(protocol);
+        }
+        else
+        {
+            preferredProtocols.Add(protocol);
+        }
+    }
+
+    private Dictionary<VpnProtocolIpcEntity, int[]> GetPorts()
+    {
+        return new()
+        {
+            { VpnProtocolIpcEntity.WireGuardUdp, Settings.WireGuardUdpPorts },
+            { VpnProtocolIpcEntity.ProTunUdp, Settings.ProTunUdpPorts },
+            { VpnProtocolIpcEntity.ProTunTcp, Settings.ProTunTcpPorts },
+            { VpnProtocolIpcEntity.ProTunTls, Settings.ProTunTlsPorts },
+            { VpnProtocolIpcEntity.WireGuardTcp, Settings.WireGuardTcpPorts },
+            { VpnProtocolIpcEntity.WireGuardTls, Settings.WireGuardTlsPorts },
+            { VpnProtocolIpcEntity.OpenVpnUdp, Settings.OpenVpnUdpPorts },
+            { VpnProtocolIpcEntity.OpenVpnTcp, Settings.OpenVpnTcpPorts },
+        };
+    }
+
+    protected bool IsToBypassSmartServerListGenerator(IConnectionIntent connectionIntent)
+    {
+        return !Settings.IsSmartReconnectEnabled ||
+               connectionIntent is IConnectionProfile ||
+               connectionIntent.Feature is B2BFeatureIntent ||
+               connectionIntent.Location is FreeServerLocationIntent;
+    }
+}

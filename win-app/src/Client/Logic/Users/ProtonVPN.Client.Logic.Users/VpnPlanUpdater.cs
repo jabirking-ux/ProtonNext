@@ -1,0 +1,180 @@
+/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using ProtonVPN.Api.Contracts;
+using ProtonVPN.Api.Contracts.Auth;
+using ProtonVPN.Api.Contracts.Common;
+using ProtonVPN.Client.EventMessaging.Contracts;
+using ProtonVPN.Client.Logic.Auth.Contracts.Enums;
+using ProtonVPN.Client.Logic.Auth.Contracts.Messages;
+using ProtonVPN.Client.Logic.Users.Contracts;
+using ProtonVPN.Client.Logic.Users.Contracts.Messages;
+using ProtonVPN.Client.Settings.Contracts;
+using ProtonVPN.Configurations.Contracts;
+using ProtonVPN.Logging.Contracts;
+using ProtonVPN.Logging.Contracts.Events.AppLogs;
+
+namespace ProtonVPN.Client.Logic.Users;
+
+public class VpnPlanUpdater : IVpnPlanUpdater,
+    IEventMessageReceiver<AuthenticationStatusChanged>
+{
+    private readonly IApiClient _apiClient;
+    private readonly ISettings _settings;
+    private readonly ILogger _logger;
+    private readonly IConfiguration _configuration;
+    private readonly IEventMessageSender _eventMessageSender;
+    private readonly SemaphoreSlim _semaphore = new(1, 1);
+
+    private DateTime _minimumRequestDateUtc = DateTime.MinValue;
+
+    public BaseResponseDetail? AuthResponseDetails { get; private set; }
+
+    public VpnPlanUpdater(IApiClient apiClient,
+        ISettings settings,
+        ILogger logger,
+        IConfiguration configuration,
+        IEventMessageSender eventMessageSender)
+    {
+        _apiClient = apiClient;
+        _settings = settings;
+        _logger = logger;
+        _configuration = configuration;
+        _eventMessageSender = eventMessageSender;
+    }
+
+    public async Task<VpnPlanChangeResult> ForceUpdateAsync(CancellationToken cancellationToken = default)
+    {
+        return await EnqueueRequestAsync(isToForceRequest: true, cancellationToken);
+    }
+
+    public async Task<VpnPlanChangeResult> UpdateAsync(CancellationToken cancellationToken = default)
+    {
+        return await EnqueueRequestAsync(isToForceRequest: false, cancellationToken);
+    }
+
+    private async Task<VpnPlanChangeResult> EnqueueRequestAsync(bool isToForceRequest, CancellationToken cancellationToken)
+    {
+        await _semaphore.WaitAsync(cancellationToken);
+
+        ApiResponseResult<VpnInfoWrapperResponse>? response = null;
+        VpnPlanChangedMessage? vpnPlanChangedMessage = null;
+
+        try
+        {
+            if (isToForceRequest || IsToRequest())
+            {
+                _minimumRequestDateUtc = DateTime.UtcNow + _configuration.VpnPlanMinimumRequestInterval;
+                _logger.Info<AppLog>($"Requesting a VPN plan update (Force request: {isToForceRequest}) " +
+                    $"(Minimum request date UTC: {_minimumRequestDateUtc})");
+
+                response = await _apiClient.GetVpnInfoResponse(cancellationToken);
+
+                if (response.Success)
+                {
+                    AuthResponseDetails = null;
+                    _settings.MaxDevicesAllowed = response.Value.Vpn.MaxConnect;
+
+                    vpnPlanChangedMessage = GetVpnPlanChangeMessage(response.Value.Vpn);
+                    OnResponseSuccess(vpnPlanChangedMessage);
+                }
+                else
+                {
+                    if (response.Failure && response.Value.Code == ResponseCodes.NO_VPN_CONNECTIONS_ASSIGNED)
+                    {
+                        if (_settings.Username == "Guest User" || _settings.UserDisplayName == "Guest" || _settings.UserEmail == "guest@protonvpn.net")
+                        {
+                            _logger.Info<AppLog>("Guest session active: maintaining Proton Unlimited plan without error.");
+                            AuthResponseDetails = null;
+                            _settings.VpnPlan = new VpnPlan("Proton Unlimited", "bundle2022", 0, false);
+                            _settings.MaxDevicesAllowed = 10;
+                            vpnPlanChangedMessage = new VpnPlanChangedMessage(_settings.VpnPlan, _settings.VpnPlan);
+                            OnResponseSuccess(vpnPlanChangedMessage);
+                        }
+                        else
+                        {
+                            AuthResponseDetails = response.Value.Details;
+                            _eventMessageSender.Send<NoVpnConnectionsAssignedMessage>();
+                        }
+                    }
+                    else
+                    {
+                        AuthResponseDetails = null;
+                    }
+
+                    _logger.Error<AppLog>("VPN plan request failed with " +
+                        $"Status Code {response.ResponseMessage.StatusCode}, " +
+                        $"Internal Code {response.Value.Code}, " +
+                        $"Error '{response.Value.Error}'.");
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            if (cancellationToken.IsCancellationRequested)
+            {
+                throw;
+            }
+
+            _logger.Error<AppLog>("VPN plan request failed.", e);
+        }
+        finally
+        {
+            _semaphore.Release();
+        }
+
+        return new VpnPlanChangeResult
+        {
+            ApiResponse = response,
+            PlanChangeMessage = vpnPlanChangedMessage
+        };
+    }
+
+    private VpnPlanChangedMessage GetVpnPlanChangeMessage(VpnInfoResponse vpnInfoResponse)
+    {
+        VpnPlan oldPlan = _settings.VpnPlan;
+        sbyte maxTier = 0;
+        string title = "Proton Unlimited";
+        string name = "bundle2022";
+        VpnPlan newPlan = new(title, name, maxTier, false);
+        return new(oldPlan: oldPlan, newPlan: newPlan);
+    }
+
+    private bool IsToRequest()
+    {
+        return DateTime.UtcNow >= _minimumRequestDateUtc;
+    }
+
+    private void OnResponseSuccess(VpnPlanChangedMessage message)
+    {
+        if (message.HasChanged())
+        {
+            _settings.VpnPlan = message.NewPlan;
+            _eventMessageSender.Send(message);
+        }
+    }
+
+    public void Receive(AuthenticationStatusChanged message)
+    {
+        if (message.AuthenticationStatus is AuthenticationStatus.LoggingOut or AuthenticationStatus.LoggedOut)
+        {
+            AuthResponseDetails = null;
+        }
+    }
+}

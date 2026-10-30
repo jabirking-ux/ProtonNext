@@ -1,0 +1,134 @@
+﻿/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System;
+using System.Threading;
+using FlaUI.Core.Definitions;
+using FlaUI.Core.AutomationElements;
+using ProtonVPN.UI.Tests.UiTools;
+using ProtonVPN.UI.Tests.TestsHelper;
+
+namespace ProtonVPN.UI.Tests.Robots;
+
+public class SupportRobot
+{
+    private readonly Func<Window?> _windowFunc;
+
+    protected Element ContactUsButton => Element.ByName("Contact us");
+    protected Element SendReportButton => Element.ByAutomationId("SendReportButton");
+    protected Element ReportSentLabel => Element.ByName("Report sent");
+    protected Element NoLogsAttachedWarning => Element.ByAutomationId("Message");
+    protected Element IncludeLogsCheckbox => Element.ByAutomationId("IncludeLogsCheckbox");
+    protected Element EmailInputField => Element.ByAutomationId("EmailInputField");
+    protected Element DoneButton => Element.ByName("Done");
+    protected Element CloseButton => Element.ByAutomationId("Close");
+    protected Element ConnectionHelpHeader => Element.ByName("Connection help");
+
+    public SupportRobot(Func<Window?> windowFunc)
+    {
+        _windowFunc = windowFunc;
+    }
+
+    public SupportRobot FillBugReportForm()
+    {
+        Thread.Sleep(TestConstants.NavigationDelay);
+        EmailInputField.WaitUntilDisplayed();
+        AutomationElement[]? bugReportInputFields = _windowFunc()?.FindAllDescendants(cf => cf.ByControlType(ControlType.Edit));
+
+        if (bugReportInputFields is null || bugReportInputFields.Length == 0)
+        {
+            throw new Exception("Could not find input fields for bug report.");
+        }
+
+        TextBox emailTextBox = bugReportInputFields[0]?.AsTextBox() ?? throw new Exception("Could not find email input field for bug report.");
+        emailTextBox.Text = "testing@email.com";
+
+        for (int i = 1; i < bugReportInputFields.Length; i++)
+        {
+            TextBox? textBox = bugReportInputFields[i]?.AsTextBox();
+            if (textBox is not null)
+            {
+                textBox.Text = "Ignore report. Testing";
+            }
+        }
+        return this;
+    }
+
+    public SupportRobot SelectBugType(string bugType)
+    {
+        Thread.Sleep(TestConstants.TwoSecondsTimeout);
+        Element.ByName(bugType).ClickUntilElementDisappears();
+        Thread.Sleep(TestConstants.TwoSecondsTimeout);
+        return this;
+    }
+
+    public SupportRobot ClickContactUs()
+    {
+        Thread.Sleep(TestConstants.NavigationDelay);
+        ContactUsButton.Invoke();
+        return this;
+    }
+
+    public SupportRobot SendBugReport()
+    {
+        SendReportButton.Click();
+        return this;
+    }
+
+    public SupportRobot TickIncludeLogsCheckbox()
+    {
+        IncludeLogsCheckbox.ScrollIntoView().Click();
+        return this;
+    }
+
+    public SupportRobot CloseSupportWindow()
+    {
+        CloseButton.Click();
+        return this;
+    }
+
+    public class Verifications : SupportRobot
+    {
+        public Verifications(Func<Window?> windowFunc) : base(windowFunc)
+        {
+        }
+
+        public Verifications IsSendingSuccessful()
+        {
+            ReportSentLabel.WaitUntilExists(TestConstants.ThirtySecondsTimeout);
+            DoneButton.Click();
+            Thread.Sleep(TestConstants.NavigationDelay);
+            return this;
+        }
+
+        public Verifications IsConnectionHelpDisplayed()
+        {
+            ConnectionHelpHeader.WaitUntilExists(TestConstants.TwoMinutesTimeout);
+            return this;
+        }
+
+        public Verifications IsNoLogsAttachedWarningDisplayed()
+        {
+            NoLogsAttachedWarning.WaitUntilDisplayed();
+            return this;
+        }
+    }
+
+    public Verifications Verify => new(_windowFunc);
+}

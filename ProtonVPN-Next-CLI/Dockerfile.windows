@@ -1,0 +1,78 @@
+# Stage 1: Build the Go engine for Windows
+FROM golang:alpine AS engine-builder
+ARG NPROCS=1
+WORKDIR /src
+# Copy engine source
+COPY engine/ /src/engine/
+WORKDIR /src/engine
+RUN apk add --no-cache git
+RUN GOOS=windows GOARCH=amd64 go build -p ${NPROCS} -ldflags="-s -w" -trimpath -o pvpn-engine.exe helper.go setup_windows.go
+# Split-tunneling helper: intercepts per-application traffic with WinDivert.
+RUN GOOS=windows GOARCH=amd64 go build -p ${NPROCS} -ldflags="-s -w" -trimpath -o pvpn-split.exe ./splitter
+
+# Stage 1b: Fetch the signed WinDivert driver (dll + sys), used as-is.
+FROM alpine AS windivert-fetcher
+WORKDIR /src
+RUN apk add --no-cache curl unzip
+COPY scripts/fetch-windivert.sh /src/scripts/fetch-windivert.sh
+RUN sh scripts/fetch-windivert.sh /out
+
+# Stage 2: Package the Python CLI with PyInstaller using PyWine
+FROM tobix/pywine:3.11 AS pyinstaller-builder
+WORKDIR /app
+
+# Copy the entire project
+COPY . .
+# Overwrite/Add the compiled Windows engine from Stage 1
+COPY --from=engine-builder /src/engine/pvpn-engine.exe engine/pvpn-engine.exe
+COPY --from=engine-builder /src/engine/pvpn-split.exe engine/pvpn-split.exe
+COPY --from=windivert-fetcher /out/WinDivert.dll engine/WinDivert.dll
+COPY --from=windivert-fetcher /out/WinDivert64.sys engine/WinDivert64.sys
+
+# Install dependencies and build the standalone directory and standalone file
+RUN wine pip install pyinstaller && \
+    wine pip install -r requirements.txt && \
+    wine pyinstaller --onedir \
+        --name pvpn-next-windows \
+        --icon=icon.ico \
+        --version-file version_info.txt \
+        --add-data "engine/pvpn-engine.exe;engine" \
+        --add-data "engine/wintun.dll;engine" \
+        --add-data "engine/pvpn-split.exe;engine" \
+        --add-data "engine/WinDivert.dll;engine" \
+        --add-data "engine/WinDivert64.sys;engine" \
+        --collect-submodules pvpn_cli.split \
+        pvpn-next && \
+    wine pyinstaller --onefile \
+        --name pvpn-next-windows-file \
+        --icon=icon.ico \
+        --version-file version_info.txt \
+        --add-data "engine/pvpn-engine.exe;engine" \
+        --add-data "engine/wintun.dll;engine" \
+        --add-data "engine/pvpn-split.exe;engine" \
+        --add-data "engine/WinDivert.dll;engine" \
+        --add-data "engine/WinDivert64.sys;engine" \
+        --collect-submodules pvpn_cli.split \
+        pvpn-next
+
+# Download Inno Setup
+RUN wine python -c "import urllib.request, ssl; ssl._create_default_https_context = ssl._create_unverified_context; urllib.request.urlretrieve('https://github.com/jrsoftware/issrc/releases/download/is-6_2_2/innosetup-6.2.2.exe', 'is.exe')"
+
+# Install Xvfb to run Wine GUI installer headlessly
+USER root
+RUN apt-get update && apt-get install -y xvfb && rm -rf /var/lib/apt/lists/*
+
+# Install Inno Setup
+RUN xvfb-run -a wine is.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+
+# Cleanup installer
+RUN wine python -c "import os; os.remove('is.exe')"
+
+# Compile Inno Setup Installer
+RUN wine "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /Q setup.iss
+
+# Stage 3: Export the final binary to the host
+FROM scratch AS export-stage
+COPY --from=pyinstaller-builder /app/dist/pvpn-next-windows-file.exe /pvpn-next-windows.exe
+COPY --from=pyinstaller-builder /app/dist/pvpn-next-setup.exe /
+COPY --from=pyinstaller-builder /app/dist/pvpn-next-windows /pvpn-next

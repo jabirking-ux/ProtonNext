@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2024 Proton AG
+
+This file is part of ProtonVPN.
+
+ProtonVPN is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProtonVPN is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:custom="using:ProtonVPN.Client.Common.UI.Controls.Custom"
+                    xmlns:enums="using:ProtonVPN.Client.Common.Enums"
+                    xmlns:profiles="using:ProtonVPN.Client.Common.UI.Assets.Icons.Profiles"
+                    xmlns:triggers="using:CommunityToolkit.WinUI">
+
+    <enums:ProfileCategory x:Key="GamingCategory">Gaming</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="StreamingCategory">Streaming</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="ProtectionCategory">Protection</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="PrivacyCategory">Privacy</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="AnonymousCategory">Anonymous</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="TerminalCategory">Terminal</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="SpeedCategory">Speed</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="DownloadCategory">Download</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="BusinessCategory">Business</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="ShoppingCategory">Shopping</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="SecurityCategory">Security</enums:ProfileCategory>
+    <enums:ProfileCategory x:Key="BrowsingCategory">Browsing</enums:ProfileCategory>
+    <!--<enums:ProfileCategory x:Key="BotCategory">Bot</enums:ProfileCategory>-->
+    <!--<enums:ProfileCategory x:Key="GatewayCategory">Gateway</enums:ProfileCategory>-->
+    <!--<enums:ProfileCategory x:Key="HomeCategory">Home</enums:ProfileCategory>-->
+    <!--<enums:ProfileCategory x:Key="FingerprintingCategory">Fingerprinting</enums:ProfileCategory>-->
+
+    <x:Double x:Key="StandardProfileWidth">48.0</x:Double>
+    <x:Double x:Key="StandardProfileHeight">48.0</x:Double>
+    <Thickness x:Key="StandardProfilePadding">0,4</Thickness>
+    <x:Double x:Key="StandardProfileIconWidth">36.0</x:Double>
+    <x:Double x:Key="StandardProfileFlagWidth">30.0</x:Double>
+
+    <x:Double x:Key="CompactProfileWidth">54.0</x:Double>
+    <x:Double x:Key="CompactProfileHeight">36.0</x:Double>
+    <Thickness x:Key="CompactProfilePadding">0</Thickness>
+    <x:Double x:Key="CompactProfileIconWidth">42.0</x:Double>
+    <x:Double x:Key="CompactProfileFlagWidth">30.0</x:Double>
+
+    <Style BasedOn="{StaticResource DefaultConnectionProfileIconStyle}" TargetType="custom:ConnectionProfileIcon" />
+
+    <Style x:Key="DefaultConnectionProfileIconStyle" TargetType="custom:ConnectionProfileIcon">
+        <Setter Property="Width" Value="{StaticResource StandardProfileWidth}" />
+        <Setter Property="Height" Value="{StaticResource StandardProfileHeight}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="custom:ConnectionProfileIcon">
+                    <Viewbox>
+                        <Grid x:Name="ProfileContainer"
+                              Width="{StaticResource StandardProfileWidth}"
+                              Height="{StaticResource StandardProfileHeight}"
+                              Padding="{StaticResource StandardProfilePadding}">
+
+                            <Viewbox x:Name="IconContainer"
+                                     Width="{StaticResource StandardProfileIconWidth}"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top">
+
+                                <ContentPresenter x:Name="IconPresenter">
+                                    <profiles:DefaultProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                </ContentPresenter>
+
+                            </Viewbox>
+
+                            <custom:SimpleCountryFlag x:Name="FlagContainer"
+                                                      Width="{StaticResource StandardProfileFlagWidth}"
+                                                      HorizontalAlignment="Right"
+                                                      VerticalAlignment="Bottom"
+                                                      CountryCode="{TemplateBinding CountryCode}"
+                                                      FlagType="{TemplateBinding FlagType}"
+                                                      Visibility="{Binding IsFlagVisible, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                        </Grid>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ProfileCategories">
+                                <VisualState x:Name="Gaming">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource GamingCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:GamingProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Streaming">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource StreamingCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:StreamingProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Protection">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource ProtectionCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:ProtectionProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Privacy">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource PrivacyCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:PrivacyProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Anonymous">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource AnonymousCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:AnonymousProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Speed">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource SpeedCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:SpeedProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Download">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource DownloadCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:DownloadProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Business">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource BusinessCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:BusinessProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Shopping">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource ShoppingCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:ShoppingProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Security">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource SecurityCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:SecurityProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Browsing">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource BrowsingCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:BrowsingProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <!--<VisualState x:Name="Bot">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource BotCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:BotProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Gateway">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource GatewayCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:GatewayProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Home">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource HomeCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:HomeProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Fingerprinting">
+                                    <VisualState.StateTriggers>
+                                        <triggers:IsEqualStateTrigger Value="{Binding ProfileCategory, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                                      To="{StaticResource FingerprintingCategory}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconPresenter.Content">
+                                            <Setter.Value>
+                                                <profiles:FingerprintingProfileIcon AccentColor="{TemplateBinding ProfileColor}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </VisualState.Setters>
+                                </VisualState>-->
+                                <VisualState />
+
+                            </VisualStateGroup>
+
+                            <VisualStateGroup x:Name="LayoutModes">
+                                <VisualState x:Name="Compact">
+                                    <VisualState.StateTriggers>
+                                        <StateTrigger IsActive="{Binding IsCompact, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="ProfileContainer.Width" Value="{StaticResource CompactProfileWidth}" />
+                                        <Setter Target="ProfileContainer.Height" Value="{StaticResource CompactProfileHeight}" />
+                                        <Setter Target="ProfileContainer.Padding" Value="{StaticResource CompactProfilePadding}" />
+                                        <Setter Target="IconContainer.Width" Value="{StaticResource CompactProfileIconWidth}" />
+                                        <Setter Target="FlagContainer.Width" Value="{StaticResource CompactProfileFlagWidth}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState />
+                            </VisualStateGroup>
+
+                            <VisualStateGroup x:Name="FlagStates">
+                                <VisualState x:Name="NoFlag">
+                                    <VisualState.StateTriggers>
+                                        <StateTrigger IsActive="{Binding IsFlagVisible, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource NotBooleanToBooleanConverter}}" />
+                                    </VisualState.StateTriggers>
+                                    <VisualState.Setters>
+                                        <Setter Target="IconContainer.Width" Value="{StaticResource StandardProfileWidth}" />
+                                        <Setter Target="IconContainer.HorizontalAlignment" Value="Stretch" />
+                                        <Setter Target="IconContainer.VerticalAlignment" Value="Center" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

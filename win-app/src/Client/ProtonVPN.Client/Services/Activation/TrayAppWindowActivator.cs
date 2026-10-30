@@ -1,0 +1,97 @@
+﻿/*
+ * Copyright (c) 2024 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using ProtonVPN.Client.Common.Dispatching;
+using ProtonVPN.Client.Core.Services.Activation;
+using ProtonVPN.Client.Core.Services.Activation.Bases;
+using ProtonVPN.Client.Core.Services.Selection;
+using ProtonVPN.Client.Localization.Contracts;
+using ProtonVPN.Client.Settings.Contracts;
+using ProtonVPN.Client.UI.Dialogs.Tray;
+using ProtonVPN.Logging.Contracts;
+using ProtonVPN.Client.Core.Extensions;
+using ProtonVPN.Client.Logic.Auth.Contracts;
+using ProtonVPN.Client.EventMessaging.Contracts;
+using ProtonVPN.Client.Contracts.Messages;
+
+namespace ProtonVPN.Client.Services.Activation;
+
+public class TrayAppWindowActivator : DialogActivatorBase<TrayAppWindow>, ITrayAppWindowActivator
+{
+    private const double TRAY_APP_DEFAULT_WIDTH = 425;
+    private const double TRAY_APP_DEFAULT_HEIGHT = 620;
+    private const double TRAY_APP_FREE_USER_HEIGHT = 520;
+    private const double TRAY_APP_MARGIN = 10;
+
+    private readonly IUserAuthenticator _userAuthenticator;
+    private readonly IEventMessageSender _eventMessageSender;
+
+    public override string WindowTitle { get; } = $"{App.APPLICATION_NAME} (tray)";
+
+    protected override bool ShouldCreateInstanceIfMissing => false;
+
+    public TrayAppWindowActivator(
+        ILogger logger,
+        IUIThreadDispatcher uiThreadDispatcher,
+        IApplicationThemeSelector themeSelector,
+        ISettings settings,
+        ILocalizationService localizationService,
+        ILocalizationProvider localizer,
+        IApplicationIconSelector iconSelector,
+        IMainWindowActivator mainWindowActivator,
+        IUserAuthenticator userAuthenticator,
+        IEventMessageSender eventMessageSender)
+        : base(logger,
+               uiThreadDispatcher,
+               themeSelector,
+               settings,
+               localizationService,
+               localizer,
+               iconSelector,
+               mainWindowActivator)
+    {
+        _userAuthenticator = userAuthenticator;
+        _eventMessageSender = eventMessageSender;
+    }
+
+    protected override void InvalidateWindowPosition()
+    {
+        double height = _userAuthenticator.IsLoggedIn && !Settings.VpnPlan.IsPaid
+            ? TRAY_APP_FREE_USER_HEIGHT
+            : TRAY_APP_DEFAULT_HEIGHT;
+
+        Host?.MoveNearTray(TRAY_APP_DEFAULT_WIDTH, height, TRAY_APP_MARGIN);
+    }
+
+    protected override void OnWindowFocused()
+    {
+        base.OnWindowFocused();
+
+        InvalidateWindowPosition();
+
+        _eventMessageSender.Send(new TrayAppWindowFocusedMessage());
+    }
+
+    protected override void OnWindowUnfocused()
+    {
+        base.OnWindowUnfocused();
+
+        Hide();
+    }
+}

@@ -1,0 +1,119 @@
+when:
+  - event: [push, pull_request, tag, manual]
+
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      depth: 0
+
+steps:
+  build-linux-engine:
+    image: golang:latest
+    commands:
+      - cd engine
+      - GOOS=linux GOARCH=amd64 go build -o pvpn-engine helper.go setup_linux.go
+
+  build-windows-engine:
+    image: golang:latest
+    commands:
+      - cd engine
+      - GOOS=windows GOARCH=amd64 go build -o pvpn-engine.exe helper.go setup_windows.go
+
+  build-linux-cli:
+    image: python:3.11
+    commands:
+      - pip install pyinstaller
+      - pip install -r requirements.txt
+      - pyinstaller --onefile --name pvpn-next-linux --add-data "engine/pvpn-engine:engine" pvpn-next
+
+  build-windows-cli:
+    image: tobix/pywine:3.11
+    commands:
+      - wine pip install pyinstaller
+      - wine pip install -r requirements.txt
+      - wine pyinstaller --noconfirm --onedir --name pvpn-next-windows --icon=icon.ico --version-file version_info.txt --add-data "engine/pvpn-engine.exe;engine" --add-data "engine/wintun.dll;engine" pvpn-next
+      - wine pyinstaller --noconfirm --onefile --name pvpn-next-windows-file --icon=icon.ico --version-file version_info.txt --add-data "engine/pvpn-engine.exe;engine" --add-data "engine/wintun.dll;engine" pvpn-next
+      - apt-get update && apt-get install -y --no-install-recommends xvfb ca-certificates curl && rm -rf /var/lib/apt/lists/*
+      - curl --fail --location --retry 3 --output is.exe https://github.com/jrsoftware/issrc/releases/download/is-6_2_2/innosetup-6.2.2.exe
+      - xvfb-run -a wine is.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+      - 'xvfb-run -a wine "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /Q setup.iss'
+      - mv dist/pvpn-next-windows-file.exe dist/pvpn-next-windows.exe
+
+  update-nix-hash:
+    image: nixos/nix:latest
+    when:
+      event: tag
+    environment:
+      CODEBERG_TOKEN:
+        from_secret: CODEBERG_TOKEN
+    commands:
+      - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+      - nix-env -iA nixpkgs.gnused
+      - git --version
+      - sh scripts/update_nix_hash.sh
+
+  generate-changelog:
+    image: python:3.11-slim
+    when:
+      event: tag
+    environment:
+      GEMINI_API_KEY:
+        from_secret: GEMINI_API_KEY
+      CHANGELOG_PROMPT:
+        from_secret: CHANGELOG_PROMPT
+      GEMINI_MODEL:
+        from_secret: GEMINI_MODEL
+    commands:
+      - apt-get update && apt-get install -y git
+      - git fetch --tags
+      - pip install google-generativeai
+      - python scripts/generate_ai_changelog.py
+
+  publish-stable:
+    image: woodpeckerci/plugin-release
+    when:
+      event: tag
+      evaluate: 'CI_COMMIT_TAG matches "^[0-9]+[.][0-9]+[.][0-9]+$"'
+    settings:
+      api_key:
+        from_secret: CODEBERG_TOKEN
+      files:
+        - dist/pvpn-next-linux
+        - dist/pvpn-next-windows.exe
+        - dist/pvpn-next-setup.exe
+      note: changelog.txt
+      title: "Release ${CI_COMMIT_TAG}"
+      prerelease: false
+
+  publish-prerelease:
+    image: woodpeckerci/plugin-release
+    when:
+      event: tag
+      evaluate: 'not (CI_COMMIT_TAG matches "^[0-9]+[.][0-9]+[.][0-9]+$")'
+    settings:
+      api_key:
+        from_secret: CODEBERG_TOKEN
+      files:
+        - dist/pvpn-next-linux
+        - dist/pvpn-next-windows.exe
+        - dist/pvpn-next-setup.exe
+      note: changelog.txt
+      title: "Pre-release ${CI_COMMIT_TAG}"
+      prerelease: true
+
+  upload-telegram:
+    image: python:3.11-slim
+    environment:
+      TG_API_ID:
+        from_secret: TG_API_ID
+      TG_API_HASH:
+        from_secret: TG_API_HASH
+      TG_BOT_TOKEN:
+        from_secret: TG_BOT_TOKEN
+      TG_CHAT_ID:
+        from_secret: TG_CHAT_ID
+    commands:
+      - apt-get update && apt-get install -y git
+      - pip install telethon
+      - python scripts/upload_telegram.py

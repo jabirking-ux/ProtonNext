@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <RootNamespace>ProtonVPN.Client.Localization.Extensions</RootNamespace>
+        <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <OutputPath>..\..\..\bin</OutputPath>
+        <Nullable>enable</Nullable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="..\..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.Formats.Asn1" />
+      <PackageReference Include="System.Text.Json" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Common\ProtonVPN.Client.Common\ProtonVPN.Client.Common.csproj" />
+        <ProjectReference Include="..\..\Logic\Connection\ProtonVPN.Client.Logic.Connection.Contracts\ProtonVPN.Client.Logic.Connection.Contracts.csproj" />
+        <ProjectReference Include="..\..\Logic\Profiles\ProtonVPN.Client.Logic.Profiles.Contracts\ProtonVPN.Client.Logic.Profiles.Contracts.csproj" />
+        <ProjectReference Include="..\..\ProtonVPN.Client.Contracts\ProtonVPN.Client.Contracts.csproj" />
+        <ProjectReference Include="..\ProtonVPN.Client.Localization.Contracts\ProtonVPN.Client.Localization.Contracts.csproj" />
+    </ItemGroup>
+</Project>

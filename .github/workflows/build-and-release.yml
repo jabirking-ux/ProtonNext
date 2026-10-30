@@ -1,0 +1,75 @@
+name: Build and Release ProtonNext
+
+on:
+  push:
+    branches: [ master, main ]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build & Package Installer
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if (Test-Path ProtonVPN-Next-CLI\requirements.txt) {
+            pip install -r ProtonVPN-Next-CLI\requirements.txt
+          }
+
+      - name: Restore NuGet Packages
+        run: dotnet restore win-app/src/Client/ProtonVPN.Client/ProtonVPN.Client.csproj
+
+      - name: Build ProtonVPN Client (Release x64)
+        run: dotnet build win-app/src/Client/ProtonVPN.Client/ProtonVPN.Client.csproj -c Release -p:Platform=x64 --no-restore
+
+      - name: Compile NSIS Installer
+        run: makensis installer\ProtonNext.nsi
+
+      - name: Upload Installer Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProtonNext-Setup
+          path: ProtonNext-Setup.exe
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ProtonNext-Setup.exe
+          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || 'latest' }}
+          name: ${{ github.ref_type == 'tag' && format('ProtonNext Release {0}', github.ref_name) || 'ProtonNext Latest Release' }}
+          body: |
+            ## ProtonNext Windows Release
+            
+            ### Included in this build:
+            - **Unlocked Plan Experience:** Full UI access to settings, WireGuard, Split Tunneling, and features.
+            - **Free Server Enforcement:** Server connections and country selections are strictly confined to Free server pools (`NL`, `US`, `JP`, etc.) preventing unauthorized paid server calls.
+            - **Change Server:** Dynamic reconnect support right from the main connection card.
+            - **All-in-one Installer:** Clean install and update support with desktop and start menu shortcuts.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

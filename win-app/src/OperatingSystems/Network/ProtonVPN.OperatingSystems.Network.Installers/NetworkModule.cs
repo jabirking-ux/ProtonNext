@@ -1,0 +1,46 @@
+﻿/*
+ * Copyright (c) 2025 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using Autofac;
+using ProtonVPN.OperatingSystems.Network.Monitors;
+using ProtonVPN.OperatingSystems.Network.NetworkInterfaces;
+using ProtonVPN.OperatingSystems.Network.NetworkInterfaces.Registries;
+using ProtonVPN.OperatingSystems.Network.Policies;
+using ProtonVPN.OperatingSystems.Network.Routing;
+
+namespace ProtonVPN.OperatingSystems.Network.Installers;
+
+public class NetworkModule : Module
+{
+    protected override void Load(ContainerBuilder builder)
+    {
+        builder.RegisterType<ProxyDetector>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<SystemNetworkInterfaces>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<NetworkInterfaceProvider>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<NetworkUtilities>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<RoutingTableHelper>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<Ipv4GatewayResolver>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<NetworkInterfacePolicyManager>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<InterfaceForwardingMonitor>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<RouteChangeMonitor>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<RegistryNetworkAdaptersProvider>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<NetworkInterfacesProvider>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<ConflictingNetworkInterfacesProvider>().AsImplementedInterfaces().SingleInstance();
+    }
+}

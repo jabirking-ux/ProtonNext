@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <OutputPath>..\..\..\bin</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="..\..\..\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.Formats.Asn1" />
+      <PackageReference Include="System.Text.Json" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Api\ProtonVPN.Api.Contracts\ProtonVPN.Api.Contracts.csproj" />
+        <ProjectReference Include="..\..\..\Common\ProtonVPN.Common.Core\ProtonVPN.Common.Core.csproj" />
+        <ProjectReference Include="..\..\..\Crypto\ProtonVPN.Crypto.Contracts\ProtonVPN.Crypto.Contracts.csproj" />
+        <ProjectReference Include="..\..\..\Files\ProtonVPN.Files.Contracts\ProtonVPN.Files.Contracts.csproj" />
+        <ProjectReference Include="..\..\..\Logging\ProtonVPN.Logging.Contracts\ProtonVPN.Logging.Contracts.csproj" />
+        <ProjectReference Include="..\..\..\OperatingSystems\Antiviruses\ProtonVPN.OperatingSystems.Antiviruses.Contracts\ProtonVPN.OperatingSystems.Antiviruses.Contracts.csproj" />
+        <ProjectReference Include="..\..\..\Serialization\ProtonVPN.Serialization.Json\ProtonVPN.Serialization.Json.csproj" />
+        <ProjectReference Include="..\..\Common\ProtonVPN.Client.Common\ProtonVPN.Client.Common.csproj" />
+        <ProjectReference Include="..\..\EventMessaging\ProtonVPN.Client.EventMessaging.Contracts\ProtonVPN.Client.EventMessaging.Contracts.csproj" />
+        <ProjectReference Include="..\..\Logic\Auth\ProtonVPN.Client.Logic.Auth.Contracts\ProtonVPN.Client.Logic.Auth.Contracts.csproj" />
+        <ProjectReference Include="..\..\Logic\Profiles\ProtonVPN.Client.Logic.Profiles.Contracts\ProtonVPN.Client.Logic.Profiles.Contracts.csproj" />
+        <ProjectReference Include="..\..\Logic\Recents\ProtonVPN.Client.Logic.Recents.Contracts\ProtonVPN.Client.Logic.Recents.Contracts.csproj" />
+        <ProjectReference Include="..\..\Logic\Recents\ProtonVPN.Client.Logic.Recents\ProtonVPN.Client.Logic.Recents.csproj" />
+        <ProjectReference Include="..\..\Logic\Servers\ProtonVPN.Client.Logic.Servers\ProtonVPN.Client.Logic.Servers.csproj" />
+        <ProjectReference Include="..\ProtonVPN.Client.Settings.Contracts\ProtonVPN.Client.Settings.Contracts.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+cryptography
+babel
+bcrypt
+psutil
+flask
+flask-cors
+setuptools
+sentry-sdk

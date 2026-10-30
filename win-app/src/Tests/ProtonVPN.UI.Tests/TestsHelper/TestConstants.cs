@@ -1,0 +1,78 @@
+﻿/*
+ * Copyright (c) 2026 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using ProtonVPN.UI.Tests.Enums;
+
+namespace ProtonVPN.UI.Tests.TestsHelper;
+
+public static class TestConstants
+{
+    public const int DEFAULT_HOVER_DURATION_MS = 500;
+
+    public static TimeSpan? DefaultElementWaitingTime => TimeSpan.FromSeconds(10);
+    public static TimeSpan ApiRetryInterval => TimeSpan.FromSeconds(3);
+    public static TimeSpan OneSecondTimeout => TimeSpan.FromSeconds(1);
+    public static TimeSpan TwoSecondsTimeout => TimeSpan.FromSeconds(2);
+    public static TimeSpan FiveSecondsTimeout => TimeSpan.FromSeconds(5);
+    public static TimeSpan TenSecondsTimeout => TimeSpan.FromSeconds(10);
+    public static TimeSpan EighteenSecondsTimeout => TimeSpan.FromSeconds(18);
+    public static TimeSpan ThirtySecondsTimeout => TimeSpan.FromSeconds(30);
+    public static TimeSpan OneMinuteTimeout => TimeSpan.FromSeconds(60);
+    public static TimeSpan TwoMinutesTimeout => TimeSpan.FromMinutes(2);
+    public static TimeSpan MoreFrequentRetryInterval => TimeSpan.FromMilliseconds(50);
+    public static TimeSpan RetryInterval => TimeSpan.FromMilliseconds(200);
+    public static TimeSpan AnimationDelay => TimeSpan.FromMilliseconds(500);
+    public static TimeSpan NavigationDelay => TimeSpan.FromMilliseconds(500);
+    public static TimeSpan UserInputSimulationDelay => TimeSpan.FromMilliseconds(500);
+
+    public static string AppFolderPath = @"C:\Program Files\Proton\VPN";
+    public static string LauncherPath = @"C:\Program Files\Proton\VPN\ProtonVPN.Launcher.exe";
+    public static string MapCountry = "CA";
+    public static string ClientLogsPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Proton\Proton VPN\Logs\client-logs.txt");
+    public static string UserStoragePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Proton\Proton VPN");
+    public static string? ServerStoragePath => Directory.GetFiles(Path.Combine(UserStoragePath, "Storage"), "Servers.*.bin").OrderByDescending(File.GetLastWriteTime).FirstOrDefault();
+
+    public static bool IsProTunVersion = Version.TryParse(TestEnvironment.GetAppVersion(), out Version? v) && v.Major >= 5;
+
+    // These 4 countries are all available options in the All, Secure Core, P2P, and Tor tabs.
+    // United States is first as it has the most servers available and there are less chances for all of them to be under maintenance at the same time
+    public static readonly List<string> AvailableCountries = ["United States", "France", "Germany", "Hong Kong"];
+
+    private const string PROTUN_PROTOCOL_PREFIX = "ProTun";
+    private const string WIREGUARD_PROTOCOL_PREFIX = "WireGuard";
+
+    public static IEnumerable<Protocol> AllNonProTunProtocols()
+    {
+        return Enum.GetValues<Protocol>().Where(p => p != Protocol.Smart && !p.ToString().StartsWith(PROTUN_PROTOCOL_PREFIX));
+    }
+
+    public static IEnumerable<Protocol> WireGuardProtocols()
+    {
+        return AllNonProTunProtocols().Where(p => p.ToString().StartsWith(WIREGUARD_PROTOCOL_PREFIX));
+    }
+
+    public static IEnumerable<Protocol> ProTunProtocols()
+    {
+        return Enum.GetValues<Protocol>().Where(p => p.ToString().StartsWith(PROTUN_PROTOCOL_PREFIX));
+    }
+}

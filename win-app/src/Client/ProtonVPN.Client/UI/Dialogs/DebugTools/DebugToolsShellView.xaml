@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2025 Proton AG
+
+This file is part of ProtonVPN.
+
+ProtonVPN is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProtonVPN is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<UserControl x:Class="ProtonVPN.Client.UI.Dialogs.DebugTools.DebugToolsShellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:custom="using:ProtonVPN.Client.Common.UI.Controls.Custom"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:enums="using:ProtonVPN.ProcessCommunication.Contracts.Entities.Vpn"
+             xmlns:local="using:ProtonVPN.Client.UI.Dialogs.DebugTools"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tkui="using:CommunityToolkit.WinUI"
+             xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
+             x:DefaultBindMode="OneWay"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Thickness x:Key="OffsetScrollViewerMargin">0,0,-24,0</Thickness>
+        <Thickness x:Key="OffsetScrollViewerPadding">0,0,24,0</Thickness>
+    </UserControl.Resources>
+
+    <Grid Margin="40,60,40,40"
+          RowSpacing="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Margin="4,0"
+                   Style="{StaticResource TitleTextBlockStyle}"
+                   Text="{x:Bind ViewModel.Title}" />
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+
+                <toolkit:SettingsExpander Header="Window position"
+                                          IsExpanded="True"
+                                          IsTabStop="False"
+                                          Style="{StaticResource SettingsExpanderStyle}">
+                    <StackPanel HorizontalAlignment="Right"
+                                Orientation="Horizontal"
+                                Spacing="8">
+                        <Button Command="{x:Bind ViewModel.SetWindowPositionCommand, Mode=OneTime}"
+                                Content="Set"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                        <Button Command="{x:Bind ViewModel.ResetWindowPositionCommand, Mode=OneTime}"
+                                Content="Reset" />
+                    </StackPanel>
+                    <toolkit:SettingsExpander.Items>
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="8">
+                            <TextBlock Margin="0,0,0,1"
+                                       VerticalAlignment="Center"
+                                       Text="X:" />
+                            <TextBox MinWidth="70"
+                                     Text="{x:Bind ViewModel.XPosition, Mode=TwoWay}" />
+                            <TextBlock Margin="0,0,0,1"
+                                       VerticalAlignment="Center"
+                                       Text="Y:" />
+                            <TextBox MinWidth="70"
+                                     Text="{x:Bind ViewModel.YPosition, Mode=TwoWay}" />
+                            <TextBlock Margin="12,0,0,1"
+                                       VerticalAlignment="Center"
+                                       Text="W:" />
+                            <TextBox MinWidth="70"
+                                     Text="{x:Bind ViewModel.WindowWidth, Mode=TwoWay}" />
+                            <TextBlock Margin="0,0,0,1"
+                                       VerticalAlignment="Center"
+                                       Text="H:" />
+                            <TextBox MinWidth="70"
+                                     Text="{x:Bind ViewModel.WindowHeight, Mode=TwoWay}" />
+                        </StackPanel>
+                    </toolkit:SettingsExpander.Items>
+                </toolkit:SettingsExpander>
+
+                <toolkit:SettingsCard Header="Restart client"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.TriggerRestartCommand, Mode=OneTime}"
+                            Content="Restart"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsExpander Header="Intentional error events"
+                                          IsExpanded="False"
+                                          IsTabStop="False"
+                                          Style="{StaticResource SettingsExpanderStyle}">
+                    <StackPanel HorizontalAlignment="Right"
+                                Orientation="Vertical"
+                                Spacing="8">
+
+                        <Button HorizontalAlignment="Right"
+                                Command="{x:Bind ViewModel.TriggerUiUnhandledExceptionCommand, Mode=OneTime}"
+                                Content="UI unhandled exception CRASH"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+
+                        <Button HorizontalAlignment="Right"
+                                Command="{x:Bind ViewModel.TriggerAppDomainUnhandledExceptionCommand, Mode=OneTime}"
+                                Content="AppDomain unhandled exception CRASH"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+
+                        <Button HorizontalAlignment="Right"
+                                Command="{x:Bind ViewModel.TriggerUnobservedTaskExceptionCommand, Mode=OneTime}"
+                                Content="Unobserved task exception"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+                </toolkit:SettingsExpander>
+
+                <toolkit:SettingsCard Header="Trigger Connection Error"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <ComboBox ItemsSource="{tkui:EnumValues Type=enums:VpnErrorTypeIpcEntity}"
+                                  SelectedItem="{x:Bind ViewModel.SelectedError, Mode=TwoWay}" />
+
+                        <Button Command="{x:Bind ViewModel.TriggerConnectionErrorCommand, Mode=OneTime}"
+                                Content="Trigger"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Refresh logicals"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.TriggerLogicalsRefreshCommand, Mode=OneTime}"
+                            Content="Trigger refresh"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Logout user with client outdated reason"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.LogoutUserWithClientOutdatedReasonCommand, Mode=OneTime}"
+                            Content="Trigger"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Show overlay"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <ComboBox DisplayMemberPath="Name"
+                                  ItemsSource="{x:Bind ViewModel.OverlaysList, Mode=OneTime}"
+                                  SelectedItem="{x:Bind ViewModel.SelectedOverlay, Mode=TwoWay}" />
+
+                        <Button Command="{x:Bind ViewModel.ShowOverlayCommand, Mode=OneTime}"
+                                Content="Trigger"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Show dialog"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <ComboBox DisplayMemberPath="Name"
+                                  ItemsSource="{x:Bind ViewModel.DialogsList, Mode=OneTime}"
+                                  SelectedItem="{x:Bind ViewModel.SelectedDialog, Mode=TwoWay}" />
+
+                        <Button Command="{x:Bind ViewModel.ShowDialogCommand, Mode=OneTime}"
+                                Content="Trigger"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Info banners"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.ResetInfoBannersCommand, Mode=OneTime}"
+                            Content="Reset"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Simulate plan changed"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <ComboBox DisplayMemberPath="Title"
+                                  ItemsSource="{x:Bind ViewModel.VpnPlans, Mode=OneTime}"
+                                  SelectedItem="{x:Bind ViewModel.SelectedVpnPlan, Mode=TwoWay}" />
+                        <Button Command="{x:Bind ViewModel.SimulatePlanChangedCommand, Mode=OneTime}"
+                                Content="Change"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Disconnect with session limit reached error"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.DisconnectWithSessionLimitReachedErrorCommand, Mode=OneTime}"
+                            Content="Session limit reached for plus user"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Show NPS survey"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+
+                    <Button Command="{x:Bind ViewModel.ShowNpsSurveyCommand, Mode=OneTime}"
+                            Content="Show"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Settings telemetry heartbeat"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.TriggerSettingsTelemetryHeartbeatCommand, Mode=OneTime}"
+                            Content="Trigger"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="VPN Plan update"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.TriggerVpnPlanUpdateCommand, Mode=OneTime}"
+                            Content="Trigger"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Device Location"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        
+                        <TextBox MaxLength="2"
+                                 x:Name="tbCountryCode"/>
+
+                        <Button Command="{x:Bind ViewModel.OverrideDeviceLocationCommand, Mode=OneTime}"
+                                CommandParameter="{x:Bind tbCountryCode.Text}"
+                                Content="Override"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                        
+                    </StackPanel>
+
+                </toolkit:SettingsCard>
+                
+                <toolkit:SettingsCard Header="Locations exclusion"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <Button Command="{x:Bind ViewModel.IncludeAllLocationsCommand, Mode=OneTime}"
+                                Content="Include All" />
+                        <Button Command="{x:Bind ViewModel.ExcludeAllLocationsCommand, Mode=OneTime}"
+                                Content="Exclude All"
+                                Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Connection certificate update"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <Button Command="{x:Bind ViewModel.TriggerConnectionCertificateUpdateCommand, Mode=OneTime}"
+                            Content="Trigger"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                </toolkit:SettingsCard>
+
+                <toolkit:SettingsCard Header="Simulate Restrictions"
+                                      IsTabStop="False"
+                                      Style="{StaticResource DefaultSettingsCardStyle}">
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <Button Command="{x:Bind ViewModel.SimulateP2PRestrictionCommand, Mode=OneTime}"
+                                Content="P2P" />
+                        <Button Command="{x:Bind ViewModel.SimulateStreamingRestrictionCommand, Mode=OneTime}"
+                                Content="Streaming" />
+                    </StackPanel>
+                </toolkit:SettingsCard>
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

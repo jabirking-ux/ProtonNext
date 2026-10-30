@@ -1,0 +1,4120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_VpnPlan_Free">
+    <value>Proton VPN Free</value>
+  </data>
+  <data name="Automation_Properties_ConnectionDetails_Page">
+    <value>Stránka s podrobnosťami o pripojení</value>
+  </data>
+  <data name="Automation_Properties_ConnectionPreferences_Page">
+    <value>Stránka preferencií pripojenia</value>
+  </data>
+  <data name="Automation_Properties_Connection_Card_Component">
+    <value>Pripojovacia karta</value>
+  </data>
+  <data name="Automation_Properties_KillSwitch_Page">
+    <value>Stránka Kill Switch</value>
+  </data>
+  <data name="Automation_Properties_LocationDetails_Page">
+    <value>Stránka s podrobnosťami o polohe</value>
+  </data>
+  <data name="Automation_Properties_Login_Page">
+    <value>Prihlasovacia stránka</value>
+  </data>
+  <data name="Automation_Properties_Main_Page">
+    <value>Hlavná stránka</value>
+  </data>
+  <data name="Automation_Properties_NetShield_Page">
+    <value>Stránka NetShield</value>
+  </data>
+  <data name="Automation_Properties_NoServers_Page">
+    <value>Stránka bez serverov</value>
+  </data>
+  <data name="Automation_Properties_PortForwarding_Page">
+    <value>Stránka presmerovania portu</value>
+  </data>
+  <data name="Automation_Properties_Profile_Page">
+    <value>Stránka profilu</value>
+  </data>
+  <data name="Automation_Properties_Settings_Advanced_Page">
+    <value>Stránka pokročilých nastavení</value>
+  </data>
+  <data name="Automation_Properties_Settings_Common_Page">
+    <value>Stránka všeobecných nastavení</value>
+  </data>
+  <data name="Automation_Properties_Settings_Page">
+    <value>Stránka s nastaveniami</value>
+  </data>
+  <data name="Automation_Properties_Sidebar">
+    <value>Bočný panel</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Countries_Page">
+    <value>Stránka s krajinami</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Gateways_Page">
+    <value>Stránka brán</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Page">
+    <value>Stránka pripojení</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Profiles_Page">
+    <value>Stránka profilov</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Recents_Page">
+    <value>Stránka nedávnych</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Search_Results_Page">
+    <value>Výsledky vyhľadávania</value>
+  </data>
+  <data name="Automation_Properties_SplitTunneling_Page">
+    <value>Stránka split tunneling</value>
+  </data>
+  <data name="City_Fastest">
+    <value>Najrýchlejšie mesto</value>
+  </data>
+  <data name="City_Random">
+    <value>Náhodné mesto</value>
+  </data>
+  <data name="Common_Actions_Add">
+    <value>Pridať</value>
+  </data>
+  <data name="Common_Actions_Back">
+    <value>Späť</value>
+  </data>
+  <data name="Common_Actions_Cancel">
+    <value>Zrušiť</value>
+  </data>
+  <data name="Common_Actions_Change">
+    <value>Zmeniť</value>
+  </data>
+  <data name="Common_Actions_Close">
+    <value>Zavrieť</value>
+  </data>
+  <data name="Common_Actions_Connect">
+    <value>Pripojiť</value>
+  </data>
+  <data name="Common_Actions_ContactUs">
+    <value>Kontaktujte nás</value>
+  </data>
+  <data name="Common_Actions_Delete">
+    <value>Vymazať</value>
+  </data>
+  <data name="Common_Actions_Disconnect">
+    <value>Odpojiť</value>
+  </data>
+  <data name="Common_Actions_Duplicate">
+    <value>Duplikovať</value>
+  </data>
+  <data name="Common_Actions_Edit">
+    <value>Upraviť</value>
+  </data>
+  <data name="Common_Actions_Enable">
+    <value>Zapnúť</value>
+  </data>
+  <data name="Common_Actions_Exit_ProtonVPN">
+    <value>Ukončiť Proton VPN</value>
+  </data>
+  <data name="Common_Actions_GotIt">
+    <value>Rozumiem</value>
+  </data>
+  <data name="Common_Actions_Install">
+    <value>Inštalovať</value>
+  </data>
+  <data name="Common_Actions_MoveDown">
+    <value>Posunúť dole</value>
+  </data>
+  <data name="Common_Actions_MoveUp">
+    <value>Posunúť hore</value>
+  </data>
+  <data name="Common_Actions_Reconnect">
+    <value>Znova pripojiť</value>
+  </data>
+  <data name="Common_Actions_Refresh">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Common_Actions_Remove">
+    <value>Odstrániť</value>
+  </data>
+  <data name="Common_Actions_Restart">
+    <value>Reštartovať</value>
+  </data>
+  <data name="Common_Actions_Save">
+    <value>Uložiť</value>
+  </data>
+  <data name="Common_Actions_TryAgain">
+    <value>Skús znova</value>
+  </data>
+  <data name="Common_Actions_Update">
+    <value>Aktualizovať</value>
+  </data>
+  <data name="Common_Actions_Upgrade">
+    <value>Upgradovať</value>
+  </data>
+  <data name="Common_Confirmation_KillSwitch_Message">
+    <value>Pokročilý kill switch je zapnutý. Ak chcete používať internet bez siete VPN, vypnite pokročilý kill switch.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnectedWithKillSwitch_Message">
+    <value>Pokročilý kill switch je zapnutý. Ak budete pokračovať, dôjde k odpojeniu od internetu.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnected_Message">
+    <value>Budete odpojení od VPN.</value>
+  </data>
+  <data name="Common_Links_LearnMore">
+    <value>Zistiť viac</value>
+  </data>
+  <data name="Common_Message_AppNotFound">
+    <value>Aplikácia nebola nájdená</value>
+  </data>
+  <data name="Common_States_Off">
+    <value>Vypnuté</value>
+  </data>
+  <data name="Common_States_On">
+    <value>Zapnuté</value>
+  </data>
+  <data name="Common_Tags_Beta">
+    <value>BETA</value>
+    <comment>This tag indicates that this version of the app is currently in beta (early access)</comment>
+  </data>
+  <data name="Common_Tags_New">
+    <value>NOVÉ</value>
+    <comment>This tag indicates that a newer version of the app is currently available</comment>
+  </data>
+  <data name="Common_Tags_Recommended">
+    <value>Odporúčané</value>
+    <comment>This tag indicates that a given option in the settings is recommended by Proton</comment>
+  </data>
+  <data name="Components_Update_GetMostFromYourVpn">
+    <value>Ak chcete VPN využívať naplno, aktualizujte si najnovšiu verziu aplikácie.</value>
+  </data>
+  <data name="Components_Update_MoreLikelyIssues">
+    <value>Je pravdepodobnejšie, že budete mať problémy so staršími verziami Proton VPN.</value>
+  </data>
+  <data name="Components_Update_UpdateAvailable">
+    <value>K dispozícii je aktualizácia</value>
+  </data>
+  <data name="Components_Update_UpdateProtonVpn">
+    <value>Aktualizovať Proton VPN</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded">
+    <value>Vaše nastavenia vylučujú všetky dostupné servery. Upravte výnimky pre pripojenie.</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded_Action">
+    <value>Vylúčené lokality</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Description">
+    <value>Na vyriešenie tohto problému zatvorte alebo odinštalujte aplikáciu, ktorá s tým súvisí:</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Title">
+    <value>Pripojeniu Proton VPN môže brániť iná aplikácia</value>
+  </data>
+  <data name="Connection_Error_EditProfile">
+    <value>Upraviť profil</value>
+  </data>
+  <data name="Connection_Error_MissingConnectionCertificate">
+    <value>Protonu VPN sa nepodarilo načítať overovací certifikát kvôli problému so sieťou.</value>
+  </data>
+  <data name="Connection_Error_MobileHotspotEnabled">
+    <value>Pripojenie bolo blokované nastaveniami siete vo vašom zariadení. Príčinou môže byť mobilný hotspot, iná VPN aplikácia alebo softvér virtuálneho stroja. Skontrolujte, prosím, svoju sieťovú konfiguráciu alebo kontaktujte podporu, aby vám pomohla.</value>
+  </data>
+  <data name="Connection_Error_NoServers">
+    <value>Všetky servery vo vašom výbere sú nedostupné. Rozšírte svoj výber alebo to skúste neskôr, prosím.</value>
+  </data>
+  <data name="Connection_Error_NoServers_Profile">
+    <value>Server, ktorý ste vybrali pre '{0}' je nedostupný. Vyberte iný server alebo to skúste neskôr.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Connection_Error_NoTapAdapters">
+    <value>Chýbajúci sieťový adaptér.</value>
+  </data>
+  <data name="Connection_Error_ReportAnIssue">
+    <value>Nahlásiť problém</value>
+  </data>
+  <data name="Connection_Error_RpcServerUnavailable">
+    <value>Proton VPN sa nemôže pripojiť, pretože server RPC nie je vo vašom systéme dostupný.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedFreeUser">
+    <value>Dosiahli ste maximálny počet zariadení. Odpojte iné zariadenie, aby ste mohli pripojiť toto, alebo prejdite na verziu PLUS, aby ste mohli pripojiť až 10 zariadení súčasne.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedPaidUser">
+    <value>Dosiahli ste maximálny počet zariadení. Odpojte iné zariadenie, aby ste mohli pripojiť toto.</value>
+  </data>
+  <data name="Connection_Error_TapAdapterInUse">
+    <value>Váš sieťový adaptér sa momentálne používa.</value>
+  </data>
+  <data name="Connection_Error_TapRequiresUpdate">
+    <value>Verzia sieťového adaptéra je zastaraná.</value>
+  </data>
+  <data name="Connection_Error_Title">
+    <value>Pripojenie zlyhalo</value>
+  </data>
+  <data name="Connection_Error_TlsCertificate">
+    <value>Vyskytol sa problém s overením certifikátu servera VPN, čo môže znamenať, že sa so sieťovým pripojením manipuluje alebo že server, ku ktorému sa snažíte pripojiť, má problém s konfiguráciou. Získajte pomoc od našej zákazníckej podpory zaslaním hlásenia o probléme.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Description">
+    <value>Pre pripojenie k VPN prejdite na portál 2FA vašej organizácie a ťuknite na svoj bezpečnostný kľúč.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Title">
+    <value>Vyžaduje sa dvojstupňové overenie (2FA)</value>
+  </data>
+  <data name="Connection_Error_Unknown">
+    <value>Skontrolujte vaše internetové pripojenie a skúste to znova. Ak to nepomôže, kontaktujte náš tím zákazníckej podpory.
+
+Chybový kód: {0}</value>
+  </data>
+  <data name="Connection_Error_ViewPossibleSolutions">
+    <value>Zobraziť opravy</value>
+  </data>
+  <data name="Connection_Error_WireGuardAdapterInUse">
+    <value>Adaptér WireGuard vášho zariadenia sa používa. Odpojte sa od akejkoľvek inej siete VPN spustenej na vašom zariadení a potom to skúste znova.</value>
+  </data>
+  <data name="Connection_Feedback_Question">
+    <value>Ako funguje vaše pripojenie?</value>
+  </data>
+  <data name="Connection_Intent_AutoSelected">
+    <value>Automatický výber z</value>
+    <comment>Appears in the connection card for free users. A set of flags is displayed after the text (eg. Auto-selected from [us-flag] [jp-flag]...)</comment>
+  </data>
+  <data name="Connection_Via_SecureCore">
+    <value>cez {0}</value>
+    <comment>Label used when connecting through Secure Core. {0} is a place holder for the name of the country the user is going through.</comment>
+  </data>
+  <data name="Connections_Cities_One">
+    <value>Mesto ({0})</value>
+  </data>
+  <data name="Connections_Cities_Few">
+    <value>Mestá ({0})</value>
+  </data>
+  <data name="Connections_Cities_Many">
+    <value>Mestá ({0})</value>
+  </data>
+  <data name="Connections_Cities_Other">
+    <value>Mestá ({0})</value>
+  </data>
+  <data name="Connections_City">
+    <value>Mesto</value>
+  </data>
+  <data name="Connections_City_Restricted">
+    <value>Servery v tomto meste sú dostupné cez VPN Plus</value>
+  </data>
+  <data name="Connections_City_UnderMaintenance">
+    <value>Na všetkých serveroch v tomto meste prebieha údržba</value>
+  </data>
+  <data name="Connections_Countries_One">
+    <value>Krajina ({0})</value>
+  </data>
+  <data name="Connections_Countries_Few">
+    <value>Krajiny ({0})</value>
+  </data>
+  <data name="Connections_Countries_Many">
+    <value>Krajiny ({0})</value>
+  </data>
+  <data name="Connections_Countries_Other">
+    <value>Krajiny ({0})</value>
+  </data>
+  <data name="Connections_Country">
+    <value>Krajina</value>
+  </data>
+  <data name="Connections_Country_Middle">
+    <value>Medzikrajina</value>
+  </data>
+  <data name="Connections_Country_Restricted">
+    <value>Servery v tejto krajine sú dostupné cez VPN Plus</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance">
+    <value>Na všetkých serveroch v tejto krajine prebieha údržba</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance_Title">
+    <value>Nie je možné pripojiť sa</value>
+  </data>
+  <data name="Connections_Fastest">
+    <value>Najrýchlejší</value>
+  </data>
+  <data name="Connections_Free_Servers_One">
+    <value>Bezplatný server</value>
+  </data>
+  <data name="Connections_Free_Servers_Few">
+    <value>Bezplatné servery</value>
+  </data>
+  <data name="Connections_Free_Servers_Many">
+    <value>Bezplatných serverov</value>
+  </data>
+  <data name="Connections_Free_Servers_Other">
+    <value>Bezplatných serverov</value>
+  </data>
+  <data name="Connections_Gateway">
+    <value>Brána</value>
+  </data>
+  <data name="Connections_Gateway_Restricted">
+    <value>Servery v tejto bráne sú dostupné cez VPN Plus</value>
+  </data>
+  <data name="Connections_Gateway_UnderMaintenance">
+    <value>Na všetkých serveroch v tejto bráne prebieha údržba</value>
+  </data>
+  <data name="Connections_Gateways_One">
+    <value>Brána ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Few">
+    <value>Brány ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Many">
+    <value>Brány ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Other">
+    <value>Brány ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Server">
+    <value>Dedikovaný server</value>
+  </data>
+  <data name="Connections_Gateways_Servers_One">
+    <value>Dedikovaný server ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Few">
+    <value>Dedikované servery ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Many">
+    <value>Dedikované servery ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Other">
+    <value>Dedikované servery ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_One">
+    <value>P2P mesto ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Few">
+    <value>P2P mestá ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Many">
+    <value>P2P mestá ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Other">
+    <value>P2P mestá ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_One">
+    <value>P2P krajina ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Few">
+    <value>P2P krajiny ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Many">
+    <value>P2P krajiny ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Other">
+    <value>P2P krajiny ({0})</value>
+  </data>
+  <data name="Connections_P2P_Servers_One">
+    <value>P2P server</value>
+  </data>
+  <data name="Connections_P2P_Servers_Few">
+    <value>P2P servery</value>
+  </data>
+  <data name="Connections_P2P_Servers_Many">
+    <value>P2P serverov</value>
+  </data>
+  <data name="Connections_P2P_Servers_Other">
+    <value>P2P serverov</value>
+  </data>
+  <data name="Connections_P2P_States_One">
+    <value>P2P štát({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Few">
+    <value>P2P štátov ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Many">
+    <value>P2P štátov ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Other">
+    <value>P2P štátov ({0})</value>
+  </data>
+  <data name="Connections_Profiles_One">
+    <value>Profil ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Few">
+    <value>Profily ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Many">
+    <value>Profilov ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Other">
+    <value>Profilov ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Create">
+    <value>Vytvoriť profil</value>
+    <comment>"Create profile" is more appropriate for the empty profiles page, when you have no profiles</comment>
+  </data>
+  <data name="Connections_Profiles_Delete">
+    <value>Vymazať profil</value>
+  </data>
+  <data name="Connections_Profiles_Delete_Message">
+    <value>'{0}' bude natrvalo odstránený.</value>
+    <comment>{0} is a placeholder for the name of the profile.</comment>
+  </data>
+  <data name="Connections_Profiles_Delete_Title">
+    <value>Vymazať profil?</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Description">
+    <value>Profily sú uložené pripojenia s vami vybranými umiestneniami, servermi a protokolmi.</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Title">
+    <value>Vytvorte váš prvý profil</value>
+  </data>
+  <data name="Connections_Profiles_Location_Header">
+    <value>Vyberte typ pripojenia a umiestnenie</value>
+  </data>
+  <data name="Connections_Profiles_Name">
+    <value>Pomenujte svoj profil</value>
+  </data>
+  <data name="Connections_Profiles_Name_Default">
+    <value>Bez názvu</value>
+    <comment>This will be used as the default profile name if the user creates a profile without entering a name</comment>
+  </data>
+  <data name="Connections_Profiles_Name_Duplicate">
+    <value>Kópia {0}</value>
+    <comment>This will be used as the profile name when duplicating a profile. {0} is a placeholder for the original profile name.</comment>
+  </data>
+  <data name="Connections_Profiles_New">
+    <value>Nový profil</value>
+    <comment>"New profile" is more appropriate when you already have a profile</comment>
+  </data>
+  <data name="Connections_Profiles_NotAvailable_Tooltip">
+    <value>Profily sú dostupné v rámci VPN Plus</value>
+    <comment>The text in the tooltip when hovering a profile and the user has a free plan</comment>
+  </data>
+  <data name="Connections_Recents_One">
+    <value>Nedávne ({0})</value>
+  </data>
+  <data name="Connections_Recents_Few">
+    <value>Nedávne ({0})</value>
+  </data>
+  <data name="Connections_Recents_Many">
+    <value>Nedávne ({0})</value>
+  </data>
+  <data name="Connections_Recents_Other">
+    <value>Nedávne ({0})</value>
+  </data>
+  <data name="Connections_Recents_Empty_Description">
+    <value>Tu si môžete pozrieť históriu pripojení.</value>
+  </data>
+  <data name="Connections_Recents_Empty_Title">
+    <value>Zatiaľ žiadne posledné údaje</value>
+  </data>
+  <data name="Connections_Recents_Pinned_One">
+    <value>Pripnuté ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Few">
+    <value>Pripnuté ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Many">
+    <value>Pripnuté ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Other">
+    <value>Pripnuté ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_One">
+    <value>Krajina so Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Few">
+    <value>Krajiny so Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Many">
+    <value>Krajiny so Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Other">
+    <value>Krajiny so Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_One">
+    <value>Server Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Few">
+    <value>Servery Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Many">
+    <value>Serverov Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Other">
+    <value>Serverov Secure Core</value>
+  </data>
+  <data name="Connections_Server_Restricted">
+    <value>Server je dostupný s VPN Plus</value>
+  </data>
+  <data name="Connections_Server_UnderMaintenance">
+    <value>Na tomto serveri prebieha údržba</value>
+  </data>
+  <data name="Connections_Servers_One">
+    <value>Server</value>
+  </data>
+  <data name="Connections_Servers_Few">
+    <value>Servery</value>
+  </data>
+  <data name="Connections_Servers_Many">
+    <value>Serverov</value>
+  </data>
+  <data name="Connections_Servers_Other">
+    <value>Serverov</value>
+  </data>
+  <data name="Connections_State">
+    <value>Krajina</value>
+  </data>
+  <data name="Connections_State_Restricted">
+    <value>Servery v tomto štáte sú dostupné s VPN Plus.</value>
+    <comment>Message appears as a tooltip whenever a free user is trying to connect to a state. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_State_UnderMaintenance">
+    <value>Na všetkých serveroch v tomto štáte prebieha údržba.</value>
+    <comment>Message appears as a tooltip whenever all the servers from that state are under maintenance. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_States_One">
+    <value>Štát ({0})</value>
+  </data>
+  <data name="Connections_States_Few">
+    <value>Štátov ({0})</value>
+  </data>
+  <data name="Connections_States_Many">
+    <value>Štátov ({0})</value>
+  </data>
+  <data name="Connections_States_Other">
+    <value>Štátov ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_One">
+    <value>Tor krajina ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Few">
+    <value>Tor krajiny ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Many">
+    <value>Tor krajiny ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Other">
+    <value>Tor krajiny ({0})</value>
+  </data>
+  <data name="Connections_Tor_Servers_One">
+    <value>Tor server</value>
+  </data>
+  <data name="Connections_Tor_Servers_Few">
+    <value>Tor servery</value>
+  </data>
+  <data name="Connections_Tor_Servers_Many">
+    <value>Tor serverov</value>
+  </data>
+  <data name="Connections_Tor_Servers_Other">
+    <value>Tor serverov</value>
+  </data>
+  <data name="Countries">
+    <value>Krajiny</value>
+  </data>
+  <data name="Countries_All">
+    <value>Všetky</value>
+  </data>
+  <data name="Countries_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Countries_P2P_Description">
+    <value>Sťahujte súbory cez siete P2P (peer-to-peer) a vylepšite si zážitok z online hier a videohovorov.</value>
+  </data>
+  <data name="Countries_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Countries_SecureCore_Description">
+    <value>Pridajte ďalšiu úroveň šifrovania k vášmu VPN pripojeniu.</value>
+  </data>
+  <data name="Countries_ServerLoad">
+    <value>Vyťaženie servera</value>
+  </data>
+  <data name="Countries_SmartRouting">
+    <value>Inteligentné smerovanie</value>
+  </data>
+  <data name="Countries_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Countries_Tor_Description">
+    <value>Použite sieť Tor nad vaším VPN pripojením pre väčšie súkromie.</value>
+  </data>
+  <data name="Country_Fastest">
+    <value>Najrýchlejšia krajina</value>
+  </data>
+  <data name="Country_Fastest_ExcludingMyCountry">
+    <value>Najrýchlejší (okrem mojej krajiny)</value>
+  </data>
+  <data name="Country_Random">
+    <value>Náhodná krajina</value>
+  </data>
+  <data name="Country_Random_ExcludingMyCountry">
+    <value>Náhodná (okrem mojej krajiny)</value>
+  </data>
+  <data name="Country_val_AD">
+    <value>Andorra</value>
+    <comment>The name of AD country</comment>
+  </data>
+  <data name="Country_val_AE">
+    <value>Spojené arabské emiráty</value>
+    <comment>The name of AE country</comment>
+  </data>
+  <data name="Country_val_AF">
+    <value>Afganistan</value>
+    <comment>The name of AF country</comment>
+  </data>
+  <data name="Country_val_AG">
+    <value>Antigua a Barbuda</value>
+    <comment>The name of AG country</comment>
+  </data>
+  <data name="Country_val_AI">
+    <value>Anguilla</value>
+    <comment>The name of AI country</comment>
+  </data>
+  <data name="Country_val_AL">
+    <value>Albánsko</value>
+    <comment>The name of AL country</comment>
+  </data>
+  <data name="Country_val_AM">
+    <value>Arménsko</value>
+    <comment>The name of AM country</comment>
+  </data>
+  <data name="Country_val_AO">
+    <value>Angola</value>
+    <comment>The name of AO country</comment>
+  </data>
+  <data name="Country_val_AQ">
+    <value>Antarktída</value>
+    <comment>The name of AQ country</comment>
+  </data>
+  <data name="Country_val_AR">
+    <value>Argentína</value>
+    <comment>The name of AR country</comment>
+  </data>
+  <data name="Country_val_AS">
+    <value>Americká Samoa</value>
+    <comment>The name of AS country</comment>
+  </data>
+  <data name="Country_val_AT">
+    <value>Rakúsko</value>
+    <comment>The name of AT country</comment>
+  </data>
+  <data name="Country_val_AU">
+    <value>Austrália</value>
+    <comment>The name of AU country</comment>
+  </data>
+  <data name="Country_val_AW">
+    <value>Aruba</value>
+    <comment>The name of AW country</comment>
+  </data>
+  <data name="Country_val_AX">
+    <value>Alandské ostrovy</value>
+    <comment>The name of AX country</comment>
+  </data>
+  <data name="Country_val_AZ">
+    <value>Azerbajdžan</value>
+    <comment>The name of AZ country</comment>
+  </data>
+  <data name="Country_val_BA">
+    <value>Bosna a Hercegovina</value>
+    <comment>The name of BA country</comment>
+  </data>
+  <data name="Country_val_BB">
+    <value>Barbados</value>
+    <comment>The name of BB country</comment>
+  </data>
+  <data name="Country_val_BD">
+    <value>Bangladéš</value>
+    <comment>The name of BD country</comment>
+  </data>
+  <data name="Country_val_BE">
+    <value>Belgicko</value>
+    <comment>The name of BE country</comment>
+  </data>
+  <data name="Country_val_BF">
+    <value>Burkina Faso</value>
+    <comment>The name of BF country</comment>
+  </data>
+  <data name="Country_val_BG">
+    <value>Bulharsko</value>
+    <comment>The name of BG country</comment>
+  </data>
+  <data name="Country_val_BH">
+    <value>Bahrajn</value>
+    <comment>The name of BH country</comment>
+  </data>
+  <data name="Country_val_BI">
+    <value>Burundi</value>
+    <comment>The name of BI country</comment>
+  </data>
+  <data name="Country_val_BJ">
+    <value>Benin</value>
+    <comment>The name of BJ country</comment>
+  </data>
+  <data name="Country_val_BL">
+    <value>Svätý Bartolomej</value>
+    <comment>The name of BL country</comment>
+  </data>
+  <data name="Country_val_BM">
+    <value>Bermudy</value>
+    <comment>The name of BM country</comment>
+  </data>
+  <data name="Country_val_BN">
+    <value>Brunej Darussalam</value>
+    <comment>The name of BN country</comment>
+  </data>
+  <data name="Country_val_BO">
+    <value>Bolívia</value>
+    <comment>The name of BO country</comment>
+  </data>
+  <data name="Country_val_BQ">
+    <value>Bonaire, Svätý Eustach a Saba</value>
+    <comment>The name of BQ country</comment>
+  </data>
+  <data name="Country_val_BR">
+    <value>Brazília</value>
+    <comment>The name of BR country</comment>
+  </data>
+  <data name="Country_val_BS">
+    <value>Bahamy</value>
+    <comment>The name of BS country</comment>
+  </data>
+  <data name="Country_val_BT">
+    <value>Bhután</value>
+    <comment>The name of BT country</comment>
+  </data>
+  <data name="Country_val_BV">
+    <value>Bouvetov ostrov</value>
+    <comment>The name of BV country</comment>
+  </data>
+  <data name="Country_val_BW">
+    <value>Botswana</value>
+    <comment>The name of BW country</comment>
+  </data>
+  <data name="Country_val_BY">
+    <value>Bielorusko</value>
+    <comment>The name of BY country</comment>
+  </data>
+  <data name="Country_val_BZ">
+    <value>Belize</value>
+    <comment>The name of BZ country</comment>
+  </data>
+  <data name="Country_val_CA">
+    <value>Kanada</value>
+    <comment>The name of CA country</comment>
+  </data>
+  <data name="Country_val_CC">
+    <value>Kokosové (Keelingove) ostrovy</value>
+    <comment>The name of CC country</comment>
+  </data>
+  <data name="Country_val_CD">
+    <value>Konžská demokratická republika</value>
+    <comment>The name of CD country</comment>
+  </data>
+  <data name="Country_val_CF">
+    <value>Stredoafrická republika</value>
+    <comment>The name of CF country</comment>
+  </data>
+  <data name="Country_val_CG">
+    <value>Kongo</value>
+    <comment>The name of CG country</comment>
+  </data>
+  <data name="Country_val_CH">
+    <value>Švajčiarsko</value>
+    <comment>The name of CH country</comment>
+  </data>
+  <data name="Country_val_CI">
+    <value>Pobrežie Slonoviny</value>
+    <comment>The name of CI country</comment>
+  </data>
+  <data name="Country_val_CK">
+    <value>Cookove ostrovy</value>
+    <comment>The name of CK country</comment>
+  </data>
+  <data name="Country_val_CL">
+    <value>Čile</value>
+    <comment>The name of CL country</comment>
+  </data>
+  <data name="Country_val_CM">
+    <value>Kamerun</value>
+    <comment>The name of CM country</comment>
+  </data>
+  <data name="Country_val_CN">
+    <value>Čína</value>
+    <comment>The name of CN country</comment>
+  </data>
+  <data name="Country_val_CO">
+    <value>Kolumbia</value>
+    <comment>The name of CO country</comment>
+  </data>
+  <data name="Country_val_CR">
+    <value>Kostarika</value>
+    <comment>The name of CR country</comment>
+  </data>
+  <data name="Country_val_CU">
+    <value>Kuba</value>
+    <comment>The name of CU country</comment>
+  </data>
+  <data name="Country_val_CV">
+    <value>Kapverdy</value>
+    <comment>The name of CV country</comment>
+  </data>
+  <data name="Country_val_CW">
+    <value>Curaçao</value>
+    <comment>The name of CW country</comment>
+  </data>
+  <data name="Country_val_CX">
+    <value>Vianočný ostrov</value>
+    <comment>The name of CX country</comment>
+  </data>
+  <data name="Country_val_CY">
+    <value>Cyprus</value>
+    <comment>The name of CY country</comment>
+  </data>
+  <data name="Country_val_CZ">
+    <value>Česko</value>
+    <comment>The name of CZ country</comment>
+  </data>
+  <data name="Country_val_DE">
+    <value>Nemecko</value>
+    <comment>The name of DE country</comment>
+  </data>
+  <data name="Country_val_DJ">
+    <value>Džibutsko</value>
+    <comment>The name of DJ country</comment>
+  </data>
+  <data name="Country_val_DK">
+    <value>Dánsko</value>
+    <comment>The name of DK country</comment>
+  </data>
+  <data name="Country_val_DM">
+    <value>Dominika</value>
+    <comment>The name of DM country</comment>
+  </data>
+  <data name="Country_val_DO">
+    <value>Dominikánská republika</value>
+    <comment>The name of DO country</comment>
+  </data>
+  <data name="Country_val_DZ">
+    <value>Alžírsko</value>
+    <comment>The name of DZ country</comment>
+  </data>
+  <data name="Country_val_EC">
+    <value>Ekvádor</value>
+    <comment>The name of EC country</comment>
+  </data>
+  <data name="Country_val_EE">
+    <value>Estónsko</value>
+    <comment>The name of EE country</comment>
+  </data>
+  <data name="Country_val_EG">
+    <value>Egypt</value>
+    <comment>The name of EG country</comment>
+  </data>
+  <data name="Country_val_EH">
+    <value>Západná Sahara</value>
+    <comment>The name of EH country</comment>
+  </data>
+  <data name="Country_val_ER">
+    <value>Eritrea</value>
+    <comment>The name of ER country</comment>
+  </data>
+  <data name="Country_val_ES">
+    <value>Španielsko</value>
+    <comment>The name of ES country</comment>
+  </data>
+  <data name="Country_val_ET">
+    <value>Etiópia</value>
+    <comment>The name of ET country</comment>
+  </data>
+  <data name="Country_val_FI">
+    <value>Fínsko</value>
+    <comment>The name of FI country</comment>
+  </data>
+  <data name="Country_val_FJ">
+    <value>Fidži</value>
+    <comment>The name of FJ country</comment>
+  </data>
+  <data name="Country_val_FK">
+    <value>Falklandské ostrovy (Malvíny)</value>
+    <comment>The name of FK country</comment>
+  </data>
+  <data name="Country_val_FM">
+    <value>Mikronézia</value>
+    <comment>The name of FM country</comment>
+  </data>
+  <data name="Country_val_FO">
+    <value>Faerské ostrovy</value>
+    <comment>The name of FO country</comment>
+  </data>
+  <data name="Country_val_FR">
+    <value>Francúzsko</value>
+    <comment>The name of FR country</comment>
+  </data>
+  <data name="Country_val_GA">
+    <value>Gabon</value>
+    <comment>The name of GA country</comment>
+  </data>
+  <data name="Country_val_GB">
+    <value>Spojené kráľovstvo</value>
+    <comment>The name of GB country</comment>
+  </data>
+  <data name="Country_val_GD">
+    <value>Grenada</value>
+    <comment>The name of GD country</comment>
+  </data>
+  <data name="Country_val_GE">
+    <value>Gruzínsko</value>
+    <comment>The name of GE country</comment>
+  </data>
+  <data name="Country_val_GF">
+    <value>Francúzska Guyana</value>
+    <comment>The name of GF country</comment>
+  </data>
+  <data name="Country_val_GG">
+    <value>Guernsey</value>
+    <comment>The name of GG country</comment>
+  </data>
+  <data name="Country_val_GH">
+    <value>Ghana</value>
+    <comment>The name of GH country</comment>
+  </data>
+  <data name="Country_val_GI">
+    <value>Gibraltár</value>
+    <comment>The name of GI country</comment>
+  </data>
+  <data name="Country_val_GL">
+    <value>Grónsko</value>
+    <comment>The name of GL country</comment>
+  </data>
+  <data name="Country_val_GM">
+    <value>Gambia</value>
+    <comment>The name of GM country</comment>
+  </data>
+  <data name="Country_val_GN">
+    <value>Guinea</value>
+    <comment>The name of GN country</comment>
+  </data>
+  <data name="Country_val_GP">
+    <value>Guadeloupe</value>
+    <comment>The name of GP country</comment>
+  </data>
+  <data name="Country_val_GQ">
+    <value>Rovníková Guinea</value>
+    <comment>The name of GQ country</comment>
+  </data>
+  <data name="Country_val_GR">
+    <value>Grécko</value>
+    <comment>The name of GR country</comment>
+  </data>
+  <data name="Country_val_GS">
+    <value>Južná Georgia a Južné Sandwichove ostrovy</value>
+    <comment>The name of GS country</comment>
+  </data>
+  <data name="Country_val_GT">
+    <value>Guatemala</value>
+    <comment>The name of GT country</comment>
+  </data>
+  <data name="Country_val_GU">
+    <value>Guam</value>
+    <comment>The name of GU country</comment>
+  </data>
+  <data name="Country_val_GW">
+    <value>Guinea Bissau</value>
+    <comment>The name of GW country</comment>
+  </data>
+  <data name="Country_val_GY">
+    <value>Guyana</value>
+    <comment>The name of GY country</comment>
+  </data>
+  <data name="Country_val_HK">
+    <value>Hong Kong</value>
+    <comment>The name of HK country</comment>
+  </data>
+  <data name="Country_val_HM">
+    <value>Heardov ostrov a McDonaldove ostrovy</value>
+    <comment>The name of HM country</comment>
+  </data>
+  <data name="Country_val_HN">
+    <value>Honduras</value>
+    <comment>The name of HN country</comment>
+  </data>
+  <data name="Country_val_HR">
+    <value>Chorvátsko</value>
+    <comment>The name of HR country</comment>
+  </data>
+  <data name="Country_val_HT">
+    <value>Haiti</value>
+    <comment>The name of HT country</comment>
+  </data>
+  <data name="Country_val_HU">
+    <value>Maďarsko</value>
+    <comment>The name of HU country</comment>
+  </data>
+  <data name="Country_val_ID">
+    <value>Indonésia</value>
+    <comment>The name of ID country</comment>
+  </data>
+  <data name="Country_val_IE">
+    <value>Írsko</value>
+    <comment>The name of IE country</comment>
+  </data>
+  <data name="Country_val_IL">
+    <value>Izrael</value>
+    <comment>The name of IL country</comment>
+  </data>
+  <data name="Country_val_IM">
+    <value>Ostrov Man</value>
+    <comment>The name of IM country</comment>
+  </data>
+  <data name="Country_val_IN">
+    <value>India</value>
+    <comment>The name of IN country</comment>
+  </data>
+  <data name="Country_val_IO">
+    <value>Britské indickooceánske územie</value>
+    <comment>The name of IO country</comment>
+  </data>
+  <data name="Country_val_IQ">
+    <value>Irak</value>
+    <comment>The name of IQ country</comment>
+  </data>
+  <data name="Country_val_IR">
+    <value>Irán</value>
+    <comment>The name of IR country</comment>
+  </data>
+  <data name="Country_val_IS">
+    <value>Island</value>
+    <comment>The name of IS country</comment>
+  </data>
+  <data name="Country_val_IT">
+    <value>Taliansko</value>
+    <comment>The name of IT country</comment>
+  </data>
+  <data name="Country_val_JE">
+    <value>Jersey</value>
+    <comment>The name of JE country</comment>
+  </data>
+  <data name="Country_val_JM">
+    <value>Jamajka</value>
+    <comment>The name of JM country</comment>
+  </data>
+  <data name="Country_val_JO">
+    <value>Jordánsko</value>
+    <comment>The name of JO country</comment>
+  </data>
+  <data name="Country_val_JP">
+    <value>Japonsko</value>
+    <comment>The name of JP country</comment>
+  </data>
+  <data name="Country_val_KE">
+    <value>Keňa</value>
+    <comment>The name of KE country</comment>
+  </data>
+  <data name="Country_val_KG">
+    <value>Kirgizsko</value>
+    <comment>The name of KG country</comment>
+  </data>
+  <data name="Country_val_KH">
+    <value>Kambodža</value>
+    <comment>The name of KH country</comment>
+  </data>
+  <data name="Country_val_KI">
+    <value>Kiribati</value>
+    <comment>The name of KI country</comment>
+  </data>
+  <data name="Country_val_KM">
+    <value>Komory</value>
+    <comment>The name of KM country</comment>
+  </data>
+  <data name="Country_val_KN">
+    <value>Svätý Krištof a Nevis</value>
+    <comment>The name of KN country</comment>
+  </data>
+  <data name="Country_val_KP">
+    <value>Severná Kórea</value>
+    <comment>The name of KP country</comment>
+  </data>
+  <data name="Country_val_KR">
+    <value>Južná Kórea</value>
+    <comment>The name of KR country</comment>
+  </data>
+  <data name="Country_val_KW">
+    <value>Kuvajt</value>
+    <comment>The name of KW country</comment>
+  </data>
+  <data name="Country_val_KY">
+    <value>Kajmanské ostrovy</value>
+    <comment>The name of KY country</comment>
+  </data>
+  <data name="Country_val_KZ">
+    <value>Kazachstan</value>
+    <comment>The name of KZ country</comment>
+  </data>
+  <data name="Country_val_LA">
+    <value>Laos</value>
+    <comment>The name of LA country</comment>
+  </data>
+  <data name="Country_val_LB">
+    <value>Libanon</value>
+    <comment>The name of LB country</comment>
+  </data>
+  <data name="Country_val_LC">
+    <value>Svätá Lucia</value>
+    <comment>The name of LC country</comment>
+  </data>
+  <data name="Country_val_LI">
+    <value>Lichtenštajnsko</value>
+    <comment>The name of LI country</comment>
+  </data>
+  <data name="Country_val_LK">
+    <value>Srí Lanka</value>
+    <comment>The name of LK country</comment>
+  </data>
+  <data name="Country_val_LR">
+    <value>Libéria</value>
+    <comment>The name of LR country</comment>
+  </data>
+  <data name="Country_val_LS">
+    <value>Lesotho</value>
+    <comment>The name of LS country</comment>
+  </data>
+  <data name="Country_val_LT">
+    <value>Litva</value>
+    <comment>The name of LT country</comment>
+  </data>
+  <data name="Country_val_LU">
+    <value>Luxembursko</value>
+    <comment>The name of LU country</comment>
+  </data>
+  <data name="Country_val_LV">
+    <value>Lotyšsko</value>
+    <comment>The name of LV country</comment>
+  </data>
+  <data name="Country_val_LY">
+    <value>Líbya</value>
+    <comment>The name of LY country</comment>
+  </data>
+  <data name="Country_val_MA">
+    <value>Maroko</value>
+    <comment>The name of MA country</comment>
+  </data>
+  <data name="Country_val_MC">
+    <value>Monako</value>
+    <comment>The name of MC country</comment>
+  </data>
+  <data name="Country_val_MD">
+    <value>Moldavsko</value>
+    <comment>The name of MD country</comment>
+  </data>
+  <data name="Country_val_ME">
+    <value>Čierna Hora</value>
+    <comment>The name of ME country</comment>
+  </data>
+  <data name="Country_val_MF">
+    <value>Svätý Martin (francúzska časť)</value>
+    <comment>The name of MF country</comment>
+  </data>
+  <data name="Country_val_MG">
+    <value>Madagaskar</value>
+    <comment>The name of MG country</comment>
+  </data>
+  <data name="Country_val_MH">
+    <value>Marshallove ostrovy</value>
+    <comment>The name of MH country</comment>
+  </data>
+  <data name="Country_val_MK">
+    <value>Macedónsko</value>
+    <comment>The name of MK country</comment>
+  </data>
+  <data name="Country_val_ML">
+    <value>Mali</value>
+    <comment>The name of ML country</comment>
+  </data>
+  <data name="Country_val_MM">
+    <value>Mjanmarsko</value>
+    <comment>The name of MM country</comment>
+  </data>
+  <data name="Country_val_MN">
+    <value>Mongolsko</value>
+    <comment>The name of MN country</comment>
+  </data>
+  <data name="Country_val_MO">
+    <value>Macao</value>
+    <comment>The name of MO country</comment>
+  </data>
+  <data name="Country_val_MP">
+    <value>Severné Mariány</value>
+    <comment>The name of MP country</comment>
+  </data>
+  <data name="Country_val_MQ">
+    <value>Martinik</value>
+    <comment>The name of MQ country</comment>
+  </data>
+  <data name="Country_val_MR">
+    <value>Mauretánia</value>
+    <comment>The name of MR country</comment>
+  </data>
+  <data name="Country_val_MS">
+    <value>Montserrat</value>
+    <comment>The name of MS country</comment>
+  </data>
+  <data name="Country_val_MT">
+    <value>Malta</value>
+    <comment>The name of MT country</comment>
+  </data>
+  <data name="Country_val_MU">
+    <value>Maurícius</value>
+    <comment>The name of MU country</comment>
+  </data>
+  <data name="Country_val_MV">
+    <value>Maldivy</value>
+    <comment>The name of MV country</comment>
+  </data>
+  <data name="Country_val_MW">
+    <value>Malawi</value>
+    <comment>The name of MW country</comment>
+  </data>
+  <data name="Country_val_MX">
+    <value>Mexiko</value>
+    <comment>The name of MX country</comment>
+  </data>
+  <data name="Country_val_MY">
+    <value>Malajzia</value>
+    <comment>The name of MY country</comment>
+  </data>
+  <data name="Country_val_MZ">
+    <value>Mozambik</value>
+    <comment>The name of MZ country</comment>
+  </data>
+  <data name="Country_val_NA">
+    <value>Namíbia</value>
+    <comment>The name of NA country</comment>
+  </data>
+  <data name="Country_val_NC">
+    <value>Nová Kaledónia</value>
+    <comment>The name of NC country</comment>
+  </data>
+  <data name="Country_val_NE">
+    <value>Niger</value>
+    <comment>The name of NE country</comment>
+  </data>
+  <data name="Country_val_NF">
+    <value>Ostrov Norfolk</value>
+    <comment>The name of NF country</comment>
+  </data>
+  <data name="Country_val_NG">
+    <value>Nigéria</value>
+    <comment>The name of NG country</comment>
+  </data>
+  <data name="Country_val_NI">
+    <value>Nikaragua</value>
+    <comment>The name of NI country</comment>
+  </data>
+  <data name="Country_val_NL">
+    <value>Holandsko</value>
+    <comment>The name of NL country</comment>
+  </data>
+  <data name="Country_val_NO">
+    <value>Nórsko</value>
+    <comment>The name of NO country</comment>
+  </data>
+  <data name="Country_val_NP">
+    <value>Nepál</value>
+    <comment>The name of NP country</comment>
+  </data>
+  <data name="Country_val_NR">
+    <value>Nauru</value>
+    <comment>The name of NR country</comment>
+  </data>
+  <data name="Country_val_NU">
+    <value>Niue</value>
+    <comment>The name of NU country</comment>
+  </data>
+  <data name="Country_val_NZ">
+    <value>Nový Zéland</value>
+    <comment>The name of NZ country</comment>
+  </data>
+  <data name="Country_val_OM">
+    <value>Omán</value>
+    <comment>The name of OM country</comment>
+  </data>
+  <data name="Country_val_PA">
+    <value>Panama</value>
+    <comment>The name of PA country</comment>
+  </data>
+  <data name="Country_val_PE">
+    <value>Peru</value>
+    <comment>The name of PE country</comment>
+  </data>
+  <data name="Country_val_PF">
+    <value>Francúzska Polynézia</value>
+    <comment>The name of PF country</comment>
+  </data>
+  <data name="Country_val_PG">
+    <value>Papua-Nová Guinea</value>
+    <comment>The name of PG country</comment>
+  </data>
+  <data name="Country_val_PH">
+    <value>Filipíny</value>
+    <comment>The name of PH country</comment>
+  </data>
+  <data name="Country_val_PK">
+    <value>Pakistan</value>
+    <comment>The name of PK country</comment>
+  </data>
+  <data name="Country_val_PL">
+    <value>Poľsko</value>
+    <comment>The name of PL country</comment>
+  </data>
+  <data name="Country_val_PM">
+    <value>Saint Pierre a Miquelon</value>
+    <comment>The name of PM country</comment>
+  </data>
+  <data name="Country_val_PN">
+    <value>Pitcairnove ostrovy</value>
+    <comment>The name of PN country</comment>
+  </data>
+  <data name="Country_val_PR">
+    <value>Portoriko</value>
+    <comment>The name of PR country</comment>
+  </data>
+  <data name="Country_val_PS">
+    <value>Palestína</value>
+    <comment>The name of PS country</comment>
+  </data>
+  <data name="Country_val_PT">
+    <value>Portugalsko</value>
+    <comment>The name of PT country</comment>
+  </data>
+  <data name="Country_val_PW">
+    <value>Palau</value>
+    <comment>The name of PW country</comment>
+  </data>
+  <data name="Country_val_PY">
+    <value>Paraguaj</value>
+    <comment>The name of PY country</comment>
+  </data>
+  <data name="Country_val_QA">
+    <value>Katar</value>
+    <comment>The name of QA country</comment>
+  </data>
+  <data name="Country_val_RE">
+    <value>Réunion</value>
+    <comment>The name of RE country</comment>
+  </data>
+  <data name="Country_val_RO">
+    <value>Rumunsko</value>
+    <comment>The name of RO country</comment>
+  </data>
+  <data name="Country_val_RS">
+    <value>Srbsko</value>
+    <comment>The name of RS country</comment>
+  </data>
+  <data name="Country_val_RU">
+    <value>Rusko</value>
+    <comment>The name of RU country</comment>
+  </data>
+  <data name="Country_val_RW">
+    <value>Rwanda</value>
+    <comment>The name of RW country</comment>
+  </data>
+  <data name="Country_val_SA">
+    <value>Saudská Arábia</value>
+    <comment>The name of SA country</comment>
+  </data>
+  <data name="Country_val_SB">
+    <value>Šalamúnove ostrovy</value>
+    <comment>The name of SB country</comment>
+  </data>
+  <data name="Country_val_SC">
+    <value>Seychely</value>
+    <comment>The name of SC country</comment>
+  </data>
+  <data name="Country_val_SD">
+    <value>Sudán</value>
+    <comment>The name of SD country</comment>
+  </data>
+  <data name="Country_val_SE">
+    <value>Švédsko</value>
+    <comment>The name of SE country</comment>
+  </data>
+  <data name="Country_val_SG">
+    <value>Singapur</value>
+    <comment>The name of SG country</comment>
+  </data>
+  <data name="Country_val_SH">
+    <value>Svätá Helena, Ascension a Tristan da Cunha</value>
+    <comment>The name of SH country</comment>
+  </data>
+  <data name="Country_val_SI">
+    <value>Slovinsko</value>
+    <comment>The name of SI country</comment>
+  </data>
+  <data name="Country_val_SJ">
+    <value>Svalbard a Jan Mayen</value>
+    <comment>The name of SJ country</comment>
+  </data>
+  <data name="Country_val_SK">
+    <value>Slovensko</value>
+    <comment>The name of SK country</comment>
+  </data>
+  <data name="Country_val_SL">
+    <value>Sierra Leone</value>
+    <comment>The name of SL country</comment>
+  </data>
+  <data name="Country_val_SM">
+    <value>San Marino</value>
+    <comment>The name of SM country</comment>
+  </data>
+  <data name="Country_val_SN">
+    <value>Senegal</value>
+    <comment>The name of SN country</comment>
+  </data>
+  <data name="Country_val_SO">
+    <value>Somálsko</value>
+    <comment>The name of SO country</comment>
+  </data>
+  <data name="Country_val_SR">
+    <value>Surinam</value>
+    <comment>The name of SR country</comment>
+  </data>
+  <data name="Country_val_SS">
+    <value>Južný Sudán</value>
+    <comment>The name of SS country</comment>
+  </data>
+  <data name="Country_val_ST">
+    <value>Svätý Tomáš a Princov ostrov</value>
+    <comment>The name of ST country</comment>
+  </data>
+  <data name="Country_val_SV">
+    <value>Salvádor</value>
+    <comment>The name of SV country</comment>
+  </data>
+  <data name="Country_val_SX">
+    <value>Svätý Martin (holandská časť)</value>
+    <comment>The name of SX country</comment>
+  </data>
+  <data name="Country_val_SY">
+    <value>Sýrska arabská republika</value>
+    <comment>The name of SY country</comment>
+  </data>
+  <data name="Country_val_SZ">
+    <value>Svazijsko</value>
+    <comment>The name of SZ country</comment>
+  </data>
+  <data name="Country_val_TC">
+    <value>Ostrovy Turks a Caicos</value>
+    <comment>The name of TC country</comment>
+  </data>
+  <data name="Country_val_TD">
+    <value>Čad</value>
+    <comment>The name of TD country</comment>
+  </data>
+  <data name="Country_val_TF">
+    <value>Francúzske južné územia</value>
+    <comment>The name of TF country</comment>
+  </data>
+  <data name="Country_val_TG">
+    <value>Togo</value>
+    <comment>The name of TG country</comment>
+  </data>
+  <data name="Country_val_TH">
+    <value>Thajsko</value>
+    <comment>The name of TH country</comment>
+  </data>
+  <data name="Country_val_TJ">
+    <value>Tadžikistan</value>
+    <comment>The name of TJ country</comment>
+  </data>
+  <data name="Country_val_TK">
+    <value>Tokelau</value>
+    <comment>The name of TK country</comment>
+  </data>
+  <data name="Country_val_TL">
+    <value>Východný Timor</value>
+    <comment>The name of TL country</comment>
+  </data>
+  <data name="Country_val_TM">
+    <value>Turkmenistan</value>
+    <comment>The name of TM country</comment>
+  </data>
+  <data name="Country_val_TN">
+    <value>Tunisko</value>
+    <comment>The name of TN country</comment>
+  </data>
+  <data name="Country_val_TO">
+    <value>Tonga</value>
+    <comment>The name of TO country</comment>
+  </data>
+  <data name="Country_val_TR">
+    <value>Turecko</value>
+    <comment>The name of TR country</comment>
+  </data>
+  <data name="Country_val_TT">
+    <value>Trinidad a Tobago</value>
+    <comment>The name of TT country</comment>
+  </data>
+  <data name="Country_val_TV">
+    <value>Tuvalu</value>
+    <comment>The name of TV country</comment>
+  </data>
+  <data name="Country_val_TW">
+    <value>Taiwan</value>
+    <comment>The name of TW country</comment>
+  </data>
+  <data name="Country_val_TZ">
+    <value>Tanzánia</value>
+    <comment>The name of TZ country</comment>
+  </data>
+  <data name="Country_val_UA">
+    <value>Ukrajina</value>
+    <comment>The name of UA country</comment>
+  </data>
+  <data name="Country_val_UG">
+    <value>Uganda</value>
+    <comment>The name of UG country</comment>
+  </data>
+  <data name="Country_val_UK">
+    <value>Spojené kráľovstvo</value>
+    <comment>The name of UK country</comment>
+  </data>
+  <data name="Country_val_UM">
+    <value>Menšie odľahlé ostrovy Spojených štátov amerických</value>
+    <comment>The name of UM country</comment>
+  </data>
+  <data name="Country_val_US">
+    <value>Spojené štáty americké</value>
+    <comment>The name of US country</comment>
+  </data>
+  <data name="Country_val_UY">
+    <value>Uruguaj</value>
+    <comment>The name of UY country</comment>
+  </data>
+  <data name="Country_val_UZ">
+    <value>Uzbekistan</value>
+    <comment>The name of UZ country</comment>
+  </data>
+  <data name="Country_val_VA">
+    <value>Vatikán</value>
+    <comment>The name of VA country</comment>
+  </data>
+  <data name="Country_val_VC">
+    <value>Svätý Vincent a Grenadíny</value>
+    <comment>The name of VC country</comment>
+  </data>
+  <data name="Country_val_VE">
+    <value>Venezuela</value>
+    <comment>The name of VE country</comment>
+  </data>
+  <data name="Country_val_VG">
+    <value>Britské Panenské ostrovy</value>
+    <comment>The name of VG country</comment>
+  </data>
+  <data name="Country_val_VI">
+    <value>Panenské ostrovy, USA</value>
+    <comment>The name of VI country</comment>
+  </data>
+  <data name="Country_val_VN">
+    <value>Vietnam</value>
+    <comment>The name of VN country</comment>
+  </data>
+  <data name="Country_val_VU">
+    <value>Vanuatu</value>
+    <comment>The name of VU country</comment>
+  </data>
+  <data name="Country_val_WF">
+    <value>Wallis a Futuna</value>
+    <comment>The name of WF country</comment>
+  </data>
+  <data name="Country_val_WS">
+    <value>Samoa</value>
+    <comment>The name of WS country</comment>
+  </data>
+  <data name="Country_val_XK">
+    <value>Kosovo</value>
+    <comment>The name of XK country</comment>
+  </data>
+  <data name="Country_val_YE">
+    <value>Jemen</value>
+    <comment>The name of YE country</comment>
+  </data>
+  <data name="Country_val_YT">
+    <value>Mayotte</value>
+    <comment>The name of YT country</comment>
+  </data>
+  <data name="Country_val_ZA">
+    <value>Južná Afrika</value>
+    <comment>The name of ZA country</comment>
+  </data>
+  <data name="Country_val_ZM">
+    <value>Zambia</value>
+    <comment>The name of ZM country</comment>
+  </data>
+  <data name="Country_val_ZW">
+    <value>Zimbabwe</value>
+    <comment>The name of ZW country</comment>
+  </data>
+  <data name="Country_val_ZZ">
+    <value>Neznáme</value>
+    <comment>The name of ZZ (unknown or not specified) country</comment>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Description">
+    <value>Služba BFE (Base Filtering Engine) v zariadení so systémom Windows je vypnutá. Táto služba musí byť povolená, aby Proton VPN fungoval správne.</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_HowToEnable">
+    <value>Ako povoliť Base Filtering Engine</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Title">
+    <value>Pre pokračovanie povoľte Base Filtering Engine</value>
+  </data>
+  <data name="Dialogs_ChangeServer_GetUnlimitedServerChanges">
+    <value>Získajte neobmedzený počet zmien serverov s VPN Plus.</value>
+  </data>
+  <data name="Dialogs_ChangeServer_MaximumServerChangesReached">
+    <value>Momentálne ste dosiahli maximálny počet bezplatných zmien servera</value>
+  </data>
+  <data name="Dialogs_Common_GetStarted">
+    <value>Začíname</value>
+  </data>
+  <data name="Dialogs_Common_SubscriptionExpired">
+    <value>Predplatné vypršalo</value>
+  </data>
+  <data name="Dialogs_Common_UpgradeToGetPlusFeatures">
+    <value>Inovujte svoj účet, aby ste znova získali prístup k serverom a funkciám Plus.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Description">
+    <value>Zdá sa, že služba Proton VPN je vypnutá. Ak sa chcete pripojiť, musíte službu znova povoliť.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Title">
+    <value>Pre pokračovanie povoľte službu Windows</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_One">
+    <value>Proton Free vás automaticky pripojí k najrýchlejšiemu dostupnému bezplatnému serveru z našej {0} bezplatnej krajiny. Obvykle sa jedná o server, ktorý je najbližšie k vašej polohe.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Few">
+    <value>Proton Free vás automaticky pripojí k najrýchlejšiemu dostupnému bezplatnému serveru z našich {0} bezplatných krajín. Obvykle sa jedná o server, ktorý je najbližšie k vašej polohe.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Many">
+    <value>Proton Free vás automaticky pripojí k najrýchlejšiemu dostupnému bezplatnému serveru z našich {0} bezplatných krajín. Obvykle sa jedná o server, ktorý je najbližšie k vašej polohe.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Other">
+    <value>Proton Free vás automaticky pripojí k najrýchlejšiemu dostupnému bezplatnému serveru z našich {0} bezplatných krajín. Obvykle sa jedná o server, ktorý je najbližšie k vašej polohe.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_One">
+    <value>Krajina s bezplatnými servermi ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Few">
+    <value>Krajiny s bezplatnými servermi ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Many">
+    <value>Krajiny s bezplatnými servermi ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Other">
+    <value>Krajiny s bezplatnými servermi ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Title">
+    <value>Bezplatné pripojenia</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_CommentLabel">
+    <value>Dajte nám, prosím, vedieť, prečo ste udelili toto hodnotenie</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorSubtitle">
+    <value>Vašu spätnú väzbu sme nemohli odoslať. Skontrolujte svoje pripojenie a skúste to znova, prosím.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorTitle">
+    <value>Niečo sa pokazilo</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_HighRateDescription">
+    <value>10 je vysoko pravdepodobne</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_LowRateDescription">
+    <value>0 je veľmi nepravdepodobne</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Optional">
+    <value>Voliteľné</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ShareAnonymously">
+    <value>Zdieľať anonymne</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessSubtitle">
+    <value>Vaša spätná väzba nám pomáha zlepšovať Proton VPN.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessTitle">
+    <value>Ďakujeme za vašu spätnú väzbu</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Title">
+    <value>Aká je pravdepodobnosť, že odporučíte Proton VPN svojmu priateľovi?</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_TryAgain">
+    <value>Skúste znova</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Description">
+    <value>Zvýšte úroveň predplatného, aby ste odomkli P2P (peer-to-peer) servery pre rýchle online hranie hier a sťahovanie torrentov, alebo ukončite svoju P2P aktivitu, aby ste obnovili svoje pripojenie.</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Title">
+    <value>P2P nie je na bezplatných VPN serveroch povolené.</value>
+  </data>
+  <data name="Dialogs_P2PDetection_WindowTitle">
+    <value>Objavte VPN Plus</value>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email">
+    <value>Email</value>
+    <comment>The label for user e-mail address in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email_Description">
+    <value>priklad@domena.sk</value>
+    <comment>The watermark text displayed in empty user e-mail text box in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs">
+    <value>Odoslať záznam chýb</value>
+    <comment>The label for the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs_Description">
+    <value>Záznamy o chybách nám ukazujú, čo sa stalo a aké činnosti viedli k vášmu problému. Používame ich len na pomoc našim inžinierom pri odstraňovaní chýb.</value>
+    <comment>The tooltip displayed on the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Header">
+    <value>V čom je problém?</value>
+  </data>
+  <data name="Dialogs_ReportIssue_NoLogsWarning">
+    <value>Logy chýb nám pomôžu prísť vášmu problému na kĺb. Ak ich neuvediete, je možné, že to nebudeme môcť plne prešetriť.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes">
+    <value>Rýchle opravy</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Footer">
+    <value>Nefunguje?</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Header">
+    <value>Tieto tipy by mohli pomôcť rýchlejšie vyriešiť váš problém.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_DoneAction">
+    <value>Hotovo</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail">
+    <value>Niečo sa pokazilo</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail_Description">
+    <value>Vašu správu sme nemohli odoslať. Skontrolujte svoje pripojenie a skúste to znova, prosím.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success">
+    <value>Hlásenie odoslané</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success_Description">
+    <value>Ďakujeme za vašu spätnú väzbu. Čo najskôr sa vám ozveme.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_SendReport">
+    <value>Odoslať hlásenie</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Steps">
+    <value>Krok {0} z {1}</value>
+    <comment>Steps header for the Report an issue dialog. {0} is a placeholder for the current step. {1} is a placeholder for the total number of steps. (eg. Step 1 of 3)</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Title">
+    <value>Nahlásiť problém</value>
+  </data>
+  <data name="Dialogs_StreamingDetection_WindowTitle">
+    <value>Objavte VPN Plus</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Description">
+    <value>Servery VPN Plus vám umožňujú vychutnávať si vaše obľúbené filmy a televízne programy z celého sveta.</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Title">
+    <value>Zvýšte úroveň na obídenie blokovania VPN</value>
+  </data>
+  <data name="Dialogs_SubscriptionExpired_MaybeLater">
+    <value>Možno neskôr</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Description">
+    <value>Zdá sa, že vaše zariadenie používa proxy server. To môže narúšať ochranu VPN.</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Title">
+    <value>Bol zistený proxy server</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus">
+    <value>Vypnite antivírus alebo firewall</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus_Description">
+    <value>Tieto programy môžu narúšať VPN pripojenie.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet">
+    <value>Skontrolujte svoje internetové pripojenie</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet_Description">
+    <value>Skontrolujte, či ste online a či je vaše pripojenie stabilné.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Description">
+    <value>Tieto rýchle opatrenia vám môžu pomôcť pripojiť sa k spoločnosti Proton.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork">
+    <value>Použite inú sieť</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork_Description">
+    <value>Skúste zmeniť Wi-Fi sieť alebo namiesto toho použite mobilné dáta.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage">
+    <value>Pozrite si našu stránku so súčasným stavom</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage_Description">
+    <value>Len aby ste sa uistili, že služby spoločnosti Proton fungujú normálne.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Title">
+    <value>Pomoc s pripojením</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOff">
+    <value>Tento krok vás odpojí od VPN. Všetky aktívne internetové pripojenia budú dočasne nechránené.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOn">
+    <value>Tento krok vás odpojí od VPN a dočasne deaktivuje kill switch. Všetky aktívne internetové pripojenia budú dočasne nechránené.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Install">
+    <value>Nainštalovať aktualizáciu?</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Restart">
+    <value>Reštartujte Proton VPN pre dokončenie aktualizácie</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Description">
+    <value>Zdá sa, že vaše systémové hodiny nie sú synchronizované. To môže spôsobovať problémy pri pripojení k VPN.</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_PrimaryButton">
+    <value>Ako aktualizovať systémové hodiny</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Title">
+    <value>Aktualizovať systémové hodiny</value>
+  </data>
+  <data name="Dialogs_WelcomeB2B_Description">
+    <value>Jednoduché. Bezproblémové. Bezpečné. Chráňte sa online a bezpečne pristupujte k webom, softvéru a súborom svojej organizácie.</value>
+  </data>
+  <data name="Dialogs_WelcomeToProton_Title">
+    <value>Víta vás Proton VPN</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_Description">
+    <value>Prechádzajte súkromne, pristupujte k blokovanému obsahu a užívajte si digitálne slobody bez obmedzenia dát a rýchlosti.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs">
+    <value>Certifikovaná sieť VPN bez logov</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs_Description">
+    <value>Vaša aktivita je chránená švajčiarskymi zákonmi o ochrane osobných údajov. Nikdy nebudeme sledovať vašu online aktivitu a zdieľať ju s tretími stranami.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely">
+    <value>Prechádzajte internet slobodne odkiaľkoľvek</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_One">
+    <value>Skryte svoju virtuálnu polohu a využívajte internet z našej {0} dostupnej krajiny.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Few">
+    <value>Skryte svoju virtuálnu polohu a využívajte internet z ktorejkoľvek z našich {0} dostupných krajín.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Many">
+    <value>Skryte svoju virtuálnu polohu a využívajte internet z ktorejkoľvek z našich {0} dostupných krajín.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Other">
+    <value>Skryte svoju virtuálnu polohu a využívajte internet z ktorejkoľvek z našich {0} dostupných krajín.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices">
+    <value>Chráňte až 10 zariadení súčasne</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices_Description">
+    <value>Rozšírte ochranu VPN na váš počítač, mobilný telefón, prehliadač, televíziu a ďalšie zariadenia. </value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream">
+    <value>Streamujte vo vysokom rozlíšení</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream_Description">
+    <value>Sledujte filmy a televízne programy z celého sveta bez obmedzenia rýchlosti a kvality.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Title">
+    <value>Vitajte vo VPN Plus</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Description">
+    <value>Odomkli ste všetky prémiové funkcie Proton VPN, Mailu, Kalendára, Jednotky a Pass.</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Title">
+    <value>Vitajte v {0}</value>
+    <comment>Title to welcome the user after an account upgrade. {0} is a placeholder for the name of the new plan (eg. Proton Unlimited, Proton Duo, Proton Family).</comment>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Description">
+    <value>Teraz sa môžete pripojiť k tlačiarňam, reproduktorom a iným zariadeniam vo vašej lokálnej sieti (LAN) obídením VPN tunela.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Title">
+    <value>LAN pripojenia</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Description">
+    <value>Keď je presmerovanie portu povolené, uvidíte vaše aktívne číslo portu na domovskej obrazovke.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Title">
+    <value>Číslo aktívneho portu</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TakeALook">
+    <value>Pozrite sa</value>
+  </data>
+  <data name="Dialogs_WhatsNew_Title">
+    <value>Čo je nové</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Description">
+    <value>Teraz môžete pripojiť, odpojiť a zmeniť vaše predvolené pripojenie zo systémovej lišty.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Title">
+    <value>Nová aplikácia na systémovej lište</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_ExcludeLocations">
+    <value>Vylúčiť lokality</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Message">
+    <value>Ak existujú lokality, ku ktorým sa nechcete automaticky pripájať, môžete ich vylúčiť z funkcie Najrýchlejšia a Náhodná krajina.</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Skip">
+    <value>Preskočiť</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Title">
+    <value>Nie je to krajina, ktorú ste chceli?</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_ActionButton">
+    <value>Vylúčiť lokality</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_CloseButton">
+    <value>Možno neskôr</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Subtitle">
+    <value>Teraz môžete vylúčiť krajiny alebo mestá z najrýchlejších a náhodných pripojení.</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Title">
+    <value>Vyhnite sa nežiaducim lokalitám</value>
+  </data>
+  <data name="Exit_Confirmation_Title">
+    <value>Ukončiť Proton VPN?</value>
+  </data>
+  <data name="Exit_Message">
+    <value>Odpájanie od VPN...</value>
+  </data>
+  <data name="Exit_Title">
+    <value>Ukončiť Proton VPN</value>
+  </data>
+  <data name="Flyouts_Country_Description1">
+    <value>Pri surfovaní bez VPN sa vystavujete internetovým obmedzeniam na základe polohy.</value>
+  </data>
+  <data name="Flyouts_Country_Description2">
+    <value>Webové lokality môžu používať geografické blokovanie na obmedzenie obsahu na konkrétne lokality. Vlády tiež môžu dať pokyn poskytovateľom internetových služieb (ISP), aby blokovali určité webové stránky v ich krajine.</value>
+  </data>
+  <data name="Flyouts_Country_Description3">
+    <value>VPN vytvára dojem, že surfujete z iného miesta, a chráni vás pred sledovaním a cenzúrou.</value>
+  </data>
+  <data name="Flyouts_Country_Title">
+    <value>Krajina</value>
+  </data>
+  <data name="Flyouts_Country_Warning">
+    <value>Pripojte sa k VPN pre zmenu vašej virtuálnej polohy</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Connected">
+    <value>IP adresa VPN maskuje vašu skutočnú IP adresu. Vďaka tomu to vyzerá, že prechádzate internet z miesta, kde sa nachádza server VPN, takže vaša online aktivita sa nedá spojiť s vaším zariadením.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected1">
+    <value>Tento jedinečný kód môžu webové stránky a poskytovatelia internetových služieb (ISP) použiť na prepojenie vašej polohy a histórie prehliadania s vaším zariadením.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected2">
+    <value>VPN maskuje vašu IP adresu, takže je ťažšie vystopovať vašu aktivitu.</value>
+  </data>
+  <data name="Flyouts_IpAddress_KnowledgeBaseLinkTitle">
+    <value>Čo je IP adresa?</value>
+  </data>
+  <data name="Flyouts_IpAddress_Title">
+    <value>IP adresa</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIp">
+    <value>VPN IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv4">
+    <value>VPN IPv4</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv6">
+    <value>VPN IPv6</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIp">
+    <value>Vaša IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIpIsVisible">
+    <value>Vaša IP adresa je viditeľná</value>
+  </data>
+  <data name="Flyouts_Isp_Description1">
+    <value>Poskytovateľ internetových služieb (ISP) je spoločnosť, ktorá vás pripája na internet.</value>
+  </data>
+  <data name="Flyouts_Isp_Description2">
+    <value>Môžu zaznamenávať vašu online aktivitu. V niektorých krajinách môžu vaše údaje predávať inzerentom. V iných krajinách môžu byť povinní odovzdať ich vláde.</value>
+  </data>
+  <data name="Flyouts_Isp_Description3">
+    <value>VPN skrýva vašu IP adresu a chráni vás pred ovplyvňovaním zo strany poskytovateľa internetových služieb.</value>
+  </data>
+  <data name="Flyouts_Isp_KnowledgeBaseLinkTitle">
+    <value>Čo to je poskytovateľ internetových služieb (ISP)?</value>
+  </data>
+  <data name="Flyouts_Isp_Title">
+    <value>Poskytovateľ</value>
+  </data>
+  <data name="Flyouts_Isp_Warning">
+    <value>Váš poskytovateľ môže vidieť, ktoré webové stránky navštevujete.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Advanced_Success">
+    <value>Blokuje všetok prístup na internet, keď nemáte pripojenie k Proton VPN</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info">
+    <value>Vaša IP adresa môže byť odhalená, ak sa VPN pripojenie preruší</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info_Disconnected">
+    <value>Pokročilý kill switch deaktivuje váš internet na ochranu vašej IP adresy, keď nemáte pripojenie k Proton VPN.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Standard_Success">
+    <value>Ak sa VPN pripojenie preruší, zostanete bez pripojenia na internet, kým sa VPN neobnoví</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Connected">
+    <value>Pokročilý Kill Switch sa používa aj v prípade, že sa zámerne odpojíte od VPN</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Disconnected">
+    <value>Keď sa chcete znova vrátiť do režimu online, pripojte sa k VPN alebo vypnite pokročilý kill switch</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackersAdultContent_Success">
+    <value>Máte ochranu pred reklamami, sledovacími prvkami, malvérom a obsahom pre dospelých.</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackers_Success">
+    <value>Máte ochranu pred reklamami, sledovacími prvkami a malvérom.</value>
+  </data>
+  <data name="Flyouts_NetShield_Info">
+    <value>Chráňte svoje prehliadanie na webových stránkach a v aplikáciách.</value>
+  </data>
+  <data name="Flyouts_NetShield_MalwareOnly_Success">
+    <value>Máte ochranu len pred malvérom.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Description">
+    <value>Blokujte reklamy, sledovače, malvér a obsah pre dospelých pomocou VPN Plus.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Title">
+    <value>Užívajte si prehliadanie bez reklám</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort">
+    <value>Číslo aktívneho portu</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Error">
+    <value>Nie je možné získať číslo aktívneho portu. Reštartujte pripojenie a skúste to znova.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Info">
+    <value>Zadajte číslo aktívneho portu do svojho torrentového klienta alebo P2P aplikácie pre lepší výkon.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Info">
+    <value>Zlepšuje rýchlosť peer-to-peer sťahovania</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Description">
+    <value>Zvýšte výkon pri peer-to-peer (P2P) zdieľaní súborov pomocou VPN Plus.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Title">
+    <value>Zvýšiť rýchlosť P2P</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Warning">
+    <value>Pripojte sa k P2P serveru na zvýšenie rýchlosti sťahovania torrentov</value>
+  </data>
+  <data name="Flyouts_Protocol_Description">
+    <value>VPN protokol určuje spôsob šifrovania a prenosu dát cez VPN.</value>
+  </data>
+  <data name="Flyouts_Protocol_KnowledgeBaseLinkTitle">
+    <value>Ktorý VPN protokol je najlepší?</value>
+  </data>
+  <data name="Flyouts_Protocol_Title">
+    <value>Protokol</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Description">
+    <value>Vyťaženie servera ukazuje, ako blízko je server k svojej maximálnej kapacite. Vysoké zaťaženie servera môže spomaliť vaše pripojenie.</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High">
+    <value>Vysoké (91-100%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High_Description">
+    <value>VPN môže fungovať pomalšie než zvyčajne</value>
+  </data>
+  <data name="Flyouts_ServerLoad_KnowledgeBaseLinkTitle">
+    <value>Čo je vyťaženie servera?</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low">
+    <value>Nízke (1-75%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low_Description">
+    <value>Bleskové rýchlosti</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium">
+    <value>Stredné (76-90%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium_Description">
+    <value>Pravdepodobne neovplyvňuje rýchlosť pripojenia</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Title">
+    <value>Vyťaženie servera</value>
+  </data>
+  <data name="Flyouts_Speed_Description1">
+    <value>Ukazuje, koľko dát prechádza cez VPN tunel v reálnom čase.</value>
+  </data>
+  <data name="Flyouts_Speed_Description2">
+    <value>Toto je založené na aktuálnej aktivite vášho zariadenia. Vo väčšine prípadov nepredstavuje maximálnu rýchlosť VPN.</value>
+  </data>
+  <data name="Flyouts_Speed_Download">
+    <value>Sťahovanie</value>
+    <comment>Refers to the download speed (e.g., Download [new line] 10 MB/s).</comment>
+  </data>
+  <data name="Flyouts_Speed_KnowledgeBaseLinkTitle">
+    <value>Vysvetlenie rýchlosti a prevádzky VPN</value>
+  </data>
+  <data name="Flyouts_Speed_Title">
+    <value>Aktuálna prevádzka</value>
+  </data>
+  <data name="Flyouts_Speed_Upload">
+    <value>Nahrávanie</value>
+    <comment>Refers to the upload speed (e.g., Upload [new line] 2.5 MB/s).</comment>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_One">
+    <value>Vylúčená aplikácia ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Few">
+    <value>Vylúčené aplikácie ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Many">
+    <value>Vylúčené aplikácie ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Other">
+    <value>Vylúčené aplikácie ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_One">
+    <value>Vylúčená IP adresa ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Few">
+    <value>Vylúčené IP adresy ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Many">
+    <value>Vylúčené IP adresy ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Other">
+    <value>Vylúčené IP adresy ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Info">
+    <value>Umožňuje pripojenie dôveryhodných aplikácií a IP adries bez VPN ochrany</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Inverse_Info">
+    <value>Len tieto aplikácie a IP adresy sa pripájajú cez VPN. Všetka ostatná prevádzka je nechránená.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_One">
+    <value>Chránená aplikácia ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Few">
+    <value>Chránené aplikácie ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Many">
+    <value>Chránené aplikácie ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Other">
+    <value>Chránené aplikácie ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_One">
+    <value>Chránená IP adresa ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Few">
+    <value>Chránené IP adresy ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Many">
+    <value>Chránené IP adresy ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Other">
+    <value>Chránené IP adresy ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Standard_Info">
+    <value>Tieto aplikácie a IP adresy sa pripájajú bez VPN ochrany. Všetka ostatná prevádzka je chránená.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Description">
+    <value>Rozdeľte svoju prevádzku na VPN a iné ne-VPN tunely pomocou VPN Plus.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Title">
+    <value>Získajte to najlepšie z oboch svetov</value>
+  </data>
+  <data name="Flyouts_Volume_Description">
+    <value>Zobrazuje celkové množstvo dát prenesených cez VPN tunel odkedy ste sa pripojili.</value>
+  </data>
+  <data name="Flyouts_Volume_Download">
+    <value>Sťahovanie</value>
+    <comment>Refers to the downloaded volume (e.g., Download [new line] 250 MB).</comment>
+  </data>
+  <data name="Flyouts_Volume_Title">
+    <value>Celková prevádzka</value>
+  </data>
+  <data name="Flyouts_Volume_Upload">
+    <value>Nahrávanie</value>
+    <comment>Refers to the uploaded volume (e.g., Upload [new line] 250 MB).</comment>
+  </data>
+  <data name="Format_Size_Bytes">
+    <value>{0} B</value>
+    <comment>Format a size in Bytes. {0} is a place holder for the number of Bytes (eg. 30 B)</comment>
+  </data>
+  <data name="Format_Size_Exabytes">
+    <value>{0} EB</value>
+    <comment>Format a size in Exabytes. {0} is a place holder for the number of Exabytes (eg. 30 EB)</comment>
+  </data>
+  <data name="Format_Size_Gigabytes">
+    <value>{0} GB</value>
+    <comment>Format a size in Gigabytes. {0} is a place holder for the number of Gigabytes (eg. 30 GB)</comment>
+  </data>
+  <data name="Format_Size_Kilobytes">
+    <value>{0} KB</value>
+    <comment>Format a size in Kilobytes. {0} is a place holder for the number of Kilobytes (eg. 30 KB)</comment>
+  </data>
+  <data name="Format_Size_Megabytes">
+    <value>{0} MB</value>
+    <comment>Format a size in Megabytes. {0} is a place holder for the number of Megabytes (eg. 30 MB)</comment>
+  </data>
+  <data name="Format_Size_Petabytes">
+    <value>{0} PB</value>
+    <comment>Format a size in Petabytes. {0} is a place holder for the number of Petabytes (eg. 30 PB)</comment>
+  </data>
+  <data name="Format_Size_Terabytes">
+    <value>{0} TB</value>
+    <comment>Format a size in Terabytes. {0} is a place holder for the number of Terabytes (eg. 30 TB)</comment>
+  </data>
+  <data name="Format_SpeedUnit">
+    <value>Aktuálna prevádzka ({0})</value>
+    <comment>This string is used to format speed measurements in various units. The placeholder {0} will be replaced by the appropriate unit of measurement, such as B/s (Bytes per second), kB/s (Kilobytes per second), MB/s (Megabytes per second), and so on.</comment>
+  </data>
+  <data name="Format_Speed_BytesPerSecond">
+    <value>{0} B/s</value>
+    <comment>Format a speed in Bytes per second. {0} is a place holder for the number of Bytes per second (eg. 30 B/s)</comment>
+  </data>
+  <data name="Format_Speed_ExabytesPerSecond">
+    <value>{0} EB/s</value>
+    <comment>Format a speed in Exabytes per second. {0} is a place holder for the number of Exabytes per second (eg. 30 EB/s)</comment>
+  </data>
+  <data name="Format_Speed_GigabytesPerSecond">
+    <value>{0} GB/s</value>
+    <comment>Format a speed in Gigabytes per second. {0} is a place holder for the number of Gigabytes per second (eg. 30 GB/s)</comment>
+  </data>
+  <data name="Format_Speed_KilobytesPerSecond">
+    <value>{0} KB/s</value>
+    <comment>Format a speed in Kilobytes per second. {0} is a place holder for the number of Kilobytes per second (eg. 30 KB/s)</comment>
+  </data>
+  <data name="Format_Speed_MegabytesPerSecond">
+    <value>{0} MB/s</value>
+    <comment>Format a speed in Megabytes per second. {0} is a place holder for the number of Megabytes per second (eg. 30 MB/s)</comment>
+  </data>
+  <data name="Format_Speed_PetabytesPerSecond">
+    <value>{0} PB/s</value>
+    <comment>Format a speed in Petabytes per second. {0} is a place holder for the number of Petabytes per second (eg. 30 PB/s)</comment>
+  </data>
+  <data name="Format_Speed_TerabytesPerSecond">
+    <value>{0} TB/s</value>
+    <comment>Format a speed in Terabytes per second. {0} is a place holder for the number of Terabytes per second (eg. 30 TB/s)</comment>
+  </data>
+  <data name="Format_Time_Day_One">
+    <value>{0} deň</value>
+  </data>
+  <data name="Format_Time_Day_Few">
+    <value>{0} dní</value>
+  </data>
+  <data name="Format_Time_Day_Many">
+    <value>{0} dní</value>
+  </data>
+  <data name="Format_Time_Day_Other">
+    <value>{0} dní</value>
+  </data>
+  <data name="Format_Time_DayHour_One">
+    <value>{0} deň {1} h</value>
+  </data>
+  <data name="Format_Time_DayHour_Few">
+    <value>{0} dní {1} h</value>
+  </data>
+  <data name="Format_Time_DayHour_Many">
+    <value>{0} dní {1} h</value>
+  </data>
+  <data name="Format_Time_DayHour_Other">
+    <value>{0} dní {1} h</value>
+  </data>
+  <data name="Format_Time_Hours">
+    <value>{0} h</value>
+    <comment>Format a time as a number of hours. {0} is a placeholder for the number of hours (eg. 1 hr or 20 hr). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutes">
+    <value>{0} h {1} min</value>
+    <comment>Format a time as a number of hours and minutes. {0} is a placeholder for the number of hours and {1} for the number of minutes (eg. 5 hr 36 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutesSeconds_Short">
+    <value>hh\:mm\:ss</value>
+    <comment>Format a time as a number of hours, minutes and seconds in a short format. 'hh' is a placeholder for the number of hours, 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. hh\:mm\:ss gives 01:05:36).</comment>
+  </data>
+  <data name="Format_Time_Hours_Ago_One">
+    <value>pred {0} hodinou</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Few">
+    <value>pred {0} hodinami</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Many">
+    <value>pred {0} hodinami</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Other">
+    <value>pred {0} hodinami</value>
+  </data>
+  <data name="Format_Time_Minutes">
+    <value>{0} min</value>
+    <comment>Format a time as a number of minutes. {0} is a placeholder for the number of minutes (eg. 1 min or 20 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds">
+    <value>{0} min {1} s</value>
+    <comment>Format a time as a number of minutes and seconds. {0} is a placeholder for the number of minutes and {1} for the number of seconds (eg. 5 min 36 sec). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds_Short">
+    <value>mm\:ss</value>
+    <comment>Format a time as a number of minutes and seconds in a short format. 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. mm\:ss gives 05:36).</comment>
+  </data>
+  <data name="Format_Time_Minutes_Ago_One">
+    <value>pred {0} minútou</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Few">
+    <value>pred {0} minútami</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Many">
+    <value>pred {0} minútami</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Other">
+    <value>pred {0} minútami</value>
+  </data>
+  <data name="Format_Time_Seconds">
+    <value>{0} s</value>
+    <comment>Format a time as a number of seconds. {0} is a placeholder for the number of second (eg. 1 sec or 20 sec). Use abbreviations for seconds, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_Seconds_Ago_One">
+    <value>pred {0} sekundou</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Few">
+    <value>pred {0} sekundami</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Many">
+    <value>pred {0} sekundami</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Other">
+    <value>pred {0} sekundami</value>
+  </data>
+  <data name="FreeConnections_P2PUpsell">
+    <value>Sťahujte súbory cez BitTorrent a iné protokoly na zdieľanie súborov</value>
+  </data>
+  <data name="FreeConnections_SecureCoreUpsell">
+    <value>Pridajte ďalšiu úroveň šifrovania k vášmu VPN pripojeniu</value>
+  </data>
+  <data name="FreeConnections_TorUpsell">
+    <value>Použite sieť Tor nad vaším VPN pripojením pre väčšie súkromie</value>
+  </data>
+  <data name="FreeConnections_WorldwideCoverageUpsell">
+    <value>Získajte celosvetové pokrytie s VPN Plus</value>
+  </data>
+  <data name="Gateway_Fastest">
+    <value>Najrýchlejšia brána</value>
+  </data>
+  <data name="Gateway_Random">
+    <value>Náhodná brána</value>
+  </data>
+  <data name="Gateways_Page_Description">
+    <value>Pripojte sa k bráne a získajte prístup k VPN vašej organizácie.</value>
+  </data>
+  <data name="Gateways_Page_Title">
+    <value>Brány</value>
+  </data>
+  <data name="Home_Account_SignOut">
+    <value>Odhlásiť sa</value>
+  </data>
+  <data name="Home_Account_SignOut_Confirmation_Title">
+    <value>Odhlásiť sa {0}?</value>
+    <comment>{0} is a placeholder for the username</comment>
+  </data>
+  <data name="Home_ConnectionCard_ChangeDefaultConnection">
+    <value>Zmeniť predvolené pripojenie</value>
+  </data>
+  <data name="Home_ConnectionCard_ChangeServer">
+    <value>Zmeniť server</value>
+  </data>
+  <data name="Home_ConnectionDetails_AdvancedKillSwitchActivated">
+    <value>Pokročilý kill switch zapnutý</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectToRestoreConnection">
+    <value>Pripojte sa k VPN pre obnovenie vášho internetového pripojenia.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Connecting">
+    <value>Pripájanie</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectingSubLabel">
+    <value>Vaša digitálna identita je chránená...</value>
+  </data>
+  <data name="Home_ConnectionDetails_Country">
+    <value>Krajina</value>
+  </data>
+  <data name="Home_ConnectionDetails_Isp">
+    <value>Poskytovateľ</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protected">
+    <value>Chránené</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protocol">
+    <value>Protokol</value>
+  </data>
+  <data name="Home_ConnectionDetails_ServerLoad">
+    <value>Vyťaženie servera</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Description">
+    <value>Pre pokračovanie sa znovu overte v 2FA portáli vašej organizácie.</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Title">
+    <value>Platnosť 2FA vypršala</value>
+  </data>
+  <data name="Home_ConnectionDetails_Unprotected">
+    <value>Nechránené</value>
+  </data>
+  <data name="Home_ConnectionDetails_UnprotectedSubLabel">
+    <value>Šifrujte svoje online aktivity pripojením k VPN.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Volume">
+    <value>Celková prevádzka</value>
+  </data>
+  <data name="Home_ConnectionDetails_VpnIp">
+    <value>VPN IP</value>
+  </data>
+  <data name="Home_ConnectionDetails_YourIpAddress">
+    <value>Vaša IP adresa</value>
+  </data>
+  <data name="Home_FreeConnections_About">
+    <value>Viac informácií o bezplatných pripojeniach</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_One">
+    <value>zablokovaná reklama</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Few">
+    <value>zablokované reklamy</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Many">
+    <value>zablokovaných reklám</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Other">
+    <value>zablokovaných reklám</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Description">
+    <value>Reklamy sú reklamné bannery alebo vyskakovacie okná, ktoré sa zobrazujú na webových stránkach a v aplikáciách.</value>
+  </data>
+  <data name="Home_NetShield_DataSaved">
+    <value>ušetrených dát</value>
+  </data>
+  <data name="Home_NetShield_DataSaved_Description">
+    <value>Odhadované ušetrené dáta vďaka blokovaniu nežiaducich reklám, sledovacích zariadení a škodlivého softvéru.</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_One">
+    <value>zastavený sledovač</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Few">
+    <value>zastavené sledovače</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Many">
+    <value>zastavených sledovačov</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Other">
+    <value>zastavených sledovačov</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Description">
+    <value>Sledovače sú cookies a webové stránky tretích strán, ktoré zhromažďujú, uchovávajú a predávajú informácie o vašej webovej aktivite.</value>
+  </data>
+  <data name="Home_Recents_Pin">
+    <value>Pripnúť</value>
+  </data>
+  <data name="Home_Recents_Restricted">
+    <value>Server je dostupný s VPN Plus</value>
+  </data>
+  <data name="Home_Recents_ServerUnderMaintenance">
+    <value>Na serveri prebieha údržba</value>
+  </data>
+  <data name="Home_Recents_Title">
+    <value>Nedávne</value>
+  </data>
+  <data name="Home_Recents_Unpin">
+    <value>Odopnúť</value>
+  </data>
+  <data name="Home_TitleBar_Menu_About">
+    <value>O aplikácii</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Account">
+    <value>Účet</value>
+  </data>
+  <data name="Home_TitleBar_Menu_ExitTheApp">
+    <value>Ukončiť aplikáciu</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help">
+    <value>Nápoveda</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help_WhatsTheIssue">
+    <value>V čom je problém?</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Settings">
+    <value>Nastavenia</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Signout">
+    <value>Odhlásiť sa</value>
+  </data>
+  <data name="Home_TitleBar_Menu_UpdateNow">
+    <value>Aktualizovať teraz</value>
+  </data>
+  <data name="LoadingPage_Tip">
+    <value>Lepší svet začína súkromím a digitálnou slobodou.</value>
+  </data>
+  <data name="Login_Error_GetSessionDetailsFailed">
+    <value>Pri načítavaní údajov relácie došlo k chybe. Skúste to prosím znova.</value>
+  </data>
+  <data name="Login_Error_GuestHoleFailedDueToMobileHotspot">
+    <value>Z dôvodu nastavení siete na vašom zariadení nie je možné prihlásiť sa. Príčinou môže byť mobilný hotspot, iná VPN aplikácia alebo softvér virtuálneho stroja. Skontrolujte, prosím, svoju sieťovú konfiguráciu alebo kontaktujte podporu, aby vám pomohla.</value>
+  </data>
+  <data name="Login_Error_IncorrectTwoFactorCode">
+    <value>Nesprávny kód! Skúste to prosím znovu.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Message">
+    <value>V inštalácii chýba súbor potrebný na prihlásenie. Na vyriešenie tohto problému prosím preinštalujte aplikáciu Proton VPN.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Title">
+    <value>Prihlásenie nie je možné.</value>
+  </data>
+  <data name="Login_Error_SessionExpired">
+    <value>Vaša relácia vypršala, musíte sa znova prihlásiť.</value>
+    <comment>The message displayed in Login window when expired session is detected</comment>
+  </data>
+  <data name="Login_Error_SsoAuthFailed">
+    <value>Prihlásenie SSO zlyhalo. Skúste to prosím znova.</value>
+  </data>
+  <data name="Login_Error_TwoFactorFailed">
+    <value>Dvojstupňové overenie zlyhalo. Prihláste sa znova.</value>
+  </data>
+  <data name="Login_Error_WebAuthnNotSupported">
+    <value>Overovanie bezpečnostným kľúčom nie je k dispozícii pre vaše zariadenie alebo pripojenie k vzdialenej ploche.</value>
+  </data>
+  <data name="Login_TwoFactorForm_Authenticate">
+    <value>Overiť</value>
+    <comment>Authenticate button inside two factor form during login</comment>
+  </data>
+  <data name="Login_TwoFactorForm_Subtitle">
+    <value>6-miestny overovací kód</value>
+  </data>
+  <data name="Login_TwoFactorForm_Title">
+    <value>Dvojstupňové overenie</value>
+  </data>
+  <data name="Login_TwoFactor_Authenticator">
+    <value>Overovacia aplikácia</value>
+  </data>
+  <data name="Login_TwoFactor_Digit1">
+    <value>Prvé číslo</value>
+  </data>
+  <data name="Login_TwoFactor_Digit2">
+    <value>Druhé číslo</value>
+  </data>
+  <data name="Login_TwoFactor_Digit3">
+    <value>Tretie číslo</value>
+  </data>
+  <data name="Login_TwoFactor_Digit4">
+    <value>Štvrté číslo</value>
+  </data>
+  <data name="Login_TwoFactor_Digit5">
+    <value>Piate číslo</value>
+  </data>
+  <data name="Login_TwoFactor_Digit6">
+    <value>Šieste číslo</value>
+  </data>
+  <data name="Login_TwoFactor_EnterCode">
+    <value>Zadajte váš kód</value>
+  </data>
+  <data name="Login_TwoFactor_NoMethodAvailable">
+    <value>Neboli nájdené žiadne známe metódy dvojfaktorovej autentifikácie.</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey">
+    <value>Bezpečnostný kľúč</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey_Description">
+    <value>Vložte U2F alebo FIDO kľúč prepojený s vaším Proton Account.</value>
+  </data>
+  <data name="Main_Loading">
+    <value>Načítava sa, prosím počkajte...</value>
+    <comment>Message in the loading screen when starting the app</comment>
+  </data>
+  <data name="Main_Loading_SigningIn">
+    <value>Prihlasovanie, prosím čakajte...</value>
+    <comment>Message in the loading screen when signing in</comment>
+  </data>
+  <data name="Main_Loading_SigningIn_Longer">
+    <value>Toto trvá dlhšie než zvyčajne, ale pracujeme na tom.</value>
+    <comment>Message in the loading screen when sign in action takes longer than expected</comment>
+  </data>
+  <data name="Main_Loading_SigningOut">
+    <value>Odhlasovanie, počkajte prosím...</value>
+    <comment>Message in the loading screen when signing out</comment>
+  </data>
+  <data name="Map_ConnectTo">
+    <value>Pripojiť - {0}</value>
+    <comment>A label inside a map pin tooltip. {0} is a placeholder for country, state or city. (eg. "Connect - United States", "Connect - New York")</comment>
+  </data>
+  <data name="NoServers_ContactUs">
+    <value>Kontaktujte nás</value>
+  </data>
+  <data name="NoServers_FailedToLoad">
+    <value>Nepodarilo sa nám načítať zoznam serverov.</value>
+  </data>
+  <data name="NoServers_NeedHelp">
+    <value>Potrebujete pomôcť?</value>
+  </data>
+  <data name="NoServers_SignOut">
+    <value>Odhlásiť sa</value>
+  </data>
+  <data name="NoServers_Tip">
+    <value>Požiadajte svojho správcu, aby pre váš účet povolil prístup cez VPN.</value>
+  </data>
+  <data name="NoServers_Title">
+    <value>K dispozícii nie sú žiadne VPN pripojenia</value>
+  </data>
+  <data name="NoServers_UnderMaintenance_Tip">
+    <value>Nepodarilo sa nám načítať žiadne servery. Kliknite na tlačidlo Obnoviť, aby sa aktualizoval zoznam serverov.</value>
+  </data>
+  <data name="Notifications_KillSwitch_Description">
+    <value>Kill Switch blokuje vaše pripojenie k internetu, aby ochránil vašu skutočnú IP adresu.</value>
+  </data>
+  <data name="Notifications_PortForwarding_CopyPortNumber">
+    <value>Kopírovať číslo portu</value>
+  </data>
+  <data name="Notifications_PortForwarding_Description">
+    <value>Prejdite do svojho torrentového klienta alebo P2P aplikácie a zadajte toto číslo.</value>
+  </data>
+  <data name="Notifications_SessionLimit_Description">
+    <value>Dosiahli ste maximálny limit počtu zariadení. Ak sa chcete znovu pripojiť k VPN, odpojte sa v inom zariadení.</value>
+  </data>
+  <data name="Notifications_SubscriptionExpired_Description_Connected">
+    <value>Vaša tarifa bola znížená na Proton Free a prepájame vás k najrýchlejšiemu bezplatnému serveru.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Description">
+    <value>Verejné WiFi siete sú zraniteľnejšie voči bezpečnostným hrozbám. Pripojte sa k VPN a surfujte bezpečne.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Title">
+    <value>Bolo zistené nezabezpečené WiFi pripojenie</value>
+  </data>
+  <data name="NpsSurvey_Title">
+    <value>Proton VPN - Prieskum</value>
+    <comment>The window title displayed at the top of the NPS (Net Promoter Score) survey</comment>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Description">
+    <value>Na zahrnutie IPv6 adries potrebujete povoliť pripojenia IPv6 cez VPN tunel.</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_PrimaryButton">
+    <value>Povoliť IPv6</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_SecondaryButton">
+    <value>Teraz nie</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Title">
+    <value>IPv6 je deaktivovaná</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Action">
+    <value>Aktualizovať teraz</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Message">
+    <value>Táto verzia aplikácie je zastaraná. Ak chcete naďalej používať Proton VPN, musíte aplikáciu aktualizovať.</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Title">
+    <value>Pre pokračovanie aktualizujte Proton VPN</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Description">
+    <value>Naše P2P (peer-to-peer) servery vám umožnia prístup k sieťam P2P a zároveň chránia vašu IP adresu a online aktivity.</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Header">
+    <value>Čo to je P2P VPN?</value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Description">
+    <value>P2P siete umožňujú dvom zariadeniam pripojiť sa a prenášať údaje bez toho, aby prechádzali cez centrálny server. </value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Header">
+    <value>Čo je P2P sieť?</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Description">
+    <value>  - Sťahovanie torrentových súborov
+  - Zlepšenie výkonu online hier a videohovorov
+  - Pripojenie k zariadeniam v miestnej sieti (LAN)</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Header">
+    <value>Na čo sa používajú P2P siete?</value>
+  </data>
+  <data name="Overlay_P2P_LearnMore">
+    <value>Čo to je P2P?</value>
+  </data>
+  <data name="Overlay_P2P_Title">
+    <value>P2P</value>
+  </data>
+  <data name="Overlay_Profile_Description1">
+    <value>Profily sú vlastné VPN pripojenia, ktoré si môžete prispôsobiť svojim potrebám a uložiť pre rýchly prístup.</value>
+  </data>
+  <data name="Overlay_Profile_Description2">
+    <value>Nastavte si obľúbené umiestnenie a optimalizujte nastavenia pre bezpečnosť, výkon, hranie hier alebo akýkoľvek iný scenár.</value>
+  </data>
+  <data name="Overlay_Profile_LearnMore">
+    <value>Čo to je VPN profil?</value>
+  </data>
+  <data name="Overlay_Profile_Title">
+    <value>Profily</value>
+  </data>
+  <data name="Overlay_SecureCore_Description1">
+    <value>Secure Core vás pripojí k cieľovému serveru prostredníctvom druhého VPN servera s maximálnym zabezpečením.</value>
+  </data>
+  <data name="Overlay_SecureCore_Description2">
+    <value>Táto vyššia úroveň ochrany môže spôsobiť vyššiu latenciu a nižšiu rýchlosť.</value>
+  </data>
+  <data name="Overlay_SecureCore_LearnMore">
+    <value>Čo je Secure Core?</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection">
+    <value>Secure Core
+VPN pripojenie</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Latency">
+    <value>Vyššia latencia</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Privacy">
+    <value>Pokročilé súkromie</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection">
+    <value>Štandardné
+VPN pripojenie</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Latency">
+    <value>Nižšia latencia</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Privacy">
+    <value>Vysoký stupeň súkromia</value>
+  </data>
+  <data name="Overlay_SecureCore_Title">
+    <value>Secure Core</value>
+  </data>
+  <data name="Overlay_ServerLoad_Description">
+    <value>Vyťaženie servera zobrazuje, koľko kapacity servera je využitých.
+
+Vysoké vyťaženie servera môže spomaliť vaše pripojenie.</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Description">
+    <value>VPN môže fungovať pomalšie než zvyčajne</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Title">
+    <value>Vysoké (91-100%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_LearnMore">
+    <value>Čo je vyťaženie servera?</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Description">
+    <value>Bleskové rýchlosti</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Title">
+    <value>Nízke (1-75%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Description">
+    <value>Rýchlosť VPN by nemala byť ovplyvnená</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Title">
+    <value>Stredná (76-90%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_Title">
+    <value>Vyťaženie servera</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description1">
+    <value>Smart Routing nám umožňuje poskytovať VPN pokrytie v ťažko dostupných krajinách.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description2">
+    <value>Keď sa pripojíte k Smart Routing serveru, bude sa zdať, že surfujete v cieľovej krajine, aj keď sa server fyzicky nachádza inde.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description3">
+    <value>Smart Routing sa zvyčajne používa na obchádzanie zákonov o ochrane súkromia a iných foriem cenzúry.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Header">
+    <value>Fyzické umiestnenie serverov je {0}, ale bude to vyzerať, že prehliadanie internetu prebieha zo zeme {1}</value>
+    <comment>{0} is a placeholder for the physical server location country. {1} is a placeholder for the destination country
+    Warning: country names are inserted in the nominative case. For INFLECTED languages, use alternative wording as follows:
+    Connects you to your destination country ({1}) through servers that are physically located somewhere else ({0})</comment>
+  </data>
+  <data name="Overlay_SmartRouting_LearnMore">
+    <value>Čo je Smart Routing?</value>
+  </data>
+  <data name="Overlay_SmartRouting_Title">
+    <value>Smart Routing</value>
+  </data>
+  <data name="Overlay_Tor_Description">
+    <value>Pripojte sa k serveru Tor a získajte prístup k skrytým službám a onion webom pomocou ľubovoľného prehliadača.</value>
+  </data>
+  <data name="Overlay_Tor_LearnMore">
+    <value>Ako získať prístup k sieti Tor</value>
+  </data>
+  <data name="Overlay_Tor_Title">
+    <value>Tor</value>
+  </data>
+  <data name="Profile_CustomSettings_Description">
+    <value>Nastavenia profilu budú mať po pripojení prednosť pred nastaveniami VPN.</value>
+  </data>
+  <data name="Profile_CustomSettings_Header">
+    <value>Pridať vlastné nastavenia</value>
+  </data>
+  <data name="Profile_CustomSettings_Hide">
+    <value>Skryť nastavenia</value>
+  </data>
+  <data name="Profile_CustomSettings_Show">
+    <value>Zobraziť nastavenia</value>
+  </data>
+  <data name="Profile_NatType_Conflict_Description">
+    <value>Týmto zakážete presmerovanie portov pre tento profil.</value>
+  </data>
+  <data name="Profile_NetShield_Conflict_Description">
+    <value>Týmto zakážete vlastné DNS pre tento profil.</value>
+  </data>
+  <data name="Profile_Options_Application">
+    <value>Aplikácia</value>
+  </data>
+  <data name="Profile_Options_Application_Select">
+    <value>Vyberte aplikáciu</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Application">
+    <value>Otvoriť aplikáciu</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_PrivateBrowsingMode">
+    <value>Použiť režim súkromného prehliadania</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Website">
+    <value>Otvoriť webovú stránku</value>
+  </data>
+  <data name="Profile_Options_Description">
+    <value>Pri pripojení k tomuto profilu automaticky otvorí webovú stránku alebo aplikáciu podľa vášho výberu.</value>
+  </data>
+  <data name="Profile_Options_Header">
+    <value>Pripojiť a otvoriť</value>
+  </data>
+  <data name="Profile_Options_Url">
+    <value>URL webovej stránky</value>
+  </data>
+  <data name="Profile_Options_Url_Error">
+    <value>Zadajte platnú URL adresu</value>
+  </data>
+  <data name="Profile_PortForwarding_Conflict_Description">
+    <value>Týmto zmeníte typ NAT pre tento profil na Strict (typ 3)</value>
+  </data>
+  <data name="Profiles_Default_Gaming">
+    <value>Hranie</value>
+  </data>
+  <data name="Profiles_Default_MaxSecurity">
+    <value>Maximálna bezpečnosť</value>
+  </data>
+  <data name="Profiles_Default_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Profiles_Default_RandomConnection">
+    <value>Náhodné pripojenie</value>
+  </data>
+  <data name="Profiles_Default_Streaming">
+    <value>Streamovanie US</value>
+  </data>
+  <data name="Profiles_Default_WorkSchool">
+    <value>Práca/Škola</value>
+  </data>
+  <data name="Profiles_Page_Description">
+    <value>Nakonfigurujte si vlastné nastavenia VPN a pripojte sa jedným kliknutím</value>
+  </data>
+  <data name="Profiles_Page_Title">
+    <value>Profily</value>
+  </data>
+  <data name="Search_InputBox_Placeholder">
+    <value>Prechádzať z...</value>
+  </data>
+  <data name="Search_NoInput_CityOrState">
+    <value>Mesto alebo štát USA</value>
+    <comment>The word used for one single city and one single United States state</comment>
+  </data>
+  <data name="Search_NoInput_Country">
+    <value>Krajina</value>
+    <comment>The word used for one single country</comment>
+  </data>
+  <data name="Search_NoInput_Server">
+    <value>Server</value>
+    <comment>The word used for one single server</comment>
+  </data>
+  <data name="Search_NoInput_TrySearchingFor">
+    <value>Skúste hľadať...</value>
+  </data>
+  <data name="Search_NoResults_Description">
+    <value>Skúste iné kľúčové slovo.</value>
+  </data>
+  <data name="Search_NoResults_Title">
+    <value>Neboli nájdené žiadne výsledky</value>
+  </data>
+  <data name="Server">
+    <value>Server</value>
+  </data>
+  <data name="Server_Fastest">
+    <value>Najrýchlejší server</value>
+  </data>
+  <data name="Server_Fastest_Free">
+    <value>Najrýchlejší bezplatný server</value>
+  </data>
+  <data name="Server_Feature_B2B">
+    <value>Brána</value>
+  </data>
+  <data name="Server_Feature_B2B_Description">
+    <value>Pristupujte k serverom svojej organizácie</value>
+  </data>
+  <data name="Server_Feature_None">
+    <value>Štandardná</value>
+  </data>
+  <data name="Server_Feature_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Server_Feature_P2P_Description">
+    <value>Optimalizované pre Torrent</value>
+  </data>
+  <data name="Server_Feature_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Server_Feature_SecureCore_Description">
+    <value>Dvojnásobná ochrna</value>
+  </data>
+  <data name="Server_Feature_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Server_Free">
+    <value>Bezplatný server</value>
+  </data>
+  <data name="Server_Random">
+    <value>Náhodný server</value>
+  </data>
+  <data name="Servers">
+    <value>Servery</value>
+  </data>
+  <data name="Settings_About_Changelog">
+    <value>Denník zmien</value>
+  </data>
+  <data name="Settings_About_CurrentVersion">
+    <value>Sučasná verzia</value>
+  </data>
+  <data name="Settings_About_FailedToFetch">
+    <value>Získanie informácií z hlásenia o zmene sa nepodarilo.</value>
+  </data>
+  <data name="Settings_About_LearnMore">
+    <value>Zistiť viac</value>
+  </data>
+  <data name="Settings_About_Licensing">
+    <value>Licencovanie</value>
+  </data>
+  <data name="Settings_About_Loading">
+    <value>Načítavanie</value>
+  </data>
+  <data name="Settings_About_Title">
+    <value>O aplikácii</value>
+  </data>
+  <data name="Settings_Account_Account">
+    <value>Účet</value>
+  </data>
+  <data name="Settings_Account_Exit">
+    <value>Ukončiť aplikáciu</value>
+  </data>
+  <data name="Settings_Account_SignOut">
+    <value>Odhlásiť sa</value>
+  </data>
+  <data name="Settings_AppVersion">
+    <value>Verzia aplikácie</value>
+  </data>
+  <data name="Settings_Censorship_Footer">
+    <value>Tieto štatistiky neobsahujú vašu IP adresu a nemôžu byť použité na vašu identifikáciu. Nikdy ich nebudeme zdieľať s tretími stranami.</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports">
+    <value>Zdieľať anonymné hlásenia o zlyhaní</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports_Description">
+    <value>Hlásenia o pádoch nám pomáhajú opravovať chyby, detekovať firewally a vyhýbať sa blokovaniu VPN.</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics">
+    <value>Zdieľať anonymné štatistiky používania</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics_Description">
+    <value>Údaje o používaní nám pomáhajú obchádzať blokovanie VPN a vylepšovať výkon aplikácie.</value>
+  </data>
+  <data name="Settings_Common_Apply">
+    <value>Použiť</value>
+    <comment>Apply action. Used to apply changes made on a settings page</comment>
+  </data>
+  <data name="Settings_Common_IpAddresses_AlreadyExists">
+    <value>Adresa už bola pridaná</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Invalid">
+    <value>Zadajte platnú IPv4 alebo IPv6 adresu</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Watermark">
+    <value>192.0.2.0</value>
+    <comment>Watermark for the IP Address field in the Custom DNS servers settings page</comment>
+  </data>
+  <data name="Settings_Connection">
+    <value>Pripojenie</value>
+  </data>
+  <data name="Settings_Connection_AdvancedSettings">
+    <value>Pokročilé nastavenia</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting">
+    <value>Alternatívne smerovanie</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting_Description">
+    <value>Ak služby spoločnosti Proton zablokuje váš poskytovateľ siete, pokúsime sa vás pripojiť na našu stránku pomocou alternatívneho sieťového smerovania.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers">
+    <value>Vlastné servery DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_AddNew">
+    <value>Pridať nový DNS server</value>
+    <comment>Label above an input field where users can enter a new DNS server IP address.</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Description">
+    <value>Pri pripájaní k vlastnému serveru DNS nebudete môcť používať službu NetShield.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Title">
+    <value>Povolenie vlastných serverov DNS?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Description">
+    <value>Pripojte sa k Proton VPN pomocou vlastného systému doménových mien (DNS). Používajte iba DNS servery, ktorým dôverujete.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Footer">
+    <value>Pokúsime sa pripojiť k týmto serverom v uvedenom poradí. Ak žiadny z nich nebude fungovať, použije sa predvolený DNS Proton VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_FormattedHeader">
+    <value>DNS servery ({0})</value>
+    <comment>Header for the list of Custom DNS servers defined. {0} is a placeholder for the number of DNS servers in the list. (eg. "DNS servers (4)")</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Header">
+    <value>DNS servery</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Select">
+    <value>Vyberte DNS servery</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6">
+    <value>IPv6 podpora</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection">
+    <value>Ochrana proti úniku IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection_Description">
+    <value>Zabraňuje úniku údajov blokovaním prevádzky IPv6, ktorá neprechádza cez VPN tunel.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6_Description">
+    <value>Umožňuje prechod IPv6 prevádzky cez VPN tunel. Tým sa zlepšuje kompatibilita s webovými stránkami a službami IPv6.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections">
+    <value>Povoliť pripojenie k sieti LAN</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_Description">
+    <value>Umožňuje pripojiť tlačiarne, reproduktory a ďalšie zariadenia vo vašej lokálnej sieti.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Description">
+    <value>Používa mDNS na pripojenie k zariadeniam pomocou mien ako „Moja tlačiareň“ alebo „router.local“ namiesto IP adries. Štandardný DNS sa naďalej smeruje cez tunel VPN. V predvolenom nastavení je vypnutý, aby bola rýchlosť VPN vyššia.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Title">
+    <value>Prístup k zariadeniam podľa názvu</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType">
+    <value>Typ NAT</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Description">
+    <value>S funkciou Moderate NAT nebudete môcť používať presmerovanie portov.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Title">
+    <value>Povoliť Moderate NAT?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Description">
+    <value>Vyberte typ prekladu sieťových adries vášho pripojenia.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate">
+    <value>Stredný (typ 2)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate_Description">
+    <value>Niektoré obmedzenia dát vstupujúcich do vašej siete. Táto voľba je najlepšia pre hranie online video hier.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict">
+    <value>Prísny (typ 3)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict_Description">
+    <value>Obmedzuje dáta vstupujúce do vašej siete. Táto voľba je bezpečnejšia, ale môže skomplikovať pripojenie k hrám typu peer-to-peer.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tap">
+    <value>Smeruje sieťovú prevádzku. Je pomalší ako TUN, ale nevyhnutný pre niektoré staršie alebo špeciálne sieťové konfigurácie.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tun_Description">
+    <value>Smeruje prevádzku medzi rôznymi sieťami. TUN môže byť rýchlejší a stabilnejší ako TAP.</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences">
+    <value>Preferencie pripojenia</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences_Description">
+    <value>Predvolené pripojenie a vylúčené lokality</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenDisabled">
+    <value>Vlastná DNS sa nedá zapnúť, pretože máte aktívne pripojenie k profilu so zapnutou funkciou NetShield.</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenEnabled">
+    <value>Vlastná DNS je vypnutá, pretože aktuálne máte aktívne pripojenie k profilu so zapnutou funkciou NetShield.</value>
+  </data>
+  <data name="Settings_Connection_Default">
+    <value>Predvolené pripojenie</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest">
+    <value>Najrýchlejšia krajina</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest_Description">
+    <value>Najlepší server na základe vašej polohy</value>
+  </data>
+  <data name="Settings_Connection_Default_Last">
+    <value>Posledné pripojenie</value>
+  </data>
+  <data name="Settings_Connection_Default_Last_Description">
+    <value>Vaše naposledy použité pripojenie</value>
+  </data>
+  <data name="Settings_Connection_Default_Random">
+    <value>Náhodná krajina</value>
+  </data>
+  <data name="Settings_Connection_Default_Random_Description">
+    <value>Pri každom pripojení iný server</value>
+  </data>
+  <data name="Settings_Connection_Default_Recents">
+    <value>Nedávne</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations">
+    <value>Vylúčené lokality</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Cities">
+    <value>Mestá</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Countries">
+    <value>Krajiny</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Description">
+    <value>Vybrané lokality sa nikdy nebudú používať, keď sa pripojíte k Najrýchlejšiemu alebo Náhodnému.</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_NoLocations">
+    <value>Žiadne lokality k dispozícii</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Search">
+    <value>Vyberte...</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_States">
+    <value>Štáty</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch">
+    <value>Kill switch</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced">
+    <value>Pokročilé</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced_Description">
+    <value>Povoľte prístup k internetu iba pri pripojení k Proton VPN. Pokročilý Kill Switch zostane aktívny, aj keď reštartujete zariadenie.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Description">
+    <value>Chráni vašu IP adresu tým, že vás odpojí od internetu, pokiaľ je prerušené pripojenie k VPN.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard">
+    <value>Štandardný</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard_Description">
+    <value>Automatické odpojenie od internetu v prípade straty spojenia s VPN.</value>
+  </data>
+  <data name="Settings_Connection_NetShield">
+    <value>NetShield</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackers">
+    <value>Blokovať reklamy, sledovače a malvér</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackersAdultContent">
+    <value>Blokovať reklamy, sledovače, malvér a obsah pre dospelých</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockMalwareOnly">
+    <value>Blokovať iba malvér</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Description">
+    <value>Ak je povolený NetShield, nebudete sa môcť pripojiť pomocou vlastného DNS servera.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Information">
+    <value>NetShield nie je kompatibilný s vlastným DNS.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Title">
+    <value>Povoliť NetShield?</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Description">
+    <value>Chráňte svoje prehliadanie na webových stránkach a v aplikáciách.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Footer">
+    <value>Niektoré webové lokality sa po zablokovaní reklám a sledovacích zariadení nemusia načítať správne.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_PrivacyPanel">
+    <value>Panel súkromia NetShield</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding">
+    <value>Presmerovanie portu</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort">
+    <value>Číslo aktívneho portu:</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort_Copy">
+    <value>Kopírovať číslo portu</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Description">
+    <value>Ak je povolené presmerovanie portov, nebudete môcť používať Moderate NAT.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Title">
+    <value>Povoliť presmerovanie portov?</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Description">
+    <value>Zlepšuje rýchlosť sťahovania torrentov a hranie hier tým, že umožňuje priame P2P pripojenia cez určený port.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Footer">
+    <value>Ak chcete použiť presmerovanie portov, pripojte sa k serveru, ktorý podporuje P2P.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_LastChanged">
+    <value>Naposledy zmenené: {0}</value>
+    <comment>Indicates when the active port was changed for the last time. {0} is a placeholder for the time. (eg. "Last changed: 5 minutes ago" or "Last changed: May 20, at 14:32")</comment>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Loading">
+    <value>Načítavanie...</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications">
+    <value>Notifikácie</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications_Description">
+    <value>Nechajte si zaslať upozornenie, keď sa zmení číslo vášho aktívneho portu.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Unavailable">
+    <value>Nedostupné</value>
+  </data>
+  <data name="Settings_Connection_Protocol">
+    <value>Protokol</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling">
+    <value>Split tunneling</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Description">
+    <value>Vyberte aplikácie, ktoré budú vylúčené z VPN pripojenia</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_FormattedHeader">
+    <value>Vylúčené aplikácie ({0})</value>
+    <comment>Header for the list of apps to exclude for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Excluded apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Header">
+    <value>Vylúčené aplikácie</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_FilesFilterName">
+    <value>Súbory aplikácie</value>
+    <comment>Describe the name of the filter used to select executable files in the Open file dialog</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Description">
+    <value>Vyberte aplikácie, ktoré budú zahrnuté do VPN pripojenia</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_FormattedHeader">
+    <value>Zahrnuté aplikácie ({0})</value>
+    <comment>Header for the list of apps to include for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Included apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Header">
+    <value>Zahrnuté aplikácie</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Select">
+    <value>Vyberte aplikácie</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Description">
+    <value>Prispôsobte si pripojenie tým, že sa rozhodnete, ktoré aplikácie a IP adresy budú chránené pomocou VPN.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse">
+    <value>Režim zahrnutia</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Description">
+    <value>Cez VPN sa pripájajú len vybrané aplikácie a IP adresy, všetka ostatná prevádzka je nechránená.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Short">
+    <value>Zahrnúť</value>
+    <comment>Shorter version (if possible) of "Include mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_AddNew">
+    <value>Pridať novú IPv4 alebo IPv6 adresu</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Description">
+    <value>Vyberte IP adresy, ktoré budú vylúčené z VPN pripojenia</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_FormattedHeader">
+    <value>Vylúčené IP adresy ({0})</value>
+    <comment>Header for the list of IP addresses to exclude for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Excluded IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Header">
+    <value>Vylúčené IP adresy</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Description">
+    <value>Vyberte IP adresy, ktoré budú zahrnuté do VPN pripojenia</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_FormattedHeader">
+    <value>Zahrnuté IP adresy ({0})</value>
+    <comment>Header for the list of IP addresses to include for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Included IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Header">
+    <value>Zahrnuté IP adresy</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Select">
+    <value>Vyberte IP adresy</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard">
+    <value>Režim vylúčenia</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Description">
+    <value>Vybrané aplikácie a IP adresy sú vylúčené z vášho VPN pripojenia.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Short">
+    <value>Vylúčiť</value>
+    <comment>Shorter version (if possible) of "Exclude mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_VpnAccelerator">
+    <value>VPN Accelerator</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Action">
+    <value>Zahodiť zmeny</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Cancel">
+    <value>Pokračovať v úpravách</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Title">
+    <value>Zmazať neuložené zmeny?</value>
+  </data>
+  <data name="Settings_General">
+    <value>Všeobecné</value>
+  </data>
+  <data name="Settings_General_AutoStartup">
+    <value>Automatické spustenie</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect">
+    <value>Automatické pripojenie</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect_Description">
+    <value>Po otvorení služby Proton VPN sa automaticky pripojí k vášmu predvolenému pripojeniu.</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch">
+    <value>Automatické spustenie</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Description">
+    <value>Proton VPN sa automaticky spustí, akonáhle sa prihlásite do svojho zariadenia</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Desktop">
+    <value>Otvoriť na ploche</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_SystemTray">
+    <value>Minimalizovať do systémovej lišty</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Taskbar">
+    <value>Minimalizovať do panelu úloh</value>
+  </data>
+  <data name="Settings_General_AutoStartup_Description">
+    <value>Nastavte automatické spúšťanie alebo pripájanie aplikácie.</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates">
+    <value>Automatické aktualizácie</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates_Description">
+    <value>Automatická kontrola a inštalácia aktualizácií Proton VPN.</value>
+  </data>
+  <data name="Settings_General_BetaAccess">
+    <value>Beta prístup</value>
+  </data>
+  <data name="Settings_General_BetaAccess_Description">
+    <value>Získajte predbežný prístup a pomôžte nám testovať nové verzie Proton VPN.</value>
+  </data>
+  <data name="Settings_General_Language">
+    <value>Jazyk</value>
+  </data>
+  <data name="Settings_General_Notifications">
+    <value>Notifikácie</value>
+  </data>
+  <data name="Settings_General_Notifications_Description">
+    <value>Nechajte sa upozorniť na zmeny stavu pripojenia.</value>
+  </data>
+  <data name="Settings_General_OpenVpnNetworkDriver">
+    <value>Sieťový ovládač OpenVPN</value>
+  </data>
+  <data name="Settings_General_Theme">
+    <value>Vzhľad</value>
+  </data>
+  <data name="Settings_Improve">
+    <value>Vylepšite Proton</value>
+  </data>
+  <data name="Settings_Improve_Censorship">
+    <value>Pomôžte nám bojovať s cenzúrou</value>
+  </data>
+  <data name="Settings_OperatingSystemVersion">
+    <value>Verzia operačného systému</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description1">
+    <value>Toto nastavenie je spojené s vaším aktívnym profilom.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description2">
+    <value>Upravte svoj profil a vykonajte zmeny alebo sa odpojte a upravte všeobecné nastavenia VPN.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Tagline">
+    <value>Tieto nastavenia sú spojené s profilom "{0}" a možno ich spravovať len v Profiloch.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Settings_OverriddenByProfile_Title">
+    <value>Spravovať {0} v Profiloch</value>
+    <comment>{0} is a placeholder for the name of the settings being overridden by the profile. (eg. Manage NetShield in Profiles)</comment>
+  </data>
+  <data name="Settings_Page_Title">
+    <value>Nastavenia</value>
+  </data>
+  <data name="Settings_Protocols_Explanation">
+    <value>VPN protokol určuje spôsob prenosu dát medzi VPN serverom a vaším zariadením.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Description">
+    <value>Zavedený, dobre otestovaný a bezpečný. OpenVPN je spoľahlivý v zlých sieťových podmienkach, ale nemusí byť tak rýchly ako iné protokoly.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Description">
+    <value>Zavedený, dobre otestovaný a bezpečný. Oproti iným protokolom je OpenVPN menej energeticky úsporný.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Description">
+    <value>Náš nový systém založený na WireGuard, ktorý prináša vyššiu stabilitu, funkčnosť a odolnosť voči cenzúre.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Description">
+    <value>Náš nový systém založený na WireGuard, ktorý prináša vyššiu stabilitu, funkčnosť a odolnosť voči cenzúre.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Title">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Description">
+    <value>Náš nový systém založený na WireGuard, ktorý prináša vyššiu stabilitu, funkčnosť a odolnosť voči cenzúre.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Description">
+    <value>Použite vlastnú implementáciu WireGuard od Proton VPN. Ide o experimentálnu funkciu, takže sa môže vyskytnúť určitá nestabilita.</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Title">
+    <value>Proton protokoly</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Description">
+    <value>Automaticky vyberie najlepší protokol pre vaše pripojenie.</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Title">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_Protocols_TcpCategory">
+    <value>Spoľahlivosť (TCP)</value>
+  </data>
+  <data name="Settings_Protocols_UdpCategory">
+    <value>Rýchlosť (UDP)</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Description">
+    <value>Najmodernejší protokol z hľadiska bezpečnosti a výkonu.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Description">
+    <value>Prekonáva blokovanie VPN tým, že skrýva pripojenie VPN pred cenzormi. Stealth je odolný proti DPI (hĺbkovej kontrole paketov), ​​ale nemusí byť tak rýchly ako iné protokoly.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Title">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Description">
+    <value>Najmodernejší protokol z hľadiska bezpečnosti a výkonu.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Reconnection_Title">
+    <value>Znovu sa pripojte, aby sa zmeny použili</value>
+  </data>
+  <data name="Settings_RestoreDefault">
+    <value>Obnoviť východzie nastavenia</value>
+  </data>
+  <data name="Settings_RestoreDefaultAndReconnect_Confirmation_Action">
+    <value>Obnoviť a znova pripojiť</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Action">
+    <value>Obnoviť východzie nastavenia</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Message">
+    <value>Týmto resetujete nastavenie Proton VPN do pôvodného stavu.</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Title">
+    <value>Obnoviť východzie nastavenia?</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnTcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnUdp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunUdp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTls">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardUdp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_Support">
+    <value>Podpora</value>
+  </data>
+  <data name="Settings_Support_DebugLogs">
+    <value>Záznamy o chybách</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Application">
+    <value>Logy aplikácie</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_ErrorMessage">
+    <value>Priečinok s logmi sa nepodarilo nájsť.</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Service">
+    <value>Servisné logy</value>
+  </data>
+  <data name="Settings_Support_ReportIssue">
+    <value>Nahlásiť problém</value>
+  </data>
+  <data name="Settings_Support_SupportCenter">
+    <value>Centrum podpory</value>
+  </data>
+  <data name="Settings_Theme_Dark">
+    <value>Tmavá</value>
+  </data>
+  <data name="Settings_Theme_Default">
+    <value>Predvolená</value>
+  </data>
+  <data name="Settings_Theme_Light">
+    <value>Svetlá</value>
+  </data>
+  <data name="Settings_VpnAccelerator_Description">
+    <value>Zvýšte rýchlosť vášho pripojenia až o 400% pomocou technológií zvyšujúcich výkon.</value>
+  </data>
+  <data name="SignIn_Form_AdvancedKillSwitchDescription">
+    <value>Pokročilý Kill Switch blokuje vaše pripojenie k internetu.</value>
+  </data>
+  <data name="SignIn_Form_BestSecureVpnForSpeed">
+    <value>Najlepšia bezpečná VPN pre rýchlosť</value>
+  </data>
+  <data name="SignIn_Form_CreateAccount">
+    <value>Vytvoriť účet</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_Description">
+    <value>Zadajte detaily vášho účtu Proton.</value>
+  </data>
+  <data name="SignIn_Form_DisableKillSwitch">
+    <value>Zakázať kill switch</value>
+  </data>
+  <data name="SignIn_Form_Email">
+    <value>Email</value>
+  </data>
+  <data name="SignIn_Form_ForgotUsername">
+    <value>Zabudnuté užívateľské meno</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_Help">
+    <value>Nápoveda</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_NoLogsPolicy">
+    <value>Politika žiadnych logov</value>
+  </data>
+  <data name="SignIn_Form_OpenSource">
+    <value>Open-source</value>
+  </data>
+  <data name="SignIn_Form_Password">
+    <value>Heslo</value>
+  </data>
+  <data name="SignIn_Form_PasswordError">
+    <value>Zadajte svoje heslo</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a password</comment>
+  </data>
+  <data name="SignIn_Form_ReportAnIssue">
+    <value>Nahlásiť problém</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_ResetPassword">
+    <value>Zabudol/la som heslo</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_SignIn">
+    <value>Prihlásiť sa</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_SignInWithSso">
+    <value>Prihláste sa pomocou SSO</value>
+  </data>
+  <data name="SignIn_Form_SwissBased">
+    <value>So sídlom vo Švajčiarsku</value>
+  </data>
+  <data name="SignIn_Form_Title">
+    <value>Prihlásiť sa</value>
+  </data>
+  <data name="SignIn_Form_TroubleSigningIn">
+    <value>Centrum podpory</value>
+    <comment>A button at the bottom of the login window inside Get help popup</comment>
+  </data>
+  <data name="SignIn_Form_Username">
+    <value>Email alebo užívateľské meno</value>
+  </data>
+  <data name="SignIn_Form_UsernameError">
+    <value>Zadajte email alebo užívateľské meno</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a username</comment>
+  </data>
+  <data name="SignIn_KillSwitch_Disabled">
+    <value>Kill Switch je deaktivovaný</value>
+  </data>
+  <data name="State_Fastest">
+    <value>Najrýchlejší v štáte</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="State_Random">
+    <value>Náhodná krajina</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="SystemNotification_Connected">
+    <value>Teraz ste chránený</value>
+  </data>
+  <data name="SystemNotification_ConnectedTo">
+    <value>Pripojené k {0}.</value>
+    <comment>{0} is a placeholder for a country and server name (eg. Connected to Netherlands #342342).</comment>
+  </data>
+  <data name="SystemNotification_Disconnected">
+    <value>Odpojené</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Description">
+    <value>Odomknite torrenting a online hranie hier cez P2P (peer-to-peer) protokoly s platenými VPN servermi.</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Title">
+    <value>P2P nie je k dispozícii s VPN Free</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Description">
+    <value>Niektoré webové stránky a streamovacie služby blokujú používateľov bezplatných VPN. Prejdite na Proton VPN Plus, aby ste tieto bloky obišli.</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Title">
+    <value>Blokovaná webová stránka?</value>
+  </data>
+  <data name="System_Tray_Actions_Connect">
+    <value>Pripojiť</value>
+  </data>
+  <data name="System_Tray_Actions_Disconnect">
+    <value>Odpojiť</value>
+  </data>
+  <data name="System_Tray_Actions_ExitApplication">
+    <value>Skončiť</value>
+  </data>
+  <data name="System_Tray_Actions_OpenApplication">
+    <value>Otvoriť {0}</value>
+    <comment>Button displayed in the tray icon to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_ExitApplication">
+    <value>Skončiť</value>
+  </data>
+  <data name="Tray_Actions_OpenApplication">
+    <value>Otvoriť {0}</value>
+    <comment>Button displayed in the tray window to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_OpenApplicationToSignIn">
+    <value>Otvoriť aplikáciu pre prihlásenie</value>
+  </data>
+  <data name="Unit_BytesPerSecond">
+    <value>B/s</value>
+    <comment>Unit for Bytes per second</comment>
+  </data>
+  <data name="Unit_ExabytesPerSecond">
+    <value>EB/s</value>
+    <comment>Unit for Exabytes per second</comment>
+  </data>
+  <data name="Unit_GigabytesPerSecond">
+    <value>GB/s</value>
+    <comment>Unit for Gigabytes per second</comment>
+  </data>
+  <data name="Unit_KilobytesPerSecond">
+    <value>KB/s</value>
+    <comment>Unit for Kilobytes per second</comment>
+  </data>
+  <data name="Unit_MegabytesPerSecond">
+    <value>MB/s</value>
+    <comment>Unit for Megabytes per second</comment>
+  </data>
+  <data name="Unit_PetabytesPerSecond">
+    <value>PB/s</value>
+    <comment>Unit for Petabytes per second</comment>
+  </data>
+  <data name="Unit_TerabytesPerSecond">
+    <value>TB/s</value>
+    <comment>Unit for Terabytes per second</comment>
+  </data>
+  <data name="UpsellBanner_P2P_Description">
+    <value>Sťahujte súbory cez BitTorrent a iné protokoly na zdieľanie súborov.</value>
+  </data>
+  <data name="UpsellBanner_P2P_Title">
+    <value>Podpora P2P</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Description">
+    <value>Aktualizujte a vyberte si ľubovoľný server.</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Title">
+    <value>Nie je to krajina, ktorú ste chceli?</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings">
+    <value>Odomknite pokročilé prispôsobenie VPN</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_DNS">
+    <value>Pripojte sa k VPN s vaším vlastným systémom doménových mien (DNS)</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_LAN">
+    <value>Pristupujte k zariadeniam v lokálnej sieti (LAN) počas pripojenia</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_ModerateNAT">
+    <value>Zlepšite svoje herné zážitky prechodom na typ NAT 2 (mierny)</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices">
+    <value>Pripojte až 10 zariadení súčasne</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms">
+    <value>Využite službu Proton VPN na rôznych platformách</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Android">
+    <value>Android a Android TV</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Browser">
+    <value>Prehliadač</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Linux">
+    <value>Linux</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_MacOS">
+    <value>macOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Windows">
+    <value>Windows</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_iOS">
+    <value>iOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Privacy">
+    <value>Bezpečnosť a súkromie na všetkých vašich zariadeniach</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield">
+    <value>Užívajte si prehliadanie bez reklám</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Block">
+    <value>Blokujte reklamy a malvér s NetShieldom</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Protection">
+    <value>Ochrana vášho zariadenia pred malvérom</value>
+  </data>
+  <data name="Upsell_Carousel_P2P">
+    <value>Odomknite sťahovanie peer-to-peer (P2P) a zdieľanie súborov</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Discretion">
+    <value>Skryte svoju IP adresu pred poskytovateľom služieb a partnermi</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_PortForwarding">
+    <value>Zvýšte rýchlosť P2P pomocou presmerovania portov</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Speed">
+    <value>Zvýšená rýchlosť odosielania a sťahovania</value>
+  </data>
+  <data name="Upsell_Carousel_Platforms_More">
+    <value>+ ďalších</value>
+    <comment>This label indicates that there are more platforms available than the ones listed. The plus sign is important.</comment>
+  </data>
+  <data name="Upsell_Carousel_Profiles">
+    <value>Získajte rýchly prístup k najčastejším pripojeniam</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Convenience">
+    <value>Nastavte profil ako predvolené pripojenie a pripojte sa 1 kliknutím</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Creation">
+    <value>Vytvárajte a ukladajte vlastné nastavenia VPN pomocou profilov</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Customization">
+    <value>Prispôsobte si umiestnenie, protokol a nastavenia</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore">
+    <value>Pridajte ďalšiu úroveň ochrany k vášmu pripojeniu</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Encryption">
+    <value>Zdvojnásobte šifrovanie pomocou Secure Core</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Protection">
+    <value>Chráňte sa pred sieťovými útokmi</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Routing">
+    <value>Smerovanie cez mimoriadne zabezpečené servery vo Švajčiarsku, Švédsku a Islande</value>
+  </data>
+  <data name="Upsell_Carousel_Speed">
+    <value>Prehliadajte ešte vyššou rýchlosťou</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Acceleration">
+    <value>Prehliadajte až o 400 % rýchlejšie s VPN Acceleratorom</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Access">
+    <value>Získajte prístup k rýchlejším, menej vyťaženým serverom</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Traffic">
+    <value>Získajte rýchlosti pripojenia až do 10 Gbps</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling">
+    <value>Získajte to najlepšie z oboch svetov</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Browsing">
+    <value>Prehľadávanie z dvoch miest naraz pomocou rozdeleného tunelovania</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Configuration">
+    <value>Umožnite dôveryhodným aplikáciám a IP adresám priame pripojenie na internet a zároveň chráňte všetko ostatné pomocou siete VPN.</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming">
+    <value>Pozerajte vaše obľúbené filmy a televízne relácie</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Access">
+    <value>Získajte prístup ku geograficky blokovanej televízii a filmom odkiaľkoľvek na svete</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_BBC">
+    <value>BBC iPlayer</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Disney">
+    <value>Disney+</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_HBO">
+    <value>HBO Max</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Netflix">
+    <value>Netflix</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_PrimeVideo">
+    <value>Amazon Prime Video</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Speed">
+    <value>Pozerajte v 4K rozlíšení bez bufferingu, spomalenia alebo throttlingu</value>
+  </data>
+  <data name="Upsell_Carousel_Title">
+    <value>Objavte VPN Plus</value>
+  </data>
+  <data name="Upsell_Carousel_Tor">
+    <value>Pre dosiahnutie väčšieho súkromia využite prístup k sieti Tor</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Access">
+    <value>Pristupujte k skrytým webom a "onion" webom</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Browsing">
+    <value>Prezerajte sieť Tor pomocou bežného prehliadača</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Protection">
+    <value>Chráňte svoje osobné údaje počas prehliadania</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage">
+    <value>Prístup cez {0} v {1}</value>
+    <comment>Title for the worldwide coverage upsell feature page. {0} is a placeholder for the number of servers (eg. 100 secure servers) and {1} for the number of countries available (eg. 60 countries).</comment>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Censorship">
+    <value>Obchádzajte cenzúru pomocou pokročilých funkcií zabezpečenia</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_One">
+    <value>{0} krajina</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Few">
+    <value>{0} krajiny</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Many">
+    <value>{0} krajín</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Other">
+    <value>{0} krajín</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Features">
+    <value>Bezpečné streamovanie, torrentovanie a ďalšie</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Selection">
+    <value>Vyberte akúkoľvek krajinu z našej celosvetovej siete.</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_One">
+    <value>{0} bezpečný server</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Few">
+    <value>{0} bezpečné servery</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Many">
+    <value>{0} bezpečných serverov</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Other">
+    <value>{0} bezpečných serverov</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp_Description">
+    <value>Zavedený, dobre otestovaný a bezpečný</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp_Description">
+    <value>Zavedený, dobre otestovaný a bezpečný</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp_Description">
+    <value>Najmodernejší protokol z hľadiska bezpečnosti a výkonu</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls_Description">
+    <value>Prekonanie blokovania VPN ukrytím pripojenia pred cenzormi</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp_Description">
+    <value>Najmodernejší protokol z hľadiska bezpečnosti a výkonu</value>
+  </data>
+  <data name="VpnProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp_Description">
+    <value>Najmodernejší protokol pre zabezpečenie a výkon</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls">
+    <value>Stealth</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls_Description">
+    <value>Prekonanie blokovania VPN ukrytím pripojenia pred cenzormi</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp_Description">
+    <value>Najmodernejší protokol pre zabezpečenie a výkon</value>
+  </data>
+</root>

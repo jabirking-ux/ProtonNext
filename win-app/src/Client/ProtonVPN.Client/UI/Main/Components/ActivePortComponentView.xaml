@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2025 Proton AG
+
+This file is part of ProtonVPN.
+
+ProtonVPN is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProtonVPN is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<UserControl x:Class="ProtonVPN.Client.UI.Main.Components.ActivePortComponentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:custom="using:ProtonVPN.Client.Common.UI.Controls.Custom"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:icons="using:ProtonVPN.Client.Common.UI.Assets.Icons"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pathicons="using:ProtonVPN.Client.Common.UI.Assets.Icons.PathIcons"
+             xmlns:triggers="using:CommunityToolkit.WinUI"
+             x:DefaultBindMode="OneWay"
+             mc:Ignorable="d">
+
+    <Grid x:Name="ContentContainer"
+          HorizontalAlignment="Stretch">
+        
+        <Border x:Name="CondensedActivePortContainer"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Visibility="Collapsed">
+            <custom:GhostButton Padding="2,0"
+                                AutomationProperties.AutomationId="CopyPortNumberStandardButton"
+                                AutomationProperties.Name="{x:Bind ViewModel.Localizer.Get('Settings_Connection_PortForwarding_ActivePort_Copy')}"
+                                Command="{x:Bind ViewModel.CopyPortNumberCommand, Mode=OneTime}"
+                                Content="{x:Bind ViewModel.Header}"
+                                ToolTipService.ToolTip="{x:Bind ViewModel.Localizer.Get('Settings_Connection_PortForwarding_ActivePort_Copy')}"
+                                Visibility="{x:Bind ViewModel.HasActivePortNumber, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Border>
+
+        <Grid x:Name="CompactActivePortContainer"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Visibility="Visible"
+              ColumnSpacing="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"
+                  VerticalAlignment="Center">
+                <pathicons:CircleSlash Size="Pixels16"
+                                       Foreground="{ThemeResource TextWeakColorBrush}"
+                                       Visibility="{x:Bind ViewModel.IsPortUnavailable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <icons:ActivePortNumber Visibility="{x:Bind ViewModel.HasActivePortNumber, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <ProgressRing Width="16"
+                              Height="16"
+                              IsActive="{x:Bind ViewModel.IsFetchingPort}"
+                              Visibility="{x:Bind ViewModel.IsFetchingPort, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            </Grid>
+
+            <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                       Foreground="{ThemeResource TextWeakColorBrush}"
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       Text="{x:Bind ViewModel.Header}"
+                       Visibility="{x:Bind ViewModel.IsPortUnavailable, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            <custom:GhostButton Grid.Column="1"
+                                Padding="2,0"
+                                AutomationProperties.AutomationId="CopyPortNumberCondensedButton"
+                                AutomationProperties.Name="{x:Bind ViewModel.Localizer.Get('Settings_Connection_PortForwarding_ActivePort_Copy')}"
+                                Command="{x:Bind ViewModel.CopyPortNumberCommand, Mode=OneTime}"
+                                Content="{x:Bind ViewModel.Header}"
+                                ToolTipService.ToolTip="{x:Bind ViewModel.Localizer.Get('Settings_Connection_PortForwarding_ActivePort_Copy')}"
+                                Visibility="{x:Bind ViewModel.HasActivePortNumber, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <custom:GhostButton.RightIcon>
+                    <pathicons:Squares Size="Pixels16" />
+                </custom:GhostButton.RightIcon>
+            </custom:GhostButton>
+
+        </Grid>
+
+        <StackPanel x:Name="StandardActivePortContainer"
+                    HorizontalAlignment="Left"
+                    Orientation="Vertical"
+                    Visibility="Collapsed"
+                    Spacing="8">
+
+            <TextBlock Foreground="{ThemeResource TextWeakColorBrush}"
+                       Style="{ThemeResource CaptionStrongTextBlockStyle}"
+                       Text="{x:Bind ViewModel.Localizer.Get('Flyouts_PortForwarding_ActivePort')}" />
+
+            <Grid ColumnSpacing="8">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="0"
+                      VerticalAlignment="Center">
+                    <pathicons:CircleSlash Size="Pixels16"
+                                           Foreground="{ThemeResource TextWeakColorBrush}"
+                                           Visibility="{x:Bind ViewModel.IsPortUnavailable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <icons:ActivePortNumber Visibility="{x:Bind ViewModel.HasActivePortNumber, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <ProgressRing Width="16"
+                                  Height="16"
+                                  IsActive="{x:Bind ViewModel.IsFetchingPort}"
+                                  Visibility="{x:Bind ViewModel.IsFetchingPort, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </Grid>
+
+                <StackPanel Grid.Row="0"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="4">
+                    <TextBlock VerticalAlignment="Center"
+                               Style="{ThemeResource BodyLargeStrongTextBlockStyle}"
+                               Text="{x:Bind ViewModel.Header}" />
+                    <custom:GhostButton Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        AutomationProperties.AutomationId="CopyPortNumberCompactButton"
+                                        AutomationProperties.Name="{x:Bind ViewModel.Localizer.Get('Settings_Connection_PortForwarding_ActivePort_Copy')}"
+                                        Command="{x:Bind ViewModel.CopyPortNumberCommand, Mode=OneTime}"
+                                        ToolTipService.ToolTip="{x:Bind ViewModel.Localizer.Get('Settings_Connection_PortForwarding_ActivePort_Copy')}"
+                                        Visibility="{x:Bind ViewModel.HasActivePortNumber, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <custom:GhostButton.LeftIcon>
+                            <pathicons:Squares Size="Pixels16" />
+                        </custom:GhostButton.LeftIcon>
+                    </custom:GhostButton>
+                </StackPanel>
+
+                <TextBlock Grid.Row="1"
+                           Grid.Column="1"
+                           Margin="0,2,0,0"
+                           Foreground="{ThemeResource TextWeakColorBrush}"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           Text="{x:Bind ViewModel.LastPortChangeTagline}"
+                           Visibility="{Binding Text, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource NotNullToVisibilityConverter}}" />
+
+            </Grid>
+
+        </StackPanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LayoutMode">
+                <VisualState x:Name="Standard" >
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsCompact, Converter={StaticResource NotBooleanToBooleanConverter}}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CondensedActivePortContainer.Visibility" Value="Collapsed" />
+                        <Setter Target="CompactActivePortContainer.Visibility" Value="Collapsed" />
+                        <Setter Target="StandardActivePortContainer.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Condensed">
+                    <VisualState.StateTriggers>
+                        <triggers:ControlSizeTrigger MaxWidth="{StaticResource SideWidgetTextVisibilitySizeThreshold}"
+                                                     TargetElement="{Binding ElementName=ContentContainer}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CondensedActivePortContainer.Visibility" Value="Visible" />
+                        <Setter Target="CompactActivePortContainer.Visibility" Value="Collapsed" />
+                        <Setter Target="StandardActivePortContainer.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Compact"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+
+</UserControl>

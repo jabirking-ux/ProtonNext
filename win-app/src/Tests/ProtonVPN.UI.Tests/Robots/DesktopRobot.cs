@@ -1,0 +1,133 @@
+﻿/*
+ * Copyright (c) 2026 Proton AG
+ *
+ * This file is part of ProtonVPN.
+ *
+ * ProtonVPN is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * ProtonVPN is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System;
+using System.Linq;
+using System.Threading;
+using FlaUI.UIA3;
+using FlaUI.Core.AutomationElements;
+using NUnit.Framework;
+using ProtonVPN.UI.Tests.TestsHelper;
+
+namespace ProtonVPN.UI.Tests.Robots;
+
+public class DesktopRobot : IDisposable
+{
+    private readonly UIA3Automation _automation = new();
+
+    public DesktopRobot DismissOldToastsIfVisible(TimeSpan? timeout = null)
+    {
+        timeout ??= TimeSpan.FromSeconds(2);
+        try
+        {
+            ToastCapture.DismissToast(_automation, timeout);
+        }
+        catch (TimeoutException)
+        {
+            // Ignore
+        }
+        return this;
+    }
+
+    public DesktopRobot CloseSurvey()
+    {
+        AutomationElement Desktop = _automation.GetDesktop();
+        AutomationElement SurveyWindow = Desktop.FindFirstChild(cf => cf.ByName("Proton VPN - Survey"))!;
+        AutomationElement CloseButton = SurveyWindow!.FindFirstDescendant(cf => cf.ByAutomationId("Close"))!;
+        CloseButton.Click();
+        return this;
+    }
+
+    public class Verifications
+    {
+        private readonly UIA3Automation _automation;
+
+        public Verifications(UIA3Automation automation)
+        {
+            _automation = automation;
+        }
+
+        public Verifications IsWindowTitlePresent(string windowTitlePart)
+        {
+            DateTime timeoutDate = DateTime.UtcNow + TestConstants.ThirtySecondsTimeout;
+            AutomationElement[]? desktopApps = null;
+
+            while (DateTime.UtcNow < timeoutDate)
+            {
+                AutomationElement desktop = _automation.GetDesktop();
+                desktopApps = desktop.FindAllChildren();
+
+                if (desktopApps.Any(e => e.Name != null && e.Name.Contains(windowTitlePart)))
+                {
+                    return this;
+                }
+                Thread.Sleep(TestConstants.FiveSecondsTimeout);
+            }
+
+            var windowNames = desktopApps!.Where(e => e.Name != null && !string.IsNullOrWhiteSpace(e.Name)).Select(e => $"  • {e.Name}").ToList();
+
+            string windowList = windowNames.Any() ? string.Join("\n", windowNames) : " (No windows found)";
+
+            string failureMessage = $"Window with title containing '{windowTitlePart}' was not found after 30 seconds.\nAvailable windows:\n{windowList}";
+
+            Assert.Fail(failureMessage);
+            return this;
+        }
+
+        public Verifications IsToastDisplayed(TimeSpan? timeout = null)
+        {
+            timeout ??= TimeSpan.FromSeconds(8);
+            bool isVisible = ToastCapture.WaitForToastVisible(_automation, timeout.Value);
+            Assert.That(isVisible, Is.True, "Toast notification was not found.");
+            return this;
+        }
+
+        public Verifications IsToastNotDisplayed(TimeSpan? timeout = null)
+        {
+            timeout ??= TimeSpan.FromSeconds(8);
+            bool isVisible = ToastCapture.WaitForToastVisible(_automation, timeout.Value);
+            Assert.That(isVisible, Is.False, "Toast notification was found.");
+            return this;
+        }
+
+        public Verifications DoesToastPortMatchUI(int uiPort, TimeSpan? timeout = null)
+        {
+            timeout ??= TimeSpan.FromSeconds(6);
+            int toastPort = ToastCapture.GetPortFromVisibleToast(_automation, timeout);
+            Assert.That(toastPort, Is.EqualTo(uiPort),
+                $"Port in toast ({toastPort}) does not match port in UI ({uiPort}).");
+            return this;
+        }
+
+        public Verifications DoesToastCopyPortMatchUI(int uiPort, TimeSpan? timeout = null)
+        {
+            int copied = ToastCapture.ClickToastCopyAndGetPort(_automation, timeout);
+            Assert.That(copied, Is.EqualTo(uiPort),
+                $"Copied port from toast ({copied}) does not match port in UI ({uiPort}).");
+            return this;
+        }
+    }
+
+    public void Dispose()
+    {
+        _automation.Dispose();
+    }
+
+    public Verifications Verify => new(this._automation);
+}

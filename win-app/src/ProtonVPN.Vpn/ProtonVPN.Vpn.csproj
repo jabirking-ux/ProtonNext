@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <OutputPath>..\bin\</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="..\GlobalAssemblyInfo.cs">
+            <Link>Properties\GlobalAssemblyInfo.cs</Link>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\IssueReporting\ProtonVPN.IssueReporting.Contracts\ProtonVPN.IssueReporting.Contracts.csproj" />
+        <ProjectReference Include="..\OperatingSystems\NameResolutionPolicyTable\ProtonVPN.OperatingSystems.NRPT.Contracts\ProtonVPN.OperatingSystems.NRPT.Contracts.csproj" />
+        <ProjectReference Include="..\OperatingSystems\Network\ProtonVPN.OperatingSystems.Network.Contracts\ProtonVPN.OperatingSystems.Network.Contracts.csproj" />
+        <ProjectReference Include="..\OperatingSystems\Processes\ProtonVPN.OperatingSystems.Processes.Contracts\ProtonVPN.OperatingSystems.Processes.Contracts.csproj" />
+        <ProjectReference Include="..\OperatingSystems\Services\ProtonVPN.OperatingSystems.Services.Contracts\ProtonVPN.OperatingSystems.Services.Contracts.csproj" />
+        <ProjectReference Include="..\ProtonVPN.Common.Legacy\ProtonVPN.Common.Legacy.csproj" />
+        <ProjectReference Include="..\ProtonVPN.WireGuardDriver\ProtonVPN.WireGuardDriver.csproj" />
+        <ProjectReference Include="..\ProTun\ProtonVPN.ProTun.Contracts\ProtonVPN.ProTun.Contracts.csproj" />
+        <ProjectReference Include="..\ProTun\ProtonVPN.ProTun.Generated\ProtonVPN.ProTun.Generated.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Autofac" />
+        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="System.Collections.Immutable" />
+        <PackageReference Include="System.Formats.Asn1" />
+        <PackageReference Include="System.Management" />
+        <PackageReference Include="System.Runtime.CompilerServices.Unsafe" />
+        <PackageReference Include="System.Text.Json" />
+    </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,41 @@
+//go:build linux
+
+package main
+
+import (
+	"fmt"
+	"github.com/vishvananda/netlink"
+	"github.com/amnezia-vpn/amneziawg-go/tun"
+)
+
+func setupInterface(ifaceName string, addr string, mtu int) error {
+	link, err := netlink.LinkByName(ifaceName)
+	if err != nil {
+		return fmt.Errorf("failed to find link %s: %w", ifaceName, err)
+	}
+
+	ipAddr, err := netlink.ParseAddr(addr)
+	if err != nil {
+		return fmt.Errorf("failed to parse address %s: %w", addr, err)
+	}
+
+	if err := netlink.AddrAdd(link, ipAddr); err != nil {
+		return fmt.Errorf("failed to set address: %w", err)
+	}
+
+	// CreateTUN already asked for this MTU, but the value may have come from the
+	// tunnel config, so apply it here as well to keep both platforms aligned.
+	if err := netlink.LinkSetMTU(link, mtu); err != nil {
+		return fmt.Errorf("failed to set MTU %d: %w", mtu, err)
+	}
+
+	if err := netlink.LinkSetUp(link); err != nil {
+		return fmt.Errorf("failed to bring up link: %w", err)
+	}
+
+	return nil
+}
+
+func setupDNSFirewall(tdev tun.Device, dnsList string) {
+	// Not needed on Linux. Handled via standard routing table and cgroups.
+}

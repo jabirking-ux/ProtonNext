@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""PVPN Next CLI entry point.
+
+The actual implementation lives in the pvpn_cli.cli package:
+  - pvpn_cli/cli/app.py        - argument parser, dispatch, main()
+  - pvpn_cli/cli/commands/     - command implementations
+"""
+
+from pvpn_cli.sentry import init_sentry
+
+init_sentry()
+
+from pvpn_cli.cli.app import main
+
+if __name__ == "__main__":
+    main()

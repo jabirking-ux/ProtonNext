@@ -1,0 +1,608 @@
+include:
+  - project: 'ProtonVPN/qa/test-configuration'
+    ref: master
+    file: '/windows-config.yml'
+
+  - local: '/.gitlab-ci-templates.yml'
+
+  - component: $CI_SERVER_HOST/translations/ci/groups@~latest
+    inputs:
+      stage: deploy
+      before_script_weeklymr: 
+        - git config --global core.autocrlf false
+      projects:
+        - windows-vpn-redesign
+        - windows-vpn-installer
+
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/tools/artifactlift/release-candidate@~latest
+    inputs:
+      product: vpn
+      platform: windows
+      artifact_list: "*"
+      artifact_local_directory: Setup/Installers
+
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/tools/artifactlift/release@~latest
+    inputs:
+      product: vpn
+      platform: windows
+      artifact_list: ""
+      artifact_metadata_path: ""
+      artifact_metadata_list: ""
+
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/devsecops/grype/scan-code@~latest
+    inputs:
+      stage: security
+      cli-args: "-c .grype.yaml"
+      allowed-to-fail: true
+      output-filename: grype-$BUILD_TYPE
+
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/devsecops/gitleaks/scan-repository@~latest
+    inputs:
+      stage: security
+      cli-args: "--no-git"
+      allowed-to-fail: false
+
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/devsecops/gitleaks/create-baseline@~latest
+    inputs:
+      stage: security
+      cli-args: ""
+
+  - component: $CI_SERVER_HOST/proton/devops/cicd-components/community/test-image-asset/generate-image-assets@0.0.3
+    inputs:
+      product: windows_vpn
+      output_path: ./Setup
+      stage: guest-holes
+      allowed-to-fail: false
+
+# Commented because the validator fails since we allow self-approvals even though we require 2 approvers
+#  - component: $CI_SERVER_HOST/proton/devops/cicd-components/devsecops/project-settings-validator/scan-project@~latest
+#    inputs:
+#      stage: security
+#      cli-args: ""
+#      allowed-to-fail: false
+
+variables:
+  PUBLIC_REPO_URL: git@github.com:ProtonVPN/win-app.git
+  SCREENSHOT_PATH: src/bin/e2e/TestFailureData/
+  UI_TEST_REPORT_PATH: src/bin/e2e/TestResults
+  TEST_REPORT_PATH: results/
+  PROJECT_ID: "13"
+  MILESTONE: "Windows"
+  FF_USE_FASTZIP: "true"
+  TRANSFER_METER_FREQUENCY: "2s"
+  ARTIFACT_COMPRESSION_LEVEL: "fastest"
+  CACHE_COMPRESSION_LEVEL: "fastest"
+  NEXUS_GROUP_STABLE: "/Vpn/Windows/SLI/Latest/Stable"
+  NEXUS_GROUP_BTI: "/Vpn/Windows/SLI/Latest/BTI"
+  NEXUS_REPO: "test-productivity-builds-distribution"
+  GIT_FETCH_DEFAULT_BRANCH: "yes"
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'  # Disable Merge Request pipelines
+
+stages:
+  - release
+  - bot # comes from translations/generator job
+  - guest-holes
+  - build
+  - security
+  - test
+  - build-installer
+  - publish
+  - ui-test-full
+  - ui-test-smoke
+  - generate
+  - deploy
+  - publish-to-slack
+  - mirror
+
+.unit_test_setup_script: &unit_test_setup_script
+  - nuget restore ProtonVPN.InstallActions.sln
+  - cmd.exe /c BuildDependencies.bat bin srponly
+  - dotnet build src\Builds\ProtonVPN.Builds.ConsoleJob\ProtonVPN.Builds.ConsoleJob.csproj
+  - echo "Injecting CI variables"
+  - src\bin\ProtonVPN.Builds.ConsoleJob.exe
+  - dotnet restore ProtonVPN.slnx
+  - dotnet build ProtonVPN.slnx
+
+.default_installer_needs: &default_installer_needs
+  - project: $IP_LIST_BUILDER_REPO_NAMESPACE
+    job: ipv6chaos
+    ref: master
+    artifacts: true
+
+build-release-x64:
+  extends: .build-script
+  only:
+    - master
+    - /^release.*$/
+  variables:
+    TYPE: Release
+    DEPENDENCIES: publish
+    PLATFORM: x64
+    BUILD_PATH: src/bin/win-x64/publish
+  artifacts:
+    paths:
+      - '**/*.deps.json'
+      - 'src/bin/win-x64/publish/**'
+
+build-release-arm64:
+  extends: .build-script
+  only:
+    - master
+    - /^release.*$/
+  tags:
+    - windows-arm64
+  variables:
+    TYPE: Release
+    DEPENDENCIES: publish
+    PLATFORM: arm64
+    BUILD_PATH: src/bin/win-arm64/publish
+  artifacts:
+    paths:
+      - '**/*.deps.json'
+      - 'src/bin/win-arm64/publish/**'
+
+build-bti-x64:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH =~ /^release.*$/'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: $BTI_SCHEDULED == "true"
+      when: always
+    - when: manual
+  extends:
+    - .build-bti-vars
+    - .build-script
+  when: manual
+  variables:
+    TYPE: Debug
+    PLATFORM: x64
+    DEPENDENCIES: publish-BTI
+    BUILD_PATH: src/bin/win-x64/BTI/publish
+  artifacts:
+    paths:
+      - '**/*.deps.json'
+      - 'src/bin/win-x64/BTI/publish/**'
+
+build-debug-x64:
+  extends: .build-script
+  except:
+    - master
+    - /^release.*$/
+    - schedules
+  variables:
+    TYPE: Debug
+    PLATFORM: x64
+    DEPENDENCIES: publish
+    BUILD_PATH: src/bin/win-x64/publish
+  artifacts:
+    paths:
+      - '**/*.deps.json'
+      - 'src/bin/win-x64/publish/**'
+
+build-debug-arm64:
+  extends: .build-script
+  when: manual
+  except:
+    - master
+    - /^release.*$/
+    - schedules
+  tags:
+    - windows-arm64
+  variables:
+    TYPE: Debug
+    PLATFORM: arm64
+    DEPENDENCIES: publish
+    BUILD_PATH: src/bin/win-arm64/publish
+  artifacts:
+    paths:
+      - '**/*.deps.json'
+      - 'src/bin/win-arm64/publish/**'
+
+gitleaks-scan-repository:
+  needs: []
+
+gitleaks-create-baseline:
+  needs: []
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED == "false"
+      when: manual
+    - when: never
+  allow_failure: true
+
+#project-settings-validator-scan-project:
+#  needs: []
+
+grype-scan-code-dependencies:
+  rules:
+  - when: never
+
+grype-scan-debug-x64:
+  needs:
+    - build-debug-x64
+  extends: grype-scan-code-dependencies
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "schedule" && $CI_COMMIT_BRANCH != "master" && $CI_COMMIT_BRANCH !~ /^release.*$/'
+      when: on_success
+
+grype-scan-debug-arm64:
+  needs:
+    - build-debug-arm64
+  extends: grype-scan-code-dependencies
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "schedule" && $CI_COMMIT_BRANCH != "master" && $CI_COMMIT_BRANCH !~ /^release.*$/'
+      when: on_success
+
+grype-scan-release-x64:
+  needs:
+    - build-release-x64
+  extends: grype-scan-code-dependencies
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH =~ /^release.*$/'
+      when: on_success
+
+grype-scan-release-arm64:
+  needs:
+    - build-release-arm64
+  extends: grype-scan-code-dependencies
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH =~ /^release.*$/'
+      when: on_success
+
+ui-tests-group:
+  stage: ui-test-full
+  extends: .ui_test_execution_script
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/9\.9\.9.*$/'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH =~ /^release.*$/ || $CI_COMMIT_BRANCH =~ /^automation.*$/'
+      when: on_success
+    - when: manual
+      allow_failure: true
+  parallel:
+    matrix:
+      - CATEGORY: ["1", "2", "3", "4"]
+
+ui-tests-full-arm:
+  stage: ui-test-full
+  extends: .ui_test_execution_script
+  tags:
+    - windows-arm64-ui
+  needs:
+    - job: build-installer-debug-arm64
+      optional: true
+    - job: build-installer-release-arm64
+      optional: true
+  except:
+    - /^debug.*$/
+    - /^release\/9\.9\.9.*$/
+    - master
+  variables:
+    CATEGORY: "ARM"
+
+ui-tests-smoke:
+  stage: ui-test-smoke
+  extends: .ui_test_execution_script
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^feat.*$/ || $CI_COMMIT_BRANCH =~ /^feature.*$/ || $CI_COMMIT_BRANCH =~ /^fix.*$/'
+      when: on_success
+    - when: manual
+      allow_failure: true
+  parallel:
+    matrix:
+      - CATEGORY: ["SMOKE_1", "SMOKE_2", "SMOKE_3", "SMOKE_4"]
+
+push-results-to-testmo-full:
+  stage: ui-test-full
+  extends: .push_results_to_testmo
+  only:
+    - develop
+    - /^release.*$/
+    - /^automation.*$/
+  needs:
+    - job: ui-tests-group
+      optional: false
+  coverage: '/Automation coverage: (\d+\.?\d+)%/'
+
+push-results-to-testmo-smoke:
+  stage: ui-test-smoke
+  extends: .push_results_to_testmo
+  only:
+    - /^feat.*$/
+    - /^feature.*$/
+    - /^fix.*$/
+  needs:
+    - job: ui-tests-smoke
+      optional: false
+  coverage: '/Automation coverage: (\d+\.?\d+)%/'
+
+unit-tests:
+  extends:
+    - .unit_test_config
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED != "true" && $CI_PIPELINE_SOURCE != "merge_request_event"
+  script:
+    - *unit_test_setup_script
+    - dotnet test src\bin\*.Tests.dll --no-restore --no-build --logger "console;verbosity=normal"
+
+unit-tests-with-coverage:
+  extends:
+    - .unit_test_config
+  rules:
+    - if: $CI_COMMIT_REF_PROTECTED == "true" && $CI_PIPELINE_SOURCE != "merge_request_event"
+  script:
+    - *unit_test_setup_script
+    - coverlet src\bin --target "dotnet" --targetargs "test src\bin\*.Tests.dll -l ""console;verbosity=normal"" --no-restore --no-build" --format cobertura --output .\coverage-reports --exclude "[*.Tests*]*" --exclude "[ProtonVPN.MarkupValidator]*" --exclude "[TestTools*]*" --exclude "[*.Installers]*"
+    - powershell -Command "(gc coverage-reports.cobertura.xml) -replace '\\', '/' | Out-File -encoding UTF8 cobertura.xml"
+    - ReportGenerator.exe "-reports:cobertura.xml" "-targetdir:.\code-coverage-report-html"
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: cobertura.xml
+  coverage: '/Total.*?([0-9]{1,3}.[0-9]{1,3})%/'
+
+build-installer-release-x64:
+  needs:
+    - *default_installer_needs
+    - generate-guest-holes
+    - build-release-x64
+  extends:
+    - .build-installer
+  only:
+    - master
+    - /^release.*$/
+  variables:
+    BUILD_PATH: src/bin/win-x64/publish
+    PLATFORM: x64
+
+build-installer-debug-x64:
+  needs:
+    - *default_installer_needs
+    - generate-guest-holes
+    - build-debug-x64
+  extends:
+    - .build-installer
+  except:
+    - master
+    - /^release.*$/
+    - schedules
+  variables:
+    BUILD_PATH: src/bin/win-x64/publish
+    PLATFORM: x64
+
+build-installer-debug-arm64:
+  needs:
+    - *default_installer_needs
+    - generate-guest-holes
+    - build-debug-arm64
+  extends:
+    - .build-installer
+  except:
+    - master
+    - /^release.*$/
+    - schedules
+  variables:
+    BUILD_PATH: src/bin/win-arm64/publish
+    PLATFORM: arm64
+
+build-installer-release-arm64:
+  needs:
+    - *default_installer_needs
+    - generate-guest-holes
+    - build-release-arm64
+  extends:
+    - .build-installer
+  only:
+    - master
+    - /^release.*$/
+  variables:
+    BUILD_PATH: src/bin/win-arm64/publish
+    PLATFORM: arm64
+
+build-BTI-installer-x64:
+  needs:
+    - *default_installer_needs
+    - build-bti-x64
+  except:
+    - master
+    - /^release.*$/
+  extends:
+    - .build-installer
+  variables:
+    BUILD_PATH: src/bin/win-x64/BTI/publish
+    PLATFORM: x64
+
+prepare-internal-beta-release:
+  stage: publish
+  tags:
+    - windows-dot-net
+  when: manual
+  script:
+    - python -m pip install -r ci\python-libs.txt
+    - python ci\test-scripts\prepare_internal_beta.py
+  only:
+    - /^release\/\d+\.\d+\.\d+/
+  except:
+    - /^release\/9\.9\.9.*$/
+
+publish prod release nexus:
+  stage: publish
+  only:
+    - /^release\/\d+\.\d+\.\d+/
+  except:
+    - /^release\/9\.9\.9.*$/
+  tags:
+    - shared-medium
+  image: $CI_REGISTRY/tpe/test-scripts
+  allow_failure: true
+  dependencies:
+    - build-installer-release-x64
+  needs:
+    - build-installer-release-x64
+  script:
+    # Delete old assets
+    - /usr/local/bin/nexus/delete_asset_on_nexus.py
+      --repository $NEXUS_REPO
+      --group $NEXUS_GROUP_STABLE
+    # Upload release build
+    - /usr/local/bin/nexus/upload_to_nexus.py
+      --path "Setup/Installers/ProtonVPN_*.exe"
+      --repository $NEXUS_REPO
+      --group $NEXUS_GROUP_STABLE
+      --filename "vpn_windows_latest.exe"
+
+mirror:
+  stage: mirror
+  needs: []
+  tags:
+    - windows
+  when: manual
+  only:
+    refs:
+      - tags
+      - master
+  script:
+    - python ci\build-scripts\main.py prepare-ssh $env:SSH_PRIVATE_KEY
+    - ssh-keyscan -t rsa github.com | Set-Content "$env:userprofile\.ssh\known_hosts"
+    - git clone "$CI_REPOSITORY_URL" --branch master _APP_CLONE;
+    - cd _APP_CLONE
+    - git remote add public $PUBLIC_REPO_URL
+    - git push public master
+    - git push public "$(git describe --abbrev=0)"
+
+create-release:
+  image: $HARBOR_URL/docker.io/library/python:latest
+  stage: release
+  tags:
+    - shared-small
+  when: manual
+  only:
+    - develop
+    - /^develop-v\d+$/
+  script:
+    - apt-get update && apt-get install -y python3 python3-pip git
+    - python3 ci/build-scripts/release.py
+
+generate-release-artifacts:
+  stage: generate
+  image: $HARBOR_URL/docker.io/library/alpine:3.20
+  needs:
+    - build-installer-release-x64
+    - build-installer-release-arm64
+  tags:
+    - shared-small
+  script:
+    - set -ex
+    - export RELEASE_VERSION="${CI_COMMIT_BRANCH##release/}" && echo "RELEASE_VERSION=${RELEASE_VERSION}" | tee release.env
+    - echo "ARTIFACT_LIST=ProtonVPN_v${RELEASE_VERSION}_x64.exe ProtonVPN_v${RELEASE_VERSION}_arm64.exe" | tee -a release.env
+  artifacts:
+    reports:
+      dotenv: release.env
+  only:
+    - /^release\/\d+\.\d+\.\d+/
+  except:
+    - /^release\/9\.9\.9.*$/
+
+artifactlift-release-candidate-artifacts:
+  rules:
+    - when: never
+
+artifactlift-release-artifacts:
+  rules:
+    - when: never
+
+release-binary-to-nexus:
+  needs:
+    - generate-release-artifacts
+    - job: build-installer-release-x64
+      artifacts: true
+    - job: build-installer-release-arm64
+      artifacts: true
+  extends: artifactlift-release-candidate-artifacts
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/9\.9\.9.*$/'
+      when: never
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/\d+\.\d+\.\d+/'
+      when: manual
+    - when: never
+
+release-binary-to-prod:
+  extends: artifactlift-release-artifacts
+  needs:
+    - job: generate-release-artifacts
+      artifacts: true
+    - release-binary-to-nexus
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/9\.9\.9.*$/'
+      when: never
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/\d+\.\d+\.\d+/'
+      when: manual
+    - when: never
+
+merge-release-to-master:
+  image: $HARBOR_URL/docker.io/library/python:latest
+  stage: release
+  tags:
+    - shared-small
+  when: manual
+  only:
+    - /^release\/.+/
+  except:    
+    - /^release\/9\.9\.9-from.*/
+  script:
+    - apt-get update && apt-get install -y python3 python3-pip git
+    - python3 ci/build-scripts/merge_release_to_master.py
+  variables:
+    GIT_DEPTH: "0"
+
+merge-master-to-develop:
+  image: $HARBOR_URL/docker.io/library/python:latest
+  stage: release
+  tags:
+    - shared-small
+  when: manual
+  only:
+    - master
+  script:
+    - apt-get update && apt-get install -y python3 python3-pip git
+    - python3 ci/build-scripts/merge_master_to_develop.py
+  variables:
+    GIT_DEPTH: "0"
+
+report-test-failure:
+  stage: publish-to-slack
+  image: $CI_REGISTRY/tpe/test-scripts
+  tags:
+    - shared-medium
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_failure
+    - when: never
+  script:
+    - reporter.py --message "Scheduled BTI test job failed!" --slack-channel "$SLACK_REPORT_CHANNEL" --platform windows --job-name "Windows BTI" --job-url "$CI_PIPELINE_URL"
+
+create-deployment-merge-request:
+  stage: deploy
+  needs:
+    - job: build-installer-release-x64
+      artifacts: true
+    - job: build-installer-release-arm64
+      artifacts: true
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/9\.9\.9.*$/'
+      when: never
+    - if: '$CI_COMMIT_BRANCH =~ /^release\/\d+\.\d+\.\d+/'
+      when: manual
+    - when: never
+  image: $HARBOR_URL/docker.io/library/python:latest
+  tags:
+    - shared-small
+  script:
+    - pip3 install requests
+    - python3 ci/deploy-scripts/json_deploy.py

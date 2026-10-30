@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2024 Proton AG
+
+This file is part of ProtonVPN.
+
+ProtonVPN is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProtonVPN is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProtonVPN.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:ProtonVPN.Client.Common.UI.Converters"
+                    xmlns:toolkitConverters="using:CommunityToolkit.WinUI.Converters">
+
+    <converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter" />
+    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+    <converters:NotNullToBooleanConverter x:Key="NotNullToBooleanConverter" />
+    <converters:NotBooleanToBooleanConverter x:Key="NotBooleanToBooleanConverter" />
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:BooleanToNavigationBackButtonVisibilityConverter x:Key="BooleanToNavigationBackButtonVisibilityConverter" />
+    <converters:BooleanToNavigationPaneDisplayModeConverter x:Key="BooleanToNavigationPaneDisplayModeConverter" />
+    <converters:NotBooleanToVisibilityConverter x:Key="NotBooleanToVisibilityConverter" />
+    <converters:BooleanToScrollBarVisibilityConverter x:Key="BooleanToScrollBarVisibilityConverter" />
+    <converters:DoubleToGridLengthConverter x:Key="DoubleToStarGridLengthConverter"
+                                            UnitType="Star" />
+    <converters:DoubleToGridLengthConverter x:Key="ReverseDoubleToStarGridLengthConverter"
+                                            IsReverse="True"
+                                            UnitType="Star" />
+    <converters:DoubleToGridLengthConverter x:Key="DoubleToPixelGridLengthConverter"
+                                            UnitType="Pixel" />
+    <converters:DoubleToPercentFormatConverter x:Key="DoubleToPercentFormatConverter" />
+    <converters:FocusStateToBooleanConverter x:Key="FocusStateToBooleanConverter" />
+    <converters:OpacityToVisibilityConverter x:Key="OpacityToVisibilityConverter"/>
+    <converters:ScrollOffsetToVisibilityConverter x:Key="ScrollOffsetToVisibilityConverter"/>
+    <toolkitConverters:StringVisibilityConverter x:Key="StringVisibilityConverter" />
+    <converters:IsStringNotEmptyConverter x:Key="IsStringNotEmptyConverter" />
+    <converters:ProfileColorToBrushConverter x:Key="ProfileColorToBrushConverter"
+                                             BlueColor="#0E7AD2"
+                                             GreenColor="#4DC73D"
+                                             OrangeColor="#F08C00"
+                                             PurpleColor="#C857E7"
+                                             RedColor="#C93333"
+                                             YellowColor="#E2CC19" />
+    <converters:ProfileColorToColorConverter x:Key="ProfileColorToDarkColorConverter"
+                                             BlueColor="#1D3C97"
+                                             GreenColor="#126005"
+                                             OrangeColor="#914018"
+                                             PurpleColor="#761597"
+                                             RedColor="#720808"
+                                             YellowColor="#96580E" />
+    <converters:ProfileColorToColorConverter x:Key="ProfileColorToLightColorConverter"
+                                             BlueColor="#A0C1FF"
+                                             GreenColor="#AEFFA0"
+                                             OrangeColor="#FFCBA0"
+                                             PurpleColor="#F1A0FF"
+                                             RedColor="#FFA0A0"
+                                             YellowColor="#FFEEA0" />
+    <converters:CountryCodeToFlagImageSourceConverter x:Key="CountryCodeToFlagImageSourceConverter" />
+    <converters:BooleanToOrientationConverter x:Key="BooleanToHorizontalOrientationConverter" 
+                                              OrientationWhenFalse="Vertical"
+                                              OrientationWhenTrue="Horizontal"/>
+    <converters:BooleanToOrientationConverter x:Key="BooleanToVerticalOrientationConverter" 
+                                              OrientationWhenFalse="Horizontal"
+                                              OrientationWhenTrue="Vertical"/>
+    <converters:SeverityToInfoBarSeverityConverter x:Key="SeverityToInfoBarSeverityConverter" />
+    <converters:BooleanToOpacityConverter x:Key="BooleanToReducedOpacityConverter" 
+                                          OpacityWhenTrue="0.4"
+                                          OpacityWhenFalse="1.0"/>
+</ResourceDictionary>

@@ -1,0 +1,124 @@
+plugins {
+    id "maven-publish"
+    id "com.vanniktech.maven.publish.base" version "0.33.0"
+}
+
+apply plugin: 'signing'
+
+ext {
+    githubRepo = "github.com/ProtonVPN/go-vpn-lib"
+}
+
+import groovy.json.JsonOutput
+
+task publishSlack {
+    doLast {
+        Helpers.notifyPublishOnSlack()
+    }
+}
+
+afterEvaluate {
+
+    publishing {
+        publications {
+            govpn(MavenPublication) {
+                groupId 'me.proton.vpn'
+                artifactId 'go-vpn-lib'
+                version Helpers.getFullVersionName()
+                artifact("artifacts/govpn.aar")
+                artifact("artifacts/govpn-sources.jar") { classifier = "sources" }
+                pom {
+                    name = "me.proton.vpn:go-vpn-lib"
+                    description = "Go library with shared code for Proton VPN clients"
+                    url = "https://${githubRepo}"
+                    licenses {
+                        license {
+                            name = "GNU GENERAL PUBLIC LICENSE, Version 3.0"
+                            url = "https://www.gnu.org/licenses/gpl-3.0.en.html"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "opensource@proton.me"
+                            name = "Open Source Proton"
+                            email = "opensource@proton.me"
+                        }
+                    }
+                    scm {
+                       connection = "scm:git:git://${githubRepo}.git"
+                       developerConnection = "scm:git:ssh://${githubRepo}.git"
+                       url = "https://${githubRepo}"
+                    }
+                }
+            }
+        }
+    }
+
+    mavenPublishing {
+        publishToMavenCentral(false)
+        signAllPublications()
+    }
+}
+
+class Helpers {
+
+    static String getFullVersionName() {
+        // Find last tag in the form M.m.D, D is optional. Add number of commits from that tag to D to form final
+        // version name
+        def tag = exec('git tag --merged HEAD').trim().split('\n').reverse().find { it.matches('\\d+(\\.\\d+){1,2}') }
+        def tagSplit = Arrays.stream(tag.split("\\.")).mapToInt { it.toInteger() }.toArray()
+        def major = tagSplit[0]
+        def minor = tagSplit[1]
+        def dev = tagSplit.size() > 2 ? tagSplit[2] : 0
+        dev += exec(["bash", "-c", "git log --first-parent ${tag}..HEAD --oneline | wc -l"]).trim().toInteger()
+        return "${major}.${minor}.${dev}"
+    }
+
+    static String getReleaseNotes(int trimAt) {
+        def lastSha = System.getenv("CI_COMMIT_BEFORE_SHA")
+        if (lastSha == null || lastSha.matches("0*"))
+            return "(empty)"
+        def notes = exec(["git", "log", "${lastSha}..HEAD", "--pretty=format:- %s"])
+        if (notes.length() > trimAt)
+            return notes.take(trimAt) + "\n..."
+        return notes
+    }
+
+    static void notifyPublishOnSlack() {
+        def hook = System.getenv("SLACK_PUBLISH_HOOK")
+        if (hook == null)
+            return
+        def json = new JsonOutput().toJson(["text": "<https://github.com/ProtonVPN/go-vpn-lib|go-vpn-lib> ${getFullVersionName()} published\n" +
+                "Release notes:\n" +
+                "${getReleaseNotes(1000)}"])
+        exec(["curl", "-X", "POST", "-H", "'Content-type: application/json'", "--data", json, hook])
+    }
+
+    static String exec(String cmd, boolean throwOnError = true) {
+        def out = new StringBuffer()
+        def err = new StringBuffer()
+        def proc = cmd.execute()
+        proc.waitForProcessOutput(out, err)
+        if (proc.exitValue() != 0) {
+            if (throwOnError)
+                throw new GradleScriptException("Error executing: ${cmd}", new RuntimeException(err.toString()))
+            else
+                return null
+        }
+        return out.toString()
+    }
+
+    static String exec(ArrayList<String> cmd, boolean throwOnError = true) {
+        def out = new StringBuffer()
+        def err = new StringBuffer()
+        def proc = cmd.execute()
+        proc.waitForProcessOutput(out, err)
+        if (proc.exitValue() != 0) {
+            if (throwOnError)
+                throw new GradleScriptException("Error executing: ${cmd}", new RuntimeException(err.toString()))
+            else
+                return null
+        }
+        return out.toString()
+    }
+}

@@ -1,0 +1,3916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_VpnPlan_Free">
+    <value>Proton VPN Free</value>
+  </data>
+  <data name="Automation_Properties_ConnectionDetails_Page">
+    <value>Σελίδα λεπτομερειών σύνδεσης</value>
+  </data>
+  <data name="Automation_Properties_ConnectionPreferences_Page">
+    <value>Σελίδα προτιμήσεων σύνδεσης</value>
+  </data>
+  <data name="Automation_Properties_Connection_Card_Component">
+    <value>Κάρτα σύνδεσης</value>
+  </data>
+  <data name="Automation_Properties_KillSwitch_Page">
+    <value>Σελίδα kill switch</value>
+  </data>
+  <data name="Automation_Properties_LocationDetails_Page">
+    <value>Σελίδα λεπτομερειών τοποθεσίας</value>
+  </data>
+  <data name="Automation_Properties_Login_Page">
+    <value>Σελίδα σύνδεσης</value>
+  </data>
+  <data name="Automation_Properties_Main_Page">
+    <value>Κύρια σελίδα</value>
+  </data>
+  <data name="Automation_Properties_NetShield_Page">
+    <value>Σελίδα NetShield</value>
+  </data>
+  <data name="Automation_Properties_NoServers_Page">
+    <value>Σελίδα χωρίς διακομιστές</value>
+  </data>
+  <data name="Automation_Properties_PortForwarding_Page">
+    <value>Σελίδα προώθησης θυρών</value>
+  </data>
+  <data name="Automation_Properties_Profile_Page">
+    <value>Σελίδα προφίλ</value>
+  </data>
+  <data name="Automation_Properties_Settings_Advanced_Page">
+    <value>Σελίδα προηγμένων ρυθμίσεων</value>
+  </data>
+  <data name="Automation_Properties_Settings_Common_Page">
+    <value>Σελίδα κοινών ρυθμίσεων</value>
+  </data>
+  <data name="Automation_Properties_Settings_Page">
+    <value>Σελίδα ρυθμίσεων</value>
+  </data>
+  <data name="Automation_Properties_Sidebar">
+    <value>Πλαϊνή γραμμή</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Countries_Page">
+    <value>Σελίδα χωρών</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Gateways_Page">
+    <value>Σελίδα πυλών</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Page">
+    <value>Σελίδα συνδέσεων</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Profiles_Page">
+    <value>Σελίδα προφίλ</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Connections_Recents_Page">
+    <value>Σελίδα Προσφάτων</value>
+  </data>
+  <data name="Automation_Properties_Sidebar_Search_Results_Page">
+    <value>Αποτελέσματα αναζήτησης</value>
+  </data>
+  <data name="Automation_Properties_SplitTunneling_Page">
+    <value>Σελίδα διαίρεσης σήραγγας</value>
+  </data>
+  <data name="City_Fastest">
+    <value>Ταχύτερη πόλη</value>
+  </data>
+  <data name="City_Random">
+    <value>Τυχαία πόλη</value>
+  </data>
+  <data name="Common_Actions_Add">
+    <value>Προσθήκη</value>
+  </data>
+  <data name="Common_Actions_Back">
+    <value>Πίσω</value>
+  </data>
+  <data name="Common_Actions_Cancel">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Common_Actions_Change">
+    <value>Αλλαγή</value>
+  </data>
+  <data name="Common_Actions_Close">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="Common_Actions_Connect">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="Common_Actions_ContactUs">
+    <value>Επικοινωνήστε μαζί μας</value>
+  </data>
+  <data name="Common_Actions_Delete">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="Common_Actions_Disconnect">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="Common_Actions_Duplicate">
+    <value>Διπλότυπο</value>
+  </data>
+  <data name="Common_Actions_Edit">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="Common_Actions_Enable">
+    <value>Ενεργοποίηση</value>
+  </data>
+  <data name="Common_Actions_Exit_ProtonVPN">
+    <value>Έξοδος απο το Proton VPN</value>
+  </data>
+  <data name="Common_Actions_GotIt">
+    <value>Το κατάλαβα</value>
+  </data>
+  <data name="Common_Actions_Install">
+    <value>Εγκατάσταση</value>
+  </data>
+  <data name="Common_Actions_MoveDown">
+    <value>Μετακίνηση προς τα Κάτω</value>
+  </data>
+  <data name="Common_Actions_MoveUp">
+    <value>Μετακίνηση προς τα Πάνω</value>
+  </data>
+  <data name="Common_Actions_Reconnect">
+    <value>Επανασύνδεση</value>
+  </data>
+  <data name="Common_Actions_Refresh">
+    <value>Ανανέωση</value>
+  </data>
+  <data name="Common_Actions_Remove">
+    <value>Αφαίρεση</value>
+  </data>
+  <data name="Common_Actions_Restart">
+    <value>Επανεκκίνηση</value>
+  </data>
+  <data name="Common_Actions_Save">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="Common_Actions_TryAgain">
+    <value>Προσπαθήστε ξανά</value>
+  </data>
+  <data name="Common_Actions_Update">
+    <value>Ενημέρωση</value>
+  </data>
+  <data name="Common_Actions_Upgrade">
+    <value>Αναβάθμιση</value>
+  </data>
+  <data name="Common_Confirmation_KillSwitch_Message">
+    <value>Η προηγμένη λειτουργία kill switch είναι ενεργοποιημένη. Για να χρησιμοποιήσετε το διαδίκτυο χωρίς VPN, απενεργοποιήστε την προηγμένη λειτουργία kill switch.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnectedWithKillSwitch_Message">
+    <value>Η προηγμένη λειτουργία kill switch είναι ενεργοποιημένη. Εάν συνεχίσετε, θα αποσυνδεθείτε από το διαδίκτυο.</value>
+  </data>
+  <data name="Common_Confirmation_YouWillBeDisconnected_Message">
+    <value>Θα αποσυνδεθείτε από το VPN.</value>
+  </data>
+  <data name="Common_Links_LearnMore">
+    <value>Μάθετε περισσότερα</value>
+  </data>
+  <data name="Common_Message_AppNotFound">
+    <value>Η εφαρμογή δε βρέθηκε</value>
+  </data>
+  <data name="Common_States_Off">
+    <value>Ανενεργό</value>
+  </data>
+  <data name="Common_States_On">
+    <value>Ενεργό</value>
+  </data>
+  <data name="Common_Tags_Beta">
+    <value>BETA</value>
+    <comment>This tag indicates that this version of the app is currently in beta (early access)</comment>
+  </data>
+  <data name="Common_Tags_New">
+    <value>ΝΕΟ</value>
+    <comment>This tag indicates that a newer version of the app is currently available</comment>
+  </data>
+  <data name="Common_Tags_Recommended">
+    <value>Προτεινόμενο</value>
+    <comment>This tag indicates that a given option in the settings is recommended by Proton</comment>
+  </data>
+  <data name="Components_Update_GetMostFromYourVpn">
+    <value>Αξιοποιήστε στο έπακρο το VPN σας κάνοντας ενημέρωση στην πιο πρόσφατη έκδοση της εφαρμογής.</value>
+  </data>
+  <data name="Components_Update_MoreLikelyIssues">
+    <value>Σε παλαιότερες εκδόσεις του Proton VPN, είναι πιο πιθανό να έχετε προβλήματα.</value>
+  </data>
+  <data name="Components_Update_UpdateAvailable">
+    <value>Υπάρχει διαθέσιμη ενημέρωση</value>
+  </data>
+  <data name="Components_Update_UpdateProtonVpn">
+    <value>Ενημέρωση Proton VPN</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded">
+    <value>Οι προτιμήσεις σας εξαιρούν όλους τους διαθέσιμους διακομιστές. Προσαρμόστε τις εξαιρέσεις για να συνδεθείτε.</value>
+  </data>
+  <data name="Connection_Error_AllServersExcluded_Action">
+    <value>Εξαιρούμενες τοποθεσίες</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Description">
+    <value>Για να το διορθώσετε, κλείστε ή απεγκαταστήστε την εφαρμογή που σχετίζεται με:</value>
+  </data>
+  <data name="Connection_Error_ConflictingAdapter_Title">
+    <value>Μια άλλη εφαρμογή ενδέχεται να εμποδίζει το Proton VPN να συνδεθεί</value>
+  </data>
+  <data name="Connection_Error_EditProfile">
+    <value>Επεξεργασία προφίλ</value>
+  </data>
+  <data name="Connection_Error_MissingConnectionCertificate">
+    <value>Το Proton VPN απέτυχε να ανακτήσει το πιστοποιητικό ελέγχου ταυτότητας λόγω προβλήματος δικτύου.</value>
+  </data>
+  <data name="Connection_Error_MobileHotspotEnabled">
+    <value>Η σύνδεση αποκλείστηκε από τις ρυθμίσεις δικτύου της συσκευής σας. Αυτό μπορεί να οφείλεται σε ένα κινητό hotspot, σε άλλη εφαρμογή VPN ή σε λογισμικό εικονικής μηχανής. Παρακαλούμε ελέγξτε τη διαμόρφωση του δικτύου σας ή επικοινωνήστε με την υποστήριξη για βοήθεια.</value>
+  </data>
+  <data name="Connection_Error_NoServers">
+    <value>Όλοι οι διακομιστές της επιλογής σας δεν είναι διαθέσιμοι. Παρακαλούμε επεκτείνετε την επιλογή σας ή προσπαθήστε ξανά αργότερα.</value>
+  </data>
+  <data name="Connection_Error_NoServers_Profile">
+    <value>Η επιλογή διακομιστή για το "{0}" δεν είναι διαθέσιμη. Επιλέξτε έναν διαφορετικό διακομιστή ή δοκιμάστε ξανά αργότερα.</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Connection_Error_NoTapAdapters">
+    <value>Απουσία προσαρμογέα δικτύου.</value>
+  </data>
+  <data name="Connection_Error_ReportAnIssue">
+    <value>Αναφορά προβλήματος</value>
+  </data>
+  <data name="Connection_Error_RpcServerUnavailable">
+    <value>Το Proton VPN δεν μπορεί να συνδεθεί επειδή ο διακομιστής RPC δεν είναι διαθέσιμος στο σύστημά σας.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedFreeUser">
+    <value>Έχετε συμπληρώσει το μέγιστο όριο συσκευών. Παρακαλούμε αποσυνδέστε μια άλλη συσκευή για να τη συνδέσετε ή αναβαθμίστε σε PLUS για να συνδέσετε έως και 10 συσκευές ταυτόχρονα.</value>
+  </data>
+  <data name="Connection_Error_SessionLimitReachedPaidUser">
+    <value>Έχετε συμπληρώσει το μέγιστο όριο συσκευών. Παρακαλούμε αποσυνδέστε μια άλλη συσκευή για να συνδέσετε αυτήν.</value>
+  </data>
+  <data name="Connection_Error_TapAdapterInUse">
+    <value>Ο προσαρμογέας δικτύου σας χρησιμοποιείται αυτήν τη στιγμή.</value>
+  </data>
+  <data name="Connection_Error_TapRequiresUpdate">
+    <value>Η έκδοση του προσαρμογέα δικτύου είναι ξεπερασμένη.</value>
+  </data>
+  <data name="Connection_Error_Title">
+    <value>Αποτυχία σύνδεσης</value>
+  </data>
+  <data name="Connection_Error_TlsCertificate">
+    <value>Υπάρχει πρόβλημα με την επικύρωση του πιστοποιητικού διακομιστή VPN, το οποίο μπορεί να υποδεικνύει ότι η σύνδεση δικτύου έχει αλλοιωθεί ή ότι ο διακομιστής στον οποίο προσπαθείτε να συνδεθείτε έχει πρόβλημα ρύθμισης παραμέτρων. Λάβετε βοήθεια από την υποστήριξη πελατών μας στέλνοντας μια αναφορά ζητήματος.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Description">
+    <value>Για να συνδεθείτε στο VPN, μεταβείτε στην πύλη ταυτοποίησης δύο παραγόντων (2FA) του οργανισμού σας και πατήστε το κλειδί ασφαλείας σας.</value>
+  </data>
+  <data name="Connection_Error_TwoFactorRequired_Title">
+    <value>Η ταυτοποίηση δύο παραγόντων (2FA) απαιτείται</value>
+  </data>
+  <data name="Connection_Error_Unknown">
+    <value>Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και δοκιμάστε ξανά. Εάν αυτό δε λειτουργήσει, επικοινωνήστε με την ομάδα υποστήριξης πελατών μας.
+
+Κωδικός σφάλματος: {0}</value>
+  </data>
+  <data name="Connection_Error_ViewPossibleSolutions">
+    <value>Προβολή διορθώσεων</value>
+  </data>
+  <data name="Connection_Error_WireGuardAdapterInUse">
+    <value>Ο προσαρμογέας WireGuard της συσκευής σας βρίσκεται σε χρήση. Αποσυνδεθείτε από οποιοδήποτε άλλο VPN που εκτελείται στη συσκευή σας και, στη συνέχεια, δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Connection_Feedback_Question">
+    <value>Πώς είναι η σύνδεσή σας;</value>
+  </data>
+  <data name="Connection_Intent_AutoSelected">
+    <value>Επιλέχθηκε αυτόματα από</value>
+    <comment>Appears in the connection card for free users. A set of flags is displayed after the text (eg. Auto-selected from [us-flag] [jp-flag]...)</comment>
+  </data>
+  <data name="Connection_Via_SecureCore">
+    <value>μέσω {0}</value>
+    <comment>Label used when connecting through Secure Core. {0} is a place holder for the name of the country the user is going through.</comment>
+  </data>
+  <data name="Connections_Cities_One">
+    <value>Πόλη ({0})</value>
+  </data>
+  <data name="Connections_Cities_Other">
+    <value>Πόλεις ({0})</value>
+  </data>
+  <data name="Connections_City">
+    <value>Πόλη</value>
+  </data>
+  <data name="Connections_City_Restricted">
+    <value>Οι διακομιστές σε αυτήν την πόλη είναι διαθέσιμοι με VPN Plus</value>
+  </data>
+  <data name="Connections_City_UnderMaintenance">
+    <value>Όλοι οι διακομιστές σε αυτήν την πόλη βρίσκονται υπό συντήρηση</value>
+  </data>
+  <data name="Connections_Countries_One">
+    <value>Χώρα ({0})</value>
+  </data>
+  <data name="Connections_Countries_Other">
+    <value>Χώρες ({0})</value>
+  </data>
+  <data name="Connections_Country">
+    <value>Χώρα</value>
+  </data>
+  <data name="Connections_Country_Middle">
+    <value>Μεσαία χώρα</value>
+  </data>
+  <data name="Connections_Country_Restricted">
+    <value>Οι διακομιστές σε αυτήν τη χώρα είναι διαθέσιμοι με VPN Plus</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance">
+    <value>Όλοι οι διακομιστές σε αυτήν τη χώρα βρίσκονται υπό συντήρηση</value>
+  </data>
+  <data name="Connections_Country_UnderMaintenance_Title">
+    <value>Δεν είναι δυνατή η σύνδεση</value>
+  </data>
+  <data name="Connections_Fastest">
+    <value>Γρηγορότερο</value>
+  </data>
+  <data name="Connections_Free_Servers_One">
+    <value>Δωρεάν διακομιστής</value>
+  </data>
+  <data name="Connections_Free_Servers_Other">
+    <value>Δωρεάν διακομιστές</value>
+  </data>
+  <data name="Connections_Gateway">
+    <value>Πύλη</value>
+  </data>
+  <data name="Connections_Gateway_Restricted">
+    <value>Οι διακομιστές σε αυτήν την πύλη είναι διαθέσιμοι με VPN Plus</value>
+  </data>
+  <data name="Connections_Gateway_UnderMaintenance">
+    <value>Όλοι οι διακομιστές σε αυτήν την πύλη βρίσκονται υπό συντήρηση</value>
+  </data>
+  <data name="Connections_Gateways_One">
+    <value>Πύλη ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Other">
+    <value>Πύλες ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Server">
+    <value>Αφοσιωμένος διακομιστής</value>
+  </data>
+  <data name="Connections_Gateways_Servers_One">
+    <value>Αφοσιωμένος διακομιστής ({0})</value>
+  </data>
+  <data name="Connections_Gateways_Servers_Other">
+    <value>Αφοσιωμένοι διακομιστές ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_One">
+    <value>P2P πόλη ({0})</value>
+  </data>
+  <data name="Connections_P2P_Cities_Other">
+    <value>P2P πόλεις ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_One">
+    <value>P2P χώρα ({0})</value>
+  </data>
+  <data name="Connections_P2P_Countries_Other">
+    <value>P2P χώρες ({0})</value>
+  </data>
+  <data name="Connections_P2P_Servers_One">
+    <value>Διακομιστής P2P</value>
+  </data>
+  <data name="Connections_P2P_Servers_Other">
+    <value>Διακομιστές P2P</value>
+  </data>
+  <data name="Connections_P2P_States_One">
+    <value>Πολιτεία P2P ({0})</value>
+  </data>
+  <data name="Connections_P2P_States_Other">
+    <value>Πολιτείες P2P ({0})</value>
+  </data>
+  <data name="Connections_Profiles_One">
+    <value>Προφίλ ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Other">
+    <value>Προφίλ ({0})</value>
+  </data>
+  <data name="Connections_Profiles_Create">
+    <value>Δημιουργία προφίλ</value>
+    <comment>"Create profile" is more appropriate for the empty profiles page, when you have no profiles</comment>
+  </data>
+  <data name="Connections_Profiles_Delete">
+    <value>Διαγραφή προφίλ</value>
+  </data>
+  <data name="Connections_Profiles_Delete_Message">
+    <value>'{0}' θα καταργηθούν οριστικά.</value>
+    <comment>{0} is a placeholder for the name of the profile.</comment>
+  </data>
+  <data name="Connections_Profiles_Delete_Title">
+    <value>Διαγραφή προφίλ?</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Description">
+    <value>Τα προφίλ αποθηκεύονται συνδέσεις με την επιλογή τοποθεσίας, διακομιστή και πρωτοκόλλου.</value>
+  </data>
+  <data name="Connections_Profiles_Empty_Title">
+    <value>Δημιουργήστε το πρώτο σας προφίλ</value>
+  </data>
+  <data name="Connections_Profiles_Location_Header">
+    <value>Επιλέξτε τύπο σύνδεσης και τοποθεσία</value>
+  </data>
+  <data name="Connections_Profiles_Name">
+    <value>Δώστε στο προφίλ σας ένα όνομα:</value>
+  </data>
+  <data name="Connections_Profiles_Name_Default">
+    <value>Χωρίς τίτλο</value>
+    <comment>This will be used as the default profile name if the user creates a profile without entering a name</comment>
+  </data>
+  <data name="Connections_Profiles_Name_Duplicate">
+    <value>Copy of {0}</value>
+    <comment>This will be used as the profile name when duplicating a profile. {0} is a placeholder for the original profile name.</comment>
+  </data>
+  <data name="Connections_Profiles_New">
+    <value>Νέο προφίλ</value>
+    <comment>"New profile" is more appropriate when you already have a profile</comment>
+  </data>
+  <data name="Connections_Profiles_NotAvailable_Tooltip">
+    <value>Τα προφίλ είναι διαθέσιμα με VPN Plus</value>
+    <comment>The text in the tooltip when hovering a profile and the user has a free plan</comment>
+  </data>
+  <data name="Connections_Recents_One">
+    <value>Πρόσφατο ({0})</value>
+  </data>
+  <data name="Connections_Recents_Other">
+    <value>Πρόσφατα ({0})</value>
+  </data>
+  <data name="Connections_Recents_Empty_Description">
+    <value>Δείτε το ιστορικό σύνδεσής σας εδώ.</value>
+  </data>
+  <data name="Connections_Recents_Empty_Title">
+    <value>Δεν υπάρχουν ακόμη πρόσφατα</value>
+  </data>
+  <data name="Connections_Recents_Pinned_One">
+    <value>Καρφιτσωμένα ({0})</value>
+  </data>
+  <data name="Connections_Recents_Pinned_Other">
+    <value>Καρφιτσωμένα ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_One">
+    <value>Χώρα Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Countries_Other">
+    <value>Χώρες Secure Core ({0})</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_One">
+    <value>Διακομιστής Secure Core</value>
+  </data>
+  <data name="Connections_SecureCore_Servers_Other">
+    <value>Διακομιστές Secure Core</value>
+  </data>
+  <data name="Connections_Server_Restricted">
+    <value>Διακομιστής διαθέσιμος με VPN Plus</value>
+  </data>
+  <data name="Connections_Server_UnderMaintenance">
+    <value>Αυτός ο διακομιστής είναι υπό συντήρηση</value>
+  </data>
+  <data name="Connections_Servers_One">
+    <value>Διακομιστής</value>
+  </data>
+  <data name="Connections_Servers_Other">
+    <value>Διακομιστές</value>
+  </data>
+  <data name="Connections_State">
+    <value>Πολιτεία</value>
+  </data>
+  <data name="Connections_State_Restricted">
+    <value>Οι διακομιστές σε αυτήν την πολιτεία είναι διαθέσιμοι με VPN Plus.</value>
+    <comment>Message appears as a tooltip whenever a free user is trying to connect to a state. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_State_UnderMaintenance">
+    <value>Όλοι οι διακομιστές σε αυτήν την πολιτεία βρίσκονται υπό συντήρηση.</value>
+    <comment>Message appears as a tooltip whenever all the servers from that state are under maintenance. In this context, States refers to Country states (eg. Arizona, California... for USA)</comment>
+  </data>
+  <data name="Connections_States_One">
+    <value>Πολιτεία ({0})</value>
+  </data>
+  <data name="Connections_States_Other">
+    <value>Πολιτείες ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_One">
+    <value>Tor χώρα ({0})</value>
+  </data>
+  <data name="Connections_Tor_Countries_Other">
+    <value>Tor χώρες ({0})</value>
+  </data>
+  <data name="Connections_Tor_Servers_One">
+    <value>Διακομιστής Tor</value>
+  </data>
+  <data name="Connections_Tor_Servers_Other">
+    <value>Διακομιστές Tor</value>
+  </data>
+  <data name="Countries">
+    <value>Χώρες</value>
+  </data>
+  <data name="Countries_All">
+    <value>Όλες</value>
+  </data>
+  <data name="Countries_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Countries_P2P_Description">
+    <value>Κατεβάστε αρχεία μέσω δικτύων P2P (peer-to-peer) και βελτιώστε την εμπειρία παιχνιδιού και βιντεοκλήσεων στο διαδίκτυο.</value>
+  </data>
+  <data name="Countries_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Countries_SecureCore_Description">
+    <value>Επιπρόσθετο επίπεδο κρυπτογράφησης στη σύνδεση VPN σας.</value>
+  </data>
+  <data name="Countries_ServerLoad">
+    <value>Φορτίο διακομιστή</value>
+  </data>
+  <data name="Countries_SmartRouting">
+    <value>Smart routing</value>
+  </data>
+  <data name="Countries_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Countries_Tor_Description">
+    <value>Χρησιμοποιήστε το δίκτυο Tor μέσω της σύνδεσής σας VPN για επιπλέον ιδιωτικότητα.</value>
+  </data>
+  <data name="Country_Fastest">
+    <value>Ταχύτερη χώρα</value>
+  </data>
+  <data name="Country_Fastest_ExcludingMyCountry">
+    <value>Ταχύτερη (εξαιρουμένης της χώρας μου)</value>
+  </data>
+  <data name="Country_Random">
+    <value>Τυχαία χώρα</value>
+  </data>
+  <data name="Country_Random_ExcludingMyCountry">
+    <value>Τυχαία (εξαιρουμένης της χώρας μου)</value>
+  </data>
+  <data name="Country_val_AD">
+    <value>Ανδόρα</value>
+    <comment>The name of AD country</comment>
+  </data>
+  <data name="Country_val_AE">
+    <value>Ηνωμένα Αραβικά Εμιράτα</value>
+    <comment>The name of AE country</comment>
+  </data>
+  <data name="Country_val_AF">
+    <value>Αφγανιστάν</value>
+    <comment>The name of AF country</comment>
+  </data>
+  <data name="Country_val_AG">
+    <value>Αντίγκουα και Μπαρμπούντα</value>
+    <comment>The name of AG country</comment>
+  </data>
+  <data name="Country_val_AI">
+    <value>Ανγκουίλα</value>
+    <comment>The name of AI country</comment>
+  </data>
+  <data name="Country_val_AL">
+    <value>Αλβανία</value>
+    <comment>The name of AL country</comment>
+  </data>
+  <data name="Country_val_AM">
+    <value>Αρμενία</value>
+    <comment>The name of AM country</comment>
+  </data>
+  <data name="Country_val_AO">
+    <value>Αγκόλα</value>
+    <comment>The name of AO country</comment>
+  </data>
+  <data name="Country_val_AQ">
+    <value>Ανταρκτική</value>
+    <comment>The name of AQ country</comment>
+  </data>
+  <data name="Country_val_AR">
+    <value>Αργεντινή</value>
+    <comment>The name of AR country</comment>
+  </data>
+  <data name="Country_val_AS">
+    <value>Αμερικανική Σαμόα</value>
+    <comment>The name of AS country</comment>
+  </data>
+  <data name="Country_val_AT">
+    <value>Αυστρία</value>
+    <comment>The name of AT country</comment>
+  </data>
+  <data name="Country_val_AU">
+    <value>Αυστραλία</value>
+    <comment>The name of AU country</comment>
+  </data>
+  <data name="Country_val_AW">
+    <value>Αρούμπα</value>
+    <comment>The name of AW country</comment>
+  </data>
+  <data name="Country_val_AX">
+    <value>Νησιά Άλαντ</value>
+    <comment>The name of AX country</comment>
+  </data>
+  <data name="Country_val_AZ">
+    <value>Αζερμπαϊτζάν</value>
+    <comment>The name of AZ country</comment>
+  </data>
+  <data name="Country_val_BA">
+    <value>Βοσνία Ερζεγοβίνη</value>
+    <comment>The name of BA country</comment>
+  </data>
+  <data name="Country_val_BB">
+    <value>Μπαρμπάντος</value>
+    <comment>The name of BB country</comment>
+  </data>
+  <data name="Country_val_BD">
+    <value>Μπαγκλαντές</value>
+    <comment>The name of BD country</comment>
+  </data>
+  <data name="Country_val_BE">
+    <value>Βέλγιο</value>
+    <comment>The name of BE country</comment>
+  </data>
+  <data name="Country_val_BF">
+    <value>Μπουρκίνα Φάσο</value>
+    <comment>The name of BF country</comment>
+  </data>
+  <data name="Country_val_BG">
+    <value>Βουλγαρία</value>
+    <comment>The name of BG country</comment>
+  </data>
+  <data name="Country_val_BH">
+    <value>Μπαχρέιν</value>
+    <comment>The name of BH country</comment>
+  </data>
+  <data name="Country_val_BI">
+    <value>Μπουρούντι</value>
+    <comment>The name of BI country</comment>
+  </data>
+  <data name="Country_val_BJ">
+    <value>Μπενίν</value>
+    <comment>The name of BJ country</comment>
+  </data>
+  <data name="Country_val_BL">
+    <value>Άγιος Βαρθολομαίος</value>
+    <comment>The name of BL country</comment>
+  </data>
+  <data name="Country_val_BM">
+    <value>Βερμούδες</value>
+    <comment>The name of BM country</comment>
+  </data>
+  <data name="Country_val_BN">
+    <value>Μπρουνέι</value>
+    <comment>The name of BN country</comment>
+  </data>
+  <data name="Country_val_BO">
+    <value>Βολιβία</value>
+    <comment>The name of BO country</comment>
+  </data>
+  <data name="Country_val_BQ">
+    <value>Μπονέρ, Άγιος Ευστάθιος και Σάμπα</value>
+    <comment>The name of BQ country</comment>
+  </data>
+  <data name="Country_val_BR">
+    <value>Βραζιλία</value>
+    <comment>The name of BR country</comment>
+  </data>
+  <data name="Country_val_BS">
+    <value>Μπαχάμες</value>
+    <comment>The name of BS country</comment>
+  </data>
+  <data name="Country_val_BT">
+    <value>Μπουτάν</value>
+    <comment>The name of BT country</comment>
+  </data>
+  <data name="Country_val_BV">
+    <value>Νήσος Μπουβέ</value>
+    <comment>The name of BV country</comment>
+  </data>
+  <data name="Country_val_BW">
+    <value>Μποτσουάνα</value>
+    <comment>The name of BW country</comment>
+  </data>
+  <data name="Country_val_BY">
+    <value>Λευκορωσία</value>
+    <comment>The name of BY country</comment>
+  </data>
+  <data name="Country_val_BZ">
+    <value>Μπελίζ</value>
+    <comment>The name of BZ country</comment>
+  </data>
+  <data name="Country_val_CA">
+    <value>Καναδάς</value>
+    <comment>The name of CA country</comment>
+  </data>
+  <data name="Country_val_CC">
+    <value>Νήσοι Κόκος</value>
+    <comment>The name of CC country</comment>
+  </data>
+  <data name="Country_val_CD">
+    <value>Κονγκό-Κινσάσα</value>
+    <comment>The name of CD country</comment>
+  </data>
+  <data name="Country_val_CF">
+    <value>Κεντροαφρικανική Δημοκρατία</value>
+    <comment>The name of CF country</comment>
+  </data>
+  <data name="Country_val_CG">
+    <value>Κονγκό-Μπραζαβίλ</value>
+    <comment>The name of CG country</comment>
+  </data>
+  <data name="Country_val_CH">
+    <value>Ελβετία</value>
+    <comment>The name of CH country</comment>
+  </data>
+  <data name="Country_val_CI">
+    <value>Ακτή Ελεφαντοστού</value>
+    <comment>The name of CI country</comment>
+  </data>
+  <data name="Country_val_CK">
+    <value>Νήσοι Κουκ</value>
+    <comment>The name of CK country</comment>
+  </data>
+  <data name="Country_val_CL">
+    <value>Χιλή</value>
+    <comment>The name of CL country</comment>
+  </data>
+  <data name="Country_val_CM">
+    <value>Καμερούν</value>
+    <comment>The name of CM country</comment>
+  </data>
+  <data name="Country_val_CN">
+    <value>Κίνα</value>
+    <comment>The name of CN country</comment>
+  </data>
+  <data name="Country_val_CO">
+    <value>Κολομβία</value>
+    <comment>The name of CO country</comment>
+  </data>
+  <data name="Country_val_CR">
+    <value>Κόστα Ρίκα</value>
+    <comment>The name of CR country</comment>
+  </data>
+  <data name="Country_val_CU">
+    <value>Κούβα</value>
+    <comment>The name of CU country</comment>
+  </data>
+  <data name="Country_val_CV">
+    <value>Πράσινο Ακρωτήριo</value>
+    <comment>The name of CV country</comment>
+  </data>
+  <data name="Country_val_CW">
+    <value>Κουρασάο</value>
+    <comment>The name of CW country</comment>
+  </data>
+  <data name="Country_val_CX">
+    <value>Νήσος Χριστουγέννων</value>
+    <comment>The name of CX country</comment>
+  </data>
+  <data name="Country_val_CY">
+    <value>Κύπρος</value>
+    <comment>The name of CY country</comment>
+  </data>
+  <data name="Country_val_CZ">
+    <value>Τσεχία</value>
+    <comment>The name of CZ country</comment>
+  </data>
+  <data name="Country_val_DE">
+    <value>Γερμανία</value>
+    <comment>The name of DE country</comment>
+  </data>
+  <data name="Country_val_DJ">
+    <value>Τζιμπουτί</value>
+    <comment>The name of DJ country</comment>
+  </data>
+  <data name="Country_val_DK">
+    <value>Δανία</value>
+    <comment>The name of DK country</comment>
+  </data>
+  <data name="Country_val_DM">
+    <value>Δομινίκα</value>
+    <comment>The name of DM country</comment>
+  </data>
+  <data name="Country_val_DO">
+    <value>Δομινικανή Δημοκρατία</value>
+    <comment>The name of DO country</comment>
+  </data>
+  <data name="Country_val_DZ">
+    <value>Αλγερία</value>
+    <comment>The name of DZ country</comment>
+  </data>
+  <data name="Country_val_EC">
+    <value>Ισημερινός</value>
+    <comment>The name of EC country</comment>
+  </data>
+  <data name="Country_val_EE">
+    <value>Εσθονία</value>
+    <comment>The name of EE country</comment>
+  </data>
+  <data name="Country_val_EG">
+    <value>Αίγυπτος</value>
+    <comment>The name of EG country</comment>
+  </data>
+  <data name="Country_val_EH">
+    <value>Δυτική Σαχάρα</value>
+    <comment>The name of EH country</comment>
+  </data>
+  <data name="Country_val_ER">
+    <value>Ερυθραία</value>
+    <comment>The name of ER country</comment>
+  </data>
+  <data name="Country_val_ES">
+    <value>Ισπανία</value>
+    <comment>The name of ES country</comment>
+  </data>
+  <data name="Country_val_ET">
+    <value>Αιθιοπία</value>
+    <comment>The name of ET country</comment>
+  </data>
+  <data name="Country_val_FI">
+    <value>Φινλανδία</value>
+    <comment>The name of FI country</comment>
+  </data>
+  <data name="Country_val_FJ">
+    <value>Φίτζι</value>
+    <comment>The name of FJ country</comment>
+  </data>
+  <data name="Country_val_FK">
+    <value>Νησιά Φώκλαντ (Μαλβίνες)</value>
+    <comment>The name of FK country</comment>
+  </data>
+  <data name="Country_val_FM">
+    <value>Μικρονησία</value>
+    <comment>The name of FM country</comment>
+  </data>
+  <data name="Country_val_FO">
+    <value>Νήσοι Φερόες</value>
+    <comment>The name of FO country</comment>
+  </data>
+  <data name="Country_val_FR">
+    <value>Γαλλία</value>
+    <comment>The name of FR country</comment>
+  </data>
+  <data name="Country_val_GA">
+    <value>Γκαμπόν</value>
+    <comment>The name of GA country</comment>
+  </data>
+  <data name="Country_val_GB">
+    <value>Ηνωμένο Βασίλειο</value>
+    <comment>The name of GB country</comment>
+  </data>
+  <data name="Country_val_GD">
+    <value>Γρενάδα</value>
+    <comment>The name of GD country</comment>
+  </data>
+  <data name="Country_val_GE">
+    <value>Γεωργία</value>
+    <comment>The name of GE country</comment>
+  </data>
+  <data name="Country_val_GF">
+    <value>Γαλλική Γουιάνα</value>
+    <comment>The name of GF country</comment>
+  </data>
+  <data name="Country_val_GG">
+    <value>Γκέρνζι</value>
+    <comment>The name of GG country</comment>
+  </data>
+  <data name="Country_val_GH">
+    <value>Γκάνα</value>
+    <comment>The name of GH country</comment>
+  </data>
+  <data name="Country_val_GI">
+    <value>Γιβραλτάρ</value>
+    <comment>The name of GI country</comment>
+  </data>
+  <data name="Country_val_GL">
+    <value>Γροιλανδία</value>
+    <comment>The name of GL country</comment>
+  </data>
+  <data name="Country_val_GM">
+    <value>Γκάμπια</value>
+    <comment>The name of GM country</comment>
+  </data>
+  <data name="Country_val_GN">
+    <value>Γουινέα</value>
+    <comment>The name of GN country</comment>
+  </data>
+  <data name="Country_val_GP">
+    <value>Γουαδελούπη</value>
+    <comment>The name of GP country</comment>
+  </data>
+  <data name="Country_val_GQ">
+    <value>Ισημερινή Γουινέα</value>
+    <comment>The name of GQ country</comment>
+  </data>
+  <data name="Country_val_GR">
+    <value>Ελλάδα</value>
+    <comment>The name of GR country</comment>
+  </data>
+  <data name="Country_val_GS">
+    <value>Νήσοι Νότια Γεωργία και Νότιες Σάντουιτς</value>
+    <comment>The name of GS country</comment>
+  </data>
+  <data name="Country_val_GT">
+    <value>Γουατεμάλα</value>
+    <comment>The name of GT country</comment>
+  </data>
+  <data name="Country_val_GU">
+    <value>Γκουάμ</value>
+    <comment>The name of GU country</comment>
+  </data>
+  <data name="Country_val_GW">
+    <value>Γουινέα-Μπισάου</value>
+    <comment>The name of GW country</comment>
+  </data>
+  <data name="Country_val_GY">
+    <value>Γουιάνα</value>
+    <comment>The name of GY country</comment>
+  </data>
+  <data name="Country_val_HK">
+    <value>Χονγκ Κονγκ</value>
+    <comment>The name of HK country</comment>
+  </data>
+  <data name="Country_val_HM">
+    <value>Νήσοι Χερντ και Μακντόναλντ</value>
+    <comment>The name of HM country</comment>
+  </data>
+  <data name="Country_val_HN">
+    <value>Ονδούρα</value>
+    <comment>The name of HN country</comment>
+  </data>
+  <data name="Country_val_HR">
+    <value>Κροατία</value>
+    <comment>The name of HR country</comment>
+  </data>
+  <data name="Country_val_HT">
+    <value>Αϊτή</value>
+    <comment>The name of HT country</comment>
+  </data>
+  <data name="Country_val_HU">
+    <value>Ουγγαρία</value>
+    <comment>The name of HU country</comment>
+  </data>
+  <data name="Country_val_ID">
+    <value>Ινδονησία</value>
+    <comment>The name of ID country</comment>
+  </data>
+  <data name="Country_val_IE">
+    <value>Ιρλανδία</value>
+    <comment>The name of IE country</comment>
+  </data>
+  <data name="Country_val_IL">
+    <value>Ισραήλ</value>
+    <comment>The name of IL country</comment>
+  </data>
+  <data name="Country_val_IM">
+    <value>Νήσος Μαν</value>
+    <comment>The name of IM country</comment>
+  </data>
+  <data name="Country_val_IN">
+    <value>Ινδία</value>
+    <comment>The name of IN country</comment>
+  </data>
+  <data name="Country_val_IO">
+    <value>Βρετανικό Έδαφος Ινδικού Ωκεανού</value>
+    <comment>The name of IO country</comment>
+  </data>
+  <data name="Country_val_IQ">
+    <value>Ιράκ</value>
+    <comment>The name of IQ country</comment>
+  </data>
+  <data name="Country_val_IR">
+    <value>Ιράν</value>
+    <comment>The name of IR country</comment>
+  </data>
+  <data name="Country_val_IS">
+    <value>Ισλανδία</value>
+    <comment>The name of IS country</comment>
+  </data>
+  <data name="Country_val_IT">
+    <value>Ιταλία</value>
+    <comment>The name of IT country</comment>
+  </data>
+  <data name="Country_val_JE">
+    <value>Βαϊλάτο του Τζέρσεϊ</value>
+    <comment>The name of JE country</comment>
+  </data>
+  <data name="Country_val_JM">
+    <value>Τζαμάικα</value>
+    <comment>The name of JM country</comment>
+  </data>
+  <data name="Country_val_JO">
+    <value>Ιορδανία</value>
+    <comment>The name of JO country</comment>
+  </data>
+  <data name="Country_val_JP">
+    <value>Ιαπωνία</value>
+    <comment>The name of JP country</comment>
+  </data>
+  <data name="Country_val_KE">
+    <value>Κένυα</value>
+    <comment>The name of KE country</comment>
+  </data>
+  <data name="Country_val_KG">
+    <value>Κιργιστάν</value>
+    <comment>The name of KG country</comment>
+  </data>
+  <data name="Country_val_KH">
+    <value>Καμπότζη</value>
+    <comment>The name of KH country</comment>
+  </data>
+  <data name="Country_val_KI">
+    <value>Κιριμπάτι</value>
+    <comment>The name of KI country</comment>
+  </data>
+  <data name="Country_val_KM">
+    <value>Κομόρες</value>
+    <comment>The name of KM country</comment>
+  </data>
+  <data name="Country_val_KN">
+    <value>Άγιος Χριστόφορος</value>
+    <comment>The name of KN country</comment>
+  </data>
+  <data name="Country_val_KP">
+    <value>Βόρεια Κορέα</value>
+    <comment>The name of KP country</comment>
+  </data>
+  <data name="Country_val_KR">
+    <value>Νότια Κορέα</value>
+    <comment>The name of KR country</comment>
+  </data>
+  <data name="Country_val_KW">
+    <value>Κουβέιτ</value>
+    <comment>The name of KW country</comment>
+  </data>
+  <data name="Country_val_KY">
+    <value>Νήσοι Κέιμαν</value>
+    <comment>The name of KY country</comment>
+  </data>
+  <data name="Country_val_KZ">
+    <value>Καζακστάν</value>
+    <comment>The name of KZ country</comment>
+  </data>
+  <data name="Country_val_LA">
+    <value>Λάος</value>
+    <comment>The name of LA country</comment>
+  </data>
+  <data name="Country_val_LB">
+    <value>Λίβανος</value>
+    <comment>The name of LB country</comment>
+  </data>
+  <data name="Country_val_LC">
+    <value>Αγία Λουκία</value>
+    <comment>The name of LC country</comment>
+  </data>
+  <data name="Country_val_LI">
+    <value>Λιχτενστάιν</value>
+    <comment>The name of LI country</comment>
+  </data>
+  <data name="Country_val_LK">
+    <value>Σρι Λάνκα</value>
+    <comment>The name of LK country</comment>
+  </data>
+  <data name="Country_val_LR">
+    <value>Λιβερία</value>
+    <comment>The name of LR country</comment>
+  </data>
+  <data name="Country_val_LS">
+    <value>Λεσότο</value>
+    <comment>The name of LS country</comment>
+  </data>
+  <data name="Country_val_LT">
+    <value>Λιθουανία</value>
+    <comment>The name of LT country</comment>
+  </data>
+  <data name="Country_val_LU">
+    <value>Λουξεμβούργο</value>
+    <comment>The name of LU country</comment>
+  </data>
+  <data name="Country_val_LV">
+    <value>Λετονία</value>
+    <comment>The name of LV country</comment>
+  </data>
+  <data name="Country_val_LY">
+    <value>Λιβύη</value>
+    <comment>The name of LY country</comment>
+  </data>
+  <data name="Country_val_MA">
+    <value>Μαρόκο</value>
+    <comment>The name of MA country</comment>
+  </data>
+  <data name="Country_val_MC">
+    <value>Μονακό</value>
+    <comment>The name of MC country</comment>
+  </data>
+  <data name="Country_val_MD">
+    <value>Μολδαβία</value>
+    <comment>The name of MD country</comment>
+  </data>
+  <data name="Country_val_ME">
+    <value>Μαυροβούνιο</value>
+    <comment>The name of ME country</comment>
+  </data>
+  <data name="Country_val_MF">
+    <value>Άγιος Μαρτίνος (Γαλλικό τμήμα)</value>
+    <comment>The name of MF country</comment>
+  </data>
+  <data name="Country_val_MG">
+    <value>Μαδαγασκάρη</value>
+    <comment>The name of MG country</comment>
+  </data>
+  <data name="Country_val_MH">
+    <value>Νήσοι Μάρσαλ</value>
+    <comment>The name of MH country</comment>
+  </data>
+  <data name="Country_val_MK">
+    <value>Σκόπια</value>
+    <comment>The name of MK country</comment>
+  </data>
+  <data name="Country_val_ML">
+    <value>Μάλι</value>
+    <comment>The name of ML country</comment>
+  </data>
+  <data name="Country_val_MM">
+    <value>Μιανμάρ</value>
+    <comment>The name of MM country</comment>
+  </data>
+  <data name="Country_val_MN">
+    <value>Μογγολία</value>
+    <comment>The name of MN country</comment>
+  </data>
+  <data name="Country_val_MO">
+    <value>Μακάο</value>
+    <comment>The name of MO country</comment>
+  </data>
+  <data name="Country_val_MP">
+    <value>Βόρειες Μαριάνες</value>
+    <comment>The name of MP country</comment>
+  </data>
+  <data name="Country_val_MQ">
+    <value>Μαρτινίκα</value>
+    <comment>The name of MQ country</comment>
+  </data>
+  <data name="Country_val_MR">
+    <value>Μαυριτανία</value>
+    <comment>The name of MR country</comment>
+  </data>
+  <data name="Country_val_MS">
+    <value>Μονσεράτ</value>
+    <comment>The name of MS country</comment>
+  </data>
+  <data name="Country_val_MT">
+    <value>Μάλτα</value>
+    <comment>The name of MT country</comment>
+  </data>
+  <data name="Country_val_MU">
+    <value>Μαυρίκιος</value>
+    <comment>The name of MU country</comment>
+  </data>
+  <data name="Country_val_MV">
+    <value>Μαλδίβες</value>
+    <comment>The name of MV country</comment>
+  </data>
+  <data name="Country_val_MW">
+    <value>Μαλάουι</value>
+    <comment>The name of MW country</comment>
+  </data>
+  <data name="Country_val_MX">
+    <value>Μεξικό</value>
+    <comment>The name of MX country</comment>
+  </data>
+  <data name="Country_val_MY">
+    <value>Μαλαισία</value>
+    <comment>The name of MY country</comment>
+  </data>
+  <data name="Country_val_MZ">
+    <value>Μοζαμβίκη</value>
+    <comment>The name of MZ country</comment>
+  </data>
+  <data name="Country_val_NA">
+    <value>Ναμίμπια</value>
+    <comment>The name of NA country</comment>
+  </data>
+  <data name="Country_val_NC">
+    <value>Νέα Καληδονία</value>
+    <comment>The name of NC country</comment>
+  </data>
+  <data name="Country_val_NE">
+    <value>Νίγηρας</value>
+    <comment>The name of NE country</comment>
+  </data>
+  <data name="Country_val_NF">
+    <value>Νήσος Νόρφολκ</value>
+    <comment>The name of NF country</comment>
+  </data>
+  <data name="Country_val_NG">
+    <value>Νιγηρία</value>
+    <comment>The name of NG country</comment>
+  </data>
+  <data name="Country_val_NI">
+    <value>Νικαράγουα</value>
+    <comment>The name of NI country</comment>
+  </data>
+  <data name="Country_val_NL">
+    <value>Κάτω Χώρες</value>
+    <comment>The name of NL country</comment>
+  </data>
+  <data name="Country_val_NO">
+    <value>Νορβηγία</value>
+    <comment>The name of NO country</comment>
+  </data>
+  <data name="Country_val_NP">
+    <value>Νεπάλ</value>
+    <comment>The name of NP country</comment>
+  </data>
+  <data name="Country_val_NR">
+    <value>Ναούρου</value>
+    <comment>The name of NR country</comment>
+  </data>
+  <data name="Country_val_NU">
+    <value>Νιούε</value>
+    <comment>The name of NU country</comment>
+  </data>
+  <data name="Country_val_NZ">
+    <value>Νέα Ζηλανδία</value>
+    <comment>The name of NZ country</comment>
+  </data>
+  <data name="Country_val_OM">
+    <value>Ομάν</value>
+    <comment>The name of OM country</comment>
+  </data>
+  <data name="Country_val_PA">
+    <value>Παναμάς</value>
+    <comment>The name of PA country</comment>
+  </data>
+  <data name="Country_val_PE">
+    <value>Περού</value>
+    <comment>The name of PE country</comment>
+  </data>
+  <data name="Country_val_PF">
+    <value>Γαλλική Πολυνησία</value>
+    <comment>The name of PF country</comment>
+  </data>
+  <data name="Country_val_PG">
+    <value>Παπούα Νέα Γουινέα</value>
+    <comment>The name of PG country</comment>
+  </data>
+  <data name="Country_val_PH">
+    <value>Φιλιππίνες</value>
+    <comment>The name of PH country</comment>
+  </data>
+  <data name="Country_val_PK">
+    <value>Πακιστάν</value>
+    <comment>The name of PK country</comment>
+  </data>
+  <data name="Country_val_PL">
+    <value>Πολωνία</value>
+    <comment>The name of PL country</comment>
+  </data>
+  <data name="Country_val_PM">
+    <value>Νήσοι Αγίου Πέτρου και Μιχαήλ</value>
+    <comment>The name of PM country</comment>
+  </data>
+  <data name="Country_val_PN">
+    <value>Πίτκερν</value>
+    <comment>The name of PN country</comment>
+  </data>
+  <data name="Country_val_PR">
+    <value>Πουέρτο Ρίκο</value>
+    <comment>The name of PR country</comment>
+  </data>
+  <data name="Country_val_PS">
+    <value>Παλαιστίνη</value>
+    <comment>The name of PS country</comment>
+  </data>
+  <data name="Country_val_PT">
+    <value>Πορτογαλία</value>
+    <comment>The name of PT country</comment>
+  </data>
+  <data name="Country_val_PW">
+    <value>Παλάου</value>
+    <comment>The name of PW country</comment>
+  </data>
+  <data name="Country_val_PY">
+    <value>Παραγουάη</value>
+    <comment>The name of PY country</comment>
+  </data>
+  <data name="Country_val_QA">
+    <value>Κατάρ</value>
+    <comment>The name of QA country</comment>
+  </data>
+  <data name="Country_val_RE">
+    <value>Ρεϋνιόν</value>
+    <comment>The name of RE country</comment>
+  </data>
+  <data name="Country_val_RO">
+    <value>Ρουμανία</value>
+    <comment>The name of RO country</comment>
+  </data>
+  <data name="Country_val_RS">
+    <value>Σερβία</value>
+    <comment>The name of RS country</comment>
+  </data>
+  <data name="Country_val_RU">
+    <value>Ρωσία</value>
+    <comment>The name of RU country</comment>
+  </data>
+  <data name="Country_val_RW">
+    <value>Ρουάντα</value>
+    <comment>The name of RW country</comment>
+  </data>
+  <data name="Country_val_SA">
+    <value>Σαουδική Αραβία</value>
+    <comment>The name of SA country</comment>
+  </data>
+  <data name="Country_val_SB">
+    <value>Νήσοι Σολομώντος</value>
+    <comment>The name of SB country</comment>
+  </data>
+  <data name="Country_val_SC">
+    <value>Σεϊχέλες</value>
+    <comment>The name of SC country</comment>
+  </data>
+  <data name="Country_val_SD">
+    <value>Σουδάν</value>
+    <comment>The name of SD country</comment>
+  </data>
+  <data name="Country_val_SE">
+    <value>Σουηδία</value>
+    <comment>The name of SE country</comment>
+  </data>
+  <data name="Country_val_SG">
+    <value>Σιγκαπούρη</value>
+    <comment>The name of SG country</comment>
+  </data>
+  <data name="Country_val_SH">
+    <value>Αγία Ελένη, της Αναλήψεως και Τριστάν ντα Κούνια</value>
+    <comment>The name of SH country</comment>
+  </data>
+  <data name="Country_val_SI">
+    <value>Σλοβενία</value>
+    <comment>The name of SI country</comment>
+  </data>
+  <data name="Country_val_SJ">
+    <value>Σβάλμπαρντ</value>
+    <comment>The name of SJ country</comment>
+  </data>
+  <data name="Country_val_SK">
+    <value>Σλοβακία</value>
+    <comment>The name of SK country</comment>
+  </data>
+  <data name="Country_val_SL">
+    <value>Σιέρα Λεόνε</value>
+    <comment>The name of SL country</comment>
+  </data>
+  <data name="Country_val_SM">
+    <value>Άγιος Μαρίνος</value>
+    <comment>The name of SM country</comment>
+  </data>
+  <data name="Country_val_SN">
+    <value>Σενεγάλη</value>
+    <comment>The name of SN country</comment>
+  </data>
+  <data name="Country_val_SO">
+    <value>Σομαλία</value>
+    <comment>The name of SO country</comment>
+  </data>
+  <data name="Country_val_SR">
+    <value>Σουρινάμ</value>
+    <comment>The name of SR country</comment>
+  </data>
+  <data name="Country_val_SS">
+    <value>Νότιο Σουδάν</value>
+    <comment>The name of SS country</comment>
+  </data>
+  <data name="Country_val_ST">
+    <value>Άγιος Θωμάς</value>
+    <comment>The name of ST country</comment>
+  </data>
+  <data name="Country_val_SV">
+    <value>Ελ Σαλβαδόρ</value>
+    <comment>The name of SV country</comment>
+  </data>
+  <data name="Country_val_SX">
+    <value>Άγιος Μαρτίνος (Ολλανδικό τμήμα)</value>
+    <comment>The name of SX country</comment>
+  </data>
+  <data name="Country_val_SY">
+    <value>Αραβική Δημοκρατία της Συρίας</value>
+    <comment>The name of SY country</comment>
+  </data>
+  <data name="Country_val_SZ">
+    <value>Εσουατίνη</value>
+    <comment>The name of SZ country</comment>
+  </data>
+  <data name="Country_val_TC">
+    <value>Νήσοι Τερκς και Κάικος</value>
+    <comment>The name of TC country</comment>
+  </data>
+  <data name="Country_val_TD">
+    <value>Τσαντ</value>
+    <comment>The name of TD country</comment>
+  </data>
+  <data name="Country_val_TF">
+    <value>Νότια Γαλλικά Εδάφη</value>
+    <comment>The name of TF country</comment>
+  </data>
+  <data name="Country_val_TG">
+    <value>Τόγκο</value>
+    <comment>The name of TG country</comment>
+  </data>
+  <data name="Country_val_TH">
+    <value>Ταϊλάνδη</value>
+    <comment>The name of TH country</comment>
+  </data>
+  <data name="Country_val_TJ">
+    <value>Τατζικιστάν</value>
+    <comment>The name of TJ country</comment>
+  </data>
+  <data name="Country_val_TK">
+    <value>Τοκελάου</value>
+    <comment>The name of TK country</comment>
+  </data>
+  <data name="Country_val_TL">
+    <value>Ανατολικό Τιμόρ</value>
+    <comment>The name of TL country</comment>
+  </data>
+  <data name="Country_val_TM">
+    <value>Τουρκμενιστάν</value>
+    <comment>The name of TM country</comment>
+  </data>
+  <data name="Country_val_TN">
+    <value>Τυνησία</value>
+    <comment>The name of TN country</comment>
+  </data>
+  <data name="Country_val_TO">
+    <value>Τόνγκα</value>
+    <comment>The name of TO country</comment>
+  </data>
+  <data name="Country_val_TR">
+    <value>Τουρκία</value>
+    <comment>The name of TR country</comment>
+  </data>
+  <data name="Country_val_TT">
+    <value>Τρινιντάντ</value>
+    <comment>The name of TT country</comment>
+  </data>
+  <data name="Country_val_TV">
+    <value>Τουβαλού</value>
+    <comment>The name of TV country</comment>
+  </data>
+  <data name="Country_val_TW">
+    <value>Ταϊβάν</value>
+    <comment>The name of TW country</comment>
+  </data>
+  <data name="Country_val_TZ">
+    <value>Τανζανία</value>
+    <comment>The name of TZ country</comment>
+  </data>
+  <data name="Country_val_UA">
+    <value>Ουκρανία</value>
+    <comment>The name of UA country</comment>
+  </data>
+  <data name="Country_val_UG">
+    <value>Ουγκάντα</value>
+    <comment>The name of UG country</comment>
+  </data>
+  <data name="Country_val_UK">
+    <value>Ηνωμένο Βασίλειο</value>
+    <comment>The name of UK country</comment>
+  </data>
+  <data name="Country_val_UM">
+    <value>Απομακρυσμένες Νησίδες των Ηνωμένων Πολιτειών</value>
+    <comment>The name of UM country</comment>
+  </data>
+  <data name="Country_val_US">
+    <value>Ηνωμένες Πολιτείες</value>
+    <comment>The name of US country</comment>
+  </data>
+  <data name="Country_val_UY">
+    <value>Ουρουγουάη</value>
+    <comment>The name of UY country</comment>
+  </data>
+  <data name="Country_val_UZ">
+    <value>Ουζμπεκιστάν</value>
+    <comment>The name of UZ country</comment>
+  </data>
+  <data name="Country_val_VA">
+    <value>Πόλη του Βατικανού</value>
+    <comment>The name of VA country</comment>
+  </data>
+  <data name="Country_val_VC">
+    <value>Άγιος Βικέντιος</value>
+    <comment>The name of VC country</comment>
+  </data>
+  <data name="Country_val_VE">
+    <value>Βενεζουέλα</value>
+    <comment>The name of VE country</comment>
+  </data>
+  <data name="Country_val_VG">
+    <value>Βρετανικές Παρθένες Νήσοι</value>
+    <comment>The name of VG country</comment>
+  </data>
+  <data name="Country_val_VI">
+    <value>Παρθένοι Νήσοι, ΗΠΑ.</value>
+    <comment>The name of VI country</comment>
+  </data>
+  <data name="Country_val_VN">
+    <value>Βιετνάμ</value>
+    <comment>The name of VN country</comment>
+  </data>
+  <data name="Country_val_VU">
+    <value>Βανουάτου</value>
+    <comment>The name of VU country</comment>
+  </data>
+  <data name="Country_val_WF">
+    <value>Ουαλίς και Φουτουνά</value>
+    <comment>The name of WF country</comment>
+  </data>
+  <data name="Country_val_WS">
+    <value>Σαμόα</value>
+    <comment>The name of WS country</comment>
+  </data>
+  <data name="Country_val_XK">
+    <value>Κόσοβο</value>
+    <comment>The name of XK country</comment>
+  </data>
+  <data name="Country_val_YE">
+    <value>Υεμένη</value>
+    <comment>The name of YE country</comment>
+  </data>
+  <data name="Country_val_YT">
+    <value>Μαγιότ</value>
+    <comment>The name of YT country</comment>
+  </data>
+  <data name="Country_val_ZA">
+    <value>Νότια Αφρική</value>
+    <comment>The name of ZA country</comment>
+  </data>
+  <data name="Country_val_ZM">
+    <value>Ζάμπια</value>
+    <comment>The name of ZM country</comment>
+  </data>
+  <data name="Country_val_ZW">
+    <value>Ζιμπάμπουε</value>
+    <comment>The name of ZW country</comment>
+  </data>
+  <data name="Country_val_ZZ">
+    <value>Άγνωστο</value>
+    <comment>The name of ZZ (unknown or not specified) country</comment>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Description">
+    <value>Η υπηρεσία Μηχανισμού Βασικού Φιλτραρίσματος (BFE) στη συσκευή σας Windows είναι απενεργοποιημένη. Αυτή η υπηρεσία πρέπει να είναι ενεργοποιημένη για τη σωστή λειτουργία του Proton VPN.</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_HowToEnable">
+    <value>Τρόπος ενεργοποίησης του Μηχανισμού Φιλτραρίσματος Βάσης (Base Filtering Engine)</value>
+  </data>
+  <data name="Dialogs_BaseFilteringEngine_Title">
+    <value>Ενεργοποιήστε τον Μηχανισμό Φιλτραρίσματος Βάσης για να συνεχίσετε</value>
+  </data>
+  <data name="Dialogs_ChangeServer_GetUnlimitedServerChanges">
+    <value>Αποκτήστε απεριόριστες αλλαγές διακομιστή με το VPN Plus.</value>
+  </data>
+  <data name="Dialogs_ChangeServer_MaximumServerChangesReached">
+    <value>Έχετε φτάσει τον μέγιστο αριθμό αλλαγών σε δωρεάν διακομιστές προς το παρόν</value>
+  </data>
+  <data name="Dialogs_Common_GetStarted">
+    <value>Ας ξεκινήσουμε</value>
+  </data>
+  <data name="Dialogs_Common_SubscriptionExpired">
+    <value>Η συνδρομή έληξε</value>
+  </data>
+  <data name="Dialogs_Common_UpgradeToGetPlusFeatures">
+    <value>Αναβαθμίστε για απόκτηση πρόσβασης ξανά στους διακομιστές και τις λειτουργίες του Plus.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Description">
+    <value>Φαίνεται ότι η υπηρεσία Proton VPN είναι απενεργοποιημένη. Θα χρειαστεί να ενεργοποιήσετε ξανά την υπηρεσία για να συνδεθείτε.</value>
+  </data>
+  <data name="Dialogs_DisabledService_Title">
+    <value>Ενεργοποιήστε την Υπηρεσία Windows για να συνεχίσετε</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_One">
+    <value>Το Proton Free σας συνδέει αυτόματα με τον ταχύτερο διαθέσιμο δωρεάν διακομιστή από τη {0} δωρεάν χώρα μας. Αυτός θα είναι συνήθως ο πλησιέστερος διακομιστής στην τοποθεσία σας.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Description_Other">
+    <value>Το Proton Free σας συνδέει αυτόματα με τον ταχύτερο διαθέσιμο δωρεάν διακομιστή από τις {0} δωρεάν χώρες μας. Αυτός θα είναι συνήθως ο πλησιέστερος διακομιστής στην τοποθεσία σας.</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_One">
+    <value>Χώρα δωρεάν διακομιστών ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Header_Other">
+    <value>Χώρες δωρεάν διακομιστών ({0})</value>
+  </data>
+  <data name="Dialogs_FreeConnections_Title">
+    <value>Δωρεάν συνδέσεις</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_CommentLabel">
+    <value>Παρακαλούμε αιτιολογήστε τη βαθμολογία σας.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorSubtitle">
+    <value>Αδυναμία αποστολής των σχολίων σας. Παρακαλούμε ελέγξτε τη σύνδεσή σας και προσπαθήστε ξανά.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ErrorTitle">
+    <value>Κάτι πήγε στραβά</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_HighRateDescription">
+    <value>10 είναι το πιθανότερο</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_LowRateDescription">
+    <value>0 είναι το πλέον απίθανο</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Optional">
+    <value>Προαιρετικό</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_ShareAnonymously">
+    <value>Μοιραστείτε ανώνυμα</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessSubtitle">
+    <value>Τα σχόλιά σας μας βοηθούν να βελτιώσουμε το Proton VPN.</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_SuccessTitle">
+    <value>Ευχαριστούμε για τα σχόλιά σας</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_Title">
+    <value>Πόσο πιθανό είναι να προτείνετε το Proton VPN σε έναν φίλο;</value>
+  </data>
+  <data name="Dialogs_NpsSurvey_TryAgain">
+    <value>Προσπαθήστε ξανά</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Description">
+    <value>Αναβαθμίστε για να ξεκλειδώσετε διακομιστές P2P (peer-to-peer) για γρήγορο online gaming και torrenting ή τερματίστε τη δραστηριότητα P2P για να επαναφέρετε τη σύνδεσή σας.</value>
+  </data>
+  <data name="Dialogs_P2PDetection_Title">
+    <value>Το P2P δεν επιτρέπεται σε δωρεάν διακομιστές VPN</value>
+  </data>
+  <data name="Dialogs_P2PDetection_WindowTitle">
+    <value>Ανακαλύψτε το VPN Plus</value>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email">
+    <value>Ηλεκτρονικό ταχυδρομείο</value>
+    <comment>The label for user e-mail address in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_Email_Description">
+    <value>example@domain.com</value>
+    <comment>The watermark text displayed in empty user e-mail text box in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs">
+    <value>Αποστολή καταχωρήσεων σφαλμάτων</value>
+    <comment>The label for the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_ContactForm_IncludeLogs_Description">
+    <value>Τα αρχεία καταγραφής σφαλμάτων μας δείχνουν τι πήγε στραβά και ποιες ενέργειες οδήγησαν στο πρόβλημά σας. Θα τα χρησιμοποιήσουμε μόνο για να βοηθήσουμε τους μηχανικούς μας να διορθώσουν σφάλματα.</value>
+    <comment>The tooltip displayed on the Send error logs checkbox in Report an issue window</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Header">
+    <value>Τι πρόβλημα αντιμετωπίζετε;</value>
+  </data>
+  <data name="Dialogs_ReportIssue_NoLogsWarning">
+    <value>Οι καταχωρήσεις σφαλμάτων μας βοηθούν να επιλύσουμε το πρόβλημά σας! Αν δεν τα συμπεριλάβετε, ίσως να μην μπορούμε να το ερευνήσουμε πλήρως.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes">
+    <value>Πρόχειρες λύσεις</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Footer">
+    <value>Δε δούλεψε;</value>
+  </data>
+  <data name="Dialogs_ReportIssue_QuickFixes_Header">
+    <value>Αυτές οι υποδείξεις μπορεί να βοηθήσουν στην ταχύτερη επίλυση του προβλήματός σας.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_DoneAction">
+    <value>Έτοιμο</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail">
+    <value>Κάτι πήγε στραβά</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Fail_Description">
+    <value>Αδυναμία αποστολής της αναφοράς σας. Παρακαλούμε ελέγξτε τη σύνδεσή σας και προσπαθήστε ξανά.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success">
+    <value>Αναφορά αποστάλθηκε</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Result_Success_Description">
+    <value>Ευχαριστούμε για τα σχόλιά σας. Θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό.</value>
+  </data>
+  <data name="Dialogs_ReportIssue_SendReport">
+    <value>Αποστολή αναφοράς</value>
+  </data>
+  <data name="Dialogs_ReportIssue_Steps">
+    <value>Βήμα {0} από {1}</value>
+    <comment>Steps header for the Report an issue dialog. {0} is a placeholder for the current step. {1} is a placeholder for the total number of steps. (eg. Step 1 of 3)</comment>
+  </data>
+  <data name="Dialogs_ReportIssue_Title">
+    <value>Αναφορά προβλήματος</value>
+  </data>
+  <data name="Dialogs_StreamingDetection_WindowTitle">
+    <value>Ανακαλύψτε το VPN Plus</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Description">
+    <value>Οι διακομιστές VPN Plus σας επιτρέπουν να απολαμβάνετε τις αγαπημένες σας ταινίες και τηλεοπτικές εκπομπές από όλο τον κόσμο.</value>
+  </data>
+  <data name="Dialogs_StreamingWarning_Title">
+    <value>Αναβάθμιση για παράκαμψη αποκλεισμών VPN</value>
+  </data>
+  <data name="Dialogs_SubscriptionExpired_MaybeLater">
+    <value>Ίσως αργότερα</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Description">
+    <value>Φαίνεται ότι η συσκευή σας χρησιμοποιεί διακομιστή μεσολάβησης. Αυτό μπορεί να επηρεάσει την προστασία του VPN σας.</value>
+  </data>
+  <data name="Dialogs_SystemProxy_Title">
+    <value>Εντοπίστηκε διακομιστής μεσολάβησης</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus">
+    <value>Απενεργοποιήστε λογισμικό προστασίας από ιούς ή τείχους προστασίας</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Antivirus_Description">
+    <value>Αυτά τα προγράμματα μπορεί να επηρεάσουν τις συνδέσεις VPN.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet">
+    <value>Ελέγξτε τη σύνδεσή σας στο διαδίκτυο</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_CheckInternet_Description">
+    <value>Βεβαιωθείτε ότι είστε συνδεδεμένοι στο διαδίκτυο και ότι η σύνδεσή σας είναι σταθερή.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Description">
+    <value>Αυτές οι γρήγορες διορθώσεις μπορεί να σας βοηθήσουν να συνδεθείτε στο Proton.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork">
+    <value>Χρησιμοποιήστε ένα διαφορετικό δίκτυο</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_DifferentNetwork_Description">
+    <value>Δοκιμάστε να αλλάξετε δίκτυα Wi-Fi ή χρησιμοποιήστε δεδομένα κινητής τηλεφωνίας αντ'αυτού.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage">
+    <value>Ελέγξτε τη σελίδα κατάστασής μας</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_StatusPage_Description">
+    <value>Απλώς για να βεβαιωθείτε ότι οι υπηρεσίες Proton λειτουργούν κανονικά.</value>
+  </data>
+  <data name="Dialogs_Troubleshooting_Title">
+    <value>Βοήθεια σύνδεσης</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOff">
+    <value>Αυτό θα σας αποσυνδέσει από το VPN. Τυχόν ενεργές συνδέσεις στο διαδίκτυο θα είναι προσωρινά απροστάτευτες.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Message_KillSwitchOn">
+    <value>Αυτό θα σας αποσυνδέσει από το VPN και θα απενεργοποιήσει προσωρινά τη λειτουργία kill switch. Τυχόν ενεργές συνδέσεις στο διαδίκτυο θα είναι προσωρινά απροστάτευτες.</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Install">
+    <value>Εγκατάσταση ενημέρωσης;</value>
+  </data>
+  <data name="Dialogs_UpdateConfirmation_Title_Restart">
+    <value>Επανεκκινήστε το Proton VPN για να ολοκληρώσετε την ενημέρωση</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Description">
+    <value>Φαίνεται ότι η ώρα συστήματός σας είναι απορρυθμισμένη. Αυτό ίσως προκαλέσει προβλήματα στη σύνδεση VPN.</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_PrimaryButton">
+    <value>Πώς να ενημερώσετε την ώρα συστήματος</value>
+  </data>
+  <data name="Dialogs_UpdateSystemClock_Title">
+    <value>Ενημερώστε την ώρα συστήματός σας.</value>
+  </data>
+  <data name="Dialogs_WelcomeB2B_Description">
+    <value>Απλός. Απρόσκοπτη. Ασφαλής. Προστατευτείτε στο διαδίκτυο και αποκτήστε ασφαλή πρόσβαση στις τοποθεσίες, το λογισμικό και τα αρχεία του οργανισμού σας.</value>
+  </data>
+  <data name="Dialogs_WelcomeToProton_Title">
+    <value>Καλώς ήρθατε στο Proton VPN</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_Description">
+    <value>Περιηγηθείτε ιδιωτικά, αποκτήστε πρόσβαση σε αποκλεισμένο περιεχόμενο και απολαύστε ψηφιακή ελευθερία χωρίς δεδομένα ή όρια ταχύτητας.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs">
+    <value>Πιστοποιημένο VPN χωρίς αρχεία καταγραφής</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnFree_NoLogs_Description">
+    <value>Η δραστηριότητά σας προστατεύεται από τους Ελβετικούς νόμους περί απορρήτου. Δε θα σας παρακολουθούμε ποτέ στο διαδίκτυο ούτε θα μοιραστούμε τις πληροφορίες σας με τρίτους.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely">
+    <value>Περιηγηθείτε ελεύθερα από οπουδήποτε</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_One">
+    <value>Κρύψτε την εικονική σας τοποθεσία και ζήστε την εμπειρία του διαδικτύου από οποιαδήποτε από τη {0} διαθέσιμη χώρα μας.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_BrowseFreely_Description_Other">
+    <value>Κρύψτε την εικονική σας τοποθεσία και ζήστε την εμπειρία του διαδικτύου από οποιαδήποτε από τις {0} διαθέσιμες χώρες μας.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices">
+    <value>Προστατέψτε 10 συσκευές ταυτόχρονα</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_ProtectDevices_Description">
+    <value>Επεκτείνετε την προστασία VPN στον επιτραπέζιο υπολογιστή, το κινητό, το πρόγραμμα περιήγησης, την τηλεόρασή σας και πολλά άλλα. </value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream">
+    <value>Μεταδώστε ροή σε υψηλή ανάλυση</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Stream_Description">
+    <value>Παρακολουθήστε ταινίες και τηλεοπτικές εκπομπές από όλο τον κόσμο, χωρίς συμβιβασμούς στην ταχύτητα ή την ποιότητα.</value>
+  </data>
+  <data name="Dialogs_WelcomeToVpnPlus_Title">
+    <value>Καλώς ήλθατε στο VPN Plus</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Description">
+    <value>Έχετε ξεκλειδώσει όλες τις premium λειτουργίες Proton VPN, Mail, Calendar, Drive και Pass.</value>
+  </data>
+  <data name="Dialogs_WelcomeUnlimited_Title">
+    <value>Καλώς ήρθατε στο {0}</value>
+    <comment>Title to welcome the user after an account upgrade. {0} is a placeholder for the name of the new plan (eg. Proton Unlimited, Proton Duo, Proton Family).</comment>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Description">
+    <value>Μπορείτε πλέον να συνδεθείτε σε εκτυπωτές, ηχεία και άλλες συσκευές στο τοπικό σας δίκτυο (LAN), παρακάμπτοντας τη σήραγγα VPN.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_LanConnections_Title">
+    <value>Τοπικές συνδέσεις (LAN)</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Description">
+    <value>Όταν η προώθηση θυρών είναι ενεργοποιημένη, θα βλέπετε τώρα τον αριθμό της ενεργής θύρας σας στην αρχική οθόνη.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_PortNumber_Title">
+    <value>Ενεργός αριθμός θύρας</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TakeALook">
+    <value>Ρίξτε μια ματιά</value>
+  </data>
+  <data name="Dialogs_WhatsNew_Title">
+    <value>Τι νέο υπάρχει</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Description">
+    <value>Μπορείτε τώρα να συνδεθείτε, να αποσυνδεθείτε και να αλλάξετε την προεπιλεγμένη σύνδεσή σας από το εικονίδιο της περιοχής ειδοποιήσεων.</value>
+  </data>
+  <data name="Dialogs_WhatsNew_TrayApp_Title">
+    <value>Νέα εφαρμογή περιοχής ειδοποιήσεων συστήματος</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_ExcludeLocations">
+    <value>Εξαίρεση τοποθεσιών</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Message">
+    <value>Εάν υπάρχουν τοποθεσίες στις οποίες δε θέλετε να συνδέεστε αυτόματα, μπορείτε να τις εξαιρέσετε από τις επιλογές Ταχύτερη και Τυχαία χώρα.</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Skip">
+    <value>Παράλειψη</value>
+  </data>
+  <data name="ExcludedLocations_SmartDiscovery_Prompt_Title">
+    <value>Δεν είναι η χώρα που θέλατε;</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_ActionButton">
+    <value>Εξαίρεση τοποθεσιών</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_CloseButton">
+    <value>Ίσως αργότερα</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Subtitle">
+    <value>Τώρα μπορείτε να εξαιρέσετε χώρες ή πόλεις από τις Ταχύτερες και Τυχαίες συνδέσεις.</value>
+  </data>
+  <data name="ExcludedLocations_TeachingTip_Title">
+    <value>Αποφύγετε ανεπιθύμητες τοποθεσίες</value>
+  </data>
+  <data name="Exit_Confirmation_Title">
+    <value>Έξοδος απο το Proton VPN?</value>
+  </data>
+  <data name="Exit_Message">
+    <value>Αποσύνδεση από VPN...</value>
+  </data>
+  <data name="Exit_Title">
+    <value>Έξοδος απο το Proton VPN</value>
+  </data>
+  <data name="Flyouts_Country_Description1">
+    <value>Η περιήγηση χωρίς VPN σάς αφήνει ευάλωτους σε περιορισμούς στο διαδίκτυο βάσει τοποθεσίας.</value>
+  </data>
+  <data name="Flyouts_Country_Description2">
+    <value>Οι ιστότοποι μπορούν να χρησιμοποιούν γεωγραφικούς περιορισμούς για να περιορίζουν το περιεχόμενο σε συγκεκριμένες τοποθεσίες. Οι κυβερνήσεις μπορούν επίσης να δώσουν εντολή στους ISP (Internet Service Providers) να μπλοκάρουν ορισμένους ιστότοπους στη χώρα τους.</value>
+  </data>
+  <data name="Flyouts_Country_Description3">
+    <value>Ένα VPN κάνει να φαίνεται σαν να περιηγείστε από κάπου αλλού, προστατεύοντάς σας από την επιτήρηση και τη λογοκρισία.</value>
+  </data>
+  <data name="Flyouts_Country_Title">
+    <value>Χώρα</value>
+  </data>
+  <data name="Flyouts_Country_Warning">
+    <value>Συνδεθείτε στο VPN για να αλλάξετε την εικονική σας τοποθεσία</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Connected">
+    <value>Η VPN διεύθυνση IP σας κρύβει την πραγματική σας διεύθυνση IP. Αυτό κάνει να φαίνεται σαν να περιηγείστε από την τοποθεσία VPN σας, επομένως η δραστηριότητά σας στο διαδίκτυο δεν μπορεί να συνδεθεί με τη συσκευή σας.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected1">
+    <value>Αυτός ο μοναδικός κωδικός μπορεί να χρησιμοποιηθεί από ιστότοπους και ISP (Internet Service Providers) για τη σύνδεση της τοποθεσίας και του ιστορικού περιήγησής σας με τη συσκευή σας.</value>
+  </data>
+  <data name="Flyouts_IpAddress_Description_Disconnected2">
+    <value>Ένα VPN αποκρύπτει την ΙΡ διεύθυνσή σας, καθιστώντας δυσκολότερο τον εντοπισμό της δραστηριότητάς σας.</value>
+  </data>
+  <data name="Flyouts_IpAddress_KnowledgeBaseLinkTitle">
+    <value>Τι είναι η διεύθυνση IP;</value>
+  </data>
+  <data name="Flyouts_IpAddress_Title">
+    <value>Διεύθυνση IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIp">
+    <value>VPN IP</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv4">
+    <value>VPN IPv4</value>
+  </data>
+  <data name="Flyouts_IpAddress_VpnIpv6">
+    <value>VPN IPv6</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIp">
+    <value>Η διεύθυνση IP σας</value>
+  </data>
+  <data name="Flyouts_IpAddress_YourIpIsVisible">
+    <value>Η διεύθυνση IP σας είναι ορατή</value>
+  </data>
+  <data name="Flyouts_Isp_Description1">
+    <value>Ο ISP σας (Internet Service Provider) είναι η εταιρεία που σας συνδέει στο διαδίκτυο.</value>
+  </data>
+  <data name="Flyouts_Isp_Description2">
+    <value>Μπορούν να καταγράψουν τη δραστηριότητά σας στο διαδίκτυο. Σε ορισμένες χώρες, μπορούν να πουλήσουν τα δεδομένα σας σε διαφημιστές. Σε άλλες, μπορεί να τους ζητηθεί να τα παραδώσουν στην κυβέρνηση.</value>
+  </data>
+  <data name="Flyouts_Isp_Description3">
+    <value>Ένα VPN κρύβει την ΙΡ διεύθυνσή σας, προστατεύοντάς σας από παρεμβολές των ISP.</value>
+  </data>
+  <data name="Flyouts_Isp_KnowledgeBaseLinkTitle">
+    <value>Τι είναι ο Πάροχος Υπηρεσιών Διαδικτύου (ISP);</value>
+  </data>
+  <data name="Flyouts_Isp_Title">
+    <value>Πάροχος</value>
+  </data>
+  <data name="Flyouts_Isp_Warning">
+    <value>Ο πάροχός σας μπορεί να δει ποιους ιστότοπους επισκέπτεστε</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Advanced_Success">
+    <value>Αποκλείει κάθε πρόσβαση στο διαδίκτυο όταν δεν είστε συνδεδεμένοι στο Proton VPN</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info">
+    <value>Η διεύθυνση IP σας θα μπορεί να εκτεθεί εάν διακοπεί η VPN σύνδεσή σας</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Info_Disconnected">
+    <value>Προηγμένο kill switch απενεργοποιεί το διαδίκτυο σας για να προστατεύσει τη διεύθυνση IP σας όταν δεν είστε συνδεδεμένοι στο Proton VPN.</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Standard_Success">
+    <value>Αν διακοπεί η VPN σύνδεσή σας, θα αποσυνδεθείτε από το διαδίκτυο μέχρι να αποκατασταθεί το VPN</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Connected">
+    <value>Η προηγμένη λειτουργία kill switch ισχύει ακόμα και αν αποσυνδεθείτε σκόπιμα από το VPN</value>
+  </data>
+  <data name="Flyouts_KillSwitch_Warning_Disconnected">
+    <value>Για να συνδεθείτε ξανά, συνδεθείτε στο VPN ή απενεργοποιήστε τη σύνθετη λειτουργία kill switch</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackersAdultContent_Success">
+    <value>Προστατεύεστε από διαφημίσεις, ιχνηλάτες, κακόβουλο λογισμικό και περιεχόμενο για ενήλικες.</value>
+  </data>
+  <data name="Flyouts_NetShield_AdsMalwareTrackers_Success">
+    <value>Προστατεύεστε από διαφημίσεις, ιχνηλάτες και κακόβουλα προγράμματα.</value>
+  </data>
+  <data name="Flyouts_NetShield_Info">
+    <value>Προστατέψτε την περιήγησή σας σε ιστότοπους και εφαρμογές.</value>
+  </data>
+  <data name="Flyouts_NetShield_MalwareOnly_Success">
+    <value>Προστατεύεστε μόνο από κακόβουλο λογισμικό.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Description">
+    <value>Αποκλείστε διαφημίσεις, ιχνηλάτες, κακόβουλο λογισμικό και περιεχόμενο για ενήλικες με το VPN Plus.</value>
+  </data>
+  <data name="Flyouts_NetShield_Upsell_Title">
+    <value>Απολαύστε περιήγηση χωρίς διαφημίσεις</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort">
+    <value>Ενεργός αριθμός θύρας</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Error">
+    <value>Δεν είναι δυνατή η ανάκτηση του ενεργού αριθμού θύρας. Επανεκκινήστε τη σύνδεσή σας και δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_ActivePort_Info">
+    <value>Εισαγάγετε τον αριθμό ενεργής θύρας στον torrent client ή την P2P εφαρμογή σας για βελτιωμένη απόδοση.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Info">
+    <value>Βελτιώνει τις ταχύτητες λήψης peer-to-peer</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Description">
+    <value>Ενισχύστε την απόδοση κοινής χρήσης αρχείων peer-to-peer (P2P) με το VPN Plus.</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Upsell_Title">
+    <value>Βελτιώστε την ταχύτητα P2P</value>
+  </data>
+  <data name="Flyouts_PortForwarding_Warning">
+    <value>Συνδεθείτε σε έναν διακομιστή P2P για να βελτιώσετε τις ταχύτητες τorrent.</value>
+  </data>
+  <data name="Flyouts_Protocol_Description">
+    <value>Ένα πρωτόκολλο VPN καθορίζει τον τρόπο κρυπτογράφησης και μετάδοσης της κίνησης μέσω του VPN.</value>
+  </data>
+  <data name="Flyouts_Protocol_KnowledgeBaseLinkTitle">
+    <value>Ποιο πρωτόκολλο VPN είναι το καλύτερο;</value>
+  </data>
+  <data name="Flyouts_Protocol_Title">
+    <value>Πρωτόκολλο</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Description">
+    <value>Το φορτίο διακομιστή δείχνει πόσο κοντά βρίσκεται ένας διακομιστής στη μέγιστη χωρητικότητά του. Ένα υψηλό φορτίο διακομιστή μπορεί να επιβραδύνει τη σύνδεσή σας.</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High">
+    <value>Υψηλό (91-100%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_High_Description">
+    <value>Το VPN ίσως λειτουργεί πιο αργά από το κανονικό</value>
+  </data>
+  <data name="Flyouts_ServerLoad_KnowledgeBaseLinkTitle">
+    <value>Τι είναι το φορτίο διακομιστή;</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low">
+    <value>Χαμηλό (1-75%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Low_Description">
+    <value>Αστραπιαίες ταχύτητες</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium">
+    <value>Μεσαίο (76-90%)</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Medium_Description">
+    <value>Απίθανο να επηρεάσει την ταχύτητα σύνδεσης</value>
+  </data>
+  <data name="Flyouts_ServerLoad_Title">
+    <value>Φορτίο διακομιστή</value>
+  </data>
+  <data name="Flyouts_Speed_Description1">
+    <value>Δείχνει πόσα δεδομένα περνούν μέσα από τη σήραγγα VPN σε πραγματικό χρόνο.</value>
+  </data>
+  <data name="Flyouts_Speed_Description2">
+    <value>Αυτό βασίζεται στην τρέχουσα δραστηριότητα της συσκευής σας. Στις περισσότερες περιπτώσεις, δεν αντιπροσωπεύει τη μέγιστη ταχύτητα του VPN.</value>
+  </data>
+  <data name="Flyouts_Speed_Download">
+    <value>Λήψη</value>
+    <comment>Refers to the download speed (e.g., Download [new line] 10 MB/s).</comment>
+  </data>
+  <data name="Flyouts_Speed_KnowledgeBaseLinkTitle">
+    <value>Επεξήγηση ταχύτητας και κίνησης VPN</value>
+  </data>
+  <data name="Flyouts_Speed_Title">
+    <value>Τρέχουσα κίνηση</value>
+  </data>
+  <data name="Flyouts_Speed_Upload">
+    <value>Ανέβασμα</value>
+    <comment>Refers to the upload speed (e.g., Upload [new line] 2.5 MB/s).</comment>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_One">
+    <value>Εξαιρούμενες εφαρμογή ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Apps_Other">
+    <value>Εξαιρούμενες εφαρμογές ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_One">
+    <value>Εξαιρούμενη διεύθυνση IP ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Excluded_Ips_Other">
+    <value>Εξαιρούμενες διευθύνσεις IP ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Info">
+    <value>Επιτρέπει σε αξιόπιστες εφαρμογές και διευθύνσεις IP να συνδέονται χωρίς προστασία VPN</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Inverse_Info">
+    <value>Μόνο αυτές οι εφαρμογές και οι διευθύνσεις IP συνδέονται μέσω VPN. Όλη η υπόλοιπη κυκλοφορία είναι απροστάτευτη.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_One">
+    <value>Προστατευμένη εφαρμογή ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Apps_Other">
+    <value>Προστατευμένες εφαρμογές ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_One">
+    <value>Προστατευμένη διεύθυνση IP ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Protected_Ips_Other">
+    <value>Προστατευμένες διευθύνσεις IP ({0})</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Standard_Info">
+    <value>Αυτές οι εφαρμογές και οι διευθύνσεις IP συνδέονται χωρίς προστασία VPN. Όλη η υπόλοιπη κυκλοφορία προστατεύεται.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Description">
+    <value>Χωρίστε την κίνησή σας σε σήραγγες VPN και μη VPN με VPN Plus.</value>
+  </data>
+  <data name="Flyouts_SplitTunneling_Upsell_Title">
+    <value>Αξιοποιήστε στο έπακρο και τους δύο κόσμους</value>
+  </data>
+  <data name="Flyouts_Volume_Description">
+    <value>Εμφανίζει το συνολικό ποσό δεδομένων που έχουν περάσει μέσω της σήραγγας VPN από τότε που συνδεθήκατε.</value>
+  </data>
+  <data name="Flyouts_Volume_Download">
+    <value>Λήψη</value>
+    <comment>Refers to the downloaded volume (e.g., Download [new line] 250 MB).</comment>
+  </data>
+  <data name="Flyouts_Volume_Title">
+    <value>Συνολική κίνηση</value>
+  </data>
+  <data name="Flyouts_Volume_Upload">
+    <value>Ανέβασμα</value>
+    <comment>Refers to the uploaded volume (e.g., Upload [new line] 250 MB).</comment>
+  </data>
+  <data name="Format_Size_Bytes">
+    <value>{0} B</value>
+    <comment>Format a size in Bytes. {0} is a place holder for the number of Bytes (eg. 30 B)</comment>
+  </data>
+  <data name="Format_Size_Exabytes">
+    <value>{0} EB</value>
+    <comment>Format a size in Exabytes. {0} is a place holder for the number of Exabytes (eg. 30 EB)</comment>
+  </data>
+  <data name="Format_Size_Gigabytes">
+    <value>{0} GB</value>
+    <comment>Format a size in Gigabytes. {0} is a place holder for the number of Gigabytes (eg. 30 GB)</comment>
+  </data>
+  <data name="Format_Size_Kilobytes">
+    <value>{0} KB</value>
+    <comment>Format a size in Kilobytes. {0} is a place holder for the number of Kilobytes (eg. 30 KB)</comment>
+  </data>
+  <data name="Format_Size_Megabytes">
+    <value>{0} MB</value>
+    <comment>Format a size in Megabytes. {0} is a place holder for the number of Megabytes (eg. 30 MB)</comment>
+  </data>
+  <data name="Format_Size_Petabytes">
+    <value>{0} PB</value>
+    <comment>Format a size in Petabytes. {0} is a place holder for the number of Petabytes (eg. 30 PB)</comment>
+  </data>
+  <data name="Format_Size_Terabytes">
+    <value>{0} TB</value>
+    <comment>Format a size in Terabytes. {0} is a place holder for the number of Terabytes (eg. 30 TB)</comment>
+  </data>
+  <data name="Format_SpeedUnit">
+    <value>Τρέχουσα κίνηση ({0})</value>
+    <comment>This string is used to format speed measurements in various units. The placeholder {0} will be replaced by the appropriate unit of measurement, such as B/s (Bytes per second), kB/s (Kilobytes per second), MB/s (Megabytes per second), and so on.</comment>
+  </data>
+  <data name="Format_Speed_BytesPerSecond">
+    <value>{0} B/δλ</value>
+    <comment>Format a speed in Bytes per second. {0} is a place holder for the number of Bytes per second (eg. 30 B/s)</comment>
+  </data>
+  <data name="Format_Speed_ExabytesPerSecond">
+    <value>{0} EB/δλ</value>
+    <comment>Format a speed in Exabytes per second. {0} is a place holder for the number of Exabytes per second (eg. 30 EB/s)</comment>
+  </data>
+  <data name="Format_Speed_GigabytesPerSecond">
+    <value>{0} GB/δλ</value>
+    <comment>Format a speed in Gigabytes per second. {0} is a place holder for the number of Gigabytes per second (eg. 30 GB/s)</comment>
+  </data>
+  <data name="Format_Speed_KilobytesPerSecond">
+    <value>{0} KB/δλ</value>
+    <comment>Format a speed in Kilobytes per second. {0} is a place holder for the number of Kilobytes per second (eg. 30 KB/s)</comment>
+  </data>
+  <data name="Format_Speed_MegabytesPerSecond">
+    <value>{0} MB/δλ</value>
+    <comment>Format a speed in Megabytes per second. {0} is a place holder for the number of Megabytes per second (eg. 30 MB/s)</comment>
+  </data>
+  <data name="Format_Speed_PetabytesPerSecond">
+    <value>{0} PB/δλ</value>
+    <comment>Format a speed in Petabytes per second. {0} is a place holder for the number of Petabytes per second (eg. 30 PB/s)</comment>
+  </data>
+  <data name="Format_Speed_TerabytesPerSecond">
+    <value>{0} TB/δλ</value>
+    <comment>Format a speed in Terabytes per second. {0} is a place holder for the number of Terabytes per second (eg. 30 TB/s)</comment>
+  </data>
+  <data name="Format_Time_Day_One">
+    <value>{0} ημέρα</value>
+  </data>
+  <data name="Format_Time_Day_Other">
+    <value>{0} ημέρες</value>
+  </data>
+  <data name="Format_Time_DayHour_One">
+    <value>{0} ημ {1} ώρ</value>
+  </data>
+  <data name="Format_Time_DayHour_Other">
+    <value>{0} ημέρες {1} ώρ</value>
+  </data>
+  <data name="Format_Time_Hours">
+    <value>{0} ώρ</value>
+    <comment>Format a time as a number of hours. {0} is a placeholder for the number of hours (eg. 1 hr or 20 hr). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutes">
+    <value>{0} ώρ {1} λεπ</value>
+    <comment>Format a time as a number of hours and minutes. {0} is a placeholder for the number of hours and {1} for the number of minutes (eg. 5 hr 36 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_HoursMinutesSeconds_Short">
+    <value>hh\:mm\:ss</value>
+    <comment>Format a time as a number of hours, minutes and seconds in a short format. 'hh' is a placeholder for the number of hours, 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. hh\:mm\:ss gives 01:05:36).</comment>
+  </data>
+  <data name="Format_Time_Hours_Ago_One">
+    <value>{0} ώρα πριν</value>
+  </data>
+  <data name="Format_Time_Hours_Ago_Other">
+    <value>{0} ώρες πριν</value>
+  </data>
+  <data name="Format_Time_Minutes">
+    <value>{0} λεπ</value>
+    <comment>Format a time as a number of minutes. {0} is a placeholder for the number of minutes (eg. 1 min or 20 min). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds">
+    <value>{0} λεπ {1} δλ</value>
+    <comment>Format a time as a number of minutes and seconds. {0} is a placeholder for the number of minutes and {1} for the number of seconds (eg. 5 min 36 sec). Use abbreviations, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_MinutesSeconds_Short">
+    <value>mm\:ss</value>
+    <comment>Format a time as a number of minutes and seconds in a short format. 'mm' is a placeholder for the number of minutes and 'ss' for the number of seconds. The separator (if any) needs to be escaped using '' character (eg. mm\:ss gives 05:36).</comment>
+  </data>
+  <data name="Format_Time_Minutes_Ago_One">
+    <value>{0} λεπτό πριν</value>
+  </data>
+  <data name="Format_Time_Minutes_Ago_Other">
+    <value>{0} λεπτά πριν</value>
+  </data>
+  <data name="Format_Time_Seconds">
+    <value>{0} δλ</value>
+    <comment>Format a time as a number of seconds. {0} is a placeholder for the number of second (eg. 1 sec or 20 sec). Use abbreviations for seconds, no pluralization.</comment>
+  </data>
+  <data name="Format_Time_Seconds_Ago_One">
+    <value>{0} δευτερόλεπτο πριν</value>
+  </data>
+  <data name="Format_Time_Seconds_Ago_Other">
+    <value>{0} δευτερόλεπτα πριν</value>
+  </data>
+  <data name="FreeConnections_P2PUpsell">
+    <value>Λήψη αρχείων μέσω BitTorrent και άλλων πρωτοκόλλων κοινής χρήσης αρχείων</value>
+  </data>
+  <data name="FreeConnections_SecureCoreUpsell">
+    <value>Επιπρόσθετο επίπεδο κρυπτογράφησης στη σύνδεση VPN σας</value>
+  </data>
+  <data name="FreeConnections_TorUpsell">
+    <value>Χρησιμοποιήστε το δίκτυο Tor μέσω της σύνδεσής σας VPN για επιπλέον ιδιωτικότητα</value>
+  </data>
+  <data name="FreeConnections_WorldwideCoverageUpsell">
+    <value>Αποκτήστε παγκόσμια κάλυψη με το VPN Plus</value>
+  </data>
+  <data name="Gateway_Fastest">
+    <value>Ταχύτερη πύλη</value>
+  </data>
+  <data name="Gateway_Random">
+    <value>Τυχαία πύλη</value>
+  </data>
+  <data name="Gateways_Page_Description">
+    <value>Συνδεθείτε σε μια πύλη για να αποκτήσετε πρόσβαση στο VPN του οργανισμού σας.</value>
+  </data>
+  <data name="Gateways_Page_Title">
+    <value>Πύλες</value>
+  </data>
+  <data name="Home_Account_SignOut">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="Home_Account_SignOut_Confirmation_Title">
+    <value>Αποσύνδεση από {0};</value>
+    <comment>{0} is a placeholder for the username</comment>
+  </data>
+  <data name="Home_ConnectionCard_ChangeDefaultConnection">
+    <value>Αλλαγή προεπιλεγμένης σύνδεσης</value>
+  </data>
+  <data name="Home_ConnectionCard_ChangeServer">
+    <value>Αλλαγή διακομιστή</value>
+  </data>
+  <data name="Home_ConnectionDetails_AdvancedKillSwitchActivated">
+    <value>Ενεργοποιήθηκε η προηγμένη λειτουργία kill switch</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectToRestoreConnection">
+    <value>Συνδεθείτε στο VPN για να αποκαταστήσετε την σύνδεσή σας στο διαδίκτυο.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Connecting">
+    <value>Γίνεται σύνδεση</value>
+  </data>
+  <data name="Home_ConnectionDetails_ConnectingSubLabel">
+    <value>Προστασία της ψηφιακής σας ταυτότητας...</value>
+  </data>
+  <data name="Home_ConnectionDetails_Country">
+    <value>Χώρα</value>
+  </data>
+  <data name="Home_ConnectionDetails_Isp">
+    <value>Πάροχος</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protected">
+    <value>Προστατευμένο</value>
+  </data>
+  <data name="Home_ConnectionDetails_Protocol">
+    <value>Πρωτόκολλο</value>
+  </data>
+  <data name="Home_ConnectionDetails_ServerLoad">
+    <value>Φορτίο διακομιστή</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Description">
+    <value>Επαναπιστοποιηθείτε στην πύλη ταυτοποίησης δύο παραγώντων (2FA) του οργανισμού σας για να συνεχίσετε.</value>
+  </data>
+  <data name="Home_ConnectionDetails_TwoFactorRequired_Title">
+    <value>Η ταυτοποίηση δύο παραγόντων (2FA) έληξε</value>
+  </data>
+  <data name="Home_ConnectionDetails_Unprotected">
+    <value>Χωρίς προστασία</value>
+  </data>
+  <data name="Home_ConnectionDetails_UnprotectedSubLabel">
+    <value>Κρυπτογραφήστε τη δραστηριότητά σας στο διαδίκτυο συνδέοντας το VPN.</value>
+  </data>
+  <data name="Home_ConnectionDetails_Volume">
+    <value>Συνολική κίνηση</value>
+  </data>
+  <data name="Home_ConnectionDetails_VpnIp">
+    <value>VPN IP</value>
+  </data>
+  <data name="Home_ConnectionDetails_YourIpAddress">
+    <value>Η διεύθυνση IP σας</value>
+  </data>
+  <data name="Home_FreeConnections_About">
+    <value>Περισσότερες πληροφορίες σχετικά με τις δωρεάν συνδέσεις</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_One">
+    <value>Διαφήμιση αποκλείστηκε</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Other">
+    <value>Διαφημίσεις αποκλείστηκαν</value>
+  </data>
+  <data name="Home_NetShield_AdsBlocked_Description">
+    <value>Οι διαφημίσεις είναι διαφημιστικά banner ή αναδυόμενα παράθυρα που εμφανίζονται σε ιστότοπους και εφαρμογές.</value>
+  </data>
+  <data name="Home_NetShield_DataSaved">
+    <value>Δεδομένα εξοικονομήθηκαν</value>
+  </data>
+  <data name="Home_NetShield_DataSaved_Description">
+    <value>Εκτιμώμενα δεδομένα που αποθηκεύονται με αποκλεισμό ανεπιθύμητων διαφημίσεων, ιχνηλατών και κακόβουλων προγραμμάτων.</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_One">
+    <value>Ο ιχνηλάτης σταματήθηκε</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Other">
+    <value>Οι ιχνηλάτες σταματήθηκαν</value>
+  </data>
+  <data name="Home_NetShield_TrackersStopped_Description">
+    <value>Οι ιχνηλάτες είναι cookies και ιστότοποι τρίτων που συλλέγουν, αποθηκεύουν και πωλούν πληροφορίες σχετικά με τη δραστηριότητά σας στον ιστό.</value>
+  </data>
+  <data name="Home_Recents_Pin">
+    <value>Καρφίτσωμα</value>
+  </data>
+  <data name="Home_Recents_Restricted">
+    <value>Ο διακομιστής είναι διαθέσιμος με VPN Plus</value>
+  </data>
+  <data name="Home_Recents_ServerUnderMaintenance">
+    <value>Ο διακομιστής είναι υπό συντήρηση</value>
+  </data>
+  <data name="Home_Recents_Title">
+    <value>Πρόσφατες</value>
+  </data>
+  <data name="Home_Recents_Unpin">
+    <value>Ξεκαρφίτσωμα</value>
+  </data>
+  <data name="Home_TitleBar_Menu_About">
+    <value>Σχετικά</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Account">
+    <value>Λογαριασμός</value>
+  </data>
+  <data name="Home_TitleBar_Menu_ExitTheApp">
+    <value>Έξοδος από την εφαρμογή</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help">
+    <value>Βοήθεια</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Help_WhatsTheIssue">
+    <value>Τι πρόβλημα αντιμετωπίζετε;</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Settings">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="Home_TitleBar_Menu_Signout">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="Home_TitleBar_Menu_UpdateNow">
+    <value>Ενημέρωση τώρα</value>
+  </data>
+  <data name="LoadingPage_Tip">
+    <value>Ένας καλύτερος κόσμος ξεκινά με την ιδιωτικότητα και την ψηφιακή ελευθερία.</value>
+  </data>
+  <data name="Login_Error_GetSessionDetailsFailed">
+    <value>Παρουσιάστηκε σφάλμα κατά την ανάκτηση των λεπτομερειών της συνεδρίας. Παρακαλούμε προσπαθήστε ξανά.</value>
+  </data>
+  <data name="Login_Error_GuestHoleFailedDueToMobileHotspot">
+    <value>Δεν είναι δυνατή η σύνδεση λόγω των ρυθμίσεων δικτύου στη συσκευή σας. Αυτό μπορεί να οφείλεται σε κινητό hotspot, άλλη εφαρμογή VPN ή λογισμικό εικονικής μηχανής. Παρακαλούμε ελέγξτε τη διαμόρφωση του δικτύου σας ή επικοινωνήστε με την υποστήριξη για βοήθεια.</value>
+  </data>
+  <data name="Login_Error_IncorrectTwoFactorCode">
+    <value>Λανθασμένος κωδικός. Παρακαλούμε δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Message">
+    <value>Λείπει ένα αρχείο που απαιτείται για τη σύνδεση από την εγκατάστασή σας. Παρακαλούμε επανεγκαταστήστε το Proton VPN για να διορθώσετε αυτό το πρόβλημα.</value>
+  </data>
+  <data name="Login_Error_MissingSrpDll_Title">
+    <value>Αδυναμία σύνδεσης</value>
+  </data>
+  <data name="Login_Error_SessionExpired">
+    <value>Η συνεδρία σας έχει λήξει. Παρακαλούμε εισέλθετε ξανά.</value>
+    <comment>The message displayed in Login window when expired session is detected</comment>
+  </data>
+  <data name="Login_Error_SsoAuthFailed">
+    <value>Ο έλεγχος ταυτότητας SSO απέτυχε. Παρακαλούμε προσπαθήστε ξανά.</value>
+  </data>
+  <data name="Login_Error_TwoFactorFailed">
+    <value>Ο έλεγχος ταυτότητας δύο παραγόντων απέτυχε. Παρακαλούμε συνδεθείτε ξανά.</value>
+  </data>
+  <data name="Login_Error_WebAuthnNotSupported">
+    <value>Η επαλήθευση κλειδιού ασφαλείας δεν είναι διαθέσιμη για τη συσκευή σας ή τη σύνδεση απομακρυσμένης επιφάνειας εργασίας.</value>
+  </data>
+  <data name="Login_TwoFactorForm_Authenticate">
+    <value>Ταυτοποίηση</value>
+    <comment>Authenticate button inside two factor form during login</comment>
+  </data>
+  <data name="Login_TwoFactorForm_Subtitle">
+    <value>Εξαψήφιος κωδικός ελέγχου ταυτότητας</value>
+  </data>
+  <data name="Login_TwoFactorForm_Title">
+    <value>Ταυτοποίηση δύο παραγόντων</value>
+  </data>
+  <data name="Login_TwoFactor_Authenticator">
+    <value>Εφαρμογή επαλήθευσης</value>
+  </data>
+  <data name="Login_TwoFactor_Digit1">
+    <value>Πρώτο ψηφίο</value>
+  </data>
+  <data name="Login_TwoFactor_Digit2">
+    <value>Δεύτερο ψηφίο</value>
+  </data>
+  <data name="Login_TwoFactor_Digit3">
+    <value>Τρίτο ψηφίο</value>
+  </data>
+  <data name="Login_TwoFactor_Digit4">
+    <value>Τέταρτο ψηφίο</value>
+  </data>
+  <data name="Login_TwoFactor_Digit5">
+    <value>Πέμπτο ψηφίο</value>
+  </data>
+  <data name="Login_TwoFactor_Digit6">
+    <value>Έκτο ψηφίο</value>
+  </data>
+  <data name="Login_TwoFactor_EnterCode">
+    <value>Εισάγετε τον κωδικό σας</value>
+  </data>
+  <data name="Login_TwoFactor_NoMethodAvailable">
+    <value>Δε βρέθηκαν γνωστές μέθοδοι ταυτοποίησης δύο παραγόντων.</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey">
+    <value>Κλειδί ασφαλείας</value>
+  </data>
+  <data name="Login_TwoFactor_SecurityKey_Description">
+    <value>Εισάγετε το κλειδί U2F ή FIDO που είναι συνδεδεμένο με τον λογαριασμό σας Proton.</value>
+  </data>
+  <data name="Main_Loading">
+    <value>Φόρτωση, παρακαλούμε περιμένετε...</value>
+    <comment>Message in the loading screen when starting the app</comment>
+  </data>
+  <data name="Main_Loading_SigningIn">
+    <value>Σύνδεση, παρακαλούμε περιμένετε...</value>
+    <comment>Message in the loading screen when signing in</comment>
+  </data>
+  <data name="Main_Loading_SigningIn_Longer">
+    <value>Αυτό διαρκεί περισσότερο από το συνηθισμένο, αλλά εργαζόμαστε πάνω σε αυτό.</value>
+    <comment>Message in the loading screen when sign in action takes longer than expected</comment>
+  </data>
+  <data name="Main_Loading_SigningOut">
+    <value>Αποσύνδεση, παρακαλούμε περιμένετε...</value>
+    <comment>Message in the loading screen when signing out</comment>
+  </data>
+  <data name="Map_ConnectTo">
+    <value>Σύνδεση - {0}</value>
+    <comment>A label inside a map pin tooltip. {0} is a placeholder for country, state or city. (eg. "Connect - United States", "Connect - New York")</comment>
+  </data>
+  <data name="NoServers_ContactUs">
+    <value>Επικοινωνήστε μαζί μας</value>
+  </data>
+  <data name="NoServers_FailedToLoad">
+    <value>Δεν ήταν δυνατή η φόρτωση της λίστας διακομιστών.</value>
+  </data>
+  <data name="NoServers_NeedHelp">
+    <value>Χρειάζεστε βοήθεια;</value>
+  </data>
+  <data name="NoServers_SignOut">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="NoServers_Tip">
+    <value>Ζητήστε από τον διαχειριστή σας να ενεργοποιήσει την πρόσβαση VPN για τον λογαριασμό σας.</value>
+  </data>
+  <data name="NoServers_Title">
+    <value>Δεν υπάρχουν διαθέσιμες συνδέσεις VPN</value>
+  </data>
+  <data name="NoServers_UnderMaintenance_Tip">
+    <value>Δεν μπορούσαμε να φορτώσουμε κανέναν διακομιστή. Κάντε κλικ στο Ανανέωση για να ενημερώσετε τη λίστα διακομιστών.</value>
+  </data>
+  <data name="Notifications_KillSwitch_Description">
+    <value>Για την προστασία της διεύθυνσης IP σας, η λειτουργία kill switch αποκλείει τη σύνδεσή σας στο διαδίκτυο.</value>
+  </data>
+  <data name="Notifications_PortForwarding_CopyPortNumber">
+    <value>Αντιγραφή αριθμού θύρας</value>
+  </data>
+  <data name="Notifications_PortForwarding_Description">
+    <value>Πηγαίνετε στον πελάτη torrent ή την εφαρμογή P2P και εισαγάγετε αυτόν τον αριθμό.</value>
+  </data>
+  <data name="Notifications_SessionLimit_Description">
+    <value>Έχετε συμπληρώσει το μέγιστο όριο συσκευών. Για να συνδεθείτε ξανά στο VPN, παρακαλούμε αποσυνδεθείτε από την άλλη συσκευή.</value>
+  </data>
+  <data name="Notifications_SubscriptionExpired_Description_Connected">
+    <value>Το πλάνο σας έχει υποβαθμιστεί σε Proton Free και σας επανασυνδέουμε στον ταχύτερο δωρεάν διακομιστή.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Description">
+    <value>Τα δημόσια δίκτυα Wi-Fi είναι πιο ευάλωτα σε απειλές ασφαλείας. Συνδεθείτε στο VPN για να περιηγηθείτε με ασφάλεια.</value>
+  </data>
+  <data name="Notifications_UnsecureWifi_Title">
+    <value>Εντοπίστηκε μην ασφαλής σύνδεση WiFi</value>
+  </data>
+  <data name="NpsSurvey_Title">
+    <value>Proton VPN - Έρευνα</value>
+    <comment>The window title displayed at the top of the NPS (Net Promoter Score) survey</comment>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Description">
+    <value>Για να συμπεριλάβετε διευθύνσεις IPv6, πρέπει να επιτρέψετε συνδέσεις IPv6 μέσω της σήραγγας VPN.</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_PrimaryButton">
+    <value>Ενεργοποίηση IPv6</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_SecondaryButton">
+    <value>Όχι τώρα</value>
+  </data>
+  <data name="Overlay_Ipv6Disabled_Title">
+    <value>Το IPv6 είναι απενεργοποιημένο</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Action">
+    <value>Ενημέρωση Τώρα</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Message">
+    <value>Αυτή η έκδοση της εφαρμογής είναι ξεπερασμένη. Πρέπει να ενημερώσετε την εφαρμογή για να συνεχίσετε να χρησιμοποιείτε το Proton VPN.</value>
+  </data>
+  <data name="Overlay_OutdatedClient_Title">
+    <value>Ενημερώστε το Proton VPN για να συνεχίσετε</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Description">
+    <value>Οι διακομιστές P2P (peer-to-peer) σάς επιτρέπουν να έχετε πρόσβαση σε δίκτυα P2P, προστατεύοντας παράλληλα τη διεύθυνση IP και τη δραστηριότητά σας στο διαδίκτυο.</value>
+  </data>
+  <data name="Overlay_P2P_Bullet1_Header">
+    <value>Τι είναι το P2P VPN;</value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Description">
+    <value>Τα δίκτυα P2P επιτρέπουν σε δύο συσκευές να συνδέονται και να μεταφέρουν δεδομένα χωρίς να περνούν από έναν κεντρικό διακομιστή. </value>
+  </data>
+  <data name="Overlay_P2P_Bullet2_Header">
+    <value>Τι είναι ένα δίκτυο P2P;</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Description">
+    <value>  • Λήψη αρχείων torrent
+  • Βελτίωση της απόδοσης των διαδικτυακών παιχνιδιών και βιντεοκλήσεων
+  • Σύνδεση σε συσκευές τοπικού δικτύου (LAN)</value>
+  </data>
+  <data name="Overlay_P2P_Bullet3_Header">
+    <value>Σε τι χρησιμοποιούνται τα δίκτυα P2P;</value>
+  </data>
+  <data name="Overlay_P2P_LearnMore">
+    <value>Τι είναι το P2P;</value>
+  </data>
+  <data name="Overlay_P2P_Title">
+    <value>P2P</value>
+  </data>
+  <data name="Overlay_Profile_Description1">
+    <value>Τα προφίλ είναι προσαρμοσμένες συνδέσεις VPN που μπορείτε να προσαρμόσετε στις ανάγκες σας και να αποθηκεύσετε για γρήγορη πρόσβαση.</value>
+  </data>
+  <data name="Overlay_Profile_Description2">
+    <value>Ορίστε την τοποθεσία που προτιμάτε και βελτιστοποιήστε τις ρυθμίσεις σας για ασφάλεια, απόδοση, παιχνίδια ή οποιοδήποτε άλλο σενάριο.</value>
+  </data>
+  <data name="Overlay_Profile_LearnMore">
+    <value>Τι είναι το προφίλ VPN;</value>
+  </data>
+  <data name="Overlay_Profile_Title">
+    <value>Προφίλ</value>
+  </data>
+  <data name="Overlay_SecureCore_Description1">
+    <value>Το Secure Core σας συνδέει με τον διακομιστή προορισμού σας μέσω ενός δεύτερου, μέγιστης ασφάλειας διακομιστή VPN.</value>
+  </data>
+  <data name="Overlay_SecureCore_Description2">
+    <value>Αυτό το υψηλότερο επίπεδο προστασίας μπορεί να προκαλέσει υψηλότερο λανθάνοντα χρόνο και χαμηλότερες ταχύτητες.</value>
+  </data>
+  <data name="Overlay_SecureCore_LearnMore">
+    <value>Τι είναι το Secure Core;</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection">
+    <value>Secure Core
+Σύνδεση VPN</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Latency">
+    <value>Υψηλότερη αδράνεια</value>
+  </data>
+  <data name="Overlay_SecureCore_SecureCoreConnection_Privacy">
+    <value>Προηγμένο απόρρητο</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection">
+    <value>Τυπική
+Σύνδεση VPN</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Latency">
+    <value>Χαμηλότερη αδράνεια</value>
+  </data>
+  <data name="Overlay_SecureCore_StandardConnection_Privacy">
+    <value>Υψηλή ιδιωτικότητα</value>
+  </data>
+  <data name="Overlay_SecureCore_Title">
+    <value>Secure Core</value>
+  </data>
+  <data name="Overlay_ServerLoad_Description">
+    <value>Το φορτίο διακομιστή δείχνει πόσο κοντά βρίσκεται ένας διακομιστής στη μέγιστη χωρητικότητά του.
+
+Ένα υψηλό φορτίο διακομιστή μπορεί να επιβραδύνει τη σύνδεσή σας.</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Description">
+    <value>Το VPN ίσως λειτουργεί πιο αργά από το κανονικό</value>
+  </data>
+  <data name="Overlay_ServerLoad_HighRange_Title">
+    <value>Υψηλό (91-100%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_LearnMore">
+    <value>Τι είναι το φορτίο διακομιστή;</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Description">
+    <value>Αστραπιαίες ταχύτητες</value>
+  </data>
+  <data name="Overlay_ServerLoad_LowRange_Title">
+    <value>Χαμηλό (1-75%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Description">
+    <value>Απίθανο να επηρεάσει την ταχύτητα VPN</value>
+  </data>
+  <data name="Overlay_ServerLoad_MediumRange_Title">
+    <value>Μεσαίο (76-90%)</value>
+  </data>
+  <data name="Overlay_ServerLoad_Title">
+    <value>Φορτίο Διακομιστή</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description1">
+    <value>Η Έξυπνη Δρομολόγηση μας επιτρέπει να παρέχουμε κάλυψη VPN σε χώρες που είναι δύσκολο να προσεγγιστούν.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description2">
+    <value>Όταν συνδέεστε σε έναν Smart Routing διακομιστή, θα φαίνεται ότι περιηγείστε στη χώρα προορισμού σας, παρόλο που ο φυσικός διακομιστής βρίσκεται αλλού.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Description3">
+    <value>To Smart Routing χρησιμοποιείται συνήθως για την παράκαμψη των νόμων κατά της ιδιωτικής ζωής και άλλων μορφών λογοκρισίας.</value>
+  </data>
+  <data name="Overlay_SmartRouting_Header">
+    <value>Οι διακομιστές βρίσκονται σε {0}, αλλά θα φαίνεται ότι περιηγείστε από {1}</value>
+    <comment>{0} is a placeholder for the physical server location country. {1} is a placeholder for the destination country
+    Warning: country names are inserted in the nominative case. For INFLECTED languages, use alternative wording as follows:
+    Connects you to your destination country ({1}) through servers that are physically located somewhere else ({0})</comment>
+  </data>
+  <data name="Overlay_SmartRouting_LearnMore">
+    <value>Τι είναι το Smart Routing?</value>
+  </data>
+  <data name="Overlay_SmartRouting_Title">
+    <value>Smart Routing</value>
+  </data>
+  <data name="Overlay_Tor_Description">
+    <value>Συνδεθείτε σε έναν διακομιστή Tor για να αποκτήσετε πρόσβαση σε κρυφές υπηρεσίες και ιστότοπους onion χρησιμοποιώντας οποιοδήποτε πρόγραμμα περιήγησης.</value>
+  </data>
+  <data name="Overlay_Tor_LearnMore">
+    <value>Πώς να αποκτήσετε πρόσβαση στο δίκτυο Tor</value>
+  </data>
+  <data name="Overlay_Tor_Title">
+    <value>Tor</value>
+  </data>
+  <data name="Profile_CustomSettings_Description">
+    <value>Οι ρυθμίσεις προφίλ θα παρακάμψουν τις ρυθμίσεις VPN όταν συνδεθείτε.</value>
+  </data>
+  <data name="Profile_CustomSettings_Header">
+    <value>Προσθήκη προσαρμοσμένων ρυθμίσεων</value>
+  </data>
+  <data name="Profile_CustomSettings_Hide">
+    <value>Απόκρυψη ρυθμίσεων</value>
+  </data>
+  <data name="Profile_CustomSettings_Show">
+    <value>Εμφάνιση ρυθμίσεων</value>
+  </data>
+  <data name="Profile_NatType_Conflict_Description">
+    <value>Αυτό θα απενεργοποιήσει την προώθηση θυρών για αυτό το προφίλ.</value>
+  </data>
+  <data name="Profile_NetShield_Conflict_Description">
+    <value>Αυτό θα απενεργοποιήσει το προσαρμοσμένο DNS για αυτό το προφίλ.</value>
+  </data>
+  <data name="Profile_Options_Application">
+    <value>Εφαρμογή</value>
+  </data>
+  <data name="Profile_Options_Application_Select">
+    <value>Επιλέξτε μια εφαρμογή</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Application">
+    <value>Ανοίξτε την εφαρμογή</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_PrivateBrowsingMode">
+    <value>Χρησιμοποιήστε τη λειτουργία ιδιωτικής περιήγησης</value>
+  </data>
+  <data name="Profile_Options_ConnectAndGo_Website">
+    <value>Ανοίξτε μια ιστοσελίδα</value>
+  </data>
+  <data name="Profile_Options_Description">
+    <value>Αυτόματο άνοιγμα ιστοσελίδας ή εφαρμογής της επιλογής σας όταν συνδέεστε σε αυτό το προφίλ.</value>
+  </data>
+  <data name="Profile_Options_Header">
+    <value>Σύνδεση και Μετάβαση</value>
+  </data>
+  <data name="Profile_Options_Url">
+    <value>URL Ιστοσελίδας</value>
+  </data>
+  <data name="Profile_Options_Url_Error">
+    <value>Εισάγετε μια έγκυρη διεύθυνση URL</value>
+  </data>
+  <data name="Profile_PortForwarding_Conflict_Description">
+    <value>Αυτό θα αλλάξει τον τύπο NAT για αυτό το προφίλ σε Αυστηρό (τύπος 3).</value>
+  </data>
+  <data name="Profiles_Default_Gaming">
+    <value>Παιχνίδια</value>
+  </data>
+  <data name="Profiles_Default_MaxSecurity">
+    <value>Μέγιστη ασφάλεια</value>
+  </data>
+  <data name="Profiles_Default_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Profiles_Default_RandomConnection">
+    <value>Τυχαία σύνδεση</value>
+  </data>
+  <data name="Profiles_Default_Streaming">
+    <value>Ροή US</value>
+  </data>
+  <data name="Profiles_Default_WorkSchool">
+    <value>Εργασία/Σχολείο</value>
+  </data>
+  <data name="Profiles_Page_Description">
+    <value>Διαμορφώστε τις δικές σας ρυθμίσεις VPN και συνδεθείτε με ένα κλικ</value>
+  </data>
+  <data name="Profiles_Page_Title">
+    <value>Προφίλ</value>
+  </data>
+  <data name="Search_InputBox_Placeholder">
+    <value>Περιηγηθείτε από...</value>
+  </data>
+  <data name="Search_NoInput_CityOrState">
+    <value>Πόλη ή πολιτεία των ΗΠΑ</value>
+    <comment>The word used for one single city and one single United States state</comment>
+  </data>
+  <data name="Search_NoInput_Country">
+    <value>Χώρα</value>
+    <comment>The word used for one single country</comment>
+  </data>
+  <data name="Search_NoInput_Server">
+    <value>Διακομιστής</value>
+    <comment>The word used for one single server</comment>
+  </data>
+  <data name="Search_NoInput_TrySearchingFor">
+    <value>Δοκιμάστε να αναζητήσετε για...</value>
+  </data>
+  <data name="Search_NoResults_Description">
+    <value>Χρησιμοποιήστε ένα διαφορετικό πληκτρολόγιο.</value>
+  </data>
+  <data name="Search_NoResults_Title">
+    <value>Κανένα αποτέλεσμα</value>
+  </data>
+  <data name="Server">
+    <value>Διακομιστής</value>
+  </data>
+  <data name="Server_Fastest">
+    <value>Ο ταχύτερος διακομιστής</value>
+  </data>
+  <data name="Server_Fastest_Free">
+    <value>Ο ταχύτερος δωρεάν διακομιστής</value>
+  </data>
+  <data name="Server_Feature_B2B">
+    <value>Πύλη</value>
+  </data>
+  <data name="Server_Feature_B2B_Description">
+    <value>Πρόσβαση στους διακομιστές του οργανισμού σας</value>
+  </data>
+  <data name="Server_Feature_None">
+    <value>Τυπικό</value>
+  </data>
+  <data name="Server_Feature_P2P">
+    <value>P2P</value>
+  </data>
+  <data name="Server_Feature_P2P_Description">
+    <value>Βελτιστοποιημένο για torrents</value>
+  </data>
+  <data name="Server_Feature_SecureCore">
+    <value>Secure Core</value>
+  </data>
+  <data name="Server_Feature_SecureCore_Description">
+    <value>Διπλή προστασία</value>
+  </data>
+  <data name="Server_Feature_Tor">
+    <value>Tor</value>
+  </data>
+  <data name="Server_Free">
+    <value>Δωρεάν διακομιστής</value>
+  </data>
+  <data name="Server_Random">
+    <value>Τυχαίος διακομιστής</value>
+  </data>
+  <data name="Servers">
+    <value>Διακομιστές</value>
+  </data>
+  <data name="Settings_About_Changelog">
+    <value>Αρχείο αλλαγών</value>
+  </data>
+  <data name="Settings_About_CurrentVersion">
+    <value>Τρέχουσα έκδοση</value>
+  </data>
+  <data name="Settings_About_FailedToFetch">
+    <value>Αποτυχία φόρτωσης πληροφοριών αρχείου καταγραφής αλλαγών.</value>
+  </data>
+  <data name="Settings_About_LearnMore">
+    <value>Μάθετε περισσότερα</value>
+  </data>
+  <data name="Settings_About_Licensing">
+    <value>Αδειοδότηση</value>
+  </data>
+  <data name="Settings_About_Loading">
+    <value>Φόρτωση</value>
+  </data>
+  <data name="Settings_About_Title">
+    <value>Σχετικά</value>
+  </data>
+  <data name="Settings_Account_Account">
+    <value>Λογαριασμός</value>
+  </data>
+  <data name="Settings_Account_Exit">
+    <value>Έξοδος από την εφαρμογή</value>
+  </data>
+  <data name="Settings_Account_SignOut">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="Settings_AppVersion">
+    <value>Έκδοση εφαρμογής</value>
+  </data>
+  <data name="Settings_Censorship_Footer">
+    <value>Αυτά τα στατιστικά στοιχεία δεν περιέχουν τη διεύθυνση IP σας και δεν μπορούν να χρησιμοποιηθούν για την αναγνώρισή σας. Δε θα τα μοιραστούμε ποτέ με τρίτους.</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports">
+    <value>Κοινοποιήστε ανώνυμες αναφορές σφαλμάτων</value>
+  </data>
+  <data name="Settings_Censorship_ShareCrashReports_Description">
+    <value>Οι αναφορές σφαλμάτων μάς βοηθούν να διορθώνουμε σφάλματα, να εντοπίζουμε τείχη προστασίας και να αποφεύγουμε τα μπλοκαρίσματα VPN.</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics">
+    <value>Κοινοποιήστε ανώνυμα στατιστικά χρήσης</value>
+  </data>
+  <data name="Settings_Censorship_ShareStatistics_Description">
+    <value>Τα δεδομένα χρήσης μας βοηθούν να ξεπεράσουμε τα μπλοκαρίσματα VPN και να βελτιώσουμε την απόδοση των εφαρμογών.</value>
+  </data>
+  <data name="Settings_Common_Apply">
+    <value>Εφαρμογή</value>
+    <comment>Apply action. Used to apply changes made on a settings page</comment>
+  </data>
+  <data name="Settings_Common_IpAddresses_AlreadyExists">
+    <value>Η διεύθυνση έχει ήδη προστεθεί</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Invalid">
+    <value>Εισαγάγετε μια έγκυρη IPv4 ή IPv6 διεύθυνση</value>
+  </data>
+  <data name="Settings_Common_IpAddresses_Watermark">
+    <value>192.0.2.0</value>
+    <comment>Watermark for the IP Address field in the Custom DNS servers settings page</comment>
+  </data>
+  <data name="Settings_Connection">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="Settings_Connection_AdvancedSettings">
+    <value>Προηγμένες ρυθμίσεις</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting">
+    <value>Εναλλακτική δρομολόγηση</value>
+  </data>
+  <data name="Settings_Connection_Advanced_AlternativeRouting_Description">
+    <value>Εάν οι υπηρεσίες Proton αποκλειστούν λόγω περιορισμών δικτύου, θα προσπαθήσουμε να χρησιμοποιήσουμε εναλλακτική δρομολόγηση δικτύου για να σας συνδέσουμε στους ιστότοπούς μας.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers">
+    <value>Προσαρμοσμένοι διακομιστές DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_AddNew">
+    <value>Προσθήκη νέου διακομιστή DNS</value>
+    <comment>Label above an input field where users can enter a new DNS server IP address.</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Description">
+    <value>Δε θα μπορείτε να χρησιμοποιήσετε το NetShield όταν είστε συνδεδεμένοι με έναν προσαρμοσμένο διακομιστή DNS.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Conflict_Title">
+    <value>Ενεργοποίηση προσαρμοσμένων διακομιστών DNS;</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Description">
+    <value>Συνδεθείτε στο Proton VPN χρησιμοποιώντας το δικό σας Σύστημα Ονομάτων Τομέα (DNS). Χρησιμοποιείτε μόνο διακομιστές DNS που εμπιστεύεστε.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Footer">
+    <value>Θα προσπαθήσουμε να συνδεθούμε σε αυτούς τους διακομιστές στη σειρά. Εάν κανένας από αυτούς δε λειτουργεί, θα χρησιμοποιηθεί το προεπιλεγμένο DNS του Proton VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_FormattedHeader">
+    <value>Διακομιστές DNS ({0})</value>
+    <comment>Header for the list of Custom DNS servers defined. {0} is a placeholder for the number of DNS servers in the list. (eg. "DNS servers (4)")</comment>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Header">
+    <value>Διακομιστές DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_CustomDnsServers_Select">
+    <value>Επιλέξτε διακομιστές DNS</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6">
+    <value>Υποστήριξη IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection">
+    <value>Προστασία διαρροής IPv6</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6LeakProtection_Description">
+    <value>Αποτρέπει διαρροές δεδομένων μπλοκάροντας την κίνηση IPv6 που δεν περνάει μέσω της σήραγγας VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_Ipv6_Description">
+    <value>Επιτρέπει την κίνηση IPv6 να διέρχεται μέσω της σήραγγας VPN. Αυτό βελτιώνει τη συμβατότητα με ιστοσελίδες και υπηρεσίες IPv6.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections">
+    <value>Επιτρέψτε τις συνδέσεις LAN</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_Description">
+    <value>Επιτρέπει συνδέσεις σε εκτυπωτές, ηχεία και άλλες συσκευές στο τοπικό σας δίκτυο.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Description">
+    <value>Χρησιμοποιεί mDNS για σύνδεση σε συσκευές χρησιμοποιώντας ονόματα όπως 'My-Printer' ή 'router.local' αντί για διευθύνσεις IP. Το τυπικό DNS εξακολουθεί να δρομολογείται μέσω του τούνελ VPN. Απενεργοποιημένο από προεπιλογή για ταχύτερες ταχύτητες VPN.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_LanConnections_LocalDns_Title">
+    <value>Πρόσβαση σε συσκευές με βάση το όνομα</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType">
+    <value>Τύπος NAT</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Description">
+    <value>Δε θα μπορείτε να χρησιμοποιήσετε την προώθηση θυρών με Moderate NAT.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Conflict_Title">
+    <value>Ενεργοποιήστε το Μέτριο NAT?</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Description">
+    <value>Επιλέξτε έναν τύπο μετάφρασης διεύθυνσης δικτύου για τη σύνδεσή σας.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate">
+    <value>Μέτρια (τύπος 2)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Moderate_Description">
+    <value>Ορισμένοι περιορισμοί στα δεδομένα που εισέρχονται στο δίκτυό σας. Αυτή η επιλογή είναι καλύτερη για διαδικτυακά βιντεοπαιχνίδια.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict">
+    <value>Αυστηρή (τύπος 3)</value>
+  </data>
+  <data name="Settings_Connection_Advanced_NatType_Strict_Description">
+    <value>Περιορίζει τα δεδομένα που εισέρχονται στο δίκτυό σας. Αυτή η επιλογή είναι πιο ασφαλής, αλλά μπορεί να δυσκολέψει τις ομότιμες συνδέσεις παιχνιδιών.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tap">
+    <value>Διασυνδέει την κυκλοφορία του δικτύου. Πιο αργό από το TUN, αλλά χρειάζεται για ορισμένες παλαιότερες ή ειδικές ρυθμίσεις δικτύου.</value>
+  </data>
+  <data name="Settings_Connection_Advanced_OpenVpnDriver_Tun_Description">
+    <value>Δρομολογεί την κυκλοφορία μεταξύ διαφορετικών δικτύων. Το TUN μπορεί να είναι ταχύτερο και πιο σταθερό από το TAP.</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences">
+    <value>Προτιμήσεις σύνδεσης</value>
+  </data>
+  <data name="Settings_Connection_ConnectionPreferences_Description">
+    <value>Προκαθορισμένη σύνδεση και εξαιρούμενες τοποθεσίες</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenDisabled">
+    <value>Δεν είναι δυνατή η ενεργοποίηση του προσαρμοσμένου DNS επειδή είστε συνδεδεμένοι σε ένα προφίλ με ενεργοποιημένο το NetShield.</value>
+  </data>
+  <data name="Settings_Connection_CustomDns_Conflict_Information_WhenEnabled">
+    <value>Το προσαρμοσμένο DNS είναι απενεργοποιημένο επειδή είστε συνδεδεμένοι σε ένα προφίλ με ενεργοποιημένο το NetShield.</value>
+  </data>
+  <data name="Settings_Connection_Default">
+    <value>Προεπιλεγμένη σύνδεση</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest">
+    <value>Ταχύτερη χώρα</value>
+  </data>
+  <data name="Settings_Connection_Default_Fastest_Description">
+    <value>Ο καλύτερος διακομιστής με βάση την τοποθεσία σας</value>
+  </data>
+  <data name="Settings_Connection_Default_Last">
+    <value>Τελευταία σύνδεση</value>
+  </data>
+  <data name="Settings_Connection_Default_Last_Description">
+    <value>Η σύνδεση που χρησιμοποιήσατε πιο πρόσφατα</value>
+  </data>
+  <data name="Settings_Connection_Default_Random">
+    <value>Τυχαία χώρα</value>
+  </data>
+  <data name="Settings_Connection_Default_Random_Description">
+    <value>Διαφορετικός διακομιστής κάθε φορά που συνδέεστε</value>
+  </data>
+  <data name="Settings_Connection_Default_Recents">
+    <value>Πρόσφατα</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations">
+    <value>Εξαιρούμενες τοποθεσίες</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Cities">
+    <value>Πόλεις</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Countries">
+    <value>Χώρες</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Description">
+    <value>Οι επιλεγμένες τοποθεσίες δε θα χρησιμοποιηθούν ποτέ όταν συνδέεστε στο Ταχύτερη ή Τυχαία</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_NoLocations">
+    <value>Δεν υπάρχουν διαθέσιμες τοποθεσίες</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_Search">
+    <value>Επιλέξτε...</value>
+  </data>
+  <data name="Settings_Connection_ExcludedLocations_States">
+    <value>Πολιτείες</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch">
+    <value>Kill switch</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced">
+    <value>Προχωρημένα</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Advanced_Description">
+    <value>Επιτρέψτε την πρόσβαση στο διαδίκτυο μόνο όταν είστε συνδεδεμένοι στο Proton VPN. Η προηγμένη λειτουργία kill switch θα παραμείνει ενεργή ακόμα και όταν επανεκκινήσετε τη συσκευή σας.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Description">
+    <value>Προστατεύει τη διεύθυνση IP σας αποσυνδέοντάς σας από το διαδίκτυο εάν χάσετε τη σύνδεσή σας VPN.</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard">
+    <value>Τυπικό</value>
+  </data>
+  <data name="Settings_Connection_KillSwitch_Standard_Description">
+    <value>Αυτόματη αποσύνδεση από το διαδίκτυο εάν χαθεί η σύνδεση VPN.</value>
+  </data>
+  <data name="Settings_Connection_NetShield">
+    <value>NetShield</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackers">
+    <value>Αποκλείστε διαφημίσεις, ιχνηλάτες και κακόβουλο λογισμικό</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockAdsMalwareTrackersAdultContent">
+    <value>Αποκλείστε διαφημίσεις, ιχνηλάτες, κακόβουλο λογισμικό και περιεχόμενο για ενήλικες</value>
+  </data>
+  <data name="Settings_Connection_NetShield_BlockMalwareOnly">
+    <value>Αποκλεισμός μόνο κακόβουλου λογισμικού</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Description">
+    <value>Δε θα μπορείτε να συνδεθείτε με έναν προσαρμοσμένο διακομιστή DNS όταν είναι ενεργοποιημένο το NetShield.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Information">
+    <value>Το NetShield δεν είναι συμβατό με το Προσαρμοσμένο DNS.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Conflict_Title">
+    <value>Ενεργοποίηση NetShield;</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Description">
+    <value>Προστατέψτε την περιήγησή σας σε ιστότοπους και εφαρμογές.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_Footer">
+    <value>Ορισμένοι ιστότοποι ενδέχεται να μη φορτώνουν σωστά όταν αποκλείονται διαφημίσεις και ιχνηλάτες.</value>
+  </data>
+  <data name="Settings_Connection_NetShield_PrivacyPanel">
+    <value>Πίνακας Απορρήτου NetShield</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding">
+    <value>Προώθηση θυρών</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort">
+    <value>Ενεργός αριθμός θύρας:</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_ActivePort_Copy">
+    <value>Αντιγραφή αριθμού θύρας</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Description">
+    <value>Δε θα μπορείτε να χρησιμοποιήσετε Moderate NAT όταν είναι ενεργοποιημένη η προώθηση θυρών.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Conflict_Title">
+    <value>Ενεργοποίηση προώθησης θυρών;</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Description">
+    <value>Βελτιώνει τις ταχύτητες torrenting και παιχνιδιών επιτρέποντας άμεσες P2P συνδέσεις μέσω μιας καθορισμένης θύρας.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Footer">
+    <value>Για να χρησιμοποιήσετε την προώθηση θυρών, συνδεθείτε σε έναν διακομιστή που υποστηρίζει P2P.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_LastChanged">
+    <value>Τελευταία αλλαγή: {0}</value>
+    <comment>Indicates when the active port was changed for the last time. {0} is a placeholder for the time. (eg. "Last changed: 5 minutes ago" or "Last changed: May 20, at 14:32")</comment>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Loading">
+    <value>Φόρτωση...</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications">
+    <value>Ειδοποιήσεις</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Notifications_Description">
+    <value>Λάβετε ειδοποίηση όταν αλλάζει ο ενεργός σας αριθμός θύρας.</value>
+  </data>
+  <data name="Settings_Connection_PortForwarding_Unavailable">
+    <value>Μη διαθέσιμο</value>
+  </data>
+  <data name="Settings_Connection_Protocol">
+    <value>Πρωτόκολλο</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling">
+    <value>Διαίρεση σήραγγας</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Description">
+    <value>Επιλέξτε εφαρμογές που θα εξαιρεθούν από τη σύνδεση VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_FormattedHeader">
+    <value>Εξαιρούμενες εφαρμογές ({0})</value>
+    <comment>Header for the list of apps to exclude for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Excluded apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Excluded_Header">
+    <value>Εξαιρούμενες εφαρμογές</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_FilesFilterName">
+    <value>Αρχεία εφαρμογής</value>
+    <comment>Describe the name of the filter used to select executable files in the Open file dialog</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Description">
+    <value>Επιλέξτε εφαρμογές που θα περιλαμβάνονται στη σύνδεση VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_FormattedHeader">
+    <value>Συμπεριλαμβανόμενες εφαρμογές ({0})</value>
+    <comment>Header for the list of apps to include for Split Tunneling. {0} is a placeholder for the number of selected apps in the list. (eg. "Included apps (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Included_Header">
+    <value>Συμπεριλαμβανόμενες εφαρμογές</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Apps_Select">
+    <value>Επιλέξτε εφαρμογές</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Description">
+    <value>Προσαρμόστε τη σύνδεσή σας αποφασίζοντας ποιες εφαρμογές και διευθύνσεις IP προστατεύονται από VPN.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse">
+    <value>Λειτουργία συμπερίληψης</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Description">
+    <value>Μόνο επιλεγμένες εφαρμογές και διευθύνσεις IP συνδέονται μέσω VPN, όλη η άλλη κίνηση είναι απροστάτευτη.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Inverse_Short">
+    <value>Συμπερίληψη</value>
+    <comment>Shorter version (if possible) of "Include mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_AddNew">
+    <value>Προσθήκη νέας διεύθυνσης IPv4 ή IPv6</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Description">
+    <value>Επιλέξτε διευθύνσεις IP που θα εξαιρεθούν από τη σύνδεση VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_FormattedHeader">
+    <value>Εξαιρούμενες διευθύνσεις IP ({0})</value>
+    <comment>Header for the list of IP addresses to exclude for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Excluded IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Excluded_Header">
+    <value>Εξαιρούμενες διευθύνσεις IP</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Description">
+    <value>Επιλέξτε διευθύνσεις IP που θα περιλαμβάνονται στη σύνδεση VPN</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_FormattedHeader">
+    <value>Συμπεριλαμβανόμενες διευθύνσεις IP ({0})</value>
+    <comment>Header for the list of IP addresses to include for Split Tunneling. {0} is a placeholder for the number of selected IP addresses in the list. (eg. "Included IP addresses (2)")</comment>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Included_Header">
+    <value>Συμπεριλαμβανόμενες διευθύνσεις IP</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_IpAddresses_Select">
+    <value>Επιλέξτε διευθύνσεις IP</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard">
+    <value>Λειτουργία εξαίρεσης</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Description">
+    <value>Επιλεγμένες εφαρμογές και διευθύνσεις IP εξαιρούνται από τη σύνδεση VPN σας.</value>
+  </data>
+  <data name="Settings_Connection_SplitTunneling_Standard_Short">
+    <value>Εξαίρεση</value>
+    <comment>Shorter version (if possible) of "Exclude mode". To be used when available space is limited.</comment>
+  </data>
+  <data name="Settings_Connection_VpnAccelerator">
+    <value>VPN Accelerator</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Action">
+    <value>Απόρριψη αλλαγών</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Cancel">
+    <value>Συνέχεια επεξεργασίας</value>
+  </data>
+  <data name="Settings_DiscardChanges_Confirmation_Title">
+    <value>Απόρριψη μη αποθηκευμένων αλλαγών;</value>
+  </data>
+  <data name="Settings_General">
+    <value>Γενικά</value>
+  </data>
+  <data name="Settings_General_AutoStartup">
+    <value>Αυτόματη εκκίνηση</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect">
+    <value>Αυτόματη σύνδεση</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoConnect_Description">
+    <value>Συνδέεται αυτόματα στην προεπιλεγμένη σύνδεσή σας όταν ανοίγει το Proton VPN.</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch">
+    <value>Αυτόματη εκκίνηση</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Description">
+    <value>Το Proton VPN θα ανοίξει αυτόματα όταν συνδεθείτε στη συσκευή σας</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Desktop">
+    <value>Άνοιγμα στην επιφάνεια εργασίας</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_SystemTray">
+    <value>Ελαχιστοποίηση στη γραμμή ειδοποιήσεων</value>
+  </data>
+  <data name="Settings_General_AutoStartup_AutoLaunch_Taskbar">
+    <value>Ελαχιστοποίηση στη Γραμμή Εργασιών</value>
+  </data>
+  <data name="Settings_General_AutoStartup_Description">
+    <value>Ρύθμιση της εφαρμογής ώστε να εκκινείται ή να συνδέεται αυτόματα.</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates">
+    <value>Αυτόματες ενημερώσεις</value>
+  </data>
+  <data name="Settings_General_AutomaticUpdates_Description">
+    <value>Ελέγξτε και εγκαταστήστε αυτόματα τις ενημερώσεις Proton VPN.</value>
+  </data>
+  <data name="Settings_General_BetaAccess">
+    <value>Πρόσβαση Beta</value>
+  </data>
+  <data name="Settings_General_BetaAccess_Description">
+    <value>Αποκτήστε πρώιμη πρόσβαση και βοηθήστε μας να δοκιμάσουμε νέες εκδόσεις του Proton VPN.</value>
+  </data>
+  <data name="Settings_General_Language">
+    <value>Γλώσσα</value>
+  </data>
+  <data name="Settings_General_Notifications">
+    <value>Ειδοποιήσεις</value>
+  </data>
+  <data name="Settings_General_Notifications_Description">
+    <value>Λάβετε ειδοποιήσεις για αλλαγές στην κατάσταση σύνδεσής σας.</value>
+  </data>
+  <data name="Settings_General_OpenVpnNetworkDriver">
+    <value>Οδηγός δικτύου OpenVPN</value>
+  </data>
+  <data name="Settings_General_Theme">
+    <value>Θέμα</value>
+  </data>
+  <data name="Settings_Improve">
+    <value>Βελτιώστε το Proton</value>
+  </data>
+  <data name="Settings_Improve_Censorship">
+    <value>Βοηθήστε μας να καταπολεμήσουμε τη λογοκρισία</value>
+  </data>
+  <data name="Settings_OperatingSystemVersion">
+    <value>Έκδοση Λειτουργικού Συστήματος</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description1">
+    <value>Αυτή η ρύθμιση συνδέεται με το ενεργό προφίλ σας.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Description2">
+    <value>Επεξεργαστείτε το προφίλ σας για να κάνετε αλλαγές ή αποσυνδεθείτε για να επεξεργαστείτε τις γενικές ρυθμίσεις VPN.</value>
+  </data>
+  <data name="Settings_OverriddenByProfile_Tagline">
+    <value>Αυτές οι ρυθμίσεις είναι συνδεδεμένες με '{0}' προφίλ και η διαχείρισή τους μπορεί να γίνει αποκλειστικά μέσω των επιλογών Προφίλ</value>
+    <comment>{0} is a placeholder for the profile name</comment>
+  </data>
+  <data name="Settings_OverriddenByProfile_Title">
+    <value>Διαχείριση {0} σε Προφίλ</value>
+    <comment>{0} is a placeholder for the name of the settings being overridden by the profile. (eg. Manage NetShield in Profiles)</comment>
+  </data>
+  <data name="Settings_Page_Title">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="Settings_Protocols_Explanation">
+    <value>Ένα πρωτόκολλο VPN καθορίζει τον τρόπο με τον οποίο μετακινούνται τα δεδομένα μεταξύ ενός διακομιστή VPN και της συσκευής σας.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Description">
+    <value>Καθιερωμένο, καλά δοκιμασμένο και ασφαλές. Το OpenVPN είναι αξιόπιστο σε κακές συνθήκες δικτύου, αλλά μπορεί να μην είναι τόσο γρήγορο όσο άλλα πρωτόκολλα.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnTcp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Description">
+    <value>Καθιερωμένο, καλά δοκιμασμένο και ασφαλές. Το OpenVPN είναι λιγότερο αποδοτικό στην μπαταρία από ορισμένα άλλα πρωτόκολλα.</value>
+  </data>
+  <data name="Settings_Protocols_OpenVpnUdp_Title">
+    <value>OpenVPN</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Description">
+    <value>Το νέο μας πλαίσιο που βασίζεται στο WireGuard για αυξημένη σταθερότητα, λειτουργικότητα και αντοχή στη λογοκρισία.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTcp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Description">
+    <value>Το νέο μας πλαίσιο που βασίζεται στο WireGuard για αυξημένη σταθερότητα, λειτουργικότητα και αντοχή στη λογοκρισία.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunTls_Title">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Description">
+    <value>Το νέο μας πλαίσιο που βασίζεται στο WireGuard για αυξημένη σταθερότητα, λειτουργικότητα και αντοχή στη λογοκρισία.</value>
+  </data>
+  <data name="Settings_Protocols_ProTunUdp_Title">
+    <value>Proton WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Description">
+    <value>Χρησιμοποιήστε την εφαρμογή WireGuard της Proton VPN. Πρόκειται για μια πειραματική λειτουργία, οπότε ενδέχεται να αντιμετωπίσετε κάποια αστάθεια.</value>
+  </data>
+  <data name="Settings_Protocols_ProtonProtocols_Title">
+    <value>Πρωτόκολλα Proton</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Description">
+    <value>Επιλέγει αυτόματα το καλύτερο πρωτόκολλο για τη σύνδεσή σας.</value>
+  </data>
+  <data name="Settings_Protocols_Smart_Title">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_Protocols_TcpCategory">
+    <value>Αξιοπιστία (TCP)</value>
+  </data>
+  <data name="Settings_Protocols_UdpCategory">
+    <value>Ταχύτητα (UDP)</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Description">
+    <value>Πρωτόκολλο τελευταίας τεχνολογίας για ασφάλεια και απόδοση.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTcp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Description">
+    <value>Ξεπερνά τα μπλοκαρίσματα VPN κρύβοντας τη σύνδεσή σας VPN από τους λογοκριτές. Το Stealth είναι ανθεκτικό στο DPI (deep packet inspection - βαθιά επιθεώρηση πακέτων), αλλά μπορεί να μην είναι τόσο γρήγορο όσο άλλα πρωτόκολλα.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardTls_Title">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Description">
+    <value>Πρωτόκολλο τελευταίας τεχνολογίας για ασφάλεια και απόδοση.</value>
+  </data>
+  <data name="Settings_Protocols_WireGuardUdp_Title">
+    <value>WireGuard</value>
+  </data>
+  <data name="Settings_Reconnection_Title">
+    <value>Επανασυνδεθείτε για να εφαρμόσετε αλλαγές</value>
+  </data>
+  <data name="Settings_RestoreDefault">
+    <value>Επαναφορά προεπιλεγμένων ρυθμίσεων</value>
+  </data>
+  <data name="Settings_RestoreDefaultAndReconnect_Confirmation_Action">
+    <value>Επαναφορά και επανασύνδεση</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Action">
+    <value>Επαναφορά προεπιλεγμένων ρυθμίσεων</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Message">
+    <value>Αυτό θα επαναφέρει τις ρυθμίσεις του Proton VPN στην αρχική τους κατάσταση.</value>
+  </data>
+  <data name="Settings_RestoreDefault_Confirmation_Title">
+    <value>Επαναφορά προεπιλεγμένων ρυθμίσεων?</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnTcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_OpenVpnUdp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunTls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_ProTunUdp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardTls">
+    <value>Stealth</value>
+  </data>
+  <data name="Settings_SelectedProtocol_WireGuardUdp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="Settings_Support">
+    <value>Υποστήριξη</value>
+  </data>
+  <data name="Settings_Support_DebugLogs">
+    <value>Αρχεία εντοπισμού σφαλμάτων</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Application">
+    <value>Αρχεία καταγραφής εφαρμογής</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_ErrorMessage">
+    <value>Δεν ήταν δυνατή η εύρεση του φακέλου αρχείων καταγραφής.</value>
+  </data>
+  <data name="Settings_Support_DebugLogs_Service">
+    <value>Αρχεία καταγραφής υπηρεσιών</value>
+  </data>
+  <data name="Settings_Support_ReportIssue">
+    <value>Αναφορά προβλήματος</value>
+  </data>
+  <data name="Settings_Support_SupportCenter">
+    <value>Κέντρο υποστήριξης</value>
+  </data>
+  <data name="Settings_Theme_Dark">
+    <value>Σκοτεινό</value>
+  </data>
+  <data name="Settings_Theme_Default">
+    <value>Προεπιλογή</value>
+  </data>
+  <data name="Settings_Theme_Light">
+    <value>Φωτεινό</value>
+  </data>
+  <data name="Settings_VpnAccelerator_Description">
+    <value>Αυξήστε την ταχύτητα σύνδεσής σας έως και 400% με τεχνολογίες βελτίωσης της απόδοσης.</value>
+  </data>
+  <data name="SignIn_Form_AdvancedKillSwitchDescription">
+    <value>Η προηγμένη λειτουργία kill switch μπλοκάρει τη σύνδεσή σας στο διαδίκτυο.</value>
+  </data>
+  <data name="SignIn_Form_BestSecureVpnForSpeed">
+    <value>Το καλύτερο ασφαλές VPN για ταχύτητα</value>
+  </data>
+  <data name="SignIn_Form_CreateAccount">
+    <value>Δημιουργία λογαριασμού</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_Description">
+    <value>Εισαγάγετε τα στοιχεία του λογαριασμού σας Proton.</value>
+  </data>
+  <data name="SignIn_Form_DisableKillSwitch">
+    <value>Απενεργοποίηση kill switch</value>
+  </data>
+  <data name="SignIn_Form_Email">
+    <value>Ηλεκτρονικό ταχυδρομείο</value>
+  </data>
+  <data name="SignIn_Form_ForgotUsername">
+    <value>Ξέχασα το όνομα χρήστη μου</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_Help">
+    <value>Βοήθεια</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_NoLogsPolicy">
+    <value>Πολιτική μη διατήρησης αρχείων καταγραφής</value>
+  </data>
+  <data name="SignIn_Form_OpenSource">
+    <value>Ανοιχτού-Κώδικα</value>
+  </data>
+  <data name="SignIn_Form_Password">
+    <value>Κωδικός</value>
+  </data>
+  <data name="SignIn_Form_PasswordError">
+    <value>Εισάγετε τον κωδικό πρόσβασης σας</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a password</comment>
+  </data>
+  <data name="SignIn_Form_ReportAnIssue">
+    <value>Αναφορά προβλήματος</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_ResetPassword">
+    <value>Ξέχασα τον κωδικό πρόσβασης</value>
+    <comment>Help button at the bottom of the login window</comment>
+  </data>
+  <data name="SignIn_Form_SignIn">
+    <value>Σύνδεση</value>
+    <comment>A button inside sign in form</comment>
+  </data>
+  <data name="SignIn_Form_SignInWithSso">
+    <value>Συνδεθείτε με SSO</value>
+  </data>
+  <data name="SignIn_Form_SwissBased">
+    <value>Με έδρα στην Ελβετία</value>
+  </data>
+  <data name="SignIn_Form_Title">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="SignIn_Form_TroubleSigningIn">
+    <value>Κέντρο Υποστήριξης</value>
+    <comment>A button at the bottom of the login window inside Get help popup</comment>
+  </data>
+  <data name="SignIn_Form_Username">
+    <value>Διεύθυνση ή όνομα χρήστη</value>
+  </data>
+  <data name="SignIn_Form_UsernameError">
+    <value>Τα διαπιστευτήρια δεν πρέπει να είναι κενά</value>
+    <comment>An error message is displayed when the user attempts to sign in without entering a username</comment>
+  </data>
+  <data name="SignIn_KillSwitch_Disabled">
+    <value>Η λειτουργία kill switch είναι απενεργοποιημένη</value>
+  </data>
+  <data name="State_Fastest">
+    <value>Η ταχύτερη πολιτεία</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="State_Random">
+    <value>Τυχαία πολιτεία</value>
+    <comment>State describes a country state such as California or Arizona in the US</comment>
+  </data>
+  <data name="SystemNotification_Connected">
+    <value>Τώρα είστε προστατευμένοι</value>
+  </data>
+  <data name="SystemNotification_ConnectedTo">
+    <value>Συνδεδεμένο σε {0}.</value>
+    <comment>{0} is a placeholder for a country and server name (eg. Connected to Netherlands #342342).</comment>
+  </data>
+  <data name="SystemNotification_Disconnected">
+    <value>Αποσυνδεδεμένο</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Description">
+    <value>Αποκτήστε πρόσβαση σε torrenting και online gaming μέσω πρωτοκόλλων P2P (peer-to-peer) με διακομιστές VPN επί πληρωμή.</value>
+  </data>
+  <data name="SystemNotification_P2PWarning_Title">
+    <value>Το P2P δεν είναι διαθέσιμο με το VPN Free</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Description">
+    <value>Ορισμένοι ιστότοποι και υπηρεσίες streaming αποκλείουν τους χρήστες δωρεάν VPN. Αναβαθμίστε σε Proton VPN Plus για να παρακάμψετε αυτούς τους αποκλεισμούς.</value>
+  </data>
+  <data name="SystemNotification_StreamingWarning_Title">
+    <value>Αποκλεισμένος ιστότοπος;</value>
+  </data>
+  <data name="System_Tray_Actions_Connect">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="System_Tray_Actions_Disconnect">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="System_Tray_Actions_ExitApplication">
+    <value>Έξοδος</value>
+  </data>
+  <data name="System_Tray_Actions_OpenApplication">
+    <value>Άνοιγμα {0}</value>
+    <comment>Button displayed in the tray icon to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_ExitApplication">
+    <value>Έξοδος</value>
+  </data>
+  <data name="Tray_Actions_OpenApplication">
+    <value>Άνοιγμα {0}</value>
+    <comment>Button displayed in the tray window to open the Proton VPN application. {0} is a placeholder for the name of the application (eg. "Open Proton VPN")</comment>
+  </data>
+  <data name="Tray_Actions_OpenApplicationToSignIn">
+    <value>Άνοιγμα εφαρμογής για είσοδο</value>
+  </data>
+  <data name="Unit_BytesPerSecond">
+    <value>B/δλ</value>
+    <comment>Unit for Bytes per second</comment>
+  </data>
+  <data name="Unit_ExabytesPerSecond">
+    <value>EB/δλ</value>
+    <comment>Unit for Exabytes per second</comment>
+  </data>
+  <data name="Unit_GigabytesPerSecond">
+    <value>GB/δλ</value>
+    <comment>Unit for Gigabytes per second</comment>
+  </data>
+  <data name="Unit_KilobytesPerSecond">
+    <value>KB/δλ</value>
+    <comment>Unit for Kilobytes per second</comment>
+  </data>
+  <data name="Unit_MegabytesPerSecond">
+    <value>MB/δλ</value>
+    <comment>Unit for Megabytes per second</comment>
+  </data>
+  <data name="Unit_PetabytesPerSecond">
+    <value>PB/δλ</value>
+    <comment>Unit for Petabytes per second</comment>
+  </data>
+  <data name="Unit_TerabytesPerSecond">
+    <value>TB/δλ</value>
+    <comment>Unit for Terabytes per second</comment>
+  </data>
+  <data name="UpsellBanner_P2P_Description">
+    <value>Λήψη αρχείων μέσω BitTorrent και άλλων πρωτοκόλλων κοινοποίησης αρχείων.</value>
+  </data>
+  <data name="UpsellBanner_P2P_Title">
+    <value>Υποστήριξη P2P</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Description">
+    <value>Αναβάθμιση για να επιλέξετε οποιονδήποτε διακομιστή.</value>
+  </data>
+  <data name="UpsellBanner_WrongCountry_Title">
+    <value>Δεν είναι η χώρα που θέλατε;</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings">
+    <value>Ξεκλειδώστε προχωρημένες προσαρμογές VPN</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_DNS">
+    <value>Συνδεθείτε στο VPN με το προσαρμοσμένο Σύστημα Ονομάτων Τομέα (DNS)</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_LAN">
+    <value>Πρόσβαση σε συσκευές στο τοπικό σας δίκτυο (LAN) ενώ είστε συνδεδεμένοι</value>
+  </data>
+  <data name="Upsell_Carousel_AdvancedSettings_ModerateNAT">
+    <value>Αναβαθμίστε την εμπειρία παιχνιδιού σας μεταβαίνοντας σε NAT τύπου 2 (μέτρια)</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices">
+    <value>Σύνδεση έως 10 συσκευών ταυτόχρονα</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms">
+    <value>Χρησιμοποιήστε το Proton VPN σε διαφορετικές πλατφόρμες</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Android">
+    <value>Android και Android TV</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Browser">
+    <value>Πρόγραμμα περιήγησης</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Linux">
+    <value>Linux</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_MacOS">
+    <value>macOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_Windows">
+    <value>Windows</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Platforms_iOS">
+    <value>iOS</value>
+  </data>
+  <data name="Upsell_Carousel_MultipleDevices_Privacy">
+    <value>Ασφάλεια και απόρρητο σε όλες τις συσκευές σας</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield">
+    <value>Απολαύστε περιήγηση χωρίς διαφημίσεις</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Block">
+    <value>Φραγή διαφημίσεων και ιχνηλάτες με το NetShield</value>
+  </data>
+  <data name="Upsell_Carousel_NetShield_Protection">
+    <value>Προστασία της συσκευής σας από κακόβουλο λογισμικό</value>
+  </data>
+  <data name="Upsell_Carousel_P2P">
+    <value>Ξεκλείδωμα ομότιμων λήψεων και κοινής χρήσης αρχείων (P2P)</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Discretion">
+    <value>Απόκρυψη της διεύθυνσης IP σας από τον πάροχο υπηρεσιών και τους συναδέλφους σας</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_PortForwarding">
+    <value>Υπερφορτώστε τις ταχύτητες P2P με προώθηση θυρών</value>
+  </data>
+  <data name="Upsell_Carousel_P2P_Speed">
+    <value>Αυξημένες ταχύτητες μεταφόρτωσης και λήψης</value>
+  </data>
+  <data name="Upsell_Carousel_Platforms_More">
+    <value>+ περισσότερα</value>
+    <comment>This label indicates that there are more platforms available than the ones listed. The plus sign is important.</comment>
+  </data>
+  <data name="Upsell_Carousel_Profiles">
+    <value>Αποκτήστε γρήγορη πρόσβαση στις συχνές συνδέσεις</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Convenience">
+    <value>Ορίστε ένα προφίλ ως προεπιλεγμένη σύνδεση και συνδεθείτε με 1 κλικ</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Creation">
+    <value>Δημιουργήστε και αποθηκεύστε τις δικές σας διαμορφώσεις VPN με τα Προφίλ</value>
+  </data>
+  <data name="Upsell_Carousel_Profiles_Customization">
+    <value>Προσαρμόστε την τοποθεσία, το πρωτόκολλο και τις ρυθμίσεις σας</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore">
+    <value>Προσθέστε ακόμα ένα επίπεδο προστασίας στη σύνδεσή σας</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Encryption">
+    <value>Διπλασιάστε την κρυπτογράφηση σας με το Secure Core</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Protection">
+    <value>Προστασία από δικτυακές επιθέσεις</value>
+  </data>
+  <data name="Upsell_Carousel_SecureCore_Routing">
+    <value>Περιηγηθείτε μέσω υπέρ ασφαλών διακομιστών στην Ελβετία, τη Σουηδία και την Ισλανδία</value>
+  </data>
+  <data name="Upsell_Carousel_Speed">
+    <value>Περιηγηθείτε σε ακόμα υψηλότερες ταχύτητες</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Acceleration">
+    <value>Περιηγηθείτε έως και 400% πιο γρήγορα με το VPN Accelerator</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Access">
+    <value>Αποκτήστε πρόσβαση σε ταχύτερους και λιγότερο πολυσύχναστους διακομιστές</value>
+  </data>
+  <data name="Upsell_Carousel_Speed_Traffic">
+    <value>Αποκτήστε ταχύτητες σύνδεσης έως και 10 Gbps</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling">
+    <value>Αξιοποιήστε στο έπακρο και τους δύο κόσμους</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Browsing">
+    <value>Περιηγηθείτε από δύο τοποθεσίες ταυτόχρονα με διαίρεση σήραγγας</value>
+  </data>
+  <data name="Upsell_Carousel_SplitTunneling_Configuration">
+    <value>Επιτρέψτε σε αξιόπιστες εφαρμογές και διευθύνσεις IP να συνδέονται απευθείας στο διαδίκτυο, προστατεύοντας παράλληλα οτιδήποτε άλλο με το VPN σας</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming">
+    <value>Ροή των αγαπημένων σας ταινιών και τηλεοπτικών εκπομπών</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Access">
+    <value>Αποκτήστε πρόσβαση σε τηλεόραση και ταινίες με γεωγραφικούς περιορισμούς από οπουδήποτε στον κόσμο</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_BBC">
+    <value>BBC iPlayer</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Disney">
+    <value>Disney+</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_HBO">
+    <value>HBO Max</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_Netflix">
+    <value>Netflix</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Platforms_PrimeVideo">
+    <value>Amazon Prime Video</value>
+  </data>
+  <data name="Upsell_Carousel_Streaming_Speed">
+    <value>Παρακολουθήστε σε 4K χωρίς buffering, επιβράδυνση ή περιορισμό</value>
+  </data>
+  <data name="Upsell_Carousel_Title">
+    <value>Ανακαλύψτε το VPN Plus</value>
+  </data>
+  <data name="Upsell_Carousel_Tor">
+    <value>Αποκτήστε πρόσβαση στο δίκτυο Tor για επιπλέον ιδιωτικότητα</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Access">
+    <value>Πρόσβαση σε κρυφούς ιστότοπους και ιστότοπους κρεμμυδιών</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Browsing">
+    <value>Περιηγηθείτε στο δίκτυο Tor χρησιμοποιώντας το κανονικό σας πρόγραμμα περιήγησης</value>
+  </data>
+  <data name="Upsell_Carousel_Tor_Protection">
+    <value>Προστατέψτε τα προσωπικά σας δεδομένα κατά την περιήγηση</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage">
+    <value>Έχετε πρόσβαση σε πάνω από {0} σε {1}</value>
+    <comment>Title for the worldwide coverage upsell feature page. {0} is a placeholder for the number of servers (eg. 100 secure servers) and {1} for the number of countries available (eg. 60 countries).</comment>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Censorship">
+    <value>Παράκαμψη της λογοκρισίας με προηγμένες λειτουργίες ασφάλειας</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_One">
+    <value>{0} χώρα</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Countries_Other">
+    <value>{0} χώρες</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Features">
+    <value>Ασφαλής ροή, χρήση torrents, και πολλά άλλα</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Selection">
+    <value>Επιλέξτε οποιαδήποτε χώρα από το παγκόσμιο δίκτυο μας</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_One">
+    <value>{0} διασφαλισμένος διακομιστής</value>
+  </data>
+  <data name="Upsell_Carousel_WorldwideCoverage_Servers_Other">
+    <value>{0} διασφαλισμένοι διακομιστές</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp">
+    <value>OpenVPN (TCP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Tcp_Description">
+    <value>Καθιερωμένο, καλά δοκιμασμένο και ασφαλές</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp">
+    <value>OpenVPN (UDP)</value>
+  </data>
+  <data name="VpnProtocol_OpenVPN_Udp_Description">
+    <value>Καθιερωμένο, καλά δοκιμασμένο και ασφαλές</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp">
+    <value>Proton WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tcp_Description">
+    <value>Πρωτόκολλο τελευταίας τεχνολογίας για ασφάλεια και απόδοση</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls">
+    <value>Proton Stealth</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Tls_Description">
+    <value>Ξεπερνά τα μπλοκαρίσματα VPN κρύβοντας τη σύνδεσή σας από τους λογοκριτές</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp">
+    <value>Proton WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_ProTun_Udp_Description">
+    <value>Πρωτόκολλο τελευταίας τεχνολογίας για ασφάλεια και απόδοση</value>
+  </data>
+  <data name="VpnProtocol_Smart">
+    <value>Smart</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp">
+    <value>WireGuard (TCP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tcp_Description">
+    <value>Πρωτόκολλο τελευταίας τεχνολογίας για ασφάλεια και απόδοση</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls">
+    <value>Stealth</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Tls_Description">
+    <value>Ξεπερνά τα μπλοκαρίσματα VPN κρύβοντας τη σύνδεσή σας από τους λογοκριτές</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp">
+    <value>WireGuard (UDP)</value>
+  </data>
+  <data name="VpnProtocol_WireGuard_Udp_Description">
+    <value>Πρωτόκολλο τελευταίας τεχνολογίας για ασφάλεια και απόδοση</value>
+  </data>
+</root>
