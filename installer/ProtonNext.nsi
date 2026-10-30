@@ -46,7 +46,7 @@ Section "ProtonNext" SecCore
 
     ; Copy ProtonVPN-Next-CLI files into ProtonVPN-Next-CLI subdirectory
     SetOutPath "$INSTDIR\ProtonVPN-Next-CLI"
-    File /r /x "__pycache__" /x ".git" /x "*.pyc" "..\ProtonVPN-Next-CLI\*.*"
+    File /r /x "__pycache__" /x ".git" /x "*.pyc" /x "result" /x "*.tmp" "..\ProtonVPN-Next-CLI\*.*"
 
     ; Registry for Install Location & Add/Remove Programs
     WriteRegStr HKLM "Software\ProtonNext" "InstallLocation" "$INSTDIR"
