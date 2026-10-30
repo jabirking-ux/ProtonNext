@@ -1,16 +1,16 @@
-/* ProtonNext — Official Proton Design System Tokens (from Colors.xaml) */
+/* ProtonNext — Official Proton Design System (Colors.xaml + Editorial Web) */
 :root {
-  /* Light Editorial Surfaces (Proton Web) */
+  /* Light Editorial Surfaces */
   --bg-page: #F5F4F2;
   --bg-white: #FFFFFF;
-  --bg-stone: #EAE9E6;
+  --bg-stone: #EAE8E4;
   --text-ink: #0C0C14;
   --text-ink-weak: rgba(12, 12, 20, 0.72);
   --text-ink-hint: rgba(12, 12, 20, 0.50);
   --border-light: rgba(12, 12, 20, 0.10);
   --border-light-strong: rgba(12, 12, 20, 0.18);
 
-  /* Dark Client Surfaces (from ProtonVPN.Client Colors.xaml) */
+  /* Dark Client Surfaces (Exact tokens from ProtonVPN.Client Colors.xaml) */
   --client-bg-norm: #16141C;
   --client-bg-weak: #292733;
   --client-bg-strong: #3F3B4C;
@@ -32,7 +32,7 @@
   --signal-success: #4BB99D;
   --signal-danger: #F7607B;
   --signal-danger-solid: #B71432;
-  --signal-warning: #FF9900;
+  --signal-warning: #FFAD33;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
@@ -69,7 +69,7 @@ button, input {
 }
 
 .container {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -102,9 +102,9 @@ button, input {
   color: #FFFFFF;
   font-weight: 700;
   font-size: 11px;
+  font-family: var(--font-mono);
   padding: 2px 7px;
   border-radius: 3px;
-  letter-spacing: 0.02em;
 }
 
 .top-strip-link {
@@ -133,7 +133,7 @@ button, input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 66px;
 }
 
 .brand-logo {
@@ -176,7 +176,7 @@ button, input {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
   list-style: none;
 }
 
@@ -197,7 +197,7 @@ button, input {
   gap: 10px;
 }
 
-/* Proton Official Button Styles */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -209,8 +209,12 @@ button, input {
   border-radius: 8px;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
   line-height: 1.2;
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn-purple {
@@ -233,61 +237,65 @@ button, input {
 }
 
 .btn-lg {
-  font-size: 16px;
-  padding: 14px 24px;
+  font-size: 15px;
+  padding: 13px 22px;
   border-radius: 8px;
 }
 
-/* Hero Section (2-Column Proton Layout) */
+/* Hero Section */
 .hero-section {
-  padding: 56px 0 72px;
+  padding: 44px 0 64px;
   background-color: var(--bg-page);
   border-bottom: 1px solid var(--border-light);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 440px 1fr;
-  gap: 44px;
-  align-items: center;
+  grid-template-columns: 420px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.hero-copy {
+  padding-top: 8px;
 }
 
 .hero-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   font-family: var(--font-mono);
   color: #4C1D95;
   background: #EDE9FE;
   border: 1px solid rgba(109, 74, 255, 0.25);
-  padding: 4px 10px;
+  padding: 4px 9px;
   border-radius: 4px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.035em;
   color: var(--text-ink);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .hero-lead {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--text-ink-weak);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .hero-actions {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .hero-btn-row {
@@ -302,42 +310,62 @@ button, input {
   color: var(--text-ink-hint);
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
+}
+
+/* Interactive Quick Guide Callout in Hero Left Column */
+.interactive-hint-box {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light-strong);
+  border-left: 3px solid var(--proton-purple);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: var(--text-ink-weak);
+}
+
+.interactive-hint-box strong {
+  color: var(--text-ink);
+  display: block;
+  margin-bottom: 3px;
 }
 
 .hero-trust-row {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-top: 20px;
+  gap: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--border-light);
+  flex-wrap: wrap;
 }
 
 .trust-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-size: 12px;
   font-weight: 600;
   color: var(--text-ink-weak);
 }
 
 .trust-item img {
-  height: 22px;
+  height: 20px;
   width: auto;
 }
 
 /* ============================================================
-   1:1 REPLICA OF PROTONVPN WINDOWS 11 CLIENT (win-app)
+   1:1 INTERACTIVE PROTONVPN WINDOWS 11 CLIENT (win-app)
    ============================================================ */
 .win11-client-window {
   background-color: var(--client-bg-norm);
   color: var(--client-text);
   border-radius: 10px;
   border: 1px solid #3A3646;
-  box-shadow: 0 24px 48px rgba(12, 12, 20, 0.28), 0 2px 8px rgba(12, 12, 20, 0.15);
+  box-shadow: 0 24px 54px rgba(12, 12, 20, 0.30), 0 2px 8px rgba(12, 12, 20, 0.16);
   overflow: hidden;
   user-select: none;
+  position: relative;
 }
 
 /* Windows 11 Titlebar */
@@ -357,7 +385,7 @@ button, input {
   gap: 10px;
 }
 
-.win11-titlebar-left img {
+.win11-titlebar-left img.logo-svg {
   height: 18px;
   width: auto;
 }
@@ -365,6 +393,13 @@ button, input {
 .win11-plus-badge {
   height: 18px;
   width: auto;
+}
+
+.win11-titlebar-status {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--client-text-hint);
+  margin-left: 6px;
 }
 
 .win11-caption-btns {
@@ -382,6 +417,7 @@ button, input {
   font-size: 12px;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .win11-cap-btn:hover {
@@ -397,8 +433,8 @@ button, input {
 /* Client Main Split Layout */
 .win11-client-body {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  height: 470px;
+  grid-template-columns: 285px 1fr;
+  height: 520px;
 }
 
 /* Left Sidebar */
@@ -413,28 +449,41 @@ button, input {
 
 /* Connection Status Card inside Sidebar */
 .client-conn-card {
-  padding: 16px;
+  padding: 15px;
   border-bottom: 1px solid var(--client-border);
-  background: linear-gradient(180deg, rgba(44, 255, 204, 0.14) 0%, rgba(22, 20, 28, 0) 100%);
+  background: linear-gradient(180deg, rgba(44, 255, 204, 0.15) 0%, rgba(22, 20, 28, 0) 100%);
   transition: background 0.25s ease;
 }
 
 .client-conn-card.unprotected {
-  background: linear-gradient(180deg, rgba(247, 96, 123, 0.16) 0%, rgba(22, 20, 28, 0) 100%);
+  background: linear-gradient(180deg, rgba(247, 96, 123, 0.18) 0%, rgba(22, 20, 28, 0) 100%);
+}
+
+.client-shield-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
 }
 
 .client-shield-status {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 12px;
-  font-weight: 700;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   color: var(--vpn-green);
-  margin-bottom: 10px;
 }
 
 .client-conn-card.unprotected .client-shield-status {
   color: var(--signal-danger);
+}
+
+.client-timer {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--client-text-hint);
 }
 
 .client-active-target {
@@ -445,11 +494,11 @@ button, input {
 }
 
 .client-active-flag {
-  width: 28px;
+  width: 30px;
   height: 20px;
   border-radius: 3px;
   object-fit: cover;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.45);
 }
 
 .client-active-name {
@@ -484,7 +533,7 @@ button, input {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  transition: background-color 0.12s ease;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
 }
 
 .client-btn:hover:not(:disabled) {
@@ -508,6 +557,36 @@ button, input {
 .client-btn-danger:hover:not(:disabled) {
   background-color: #995B70;
   border-color: var(--signal-danger);
+}
+
+/* Sidebar Navigation Tabs (Countries | Profiles) */
+.client-sidebar-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 8px 12px 0;
+  gap: 4px;
+  border-bottom: 1px solid var(--client-border);
+}
+
+.sidebar-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--client-text-hint);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 4px 8px;
+  cursor: pointer;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.sidebar-tab-btn:hover {
+  color: #FFFFFF;
+}
+
+.sidebar-tab-btn.active {
+  color: #FFFFFF;
+  border-bottom-color: var(--proton-purple-soft);
 }
 
 /* Search Box in Sidebar */
@@ -535,7 +614,7 @@ button, input {
 }
 
 .client-list-header {
-  padding: 6px 14px;
+  padding: 4px 14px 6px;
   font-size: 11px;
   font-weight: 600;
   color: var(--client-text-hint);
@@ -543,7 +622,7 @@ button, input {
   justify-content: space-between;
 }
 
-/* Country List in Sidebar */
+/* Country / Profile List in Sidebar */
 .client-country-list {
   flex: 1;
   overflow-y: auto;
@@ -567,6 +646,7 @@ button, input {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.1s ease;
+  margin-bottom: 2px;
 }
 
 .client-country-row:hover {
@@ -575,7 +655,7 @@ button, input {
 
 .client-country-row.active {
   background-color: var(--client-bg-weak);
-  border: 1px solid rgba(44, 255, 204, 0.30);
+  border: 1px solid rgba(44, 255, 204, 0.35);
 }
 
 .country-row-left {
@@ -592,15 +672,41 @@ button, input {
 }
 
 .country-row-name {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   color: #FFFFFF;
+}
+
+.country-row-sub {
+  font-size: 10.5px;
+  color: var(--client-text-hint);
+  display: block;
 }
 
 .country-row-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+}
+
+.connect-mini-btn {
+  display: none;
+  background: var(--proton-purple);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.client-country-row:hover .connect-mini-btn {
+  display: inline-block;
+}
+
+.client-country-row:hover .load-pill {
+  display: none;
 }
 
 .load-pill {
@@ -626,83 +732,102 @@ button, input {
   overflow: hidden;
 }
 
-.map-svg-container {
+/* Interactive Vector Map Container */
+.map-vector-stage {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.map-vector-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center center;
+}
+
+.map-vector-inner img.world-map-base {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
   pointer-events: none;
 }
 
-.map-svg-container img.world-map-img {
-  width: 115%;
-  height: auto;
-  opacity: 0.65;
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+/* SVG Overlay for Connection Arc & Interactive Country Pins */
+.map-interactive-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Floating Map Target Pin */
-.map-pin-overlay {
+.map-node-pin {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.map-node-pin:hover circle.pin-core {
+  r: 7;
+  fill: var(--vpn-green);
+}
+
+/* Map Zoom Controls */
+.map-zoom-controls {
   position: absolute;
-  top: 38%;
-  left: 52%;
-  transform: translate(-50%, -50%);
+  right: 14px;
+  top: 56px;
+  z-index: 8;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 4px;
-  z-index: 5;
-  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.map-pin-pulse {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: var(--vpn-green);
-  border: 3px solid #16141C;
-  box-shadow: 0 0 0 6px rgba(44, 255, 204, 0.25), 0 0 18px var(--vpn-green);
-}
-
-.map-pin-pulse.disconnected {
-  background-color: var(--signal-danger);
-  box-shadow: 0 0 0 6px rgba(247, 96, 123, 0.25), 0 0 18px var(--signal-danger);
-}
-
-.map-pin-label {
-  background-color: rgba(22, 20, 28, 0.92);
+.map-zoom-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  background-color: rgba(22, 20, 28, 0.90);
   border: 1px solid var(--client-border-norm);
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  font-family: var(--font-mono);
   color: #FFFFFF;
-  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Map Top Bar (IP & Protocol) */
+.map-zoom-btn:hover {
+  background-color: var(--client-bg-strong);
+}
+
+/* Map Top Bar (IP, Protocol, Active Port) */
 .map-top-hud {
   position: relative;
   z-index: 6;
-  padding: 14px 16px;
+  padding: 12px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .hud-pill {
-  background-color: rgba(22, 20, 28, 0.88);
+  background-color: rgba(22, 20, 28, 0.90);
   backdrop-filter: blur(6px);
   border: 1px solid var(--client-border);
   border-radius: 6px;
-  padding: 6px 11px;
+  padding: 5px 10px;
   font-size: 11px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .hud-pill-label {
@@ -715,41 +840,187 @@ button, input {
   color: #FFFFFF;
 }
 
-/* Map Bottom Feature Widgets (NetShield, Kill Switch, Split Tunnel, Traffic) */
+/* Interactive Feature Flyout Modal Inside Client */
+.client-flyout-drawer {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 118px;
+  z-index: 15;
+  background-color: rgba(22, 20, 28, 0.97);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--client-border-norm);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+  display: none;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.client-flyout-drawer.open {
+  display: grid;
+}
+
+.flyout-art-wrap {
+  background: var(--client-bg-weak);
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92px;
+}
+
+.flyout-art-wrap img {
+  max-height: 74px;
+  max-width: 90px;
+  object-fit: contain;
+}
+
+.flyout-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.flyout-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.flyout-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--client-text-hint);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.flyout-close-btn:hover {
+  color: #FFFFFF;
+}
+
+.flyout-desc {
+  font-size: 11.5px;
+  color: var(--client-text-weak);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.flyout-mode-btns {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.flyout-mode-btn {
+  background: var(--client-bg-weak);
+  border: 1px solid var(--client-border-norm);
+  color: var(--client-text-weak);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.flyout-mode-btn.active {
+  background: var(--proton-purple);
+  border-color: var(--proton-purple);
+  color: #FFFFFF;
+}
+
+/* Map Bottom HUD (Throughput Sparkline + Feature Toggles) */
 .map-bottom-hud {
   position: relative;
   z-index: 6;
-  padding: 12px 16px;
-  background: linear-gradient(0deg, rgba(22, 20, 28, 0.96) 0%, rgba(22, 20, 28, 0.75) 75%, transparent 100%);
+  padding: 10px 14px 12px;
+  background: linear-gradient(0deg, rgba(22, 20, 28, 0.98) 0%, rgba(22, 20, 28, 0.85) 80%, transparent 100%);
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+
+.hud-metrics-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 8px;
+}
+
+/* Live Speed Sparkline Box */
+.speed-chart-box {
+  background-color: rgba(41, 39, 51, 0.85);
+  border: 1px solid var(--client-border);
+  border-radius: 6px;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 10px;
 }
 
-.netshield-stats-row {
+.speed-readouts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 105px;
+}
+
+.speed-line {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.speed-down {
+  color: var(--vpn-green);
+  font-weight: 700;
+}
+
+.speed-up {
+  color: var(--proton-purple-soft);
+  font-weight: 600;
+}
+
+.sparkline-svg {
+  width: 120px;
+  height: 32px;
+  overflow: visible;
+}
+
+/* NetShield Compact Counter Box */
+.ns-mini-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .ns-stat-card {
   background-color: rgba(41, 39, 51, 0.85);
   border: 1px solid var(--client-border);
   border-radius: 6px;
-  padding: 8px 10px;
+  padding: 6px 8px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .ns-stat-card img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
 .ns-stat-num {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   font-family: var(--font-mono);
   color: #FFFFFF;
@@ -757,10 +1028,11 @@ button, input {
 }
 
 .ns-stat-lbl {
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--client-text-hint);
 }
 
+/* Interactive Feature Toggle Chips */
 .feature-toggles-bar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -769,18 +1041,25 @@ button, input {
 
 .ft-chip {
   background-color: var(--client-bg-weak);
-  border: 1px solid var(--client-border);
+  border: 1px solid var(--client-border-norm);
   border-radius: 5px;
   padding: 6px 8px;
   font-size: 11px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.ft-chip:hover, .ft-chip.selected {
+  background-color: var(--client-bg-strong);
+  border-color: var(--proton-purple-soft);
 }
 
 .ft-chip-name {
-  color: var(--client-text-weak);
-  font-weight: 500;
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
 .ft-chip-on {
@@ -788,6 +1067,137 @@ button, input {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
+}
+
+.ft-chip-on.off {
+  color: var(--client-text-hint);
+}
+
+/* ============================================================
+   STREAMING & UNBLOCKING STRIP
+   ============================================================ */
+.streaming-strip {
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 22px 0;
+}
+
+.streaming-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.streaming-strip-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-ink-weak);
+}
+
+.streaming-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.streaming-logos img {
+  height: 24px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+}
+
+.streaming-logos img:hover {
+  opacity: 1;
+}
+
+/* ============================================================
+   INTERACTIVE INSTALLER BENCHMARK SECTION
+   ============================================================ */
+.benchmark-section {
+  padding: 72px 0;
+  background-color: var(--bg-page);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.benchmark-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.bench-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-light-strong);
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.bench-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.bench-card p {
+  font-size: 14px;
+  color: var(--text-ink-weak);
+  margin-bottom: 20px;
+}
+
+.bench-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.bench-row-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin-bottom: 6px;
+}
+
+.bench-track {
+  height: 14px;
+  background-color: var(--bg-stone);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bench-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.bench-fill.fast {
+  background-color: var(--proton-purple);
+}
+
+.bench-fill.slow {
+  background-color: #9CA3AF;
+}
+
+.bench-log-box {
+  background-color: #110F17;
+  color: #2CFFCC;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  height: 82px;
+  overflow-y: auto;
+  line-height: 1.45;
+  margin-bottom: 14px;
 }
 
 /* ============================================================
@@ -801,7 +1211,7 @@ button, input {
 
 .section-intro {
   max-width: 680px;
-  margin-bottom: 56px;
+  margin-bottom: 52px;
 }
 
 .section-intro h2 {
@@ -822,15 +1232,15 @@ button, input {
 .feature-split-list {
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 52px;
 }
 
 .feature-split-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 52px;
   align-items: center;
-  padding-bottom: 56px;
+  padding-bottom: 52px;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -972,7 +1382,7 @@ button, input {
 }
 
 .servers-table tr:hover td {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .srv-country-cell {
@@ -1032,7 +1442,7 @@ button, input {
   background-color: #0E0D12;
   border: 1px solid var(--client-border);
   border-radius: 6px;
-  padding: 12px 14px;
+  padding: 11px 14px;
   font-family: var(--font-mono);
   font-size: 12px;
   color: #E5E7EB;
@@ -1231,8 +1641,9 @@ button, input {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .hero-grid {
+@media (max-width: 1080px) {
+  .hero-grid,
+  .benchmark-grid {
     grid-template-columns: 1fr;
   }
   .feature-split-row,
@@ -1256,7 +1667,10 @@ button, input {
     height: auto;
   }
   .client-map-pane {
-    min-height: 300px;
+    min-height: 340px;
+  }
+  .hud-metrics-grid {
+    grid-template-columns: 1fr;
   }
   .hero-title {
     font-size: 32px;

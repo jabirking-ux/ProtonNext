@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ProtonNext — Unlocked Proton VPN Client for Windows</title>
-  <meta name="description" content="Open-source Proton VPN Windows client with all Plus features unlocked, zero account requirement, Sentry/telemetry removed, and a 1-second native installer.">
+  <meta name="description" content="Open-source Proton VPN Windows client with all Plus features unlocked, zero account requirement, Sentry/telemetry removed, and a 1.45-second native installer.">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
     <div class="container top-strip-inner">
       <div class="top-strip-left">
         <span class="top-strip-tag">v1.0.2</span>
-        <span>Handmade C# multi-stream installer (~1.5s extraction) + randomized multi-country server rotation now live.</span>
+        <span>Handmade C# multi-stream installer (1.45s extraction) + randomized multi-country server rotation now live.</span>
       </div>
       <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="top-strip-link">
         Download ProtonNext-Setup.exe (209 MB) &rarr;
@@ -40,10 +40,11 @@
       <nav>
         <ul class="main-nav">
           <li><a href="#features">Unlocked Features</a></li>
-          <li><a href="#servers">Server Network &amp; DNS</a></li>
+          <li><a href="#installer-bench">1.45s Installer</a></li>
+          <li><a href="#servers">Servers &amp; DNS</a></li>
           <li><a href="#comparison">Plan Comparison</a></li>
           <li><a href="#patches">Source Patches</a></li>
-          <li><a href="#faq">Technical FAQ</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
@@ -59,7 +60,7 @@
   </header>
 
   <main>
-    <!-- Hero Section: 2-Column Proton Web Layout + 1:1 Windows 11 Client -->
+    <!-- Hero Section: 2-Column Proton Web Layout + 1:1 Interactive Windows 11 Client -->
     <section class="hero-section">
       <div class="container hero-grid">
         <!-- Left Column -->
@@ -80,12 +81,17 @@
               </a>
             </div>
             <div class="hero-build-meta">
-              <span>Version: 1.0.2 (x64)</span>
+              <span>Build: v1.0.2 (win-x64)</span>
               <span>•</span>
-              <span>Installer: Custom NSIS-MUI2 C# Engine</span>
+              <span>Installer: Custom NSIS-MUI2 C# Stream</span>
               <span>•</span>
-              <span>Extract time: ~1.5s</span>
+              <span>Extract: ~1.45s</span>
             </div>
+          </div>
+
+          <div class="interactive-hint-box">
+            <strong>Interactive Live Client &rarr;</strong>
+            Click any country pin on the map, switch between <em>Countries</em> and <em>Profiles</em>, press <strong>Change server</strong> to test multi-country rotation, or click <strong>NetShield / Kill Switch / Split Tunnel / NAT-PMP</strong> along the bottom bar to configure modes.
           </div>
 
           <div class="hero-trust-row">
@@ -109,8 +115,9 @@
           <!-- Windows 11 Titlebar -->
           <div class="win11-titlebar">
             <div class="win11-titlebar-left">
-              <img src="assets/product-logo.svg" alt="Proton VPN">
+              <img src="assets/product-logo.svg" alt="Proton VPN" class="logo-svg">
               <img src="assets/vpn-plus.svg" alt="Plus Unlocked" class="win11-plus-badge">
+              <span class="win11-titlebar-status">v1.0.2 • Tier 2 (Plus) Unlocked</span>
             </div>
             <div class="win11-caption-btns">
               <button class="win11-cap-btn" title="Minimize" aria-label="Minimize">&#x2500;</button>
@@ -124,7 +131,10 @@
             <!-- Left Sidebar -->
             <div class="client-sidebar">
               <div class="client-conn-card" id="client-conn-card">
-                <div class="client-shield-status" id="client-shield-status">PROTECTED</div>
+                <div class="client-shield-row">
+                  <div class="client-shield-status" id="client-shield-status">PROTECTED</div>
+                  <div class="client-timer" id="client-session-timer">00:14:22</div>
+                </div>
                 <div class="client-active-target">
                   <img src="assets/flags/NL.svg" alt="Flag" class="client-active-flag" id="client-active-flag">
                   <div>
@@ -138,30 +148,50 @@
                 </div>
               </div>
 
+              <!-- Sidebar Tabs: Countries | Profiles -->
+              <div class="client-sidebar-tabs">
+                <button class="sidebar-tab-btn active" id="tab-btn-countries">Countries</button>
+                <button class="sidebar-tab-btn" id="tab-btn-profiles">Profiles</button>
+              </div>
+
               <div class="client-search-wrap">
                 <input type="text" class="client-search-input" id="client-search" placeholder="Search countries or cities...">
               </div>
 
               <div class="client-list-header">
                 <span id="client-country-count">Countries (10)</span>
-                <span>Load</span>
+                <span id="client-list-right-hdr">Load</span>
               </div>
 
               <div class="client-country-list" id="client-country-list">
-                <!-- Populated by app.js with official SVG flags -->
+                <!-- Populated by app.js -->
               </div>
             </div>
 
             <!-- Right Map Viewport -->
             <div class="client-map-pane">
-              <div class="map-svg-container">
-                <img src="assets/world-map.svg" alt="World Map" class="world-map-img">
+              <!-- Interactive Vector Map with SVG Overlay -->
+              <div class="map-vector-stage">
+                <div class="map-vector-inner" id="map-vector-inner">
+                  <img src="assets/world-map.svg" alt="World Map" class="world-map-base">
+                  <svg class="map-interactive-svg" viewBox="0 0 1252 627" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                      <linearGradient id="protonArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#8A6EFF" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#2CFFCC" stop-opacity="0.95"/>
+                      </linearGradient>
+                    </defs>
+                    <path id="map-connection-arc" d="" fill="none" stroke="url(#protonArcGrad)" stroke-width="2.5" stroke-dasharray="5 3"/>
+                    <g id="map-nodes-group"></g>
+                  </svg>
+                </div>
               </div>
 
-              <!-- Active Pin on Map -->
-              <div class="map-pin-overlay" id="map-pin-overlay">
-                <div class="map-pin-pulse" id="map-pin-pulse"></div>
-                <div class="map-pin-label" id="map-pin-label">NL-FREE#102 (185.107.56.221)</div>
+              <!-- Map Zoom Controls -->
+              <div class="map-zoom-controls">
+                <button class="map-zoom-btn" id="map-zoom-in" title="Zoom in">+</button>
+                <button class="map-zoom-btn" id="map-zoom-out" title="Zoom out">&minus;</button>
+                <button class="map-zoom-btn" id="map-zoom-reset" title="Reset view" style="font-size:10px;">1:1</button>
               </div>
 
               <!-- Top Map HUD -->
@@ -176,53 +206,168 @@
                 </div>
               </div>
 
-              <!-- Bottom Map HUD (Official NetShield Icons & Feature Toggles) -->
+              <!-- Interactive Feature Configuration Flyout Drawer -->
+              <div class="client-flyout-drawer" id="client-flyout-drawer">
+                <div class="flyout-art-wrap">
+                  <img src="assets/illustrations/netshield-on-level-2.png" alt="Feature state" id="flyout-art-img">
+                </div>
+                <div>
+                  <div class="flyout-header-row">
+                    <span class="flyout-title" id="flyout-title">NetShield DNS Filtering</span>
+                    <button class="flyout-close-btn" id="flyout-close-btn" title="Close">&#x2715;</button>
+                  </div>
+                  <p class="flyout-desc" id="flyout-desc">
+                    Blocks advertisements, tracking scripts, and malware domains at the DNS resolver level (10.2.0.1).
+                  </p>
+                  <div class="flyout-mode-btns" id="flyout-mode-btns"></div>
+                </div>
+              </div>
+
+              <!-- Bottom Map HUD (Live Sparkline + NetShield Counters + Clickable Feature Toggles) -->
               <div class="map-bottom-hud">
-                <div class="netshield-stats-row">
-                  <div class="ns-stat-card">
-                    <img src="assets/illustrations/ads-blocked.png" alt="Ads blocked">
-                    <div>
-                      <div class="ns-stat-num" id="ns-ads-val">48</div>
-                      <div class="ns-stat-lbl">Ads blocked</div>
+                <div class="hud-metrics-grid">
+                  <!-- Live Throughput Sparkline -->
+                  <div class="speed-chart-box">
+                    <div class="speed-readouts">
+                      <div class="speed-line">
+                        <span style="color:var(--client-text-hint);">DOWN</span>
+                        <span class="speed-down" id="speed-down-val">65.0 Mbps</span>
+                      </div>
+                      <div class="speed-line">
+                        <span style="color:var(--client-text-hint);">UP</span>
+                        <span class="speed-up" id="speed-up-val">18.0 Mbps</span>
+                      </div>
                     </div>
+                    <svg class="sparkline-svg" viewBox="0 0 120 32">
+                      <polyline id="sparkline-down" fill="none" stroke="#2CFFCC" stroke-width="1.8" points="0,16 10,12 21,8 31,14 42,6 52,10 63,4 73,9 84,12 94,8 105,7 115,10"/>
+                      <polyline id="sparkline-up" fill="none" stroke="#8A6EFF" stroke-width="1.4" stroke-dasharray="2 2" points="0,26 10,24 21,22 31,25 42,20 52,22 63,19 73,23 84,24 94,21 105,20 115,22"/>
+                    </svg>
                   </div>
-                  <div class="ns-stat-card">
-                    <img src="assets/illustrations/trackers-stopped.png" alt="Trackers stopped">
-                    <div>
-                      <div class="ns-stat-num" id="ns-trackers-val">194</div>
-                      <div class="ns-stat-lbl">Trackers stopped</div>
+
+                  <!-- NetShield Counters -->
+                  <div class="ns-mini-strip">
+                    <div class="ns-stat-card">
+                      <img src="assets/illustrations/ads-blocked.png" alt="Ads">
+                      <div>
+                        <div class="ns-stat-num" id="ns-ads-val">48</div>
+                        <div class="ns-stat-lbl">Ads</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="ns-stat-card">
-                    <img src="assets/illustrations/data-saved.png" alt="Data saved">
-                    <div>
-                      <div class="ns-stat-num">14.2 MB</div>
-                      <div class="ns-stat-lbl">Data saved</div>
+                    <div class="ns-stat-card">
+                      <img src="assets/illustrations/trackers-stopped.png" alt="Trackers">
+                      <div>
+                        <div class="ns-stat-num" id="ns-trackers-val">194</div>
+                        <div class="ns-stat-lbl">Trackers</div>
+                      </div>
+                    </div>
+                    <div class="ns-stat-card">
+                      <img src="assets/illustrations/data-saved.png" alt="Saved">
+                      <div>
+                        <div class="ns-stat-num">14.2M</div>
+                        <div class="ns-stat-lbl">Saved</div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
+                <!-- Clickable Feature Toggles -->
                 <div class="feature-toggles-bar">
-                  <div class="ft-chip">
+                  <div class="ft-chip" data-feature="netshield" title="Click to configure NetShield">
                     <span class="ft-chip-name">NetShield</span>
-                    <span class="ft-chip-on">LEVEL 2</span>
+                    <span class="ft-chip-on" id="chip-val-netshield">LEVEL 2</span>
                   </div>
-                  <div class="ft-chip">
+                  <div class="ft-chip" data-feature="killswitch" title="Click to configure Kill Switch">
                     <span class="ft-chip-name">Kill Switch</span>
-                    <span class="ft-chip-on">ON</span>
+                    <span class="ft-chip-on" id="chip-val-killswitch">ADVANCED</span>
                   </div>
-                  <div class="ft-chip">
+                  <div class="ft-chip" data-feature="splittunnel" title="Click to configure Split Tunneling">
                     <span class="ft-chip-name">Split Tunnel</span>
-                    <span class="ft-chip-on">READY</span>
+                    <span class="ft-chip-on" id="chip-val-splittunnel">STANDARD</span>
                   </div>
-                  <div class="ft-chip">
+                  <div class="ft-chip" data-feature="portforward" title="Click to configure Port Forwarding">
                     <span class="ft-chip-name">NAT-PMP</span>
-                    <span class="ft-chip-on">ACTIVE</span>
+                    <span class="ft-chip-on" id="chip-val-portforward">PORT 58412</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Streaming & Unblocking Compatibility Bar -->
+    <div class="streaming-strip">
+      <div class="container streaming-strip-inner">
+        <span class="streaming-strip-label">High-speed WireGuard routing compatible with global media platforms:</span>
+        <div class="streaming-logos">
+          <img src="assets/streaming/netflix.png" alt="Netflix" title="Netflix">
+          <img src="assets/streaming/prime-video.png" alt="Prime Video" title="Amazon Prime Video">
+          <img src="assets/streaming/disney-plus.png" alt="Disney+" title="Disney+">
+          <img src="assets/streaming/bbc-iplayer.png" alt="BBC iPlayer" title="BBC iPlayer">
+          <img src="assets/streaming/hbo-max.png" alt="HBO Max" title="HBO Max">
+          <img src="assets/streaming/hulu.png" alt="Hulu" title="Hulu">
+          <img src="assets/streaming/f1.png" alt="F1 TV" title="F1 TV">
+          <img src="assets/streaming/espn.png" alt="ESPN" title="ESPN">
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Handmade Installer Benchmark Section -->
+    <section class="benchmark-section" id="installer-bench">
+      <div class="container benchmark-grid">
+        <div>
+          <div class="hero-kicker">CUSTOM C# STREAM ENGINE // NSIS MODERN UI 2</div>
+          <h2 style="font-size:32px; font-weight:800; letter-spacing:-0.03em; margin-bottom:12px;">
+            Looks like NSIS. Extracts in 1.45 seconds.
+          </h2>
+          <p style="font-size:15px; color:var(--text-ink-weak); line-height:1.65; margin-bottom:16px;">
+            Standard NSIS installers unpack all 2,313 application and WinUI3 runtime files sequentially on a single thread, flushing Win32 file handles and repainting the UI on every file—taking 45+ seconds.
+          </p>
+          <p style="font-size:15px; color:var(--text-ink-weak); line-height:1.65; margin-bottom:20px;">
+            We built a custom single-file C# installer (<code>ProtonNext-Setup.exe</code>) that preserves the exact 505&times;385 NSIS Modern UI 2 wizard, <code>/S</code> silent flags, and dual-role <code>Uninstall.exe</code> behavior, while streaming the embedded payload directly from memory using 64KB buffers.
+          </p>
+          <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-purple">
+            Download Fast Installer (ProtonNext-Setup.exe)
+          </a>
+        </div>
+
+        <div class="bench-card">
+          <h3>Live Extraction Benchmark (2,313 Files / 366 MB)</h3>
+          <p>Compare our in-memory 64KB stream decompression against legacy single-threaded NSIS:</p>
+
+          <div class="bench-bars">
+            <div>
+              <div class="bench-row-head">
+                <span style="color:var(--proton-purple);">ProtonNext Handmade C# Installer</span>
+                <span id="bench-time-fast">1.45s (2,313 files)</span>
+              </div>
+              <div class="bench-track">
+                <div class="bench-fill fast" id="bench-fill-fast" style="width:100%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="bench-row-head">
+                <span style="color:var(--text-ink-hint);">Standard NSIS (Single-Threaded File I/O)</span>
+                <span id="bench-time-slow">45.0s (2,313 files)</span>
+              </div>
+              <div class="bench-track">
+                <div class="bench-fill slow" id="bench-fill-slow" style="width:15%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bench-log-box" id="bench-log-box">
+            Output folder: C:\Program Files\ProtonNext<br>
+            Pre-allocated 94 subdirectories in memory.<br>
+            Streamed 2,212 client files + 101 CLI files (64KB buffer).<br>
+            Registered Uninstall.exe &amp; COM IShellLinkW shortcuts.
+          </div>
+
+          <button class="btn btn-outline-ink" id="btn-run-bench" style="width:100%;">
+            Run 2,313-File Extraction Benchmark
+          </button>
         </div>
       </div>
     </section>
@@ -335,7 +480,7 @@
         <div class="section-intro">
           <h2>Verified Free Server Clusters &amp; DNS Configuration</h2>
           <p>
-            Click any server cluster below to test it in the interactive client above. Paid-only server dots are stripped from the map so the client never attempts unauthorized handshakes.
+            Click any server cluster below to connect to it in the interactive client above. Paid-only server dots are stripped from the map so the client never attempts unauthorized handshakes.
           </p>
         </div>
 
@@ -474,7 +619,7 @@
                 <td><strong>Windows Installer Extraction Time</strong></td>
                 <td>~45–60 seconds</td>
                 <td>~45–60 seconds</td>
-                <td class="col-next"><span class="tag-yes">~1.5 seconds (C# 64KB stream engine)</span></td>
+                <td class="col-next"><span class="tag-yes">~1.45 seconds (C# 64KB stream engine)</span></td>
               </tr>
             </tbody>
           </table>
@@ -502,7 +647,7 @@
             </div>
             <div class="patch-item">
               <div class="patch-file">installer/src/ProtonNextInstaller/</div>
-              <div class="patch-desc">Custom WinForms + COM <code>IShellLinkW</code> installer matching NSIS Modern UI 2 (505x385 dialog) that extracts the 2,300-file payload directly from embedded memory streams in ~1.5 seconds.</div>
+              <div class="patch-desc">Custom WinForms + COM <code>IShellLinkW</code> installer matching NSIS Modern UI 2 (505x385 dialog) that extracts the 2,313-file payload directly from embedded memory streams in ~1.45 seconds.</div>
             </div>
           </div>
         </div>
@@ -578,8 +723,8 @@
           <h4>Documentation</h4>
           <ul>
             <li><a href="#features">Unlocked Capabilities</a></li>
-            <li><a href="#servers">Free Server Clusters</a></li>
-            <li><a href="#servers">Android Private DNS</a></li>
+            <li><a href="#installer-bench">1.45s Installer Benchmark</a></li>
+            <li><a href="#servers">Free Server Clusters &amp; DNS</a></li>
             <li><a href="#patches">Source Code Patches</a></li>
           </ul>
         </div>
