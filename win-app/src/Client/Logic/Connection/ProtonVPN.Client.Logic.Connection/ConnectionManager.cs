@@ -381,8 +381,16 @@ public class ConnectionManager : IInternalConnectionManager, IGuestHoleConnector
             string code = state.Label.Length == 2 ? state.Label : (state.Label.Length > 2 && state.Label.Contains('-') ? state.Label.Substring(0, 2) : "");
             if (!string.IsNullOrEmpty(code))
             {
-                Server? countryMatch = servers.FirstOrDefault(s => s.ExitCountry.Equals(code, StringComparison.OrdinalIgnoreCase));
-                if (countryMatch != null) return countryMatch;
+                Server? countryMatch = servers.FirstOrDefault(s => s.ExitCountry.Equals(code, StringComparison.OrdinalIgnoreCase) && s.IsFree())
+                                    ?? servers.FirstOrDefault(s => s.ExitCountry.Equals(code, StringComparison.OrdinalIgnoreCase));
+                if (countryMatch != null)
+                {
+                    if (state.Label.Contains('#') && !countryMatch.Name.Equals(state.Label, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return countryMatch.WithName(state.Label);
+                    }
+                    return countryMatch;
+                }
             }
         }
 

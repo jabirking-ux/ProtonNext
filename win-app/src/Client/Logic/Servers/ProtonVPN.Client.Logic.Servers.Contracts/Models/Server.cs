@@ -106,4 +106,32 @@ public class Server : ILocation
             IsAutoconnectable = IsAutoconnectable,
         };
     }
+
+    public Server WithName(string newName)
+    {
+        return new()
+        {
+            Id = Id,
+            Name = newName,
+            City = City,
+            State = State,
+            EntryCountry = EntryCountry,
+            ExitCountry = ExitCountry,
+            HostCountry = HostCountry,
+            Domain = Domain,
+            Status = Status,
+            Tier = Tier,
+            Features = Features,
+            Load = Load,
+            Score = Score,
+            Servers = Servers,
+            IsVirtual = IsVirtual,
+            GatewayName = GatewayName,
+            StatusReference = StatusReference,
+            EntryLocation = EntryLocation,
+            ExitLocation = ExitLocation,
+            IsVisible = IsVisible,
+            IsAutoconnectable = IsAutoconnectable,
+        };
+    }
 }

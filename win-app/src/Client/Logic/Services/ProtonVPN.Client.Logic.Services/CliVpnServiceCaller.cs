@@ -214,10 +214,14 @@ public class CliVpnServiceCaller : IVpnServiceCaller
                     RunCliCommand("disconnect");
                     WaitForTunnelState(active: false, timeoutSeconds: 15);
 
-                    _eventMessageSender.Send(new VpnStateIpcEntity
+                    bool stillActive = IsRoutingStateActive();
+                    if (!stillActive && !_isConnecting)
                     {
-                        Status = VpnStatusIpcEntity.Disconnected
-                    });
+                        _eventMessageSender.Send(new VpnStateIpcEntity
+                        {
+                            Status = VpnStatusIpcEntity.Disconnected
+                        });
+                    }
                 }
                 catch (Exception ex)
                 {

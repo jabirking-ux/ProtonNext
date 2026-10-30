@@ -85,28 +85,78 @@ class ProtonVpnApi:
         except Exception as e:
             raise Exception(f"Failed to fetch loads: {e}")
 
+    def get_rotate_server(self, exclude_name: str = "") -> Optional[Dict[str, Any]]:
+        """Select a free server in a DIFFERENT country than the currently active or excluded server."""
+        import random, os
+        tier = self.get_max_tier()
+        
+        current_server = exclude_name
+        current_country = ""
+        
+        if not current_server:
+            try:
+                from .routing import get_config_dir
+                routing_file = os.path.join(get_config_dir(), "routing_state.json")
+                if os.path.exists(routing_file):
+                    with open(routing_file, "r") as f:
+                        st = json.load(f)
+                        current_server = st.get("server_name", "")
+            except Exception:
+                pass
+                
+        if current_server and len(current_server) >= 2:
+            current_country = current_server[:2].upper()
+            
+        with sqlite3.connect(self.db.db_path) as conn:
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            
+            cursor.execute("SELECT DISTINCT country FROM servers WHERE tier <= ?", (tier,))
+            all_countries = [row[0] for row in cursor.fetchall()]
+            
+            other_countries = [c for c in all_countries if c.upper() != current_country]
+            target_country = None
+            if other_countries:
+                target_country = random.choice(other_countries)
+            elif all_countries:
+                target_country = all_countries[0]
+                
+            if target_country:
+                cursor.execute(
+                    "SELECT raw_json FROM servers WHERE country = ? AND tier <= ? AND name != ? ORDER BY load ASC LIMIT 5",
+                    (target_country, tier, current_server),
+                )
+                rows = cursor.fetchall()
+                if rows:
+                    return json.loads(random.choice(rows)[0])
+                    
+            return self.get_best_server(exclude_name=current_server, exclude_country=current_country)
+
     def get_server_by_name(self, name: str) -> Optional[Dict[str, Any]]:
+        import random
         user_tier = self.get_max_tier()
         with sqlite3.connect(self.db.db_path) as conn:
             cursor = conn.cursor()
-            # If fastest / quick / best / default
+            if name.lower().startswith("rotate") or name.lower() in ("change_server", "random_free"):
+                exclude_server = ""
+                if ":" in name:
+                    exclude_server = name.split(":", 1)[1].strip()
+                return self.get_rotate_server(exclude_name=exclude_server)
+
             if name.lower() in ("fastest", "quick", "best", "default"):
                 return self.get_best_server()
 
-            # If 2-letter country code, find lowest-load server for that country within user's tier
             if len(name) == 2:
                 cursor.execute(
-                    "SELECT raw_json FROM servers WHERE country = ? AND tier <= ? ORDER BY load ASC, name ASC LIMIT 1",
+                    "SELECT raw_json FROM servers WHERE country = ? AND tier <= ? ORDER BY load ASC LIMIT 5",
                     (name.upper(), user_tier),
                 )
-                row = cursor.fetchone()
-                if row:
-                    return json.loads(row[0])
-                # If no free servers in that country, route to best free server
+                rows = cursor.fetchall()
+                if rows:
+                    return json.loads(random.choice(rows)[0])
                 print(f"[WARNING] No Free servers available in country '{name.upper()}'. Routing to fastest available Free server...")
                 return self.get_best_server()
 
-            # Try by name first, then by ID
             cursor.execute("SELECT raw_json, tier, name FROM servers WHERE name = ? OR id = ? LIMIT 1", (name, name))
             row = cursor.fetchone()
             if row:
@@ -117,7 +167,6 @@ class ProtonVpnApi:
                     return self.get_best_server()
                 return srv_json
 
-            # Try case-insensitive name match
             cursor.execute("SELECT raw_json, tier, name FROM servers WHERE name LIKE ? LIMIT 1", (name,))
             row = cursor.fetchone()
             if row:
@@ -128,7 +177,6 @@ class ProtonVpnApi:
                     return self.get_best_server()
                 return srv_json
 
-            # Match by domain or EntryIP in raw_json
             cursor.execute("SELECT raw_json, tier, name FROM servers WHERE raw_json LIKE ? LIMIT 1", (f'%"{name}"%',))
             row = cursor.fetchone()
             if row:
@@ -139,41 +187,69 @@ class ProtonVpnApi:
                     return self.get_best_server()
                 return srv_json
 
-            # If name has a country prefix (e.g. CA-FREE#1, NL-01, US#2), match country free servers
             if len(name) > 2 and ("-" in name or "#" in name):
                 prefix = name[:2].upper()
                 cursor.execute(
-                    "SELECT raw_json FROM servers WHERE country = ? AND tier <= ? ORDER BY load ASC, name ASC LIMIT 1",
+                    "SELECT raw_json FROM servers WHERE country = ? AND tier <= ? ORDER BY load ASC LIMIT 5",
                     (prefix, user_tier),
                 )
-                row = cursor.fetchone()
-                if row:
-                    print(f"[INFO] Server '{name}' not found; routing to fastest Free server in {prefix}...")
-                    return json.loads(row[0])
+                rows = cursor.fetchall()
+                if rows:
+                    print(f"[INFO] Server '{name}' not found; routing to free server in {prefix}...")
+                    return json.loads(random.choice(rows)[0])
 
-            # Fallback for unrecognized server name or IP: route to best free server
             print(f"[WARNING] Server '{name}' not found in local cache. Routing to fastest available Free server...")
             return self.get_best_server()
 
-    def get_best_server(self) -> Optional[Dict[str, Any]]:
-        """Get the server with the lowest load available for the current account tier."""
-        import random
+    def get_best_server(self, exclude_name: str = None, exclude_country: str = None) -> Optional[Dict[str, Any]]:
+        """Get the server with the lowest load available for the current account tier, balancing countries."""
+        import random, os
         tier = self.get_max_tier()
+        
+        if not exclude_country:
+            try:
+                from .routing import get_config_dir
+                routing_file = os.path.join(get_config_dir(), "routing_state.json")
+                if os.path.exists(routing_file):
+                    with open(routing_file, "r") as f:
+                        st = json.load(f)
+                        curr = st.get("server_name", "")
+                        if curr and len(curr) >= 2:
+                            exclude_country = curr[:2].upper()
+            except Exception:
+                pass
+
         with sqlite3.connect(self.db.db_path) as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
-            # Find logical servers with lowest load and tier <= tier
+            
             cursor.execute("""
-                SELECT raw_json FROM servers
+                SELECT raw_json, country, name, load FROM servers
                 WHERE tier <= ?
-                ORDER BY load ASC, name ASC
-                LIMIT 8
+                ORDER BY load ASC
+                LIMIT 40
             """, (tier,))
             rows = cursor.fetchall()
-            if rows:
-                selected = random.choice(rows[:min(5, len(rows))])
-                return json.loads(selected[0])
-            return None
+            if not rows:
+                return None
+                
+            pool = [r for r in rows if r["country"] != exclude_country and (not exclude_name or r["name"] != exclude_name)]
+            if not pool:
+                pool = rows
+                
+            by_country = {}
+            for r in pool:
+                c = r["country"]
+                if c not in by_country:
+                    by_country[c] = []
+                by_country[c].append(r)
+                
+            best_per_country = [server_list[0] for server_list in by_country.values()]
+            best_per_country.sort(key=lambda x: x["load"])
+            
+            selection_pool = best_per_country[:min(3, len(best_per_country))]
+            selected = random.choice(selection_pool)
+            return json.loads(selected["raw_json"])
 
     def get_max_tier(self) -> int:
         session = self.db.get_session()

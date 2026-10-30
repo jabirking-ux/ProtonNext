@@ -198,6 +198,18 @@ public class ConnectionRequestCreator : ConnectionRequestCreatorBase, IConnectio
         {
             target = state.Country.CountryCode;
         }
+        else if (connectionIntent.Location is ProtonVPN.Client.Logic.Connection.Contracts.Models.Intents.Locations.FreeServers.FreeServerLocationIntent freeIntent)
+        {
+            if (freeIntent.Strategy == ProtonVPN.Client.Logic.Connection.Contracts.Enums.SelectionStrategy.Random || freeIntent.ServerToExclude != null)
+            {
+                string exclude = freeIntent.ServerToExclude?.Name ?? string.Empty;
+                target = string.IsNullOrEmpty(exclude) ? "rotate" : $"rotate:{exclude}";
+            }
+            else
+            {
+                target = "fastest";
+            }
+        }
 
         foreach (var s in servers)
         {
