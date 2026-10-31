@@ -25,6 +25,7 @@
       <ul class="nav-links">
         <li><a href="#overview" class="active">Overview</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#telemetry">Telemetry</a></li>
         <li><a href="#security">Security</a></li>
         <li><a href="#network">Servers</a></li>
         <li><a href="#download">Download</a></li>
@@ -43,18 +44,19 @@
     </div>
   </header>
 
-  <!-- 2. Full-Viewport Scrollytelling Splash Intro (Like Anthropic Claude Opus Launch Page) -->
+  <!-- 2. Multi-Beat Scrollytelling Splash Intro (Like Anthropic Claude Opus Launch Page) -->
   <section class="intro-scroll-track" id="introTrack" aria-label="Proton VPN Next Redesigned Introduction">
     <div class="intro-sticky-viewport">
       <div class="intro-ambient-grid"></div>
 
-      <!-- Stage 1: First thing you see at 0px — welcome-unlimited.png + "Redesigned." -->
+      <!-- Beat 1 (0px): Seamlessly Masked welcome-unlimited.png + "Redesigned." -->
       <div class="intro-stage-primary" id="introStagePrimary">
-        <img
-          src="assets/illustrations/welcome-unlimited.png"
-          alt="Proton VPN Next Ecosystem"
-          class="intro-welcome-img"
-        />
+        <div class="welcome-banner-frame">
+          <img
+            src="assets/illustrations/welcome-unlimited.png"
+            alt="Proton VPN Next Ecosystem"
+          />
+        </div>
 
         <div class="intro-kicker-pill">
           <img src="assets/vpn-plus.svg" alt="Proton VPN Next" />
@@ -64,16 +66,42 @@
         <h1 class="intro-redesigned-headline">Redesigned.</h1>
 
         <p class="intro-minimal-sub">
-          A new era of Swiss privacy, speed, and security. Scroll to explore and download.
+          Engineered from the ground up for speed, simplicity, and Swiss privacy. Scroll to explore and download.
         </p>
       </div>
 
-      <!-- Stage 2: Rising Preview of redesign.png during scroll transition -->
-      <div class="intro-rising-preview" id="introRisingPreview">
-        <img
-          src="assets/illustrations/redesign.png"
-          alt="Proton VPN Next Desktop Interface Preview"
-        />
+      <!-- Beat 2 (Mid-Scroll): Rising redesign.png Window + Official "What's New" Trio -->
+      <div class="intro-stage-redesign" id="introStageRedesign">
+        <div class="intro-redesign-window">
+          <img
+            src="assets/illustrations/redesign.png"
+            alt="Proton VPN Next Desktop Interface Preview"
+          />
+        </div>
+
+        <div class="intro-whatsnew-strip">
+          <div class="whatsnew-mini-card">
+            <img src="assets/illustrations/taskbar-app.png" alt="New system tray app" />
+            <div>
+              <div class="whatsnew-mini-title">New system tray app</div>
+              <div class="whatsnew-mini-desc">Connect, disconnect, and switch countries right from your taskbar.</div>
+            </div>
+          </div>
+          <div class="whatsnew-mini-card">
+            <img src="assets/illustrations/lan-connections.png" alt="LAN connections" />
+            <div>
+              <div class="whatsnew-mini-title">LAN connections</div>
+              <div class="whatsnew-mini-desc">Connect to local printers, speakers, and NAS devices while on VPN.</div>
+            </div>
+          </div>
+          <div class="whatsnew-mini-card">
+            <img src="assets/illustrations/active-port-number.png" alt="Active port number" />
+            <div>
+              <div class="whatsnew-mini-title">Active port number</div>
+              <div class="whatsnew-mini-desc">View and copy your live forwarded NAT-PMP port on the home screen.</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Scroll Down Prompt -->
@@ -128,7 +156,7 @@
             </h2>
 
             <p class="hero-subtitle">
-              Engineered for instant one-click connections, real-time throughput telemetry, WireGuard performance, NetShield ad-blocking, VPN Accelerator, and Secure Core.
+              Connect in one click with WireGuard, NetShield ad-blocking, VPN Accelerator, Secure Core, and intelligent multi-server balancing.
             </p>
 
             <div class="hero-cta-group">
@@ -158,10 +186,12 @@
           <!-- Official Proton VPN Redesigned Desktop Client Showcase -->
           <div class="hero-showcase-wrapper reveal-on-scroll">
             <div class="hero-showcase-card">
-              <img
-                src="assets/illustrations/redesign.png"
-                alt="Proton VPN Next Redesigned Windows Application"
-              />
+              <div class="hero-showcase-img-wrap">
+                <img
+                  src="assets/illustrations/redesign.png"
+                  alt="Proton VPN Next Redesigned Windows Application"
+                />
+              </div>
               <div class="hero-showcase-caption">
                 <div class="showcase-caption-left">
                   <span class="showcase-status-badge">
@@ -175,6 +205,39 @@
                 <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
                   Get Windows App
                 </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official "What's New in the Redesign" Trio (From WhatsNewOverlayView.xaml) -->
+          <div class="whatsnew-trio-grid reveal-on-scroll">
+            <div class="whatsnew-card">
+              <img src="assets/illustrations/taskbar-app.png" alt="New system tray app" />
+              <div>
+                <h3 class="whatsnew-card-title">New system tray app</h3>
+                <p class="whatsnew-card-desc">
+                  Connect, disconnect, and change your default connection or profile directly from the Windows system tray flyout.
+                </p>
+              </div>
+            </div>
+
+            <div class="whatsnew-card">
+              <img src="assets/illustrations/lan-connections.png" alt="LAN connections" />
+              <div>
+                <h3 class="whatsnew-card-title">Direct LAN connections</h3>
+                <p class="whatsnew-card-desc">
+                  Seamlessly access printers, speakers, and local network storage (LAN) while keeping your internet traffic encrypted.
+                </p>
+              </div>
+            </div>
+
+            <div class="whatsnew-card">
+              <img src="assets/illustrations/active-port-number.png" alt="Active port number" />
+              <div>
+                <h3 class="whatsnew-card-title">Active port number on home</h3>
+                <p class="whatsnew-card-desc">
+                  When port forwarding is enabled, view and copy your live NAT-PMP port number right from the home screen.
+                </p>
               </div>
             </div>
           </div>
@@ -207,10 +270,10 @@
               </div>
             </div>
             <div class="trust-item">
-              <img src="assets/illustrations/vpn-feature-protocol.png" alt="WireGuard Protocol" />
+              <img src="assets/illustrations/encrypted-lock.png" alt="AES-256 & ChaCha20 Encryption" />
               <div>
-                <div class="trust-item-title">Modern VPN Protocols</div>
-                <div class="trust-item-desc">WireGuard, OpenVPN TCP/UDP &amp; Stealth</div>
+                <div class="trust-item-title">Full-Tunnel Encryption</div>
+                <div class="trust-item-desc">ChaCha20 &amp; AES-256 with Perfect Forward Secrecy</div>
               </div>
             </div>
           </div>
@@ -422,8 +485,107 @@
         </div>
       </section>
 
-      <!-- 7. Complete Feature Suite Bento Grid (Official Proton Illustrations) -->
-      <section class="section section-alt">
+      <!-- 7. Real-Time Client Telemetry & Network Intelligence (Official *-thumbnail.png Cards) -->
+      <section class="section section-alt" id="telemetry">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-tag">Deep Connection Visibility</span>
+            <h2 class="section-title">Inspect every metric in real time</h2>
+            <p class="section-desc">
+              Click any metric inside the Proton VPN Next desktop client to open detailed flyouts for throughput, server load, IP masking, ISP protection, and Smart Routing.
+            </p>
+          </div>
+
+          <div class="telemetry-cards-grid reveal-on-scroll">
+            <!-- Card 1: Live Speed Graph -->
+            <div class="telemetry-card">
+              <div class="telemetry-card-banner">
+                <img src="assets/illustrations/speed-thumbnail.png" alt="Real-time Speed Graph" />
+              </div>
+              <div class="telemetry-card-body">
+                <div class="telemetry-card-kicker">Throughput Telemetry</div>
+                <h3 class="telemetry-card-title">Real-Time Session Traffic</h3>
+                <p class="telemetry-card-desc">
+                  Monitor live download and upload speeds alongside total session volume with hardware-accelerated graphing.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: IP Address Masking -->
+            <div class="telemetry-card">
+              <div class="telemetry-card-banner">
+                <img src="assets/illustrations/ip-thumbnail.png" alt="IP Address Masking" />
+              </div>
+              <div class="telemetry-card-card-body telemetry-card-body">
+                <div class="telemetry-card-kicker">Identity Shield</div>
+                <h3 class="telemetry-card-title">Instant IPv4 &amp; IPv6 Masking</h3>
+                <p class="telemetry-card-desc">
+                  Hide your physical location and personal IP address behind Swiss-engineered VPN exit nodes with built-in leak protection.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: ISP & Wi-Fi Protection -->
+            <div class="telemetry-card">
+              <div class="telemetry-card-banner">
+                <img src="assets/illustrations/isp-thumbnail.png" alt="ISP Protection" />
+              </div>
+              <div class="telemetry-card-body">
+                <div class="telemetry-card-kicker">Anti-Throttling</div>
+                <h3 class="telemetry-card-title">ISP &amp; Public Wi-Fi Defense</h3>
+                <p class="telemetry-card-desc">
+                  Prevent your internet service provider or untrusted Wi-Fi networks from inspecting your DNS queries or throttling video streams.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4: Server Load Balancing -->
+            <div class="telemetry-card">
+              <div class="telemetry-card-banner">
+                <img src="assets/illustrations/server-load-thumbnail.png" alt="Server Load Balancing" />
+              </div>
+              <div class="telemetry-card-body">
+                <div class="telemetry-card-kicker">Load Balancing</div>
+                <h3 class="telemetry-card-title">Live Server Capacity</h3>
+                <p class="telemetry-card-desc">
+                  View real-time server utilization before connecting, or click "Change Server" to hop to a low-latency node immediately.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 5: Cryptographic Tunneling -->
+            <div class="telemetry-card">
+              <div class="telemetry-card-banner">
+                <img src="assets/illustrations/protocol-thumbnail.png" alt="Protocol Encryption" />
+              </div>
+              <div class="telemetry-card-body">
+                <div class="telemetry-card-kicker">Smart Protocol</div>
+                <h3 class="telemetry-card-title">WireGuard &amp; Stealth</h3>
+                <p class="telemetry-card-desc">
+                  Automatically adapts between WireGuard UDP, TCP, and TLS Stealth to bypass strict firewalls and network censorship.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 6: Smart Routing -->
+            <div class="telemetry-card">
+              <div class="telemetry-card-banner">
+                <img src="assets/illustrations/routing-thumbnail.png" alt="Smart Routing" />
+              </div>
+              <div class="telemetry-card-body">
+                <div class="telemetry-card-kicker">Global Infrastructure</div>
+                <h3 class="telemetry-card-title">Smart Routing Technology</h3>
+                <p class="telemetry-card-desc">
+                  Provides secure access in high-risk regions using hardened proxy routing located in privacy-safe countries.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Complete Feature Suite Bento Grid (Official Proton Illustrations) -->
+      <section class="section">
         <div class="container">
           <div class="section-header reveal-on-scroll">
             <span class="section-tag">Complete Feature Suite</span>
@@ -539,8 +701,8 @@
         </div>
       </section>
 
-      <!-- 8. Global High-Speed Server Network Section -->
-      <section class="section" id="network">
+      <!-- 9. Global High-Speed Server Network Section -->
+      <section class="section section-alt" id="network">
         <div class="container">
           <div class="network-showcase reveal-on-scroll">
             <div class="network-top-row">
@@ -694,8 +856,8 @@
         </div>
       </section>
 
-      <!-- 9. Dedicated Windows Download Section (welcome.png + Instant Setup) -->
-      <section class="section section-alt" id="download">
+      <!-- 10. Dedicated Windows Download Section (welcome.png + Instant Setup) -->
+      <section class="section" id="download">
         <div class="container">
           <div class="download-hero-box reveal-on-scroll">
             <div>
@@ -744,8 +906,8 @@
         </div>
       </section>
 
-      <!-- 10. Frequently Asked Questions -->
-      <section class="section" id="faq">
+      <!-- 11. Frequently Asked Questions -->
+      <section class="section section-alt" id="faq">
         <div class="container">
           <div class="section-header reveal-on-scroll">
             <span class="section-tag">FAQ</span>
@@ -808,7 +970,7 @@
       </section>
     </main>
 
-    <!-- 11. Official Dark Footer -->
+    <!-- 12. Official Dark Footer -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
@@ -828,8 +990,8 @@
               <li><a href="#overview">Redesigned Client</a></li>
               <li><a href="#features">NetShield Ad-blocker</a></li>
               <li><a href="#features">VPN Accelerator</a></li>
+              <li><a href="#telemetry">Live Telemetry</a></li>
               <li><a href="#security">Secure Core &amp; Kill Switch</a></li>
-              <li><a href="#network">Server Network</a></li>
             </ul>
           </div>
 
@@ -861,7 +1023,7 @@
 
   </div>
 
-  <!-- 12. Sticky Scroll Download Bar -->
+  <!-- 13. Sticky Scroll Download Bar -->
   <div class="sticky-download-bar" id="stickyDownloadBar" aria-hidden="true">
     <div class="sticky-bar-left">
       <img src="assets/product-logo.svg" alt="Proton VPN" />

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Proton VPN Next — Official Proton Dark Theme + Scrollytelling Intro
+   Proton VPN Next — Official Proton Dark Theme + Multi-Beat Scrollytelling
    Tokens derived from ProtonVPN.Client.Common.UI/Styles/Colors.xaml (Dark)
    ========================================================================== */
 
@@ -32,9 +32,10 @@
   --interaction-active: #5E3BE8;
   --vpn-green: #2CFFCC;
   --signal-success: #4BB99D;
+  --signal-danger: #F7607B;
 
   /* Layout */
-  --container-max: 1200px;
+  --container-max: 1220px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -100,7 +101,7 @@ svg {
   left: 0;
   right: 0;
   z-index: 120;
-  background: rgba(11, 10, 15, 0.02);
+  background: rgba(11, 10, 15, 0.01);
   border-bottom: 1px solid transparent;
   transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
@@ -150,7 +151,7 @@ svg {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
   list-style: none;
   opacity: 0;
   transform: translateY(-6px);
@@ -243,13 +244,14 @@ svg {
 }
 
 /* ==========================================================================
-   2. Full-Viewport Scrollytelling Intro Track (Opus / Apple Launch Style)
-   100vh pinned stage: First screen shows ONLY welcome-unlimited.png + "Redesigned."
-   Scrolling down smoothly reveals the main download showcase & website below.
+   2. 3-Beat Scrollytelling Launch Track (Anthropic / Apple Keynote Style)
+   Beat 1 (0.00 - 0.38): welcome-unlimited.png seamlessly masked + "Redesigned."
+   Beat 2 (0.38 - 0.72): redesign.png rises & locks + 3 What's New callouts
+   Beat 3 (0.72 - 1.00): Transitions smoothly into Main Download Hub
    ========================================================================== */
 .intro-scroll-track {
   position: relative;
-  height: 225vh;
+  height: 280vh;
   background: var(--bg-deep);
 }
 
@@ -264,12 +266,11 @@ svg {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(circle at 50% 44%, rgba(109, 74, 255, 0.28) 0%, rgba(11, 10, 15, 0) 62%),
-    radial-gradient(circle at 50% 58%, rgba(44, 255, 204, 0.12) 0%, rgba(11, 10, 15, 0) 58%),
+    radial-gradient(circle at 50% 38%, rgba(109, 74, 255, 0.28) 0%, rgba(11, 10, 15, 0) 64%),
+    radial-gradient(circle at 50% 62%, rgba(44, 255, 204, 0.14) 0%, rgba(11, 10, 15, 0) 60%),
     var(--bg-deep);
 }
 
-/* Ambient subtle grid lines in background */
 .intro-ambient-grid {
   position: absolute;
   inset: 0;
@@ -282,25 +283,37 @@ svg {
   pointer-events: none;
 }
 
-/* Stage 1: Centerpiece welcome-unlimited.png + "Redesigned." */
+/* Beat 1: Centerpiece welcome-unlimited.png + "Redesigned." */
 .intro-stage-primary {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 0 24px;
-  max-width: 960px;
+  max-width: 980px;
   will-change: transform, opacity, filter;
 }
 
-.intro-welcome-img {
-  width: min(88vw, 660px);
-  height: auto;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 26px 65px rgba(109, 74, 255, 0.42));
+/* Seamless Dark Feathering for welcome-unlimited.png */
+.welcome-banner-frame {
+  position: relative;
+  width: min(90vw, 760px);
+  margin: 0 auto 14px;
+  border-radius: 28px;
+  overflow: hidden;
+  /* Radial + vertical feathering so the white bottom edge of the PNG melts into dark mode */
+  mask-image: radial-gradient(ellipse 88% 78% at 50% 44%, #000 52%, rgba(0, 0, 0, 0.5) 74%, transparent 98%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 78% at 50% 44%, #000 52%, rgba(0, 0, 0, 0.5) 74%, transparent 98%);
+  filter: drop-shadow(0 24px 64px rgba(109, 74, 255, 0.45));
   animation: introFloat 6s ease-in-out infinite;
+}
+
+.welcome-banner-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 @keyframes introFloat {
@@ -308,7 +321,7 @@ svg {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
   }
 }
 
@@ -318,13 +331,14 @@ svg {
   gap: 10px;
   padding: 6px 16px;
   border-radius: var(--radius-pill);
-  background: rgba(41, 39, 51, 0.72);
-  border: 1px solid rgba(138, 110, 255, 0.42);
+  background: rgba(41, 39, 51, 0.78);
+  border: 1px solid rgba(138, 110, 255, 0.45);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #E2DCFF;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .intro-kicker-pill img {
@@ -333,10 +347,10 @@ svg {
 }
 
 .intro-redesigned-headline {
-  font-size: clamp(3.8rem, 9.5vw, 7.2rem);
+  font-size: clamp(4rem, 10vw, 7.6rem);
   font-weight: 800;
   letter-spacing: -0.045em;
-  line-height: 0.98;
+  line-height: 0.96;
   background: linear-gradient(105deg, #FFFFFF 15%, #D5CEFF 55%, #2CFFCC 95%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -345,52 +359,112 @@ svg {
 }
 
 .intro-minimal-sub {
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.08rem, 1.8vw, 1.32rem);
   color: var(--text-weak);
-  max-width: 520px;
+  max-width: 560px;
   font-weight: 400;
 }
 
-/*Stage 2: Rising Preview of redesign.png inside the scroll transition */
-.intro-rising-preview {
+/* Beat 2: Rising Redesign Window + Official "What's New" Callouts */
+.intro-stage-redesign {
   position: absolute;
-  bottom: -18%;
-  left: 50%;
-  transform: translate3d(-50%, 120px, 0) scale(0.88);
-  width: min(92vw, 1060px);
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 76px 24px 28px;
   opacity: 0;
-  z-index: 3;
   pointer-events: none;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 40px 110px rgba(0, 0, 0, 0.85),
-    0 0 90px rgba(109, 74, 255, 0.35);
   will-change: transform, opacity;
 }
 
-.intro-rising-preview img {
+.intro-redesign-window {
+  width: min(90vw, 940px);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #14121D;
+  box-shadow:
+    0 36px 100px rgba(0, 0, 0, 0.85),
+    0 0 85px rgba(44, 255, 204, 0.16);
+  margin-bottom: 22px;
+  position: relative;
+}
+
+/* Subtle bottom dark fade over redesign.png so the white bottom edge blends cleanly */
+.intro-redesign-window::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 26%;
+  background: linear-gradient(to bottom, rgba(20, 18, 29, 0) 0%, rgba(20, 18, 29, 0.96) 100%);
+  pointer-events: none;
+}
+
+.intro-redesign-window img {
   width: 100%;
   height: auto;
   display: block;
 }
 
+.intro-whatsnew-strip {
+  width: min(90vw, 940px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.whatsnew-mini-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(29, 26, 38, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+.whatsnew-mini-card img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.whatsnew-mini-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.whatsnew-mini-desc {
+  font-size: 12px;
+  color: var(--text-weak);
+  line-height: 1.38;
+}
+
 /* Scroll Down Prompt at bottom of first screen */
 .intro-scroll-cue {
   position: absolute;
-  bottom: 34px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 4;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   color: var(--text-weak);
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: opacity 0.25s ease;
   cursor: pointer;
@@ -445,7 +519,7 @@ svg {
   box-shadow: 0 -30px 90px rgba(0, 0, 0, 0.85);
 }
 
-/* Top Swiss Privacy Utility Bar (Inside Main Content) */
+/* Top Swiss Privacy Utility Bar */
 .top-utility-bar {
   background: var(--bg-deep);
   border-bottom: 1px solid var(--border-norm);
@@ -496,7 +570,7 @@ svg {
 }
 
 /* ==========================================================================
-   4. Main Product Hero & Download Hub (Revealed After Scroll)
+   4. Main Product Hero & Download Hub + What's New Trio
    ========================================================================== */
 .product-hero-section {
   position: relative;
@@ -597,7 +671,7 @@ svg {
 .hero-showcase-wrapper {
   position: relative;
   max-width: 1080px;
-  margin: 0 auto;
+  margin: 0 auto 36px;
 }
 
 .hero-showcase-card {
@@ -605,10 +679,25 @@ svg {
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: var(--bg-elevated);
+  background: #14121D;
   box-shadow:
     0 32px 90px rgba(0, 0, 0, 0.7),
     0 0 80px rgba(109, 74, 255, 0.22);
+}
+
+.hero-showcase-img-wrap {
+  position: relative;
+}
+
+.hero-showcase-img-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 24%;
+  background: linear-gradient(to bottom, rgba(20, 18, 29, 0) 0%, rgba(22, 20, 28, 0.98) 100%);
+  pointer-events: none;
 }
 
 .hero-showcase-card img {
@@ -624,7 +713,7 @@ svg {
   justify-content: space-between;
   gap: 16px;
   padding: 20px 28px;
-  background: rgba(22, 20, 28, 0.92);
+  background: rgba(22, 20, 28, 0.96);
   border-top: 1px solid var(--border-norm);
 }
 
@@ -654,6 +743,51 @@ svg {
 
 .showcase-caption-text strong {
   color: var(--text-norm);
+}
+
+/* Official "What's New in the Redesign" 3-Column Feature Cards */
+.whatsnew-trio-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.whatsnew-card {
+  background: linear-gradient(165deg, rgba(41, 39, 51, 0.56) 0%, rgba(22, 20, 28, 0.9) 100%);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.whatsnew-card:hover {
+  border-color: var(--border-purple);
+  transform: translateY(-3px);
+}
+
+.whatsnew-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.whatsnew-card-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-norm);
+  margin-bottom: 6px;
+}
+
+.whatsnew-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-weak);
+  line-height: 1.55;
 }
 
 /* ==========================================================================
@@ -954,7 +1088,77 @@ svg {
 }
 
 /* ==========================================================================
-   8. Bento Grid — Official Proton VPN Features (upsell-*-large.png)
+   8. Official Client Telemetry & Protection Cards (*-thumbnail.png)
+   ========================================================================== */
+.telemetry-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.telemetry-card {
+  background: #1B1924;
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.telemetry-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-green);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.48);
+}
+
+.telemetry-card-banner {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  background: #121018;
+  border-bottom: 1px solid var(--border-norm);
+}
+
+.telemetry-card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.telemetry-card:hover .telemetry-card-banner img {
+  transform: scale(1.04);
+}
+
+.telemetry-card-body {
+  padding: 24px;
+}
+
+.telemetry-card-kicker {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vpn-green);
+  margin-bottom: 6px;
+}
+
+.telemetry-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-norm);
+  margin-bottom: 8px;
+}
+
+.telemetry-card-desc {
+  font-size: 0.93rem;
+  color: var(--text-weak);
+  line-height: 1.58;
+}
+
+/* ==========================================================================
+   9. Bento Grid — Official Proton VPN Features (upsell-*-large.png)
    ========================================================================== */
 .bento-grid {
   display: grid;
@@ -1037,7 +1241,7 @@ svg {
 }
 
 /* ==========================================================================
-   9. Global Server Network Section (world-map.svg + Country Flags)
+   10. Global Server Network Section (world-map.svg + Country Flags)
    ========================================================================== */
 .network-showcase {
   position: relative;
@@ -1164,7 +1368,7 @@ svg {
 }
 
 /* ==========================================================================
-   10. Download & Native Setup Banner (welcome.png + ProtonNext-Setup.exe)
+   11. Download & Native Setup Banner (welcome.png + ProtonNext-Setup.exe)
    ========================================================================== */
 .download-hero-box {
   background:
@@ -1207,21 +1411,32 @@ svg {
 }
 
 .download-art-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.download-art-col img {
-  width: 100%;
+  position: relative;
   border-radius: var(--radius-lg);
+  overflow: hidden;
   border: 1px solid var(--border-strong);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
+.download-art-col::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28%;
+  background: linear-gradient(to bottom, rgba(20, 18, 29, 0) 0%, rgba(20, 18, 29, 0.95) 100%);
+  pointer-events: none;
+}
+
+.download-art-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ==========================================================================
-   11. FAQ Accordion
+   12. FAQ Accordion
    ========================================================================== */
 .faq-list {
   max-width: 840px;
@@ -1292,7 +1507,7 @@ svg {
 }
 
 /* ==========================================================================
-   12. Sticky Bottom Download Bar on Scroll
+   13. Sticky Bottom Download Bar on Scroll
    ========================================================================== */
 .sticky-download-bar {
   position: fixed;
@@ -1344,7 +1559,7 @@ svg {
 }
 
 /* ==========================================================================
-   13. Footer
+   14. Footer
    ========================================================================== */
 .site-footer {
   background: #0B0A0F;
@@ -1409,8 +1624,14 @@ svg {
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 992px) {
-  .trust-grid {
+  .trust-grid,
+  .telemetry-cards-grid,
+  .bento-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .whatsnew-trio-grid,
+  .intro-whatsnew-strip {
+    grid-template-columns: 1fr;
   }
   .spotlight-row,
   .spotlight-row.reverse,
@@ -1425,9 +1646,6 @@ svg {
   .spotlight-row.reverse .spotlight-visual {
     order: 2;
   }
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1437,10 +1655,12 @@ svg {
 }
 
 @media (max-width: 640px) {
-  .top-utility-bar {
+  .top-utility-bar,
+  .intro-whatsnew-strip {
     display: none;
   }
   .trust-grid,
+  .telemetry-cards-grid,
   .bento-grid,
   .state-strip-grid,
   .network-stats-row,
