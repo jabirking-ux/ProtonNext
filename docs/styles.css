@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Proton VPN Next — Official Proton Dark Theme Stylesheet
+   Proton VPN Next — Official Proton Dark Theme + Scrollytelling Intro
    Tokens derived from ProtonVPN.Client.Common.UI/Styles/Colors.xaml (Dark)
    ========================================================================== */
 
@@ -7,19 +7,17 @@
   color-scheme: dark;
 
   /* Official Proton Dark Palette */
-  --bg-deep: #0F0D14;
+  --bg-deep: #0B0A0F;
   --bg-norm: #16141C;
   --bg-elevated: #1D1A26;
   --bg-weak: #292733;
   --bg-strong: #3F3B4C;
   --bg-card: rgba(41, 39, 51, 0.52);
-  --bg-card-solid: #1E1C28;
 
   /* Typography */
   --text-norm: #FFFFFF;
   --text-weak: #A7A4B5;
   --text-hint: #757285;
-  --text-invert: #16141C;
 
   /* Borders */
   --border-norm: rgba(255, 255, 255, 0.08);
@@ -34,8 +32,6 @@
   --interaction-active: #5E3BE8;
   --vpn-green: #2CFFCC;
   --signal-success: #4BB99D;
-  --signal-warning: #FF9900;
-  --signal-danger: #F7607B;
 
   /* Layout */
   --container-max: 1200px;
@@ -58,7 +54,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-norm);
+  background-color: var(--bg-deep);
   color: var(--text-norm);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -71,7 +67,6 @@ body {
   background-color: var(--bg-norm);
   color: var(--text-norm);
   overflow-x: hidden;
-  selection-background-color: var(--interaction-norm);
 }
 
 ::selection {
@@ -97,76 +92,29 @@ svg {
 }
 
 /* ==========================================================================
-   1. Top Swiss Privacy Utility Bar & Navigation
+   1. Fixed Navigation Header (Minimal Over Splash, Solidifies on Scroll)
    ========================================================================== */
-.top-utility-bar {
-  background: var(--bg-deep);
-  border-bottom: 1px solid var(--border-norm);
-  font-size: 12.5px;
-  color: var(--text-weak);
-  padding: 8px 0;
-}
-
-.top-utility-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.utility-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.utility-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-weight: 500;
-}
-
-.utility-item img {
-  width: 15px;
-  height: 15px;
-  object-fit: contain;
-}
-
-.utility-right {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.utility-link {
-  color: var(--text-weak);
-  transition: color 0.15s ease;
-}
-
-.utility-link:hover {
-  color: var(--text-norm);
-}
-
-/* Main Header */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: rgba(22, 20, 28, 0.84);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border-norm);
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  background: rgba(11, 10, 15, 0.02);
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
 
 .site-header.scrolled {
-  background: rgba(15, 13, 20, 0.94);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  background: rgba(22, 20, 28, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--border-norm);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
 }
 
 .nav-inner {
-  height: 74px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -194,8 +142,8 @@ svg {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 6px;
-  background: linear-gradient(135deg, rgba(109, 74, 255, 0.28) 0%, rgba(44, 255, 204, 0.2) 100%);
-  border: 1px solid rgba(138, 110, 255, 0.5);
+  background: linear-gradient(135deg, rgba(109, 74, 255, 0.32) 0%, rgba(44, 255, 204, 0.22) 100%);
+  border: 1px solid rgba(138, 110, 255, 0.55);
   color: #FFFFFF;
 }
 
@@ -204,6 +152,16 @@ svg {
   align-items: center;
   gap: 30px;
   list-style: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.site-header.scrolled .nav-links {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .nav-links a {
@@ -244,12 +202,12 @@ svg {
 .btn-primary {
   background: var(--interaction-norm);
   color: #FFFFFF;
-  box-shadow: 0 6px 24px rgba(109, 74, 255, 0.36);
+  box-shadow: 0 6px 24px rgba(109, 74, 255, 0.38);
 }
 
 .btn-primary:hover {
   background: var(--interaction-hover);
-  box-shadow: 0 10px 30px rgba(109, 74, 255, 0.52);
+  box-shadow: 0 10px 32px rgba(109, 74, 255, 0.56);
   transform: translateY(-1px);
 }
 
@@ -265,8 +223,8 @@ svg {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-sm {
@@ -285,15 +243,266 @@ svg {
 }
 
 /* ==========================================================================
-   2. Hero Section — welcome-unlimited.png + "Redesigned." + redesign.png
+   2. Full-Viewport Scrollytelling Intro Track (Opus / Apple Launch Style)
+   100vh pinned stage: First screen shows ONLY welcome-unlimited.png + "Redesigned."
+   Scrolling down smoothly reveals the main download showcase & website below.
    ========================================================================== */
-.hero-section {
+.intro-scroll-track {
   position: relative;
-  padding: 56px 0 96px;
+  height: 225vh;
+  background: var(--bg-deep);
+}
+
+.intro-sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(109, 74, 255, 0.24) 0%, rgba(22, 20, 28, 0) 70%),
-    radial-gradient(ellipse 60% 45% at 50% 42%, rgba(44, 255, 204, 0.11) 0%, rgba(22, 20, 28, 0) 75%),
+    radial-gradient(circle at 50% 44%, rgba(109, 74, 255, 0.28) 0%, rgba(11, 10, 15, 0) 62%),
+    radial-gradient(circle at 50% 58%, rgba(44, 255, 204, 0.12) 0%, rgba(11, 10, 15, 0) 58%),
+    var(--bg-deep);
+}
+
+/* Ambient subtle grid lines in background */
+.intro-ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 50%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 25%, transparent 78%);
+  pointer-events: none;
+}
+
+/* Stage 1: Centerpiece welcome-unlimited.png + "Redesigned." */
+.intro-stage-primary {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 960px;
+  will-change: transform, opacity, filter;
+}
+
+.intro-welcome-img {
+  width: min(88vw, 660px);
+  height: auto;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 26px 65px rgba(109, 74, 255, 0.42));
+  animation: introFloat 6s ease-in-out infinite;
+}
+
+@keyframes introFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.intro-kicker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(41, 39, 51, 0.72);
+  border: 1px solid rgba(138, 110, 255, 0.42);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #E2DCFF;
+  margin-bottom: 18px;
+}
+
+.intro-kicker-pill img {
+  height: 17px;
+  width: auto;
+}
+
+.intro-redesigned-headline {
+  font-size: clamp(3.8rem, 9.5vw, 7.2rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  background: linear-gradient(105deg, #FFFFFF 15%, #D5CEFF 55%, #2CFFCC 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+
+.intro-minimal-sub {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: var(--text-weak);
+  max-width: 520px;
+  font-weight: 400;
+}
+
+/*Stage 2: Rising Preview of redesign.png inside the scroll transition */
+.intro-rising-preview {
+  position: absolute;
+  bottom: -18%;
+  left: 50%;
+  transform: translate3d(-50%, 120px, 0) scale(0.88);
+  width: min(92vw, 1060px);
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 40px 110px rgba(0, 0, 0, 0.85),
+    0 0 90px rgba(109, 74, 255, 0.35);
+  will-change: transform, opacity;
+}
+
+.intro-rising-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scroll Down Prompt at bottom of first screen */
+.intro-scroll-cue {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-weak);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+
+.intro-scroll-cue:hover {
+  color: var(--text-norm);
+}
+
+.scroll-mouse-pill {
+  width: 24px;
+  height: 38px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+
+.scroll-mouse-wheel {
+  width: 4px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--vpn-green);
+  box-shadow: 0 0 8px var(--vpn-green);
+  animation: scrollWheelBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollWheelBounce {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(11px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   3. Main Website Reveal Container (Appears as you scroll down)
+   ========================================================================== */
+.main-site-wrapper {
+  position: relative;
+  z-index: 10;
+  background: var(--bg-norm);
+  border-top: 1px solid var(--border-strong);
+  box-shadow: 0 -30px 90px rgba(0, 0, 0, 0.85);
+}
+
+/* Top Swiss Privacy Utility Bar (Inside Main Content) */
+.top-utility-bar {
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border-norm);
+  font-size: 12.5px;
+  color: var(--text-weak);
+  padding: 10px 0;
+}
+
+.top-utility-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.utility-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.utility-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+}
+
+.utility-item img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+
+.utility-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.utility-link {
+  color: var(--text-weak);
+  transition: color 0.15s ease;
+}
+
+.utility-link:hover {
+  color: var(--text-norm);
+}
+
+/* ==========================================================================
+   4. Main Product Hero & Download Hub (Revealed After Scroll)
+   ========================================================================== */
+.product-hero-section {
+  position: relative;
+  padding: 84px 0 96px;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(109, 74, 255, 0.22) 0%, rgba(22, 20, 28, 0) 70%),
     var(--bg-norm);
 }
 
@@ -302,25 +511,8 @@ svg {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 900px;
+  max-width: 880px;
   margin: 0 auto;
-}
-
-.hero-welcome-banner {
-  width: 100%;
-  max-width: 560px;
-  margin: 0 auto 14px;
-  filter: drop-shadow(0 18px 40px rgba(109, 74, 255, 0.28));
-  animation: heroFloat 6s ease-in-out infinite;
-}
-
-@keyframes heroFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
 }
 
 .hero-eyebrow {
@@ -334,7 +526,7 @@ svg {
   font-size: 13.5px;
   font-weight: 600;
   color: #E2DCFF;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .hero-eyebrow img {
@@ -343,10 +535,10 @@ svg {
 }
 
 .hero-title {
-  font-size: clamp(3.2rem, 7vw, 5.4rem);
+  font-size: clamp(2.5rem, 5.2vw, 4.2rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.04;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
   margin-bottom: 20px;
   color: #FFFFFF;
 }
@@ -359,12 +551,12 @@ svg {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.32rem);
+  font-size: clamp(1.08rem, 1.9vw, 1.28rem);
   color: var(--text-weak);
-  max-width: 690px;
+  max-width: 700px;
   margin: 0 auto 34px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.62;
 }
 
 .hero-cta-group {
@@ -373,7 +565,7 @@ svg {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .hero-meta-row {
@@ -465,7 +657,7 @@ svg {
 }
 
 /* ==========================================================================
-   3. Trust & Audit Strip
+   5. Trust & Audit Strip
    ========================================================================== */
 .trust-strip {
   background: var(--bg-deep);
@@ -510,7 +702,7 @@ svg {
 }
 
 /* ==========================================================================
-   4. Section Headers & Common Layout
+   6. Section Headers & Reveal Animations
    ========================================================================== */
 .section {
   padding: 100px 0;
@@ -560,8 +752,19 @@ svg {
   line-height: 1.65;
 }
 
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ==========================================================================
-   5. Feature Spotlights (2-Column Official Proton Sections)
+   7. Feature Spotlights (2-Column Official Proton Sections)
    ========================================================================== */
 .spotlight-row {
   display: grid;
@@ -751,7 +954,7 @@ svg {
 }
 
 /* ==========================================================================
-   6. Bento Grid — 9 Official Proton VPN Features (upsell-*-large.png)
+   8. Bento Grid — Official Proton VPN Features (upsell-*-large.png)
    ========================================================================== */
 .bento-grid {
   display: grid;
@@ -834,7 +1037,7 @@ svg {
 }
 
 /* ==========================================================================
-   7. Global Server Network Section (world-map.svg + Country Flags)
+   9. Global Server Network Section (world-map.svg + Country Flags)
    ========================================================================== */
 .network-showcase {
   position: relative;
@@ -961,7 +1164,7 @@ svg {
 }
 
 /* ==========================================================================
-   8. Download & Native Setup Banner (welcome.png + ProtonNext-Setup.exe)
+   10. Download & Native Setup Banner (welcome.png + ProtonNext-Setup.exe)
    ========================================================================== */
 .download-hero-box {
   background:
@@ -1018,7 +1221,7 @@ svg {
 }
 
 /* ==========================================================================
-   9. FAQ Accordion
+   11. FAQ Accordion
    ========================================================================== */
 .faq-list {
   max-width: 840px;
@@ -1089,14 +1292,14 @@ svg {
 }
 
 /* ==========================================================================
-   10. Sticky Bottom Download Bar on Scroll
+   12. Sticky Bottom Download Bar on Scroll
    ========================================================================== */
 .sticky-download-bar {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translate(-50%, 140%);
-  z-index: 95;
+  z-index: 110;
   width: calc(100% - 32px);
   max-width: 880px;
   background: rgba(22, 20, 28, 0.92);
@@ -1110,7 +1313,7 @@ svg {
   justify-content: space-between;
   gap: 16px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(109, 74, 255, 0.25);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sticky-download-bar.visible {
@@ -1141,7 +1344,7 @@ svg {
 }
 
 /* ==========================================================================
-   11. Footer
+   13. Footer
    ========================================================================== */
 .site-footer {
   background: #0B0A0F;

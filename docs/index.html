@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#16141C" />
+  <meta name="theme-color" content="#0B0A0F" />
   <title>Proton VPN Next — Redesigned. Swiss Privacy &amp; High-Speed Security</title>
   <meta name="description" content="Proton VPN Next for Windows — Redesigned from the ground up with WireGuard, VPN Accelerator, NetShield Ad-blocker, Secure Core, and global high-speed servers." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,33 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body id="top">
 
-  <!-- 1. Official Swiss Privacy Top Utility Bar -->
-  <div class="top-utility-bar">
-    <div class="container top-utility-inner">
-      <div class="utility-left">
-        <span class="utility-item">
-          <img src="assets/illustrations/swiss-flag.png" alt="Swiss Flag" />
-          Swiss-based privacy architecture
-        </span>
-        <span class="utility-item">
-          <img src="assets/illustrations/certified-no-logs.png" alt="No Logs" />
-          Strict no-logs policy
-        </span>
-        <span class="utility-item">
-          <img src="assets/illustrations/open-source.png" alt="Open Source" />
-          100% Open-source desktop client
-        </span>
-      </div>
-      <div class="utility-right">
-        <a href="https://github.com/jabirking-ux/ProtonNext" target="_blank" rel="noopener" class="utility-link">GitHub Repository</a>
-        <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest" target="_blank" rel="noopener" class="utility-link">Release Notes (v1.0.2)</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Sticky Official Proton VPN Next Navigation Header -->
+  <!-- 1. Fixed Official Proton VPN Next Navigation Header (Minimal at 0px, Solidifies on Scroll) -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-inner">
       <a href="#top" class="brand-logo" aria-label="Proton VPN Next Home">
@@ -61,715 +37,831 @@
         </a>
         <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Proton VPN Next
+          Download App
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 3. Hero Section — welcome-unlimited.png + "Redesigned." + Official Desktop Redesign Showcase -->
-  <main id="top">
-    <section class="hero-section" id="overview">
-      <div class="container">
-        <div class="hero-center">
-          <!-- Prominent welcome-unlimited.png at the very top -->
-          <img
-            src="assets/illustrations/welcome-unlimited.png"
-            alt="Proton VPN Next Ecosystem"
-            class="hero-welcome-banner"
-          />
+  <!-- 2. Full-Viewport Scrollytelling Splash Intro (Like Anthropic Claude Opus Launch Page) -->
+  <section class="intro-scroll-track" id="introTrack" aria-label="Proton VPN Next Redesigned Introduction">
+    <div class="intro-sticky-viewport">
+      <div class="intro-ambient-grid"></div>
 
-          <div class="hero-eyebrow">
-            <img src="assets/vpn-plus.svg" alt="Proton VPN Next" />
-            <span>Proton VPN Next for Windows &bull; Native WinUI 3 Desktop Client</span>
-          </div>
+      <!-- Stage 1: First thing you see at 0px — welcome-unlimited.png + "Redesigned." -->
+      <div class="intro-stage-primary" id="introStagePrimary">
+        <img
+          src="assets/illustrations/welcome-unlimited.png"
+          alt="Proton VPN Next Ecosystem"
+          class="intro-welcome-img"
+        />
 
-          <h1 class="hero-title">
-            <span class="gradient-word">Redesigned.</span>
-          </h1>
-
-          <p class="hero-subtitle">
-            Engineered from the ground up for speed, simplicity, and Swiss privacy. Connect in one click with WireGuard, NetShield ad-blocking, VPN Accelerator, and Secure Core built right in.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-xl">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download Proton VPN Next for Windows
-            </a>
-            <a href="#features" class="btn btn-secondary btn-lg">
-              Explore Features
-            </a>
-          </div>
-
-          <div class="hero-meta-row">
-            <span class="hero-meta-item">
-              <span class="hero-meta-dot"></span>
-              Windows 10 &amp; Windows 11 (64-bit)
-            </span>
-            <span class="hero-meta-item">
-              &bull; Instant 1.45s Native Setup (`ProtonNext-Setup.exe`)
-            </span>
-            <span class="hero-meta-item">
-              &bull; WireGuard &amp; OpenVPN Ready
-            </span>
-          </div>
+        <div class="intro-kicker-pill">
+          <img src="assets/vpn-plus.svg" alt="Proton VPN Next" />
+          <span>Proton VPN Next &bull; Windows Desktop Release</span>
         </div>
 
-        <!-- Official Proton VPN Redesigned Desktop Client Showcase -->
-        <div class="hero-showcase-wrapper">
-          <div class="hero-showcase-card">
-            <img
-              src="assets/illustrations/redesign.png"
-              alt="Proton VPN Next Redesigned Windows Application"
-            />
-            <div class="hero-showcase-caption">
-              <div class="showcase-caption-left">
-                <span class="showcase-status-badge">
-                  <span class="hero-meta-dot"></span>
-                  Protected
-                </span>
-                <span class="showcase-caption-text">
-                  <strong>All-new Windows interface</strong> — Interactive live map, one-click country selection, real-time throughput telemetry, and instant profile switching.
-                </span>
-              </div>
-              <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
-                Get Windows App
-              </a>
-            </div>
-          </div>
-        </div>
+        <h1 class="intro-redesigned-headline">Redesigned.</h1>
+
+        <p class="intro-minimal-sub">
+          A new era of Swiss privacy, speed, and security. Scroll to explore and download.
+        </p>
       </div>
-    </section>
 
-    <!-- 4. Official Trust & Audit Strip -->
-    <section class="trust-strip">
-      <div class="container">
-        <div class="trust-grid">
-          <div class="trust-item">
-            <img src="assets/illustrations/swiss-flag.png" alt="Swiss Privacy" />
-            <div>
-              <div class="trust-item-title">Swiss Privacy Standards</div>
-              <div class="trust-item-desc">Built on world-renowned cryptographic security</div>
-            </div>
-          </div>
-          <div class="trust-item">
+      <!-- Stage 2: Rising Preview of redesign.png during scroll transition -->
+      <div class="intro-rising-preview" id="introRisingPreview">
+        <img
+          src="assets/illustrations/redesign.png"
+          alt="Proton VPN Next Desktop Interface Preview"
+        />
+      </div>
+
+      <!-- Scroll Down Prompt -->
+      <a href="#overview" class="intro-scroll-cue" id="introScrollCue" aria-label="Scroll down to main site">
+        <span>Scroll to explore</span>
+        <div class="scroll-mouse-pill">
+          <div class="scroll-mouse-wheel"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 3. Main Official Proton VPN Next Website (Revealed as you scroll down) -->
+  <div class="main-site-wrapper">
+
+    <!-- Swiss Privacy Utility Strip -->
+    <div class="top-utility-bar">
+      <div class="container top-utility-inner">
+        <div class="utility-left">
+          <span class="utility-item">
+            <img src="assets/illustrations/swiss-flag.png" alt="Swiss Flag" />
+            Swiss-based privacy architecture
+          </span>
+          <span class="utility-item">
             <img src="assets/illustrations/certified-no-logs.png" alt="No Logs" />
-            <div>
-              <div class="trust-item-title">Zero Browsing Logs</div>
-              <div class="trust-item-desc">Your traffic, DNS queries, and IP remain private</div>
-            </div>
-          </div>
-          <div class="trust-item">
+            Strict no-logs policy
+          </span>
+          <span class="utility-item">
             <img src="assets/illustrations/open-source.png" alt="Open Source" />
-            <div>
-              <div class="trust-item-title">Open Source &amp; Auditable</div>
-              <div class="trust-item-desc">Full C# / WinUI 3 source available on GitHub</div>
-            </div>
-          </div>
-          <div class="trust-item">
-            <img src="assets/illustrations/vpn-feature-protocol.png" alt="WireGuard Protocol" />
-            <div>
-              <div class="trust-item-title">Modern VPN Protocols</div>
-              <div class="trust-item-desc">WireGuard, OpenVPN TCP/UDP &amp; Stealth</div>
-            </div>
-          </div>
+            100% Open-source desktop client
+          </span>
+        </div>
+        <div class="utility-right">
+          <a href="https://github.com/jabirking-ux/ProtonNext" target="_blank" rel="noopener" class="utility-link">GitHub Repository</a>
+          <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest" target="_blank" rel="noopener" class="utility-link">Release Notes (v1.0.2)</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 5. Deep-Dive Feature Spotlights (Official Proton Artwork + State Graphics) -->
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Engineered for Performance</span>
-          <h2 class="section-title">Security that never slows you down</h2>
-          <p class="section-desc">
-            Proton VPN Next combines next-generation tunneling protocols with hardware-accelerated routing and DNS-level threat protection.
-          </p>
-        </div>
-
-        <!-- Spotlight 1: NetShield Ad-blocker -->
-        <div class="spotlight-row">
-          <div class="spotlight-content">
-            <div class="spotlight-kicker">NetShield Ad-Blocker</div>
-            <h3 class="spotlight-title">Protect yourself from ads, trackers, and malware</h3>
-            <p class="spotlight-text">
-              NetShield filters DNS requests before they ever load in your browser. Block malicious domains, stop intrusive cross-site tracking scripts, and speed up page load times while saving bandwidth.
-            </p>
-            <ul class="spotlight-bullets">
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Block malware &amp; phishing domains</strong> automatically at the network layer.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Eliminate video &amp; banner ads</strong> across browsers and desktop apps.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Live telemetry counter</strong> tracks ads blocked, trackers stopped, and data saved.</span>
-              </li>
-            </ul>
-            <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
-              Download with NetShield
-            </a>
-          </div>
-
-          <div class="spotlight-visual">
-            <img
-              src="assets/illustrations/upsell-netshield-large.png"
-              alt="NetShield Ad-blocker"
-              class="visual-main-img"
-            />
-            <div class="state-strip-grid">
-              <div class="state-pill-card">
-                <img src="assets/illustrations/ads-blocked.png" alt="Ads Blocked" />
-                <span class="state-pill-label">Ads Blocked</span>
-              </div>
-              <div class="state-pill-card">
-                <img src="assets/illustrations/trackers-stopped.png" alt="Trackers Stopped" />
-                <span class="state-pill-label">Trackers Stopped</span>
-              </div>
-              <div class="state-pill-card active">
-                <img src="assets/illustrations/netshield-on-level-2.png" alt="Level 2 Protection" />
-                <span class="state-pill-label">Full Protection On</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spotlight 2: VPN Accelerator & High-Speed WireGuard -->
-        <div class="spotlight-row reverse">
-          <div class="spotlight-content">
-            <div class="spotlight-kicker">VPN Accelerator</div>
-            <h3 class="spotlight-title">Boost VPN speeds by up to 400% over long distances</h3>
-            <p class="spotlight-text">
-              Distance and TCP congestion normally degrade VPN throughput. VPN Accelerator uses multi-threaded packet processing and optimized TCP flow control to deliver full gigabit speeds even when connected across continents.
-            </p>
-            <ul class="spotlight-bullets">
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Smart server selection</strong> automatically picks low-load nodes in every country.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Native WireGuard kernel integration</strong> for sub-second handshakes and minimal CPU overhead.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Stable long-session keepalives</strong> prevent random disconnects during gaming or downloads.</span>
-              </li>
-            </ul>
-            <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
-              Experience VPN Accelerator
-            </a>
-          </div>
-
-          <div class="spotlight-visual">
-            <img
-              src="assets/illustrations/upsell-speed-large.png"
-              alt="VPN Accelerator Speed"
-              class="visual-main-img"
-            />
-            <div class="state-strip-grid two-col">
-              <div class="state-pill-card">
-                <img src="assets/illustrations/vpn-accelerator-off.png" alt="Standard Mode" />
-                <span class="state-pill-label">Standard Routing</span>
-              </div>
-              <div class="state-pill-card active">
-                <img src="assets/illustrations/vpn-accelerator-on.png" alt="VPN Accelerator On" />
-                <span class="state-pill-label">VPN Accelerator Active</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spotlight 3: Global Streaming & Content Access -->
-        <div class="spotlight-row">
-          <div class="spotlight-content">
-            <div class="spotlight-kicker">High-Speed Streaming &amp; P2P</div>
-            <h3 class="spotlight-title">Watch your favorite content from anywhere in 4K</h3>
-            <p class="spotlight-text">
-              Access region-locked broadcasts, live sports, and global entertainment libraries without buffering or bandwidth throttling from your ISP.
-            </p>
-            <ul class="spotlight-bullets">
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>No data caps or speed limits</strong> — stream in 4K UHD with zero ISP throttling.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Dedicated P2P &amp; BitTorrent routing</strong> with active port forwarding support.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>One-click country switching</strong> across North America, Europe, and Asia-Pacific.</span>
-              </li>
-            </ul>
-            <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
-              Download for Windows
-            </a>
-          </div>
-
-          <div class="spotlight-visual">
-            <img
-              src="assets/illustrations/upsell-streaming-large.png"
-              alt="Global Streaming"
-              class="visual-main-img"
-            />
-            <div class="streaming-badges-grid">
-              <div class="streaming-badge-item"><img src="assets/streaming/netflix.png" alt="Netflix" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/disney-plus.png" alt="Disney+" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/prime-video.png" alt="Prime Video" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/bbc-iplayer.png" alt="BBC iPlayer" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/hbo-max.png" alt="Max" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/hulu.png" alt="Hulu" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/espn.png" alt="ESPN" /></div>
-              <div class="streaming-badge-item"><img src="assets/streaming/f1.png" alt="F1 TV" /></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spotlight 4: Secure Core & Advanced Kill Switch -->
-        <div class="spotlight-row reverse" id="security">
-          <div class="spotlight-content">
-            <div class="spotlight-kicker">Secure Core &amp; Kill Switch</div>
-            <h3 class="spotlight-title">Multi-hop routing and leak-proof network defense</h3>
-            <p class="spotlight-text">
-              Secure Core routes your traffic through hardened servers in privacy-friendly jurisdictions (Switzerland, Iceland, and Sweden) before exiting to your destination country, while Advanced Kill Switch blocks all non-VPN traffic if your connection drops.
-            </p>
-            <ul class="spotlight-bullets">
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Double-hop encryption</strong> protects your real IP even if an exit node is monitored.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Standard &amp; Permanent Kill Switch</strong> prevents accidental IP or DNS leaks across reboots.</span>
-              </li>
-              <li>
-                <span class="bullet-check">&#10003;</span>
-                <span><strong>Split Tunneling (Standard &amp; Inverse)</strong> lets you choose exactly which apps use the VPN.</span>
-              </li>
-            </ul>
-            <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
-              Get Full Protection
-            </a>
-          </div>
-
-          <div class="spotlight-visual">
-            <img
-              src="assets/illustrations/upsell-secure-core-large.png"
-              alt="Secure Core Multi-Hop Architecture"
-              class="visual-main-img"
-            />
-            <div class="state-strip-grid">
-              <div class="state-pill-card">
-                <img src="assets/illustrations/secure-core-connection.png" alt="Secure Core" />
-                <span class="state-pill-label">Multi-Hop Tunnel</span>
-              </div>
-              <div class="state-pill-card">
-                <img src="assets/illustrations/kill-switch-on-standard.png" alt="Standard Kill Switch" />
-                <span class="state-pill-label">Kill Switch On</span>
-              </div>
-              <div class="state-pill-card active">
-                <img src="assets/illustrations/kill-switch-on-advanced.png" alt="Advanced Kill Switch" />
-                <span class="state-pill-label">Advanced Lock</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Complete Feature Suite Bento Grid (9 Official Proton Illustrations) -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Complete Feature Suite</span>
-          <h2 class="section-title">Every advanced tool built right into the client</h2>
-          <p class="section-desc">
-            Designed for power users, gamers, and privacy advocates — configure every detail of your connection directly from the Proton VPN Next desktop interface.
-          </p>
-        </div>
-
-        <div class="bento-grid">
-          <!-- Card 1: Custom Profiles -->
-          <div class="bento-card">
-            <div>
-              <div class="bento-art-wrap">
-                <img src="assets/illustrations/upsell-profiles-large.png" alt="Custom Connection Profiles" />
-              </div>
-              <div class="bento-tag-row">
-                <span class="bento-feature-tag">One-Click Presets</span>
-                <span class="bento-included-pill">Built-in</span>
-              </div>
-              <h3 class="bento-title">Custom Connection Profiles</h3>
-              <p class="bento-desc">
-                Create tailored presets for Streaming, Gaming, P2P Downloads, or Work with custom protocols, countries, and NetShield settings.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2: Split Tunneling -->
-          <div class="bento-card">
-            <div>
-              <div class="bento-art-wrap">
-                <img src="assets/illustrations/upsell-split-tunneling-large.png" alt="Split Tunneling" />
-              </div>
-              <div class="bento-tag-row">
-                <span class="bento-feature-tag">App &amp; IP Routing</span>
-                <span class="bento-included-pill">Built-in</span>
-              </div>
-              <h3 class="bento-title">Split Tunneling</h3>
-              <p class="bento-desc">
-                Exclude specific apps or IP addresses from the VPN tunnel — or use Inverse mode so only chosen apps route through the VPN.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3: Port Forwarding -->
-          <div class="bento-card">
-            <div>
-              <div class="bento-art-wrap">
-                <img src="assets/illustrations/upsell-port-forwarding-large.png" alt="Port Forwarding" />
-              </div>
-              <div class="bento-tag-row">
-                <span class="bento-feature-tag">NAT Bypass</span>
-                <span class="bento-included-pill">Built-in</span>
-              </div>
-              <h3 class="bento-title">NAT-PMP Port Forwarding</h3>
-              <p class="bento-desc">
-                Maximize P2P seeding speeds and host game servers behind the VPN with one-click dynamic port assignment and copyable port numbers.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4: Tor over VPN -->
-          <div class="bento-card">
-            <div>
-              <div class="bento-art-wrap">
-                <img src="assets/illustrations/upsell-tor-large.png" alt="Tor over VPN" />
-              </div>
-              <div class="bento-tag-row">
-                <span class="bento-feature-tag">Onion Routing</span>
-                <span class="bento-included-pill">Built-in</span>
-              </div>
-              <h3 class="bento-title">Tor over VPN</h3>
-              <p class="bento-desc">
-                Route traffic through the Tor anonymity network with a single click, accessing .onion sites directly in your standard browser.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 5: P2P & BitTorrent -->
-          <div class="bento-card">
-            <div>
-              <div class="bento-art-wrap">
-                <img src="assets/illustrations/upsell-p2p-large.png" alt="P2P File Sharing" />
-              </div>
-              <div class="bento-tag-row">
-                <span class="bento-feature-tag">High-Bandwidth</span>
-                <span class="bento-included-pill">Built-in</span>
-              </div>
-              <h3 class="bento-title">Dedicated P2P Support</h3>
-              <p class="bento-desc">
-                Optimized high-throughput servers designed for large file transfers and peer-to-peer sharing without bandwidth throttling.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 6: Advanced Customization -->
-          <div class="bento-card">
-            <div>
-              <div class="bento-art-wrap">
-                <img src="assets/illustrations/upsell-customisation-large.png" alt="Advanced Customization" />
-              </div>
-              <div class="bento-tag-row">
-                <span class="bento-feature-tag">Network Controls</span>
-                <span class="bento-included-pill">Built-in</span>
-              </div>
-              <h3 class="bento-title">Custom DNS &amp; NAT Type</h3>
-              <p class="bento-desc">
-                Configure custom DNS servers, toggle Moderate NAT (Type 2) for online multiplayer gaming, and switch between WireGuard and OpenVPN.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Global High-Speed Server Network Section -->
-    <section class="section" id="network">
-      <div class="container">
-        <div class="network-showcase">
-          <div class="network-top-row">
-            <div>
-              <span class="section-tag">Global Server Network</span>
-              <h2 class="section-title" style="text-align: left; margin-bottom: 16px;">
-                Connect across the globe with intelligent server balancing
-              </h2>
-              <p class="section-desc" style="text-align: left;">
-                Choose your preferred country or let Fastest Country &amp; Random Server balancing connect you to the lowest-load 10 Gbps server automatically. Clicking "Change Server" cycles cleanly to a fresh node every time.
-              </p>
-
-              <div class="network-stats-row">
-                <div class="network-stat-box">
-                  <div class="network-stat-num">10<span>Gbps</span></div>
-                  <div class="network-stat-label">High-capacity server links</div>
-                </div>
-                <div class="network-stat-box">
-                  <div class="network-stat-num">100<span>%</span></div>
-                  <div class="network-stat-label">Unlimited data &amp; bandwidth</div>
-                </div>
-                <div class="network-stat-box">
-                  <div class="network-stat-num">&lt;1<span>s</span></div>
-                  <div class="network-stat-label">WireGuard handshake speed</div>
-                </div>
-              </div>
+    <main>
+      <!-- 4. Main Product Download & Showcase Section -->
+      <section class="product-hero-section" id="overview">
+        <div class="container">
+          <div class="hero-center reveal-on-scroll">
+            <div class="hero-eyebrow">
+              <img src="assets/vpn-plus.svg" alt="Proton VPN Next" />
+              <span>Proton VPN Next for Windows &bull; Native WinUI 3 Desktop Client</span>
             </div>
 
-            <div class="network-globe-art">
-              <img
-                src="assets/illustrations/upsell-worldwide-coverage-large.png"
-                alt="Worldwide VPN Server Coverage"
-              />
-            </div>
-          </div>
-
-          <!-- Official World Map Backdrop -->
-          <div class="network-map-backdrop">
-            <img src="assets/world-map.svg" alt="Proton VPN Global Server Map" class="map-img" />
-          </div>
-
-          <!-- Official Country Flag Cards -->
-          <div class="country-flags-grid">
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/Fastest.svg" alt="Fastest" />
-                <span class="country-name">Fastest Country</span>
-              </div>
-              <span class="country-status">Auto</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/US.svg" alt="United States" />
-                <span class="country-name">United States</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/CH.svg" alt="Switzerland" />
-                <span class="country-name">Switzerland</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/NL.svg" alt="Netherlands" />
-                <span class="country-name">Netherlands</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/JP.svg" alt="Japan" />
-                <span class="country-name">Japan</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/DE.svg" alt="Germany" />
-                <span class="country-name">Germany</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/UK.svg" alt="United Kingdom" />
-                <span class="country-name">United Kingdom</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/CA.svg" alt="Canada" />
-                <span class="country-name">Canada</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/FR.svg" alt="France" />
-                <span class="country-name">France</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/SG.svg" alt="Singapore" />
-                <span class="country-name">Singapore</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/SE.svg" alt="Sweden" />
-                <span class="country-name">Sweden</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/NO.svg" alt="Norway" />
-                <span class="country-name">Norway</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/RO.svg" alt="Romania" />
-                <span class="country-name">Romania</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/PL.svg" alt="Poland" />
-                <span class="country-name">Poland</span>
-              </div>
-              <span class="country-status">10 Gbps</span>
-            </div>
-            <div class="country-card">
-              <div class="country-card-left">
-                <img src="assets/flags/Random.svg" alt="Random Country" />
-                <span class="country-name">Random Server</span>
-              </div>
-              <span class="country-status">Rotate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Dedicated Windows Download Section (welcome.png + Instant Setup) -->
-    <section class="section section-alt" id="download">
-      <div class="container">
-        <div class="download-hero-box">
-          <div>
-            <span class="section-tag">Download for Windows</span>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 14px;">
-              Ready in under two seconds.
+            <h2 class="hero-title">
+              High-speed Swiss security, <span class="gradient-word">rebuilt from the ground up.</span>
             </h2>
-            <p class="section-desc" style="text-align: left;">
-              Proton VPN Next ships with a custom high-speed native installer (`ProtonNext-Setup.exe`) that extracts all 2,313 application files in ~1.45 seconds, configures Desktop &amp; Start Menu shortcuts, and launches straight into the redesigned client.
+
+            <p class="hero-subtitle">
+              Engineered for instant one-click connections, real-time throughput telemetry, WireGuard performance, NetShield ad-blocking, VPN Accelerator, and Secure Core.
             </p>
 
-            <div class="download-specs-list">
-              <div class="download-spec-item">
-                <div class="spec-label">Latest Version</div>
-                <div class="spec-val">v1.0.2 (64-bit Windows)</div>
-              </div>
-              <div class="download-spec-item">
-                <div class="spec-label">Installation Speed</div>
-                <div class="spec-val">~1.45 Seconds (Multi-core)</div>
-              </div>
-              <div class="download-spec-item">
-                <div class="spec-label">Supported OS</div>
-                <div class="spec-val">Windows 10 &amp; Windows 11</div>
-              </div>
-              <div class="download-spec-item">
-                <div class="spec-label">Protocols Included</div>
-                <div class="spec-val">WireGuard, OpenVPN, Stealth</div>
-              </div>
-            </div>
-
-            <div class="hero-cta-group" style="justify-content: flex-start; margin-bottom: 0;">
+            <div class="hero-cta-group">
               <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-xl">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download ProtonNext-Setup.exe
+                Download Proton VPN Next for Windows
               </a>
-              <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
-                View on GitHub
+              <a href="#features" class="btn btn-secondary btn-lg">
+                Explore Features
               </a>
+            </div>
+
+            <div class="hero-meta-row">
+              <span class="hero-meta-item">
+                <span class="hero-meta-dot"></span>
+                Windows 10 &amp; Windows 11 (64-bit)
+              </span>
+              <span class="hero-meta-item">
+                &bull; Instant 1.45s Native Setup (`ProtonNext-Setup.exe`)
+              </span>
+              <span class="hero-meta-item">
+                &bull; WireGuard &amp; OpenVPN Ready
+              </span>
             </div>
           </div>
 
-          <div class="download-art-col">
-            <img src="assets/illustrations/welcome.png" alt="Proton VPN Next Prism Artwork" />
+          <!-- Official Proton VPN Redesigned Desktop Client Showcase -->
+          <div class="hero-showcase-wrapper reveal-on-scroll">
+            <div class="hero-showcase-card">
+              <img
+                src="assets/illustrations/redesign.png"
+                alt="Proton VPN Next Redesigned Windows Application"
+              />
+              <div class="hero-showcase-caption">
+                <div class="showcase-caption-left">
+                  <span class="showcase-status-badge">
+                    <span class="hero-meta-dot"></span>
+                    Protected
+                  </span>
+                  <span class="showcase-caption-text">
+                    <strong>All-new Windows interface</strong> — Interactive live map, one-click country selection, real-time throughput telemetry, and instant profile switching.
+                  </span>
+                </div>
+                <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
+                  Get Windows App
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 9. Frequently Asked Questions -->
-    <section class="section" id="faq">
+      <!-- 5. Official Trust & Audit Strip -->
+      <section class="trust-strip">
+        <div class="container">
+          <div class="trust-grid reveal-on-scroll">
+            <div class="trust-item">
+              <img src="assets/illustrations/swiss-flag.png" alt="Swiss Privacy" />
+              <div>
+                <div class="trust-item-title">Swiss Privacy Standards</div>
+                <div class="trust-item-desc">Built on world-renowned cryptographic security</div>
+              </div>
+            </div>
+            <div class="trust-item">
+              <img src="assets/illustrations/certified-no-logs.png" alt="No Logs" />
+              <div>
+                <div class="trust-item-title">Zero Browsing Logs</div>
+                <div class="trust-item-desc">Your traffic, DNS queries, and IP remain private</div>
+              </div>
+            </div>
+            <div class="trust-item">
+              <img src="assets/illustrations/open-source.png" alt="Open Source" />
+              <div>
+                <div class="trust-item-title">Open Source &amp; Auditable</div>
+                <div class="trust-item-desc">Full C# / WinUI 3 source available on GitHub</div>
+              </div>
+            </div>
+            <div class="trust-item">
+              <img src="assets/illustrations/vpn-feature-protocol.png" alt="WireGuard Protocol" />
+              <div>
+                <div class="trust-item-title">Modern VPN Protocols</div>
+                <div class="trust-item-desc">WireGuard, OpenVPN TCP/UDP &amp; Stealth</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Deep-Dive Feature Spotlights (Official Proton Artwork + State Graphics) -->
+      <section class="section" id="features">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-tag">Engineered for Performance</span>
+            <h2 class="section-title">Security that never slows you down</h2>
+            <p class="section-desc">
+              Proton VPN Next combines next-generation tunneling protocols with hardware-accelerated routing and DNS-level threat protection.
+            </p>
+          </div>
+
+          <!-- Spotlight 1: NetShield Ad-blocker -->
+          <div class="spotlight-row reveal-on-scroll">
+            <div class="spotlight-content">
+              <div class="spotlight-kicker">NetShield Ad-Blocker</div>
+              <h3 class="spotlight-title">Protect yourself from ads, trackers, and malware</h3>
+              <p class="spotlight-text">
+                NetShield filters DNS requests before they ever load in your browser. Block malicious domains, stop intrusive cross-site tracking scripts, and speed up page load times while saving bandwidth.
+              </p>
+              <ul class="spotlight-bullets">
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Block malware &amp; phishing domains</strong> automatically at the network layer.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Eliminate video &amp; banner ads</strong> across browsers and desktop apps.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Live telemetry counter</strong> tracks ads blocked, trackers stopped, and data saved.</span>
+                </li>
+              </ul>
+              <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
+                Download with NetShield
+              </a>
+            </div>
+
+            <div class="spotlight-visual">
+              <img
+                src="assets/illustrations/upsell-netshield-large.png"
+                alt="NetShield Ad-blocker"
+                class="visual-main-img"
+              />
+              <div class="state-strip-grid">
+                <div class="state-pill-card">
+                  <img src="assets/illustrations/ads-blocked.png" alt="Ads Blocked" />
+                  <span class="state-pill-label">Ads Blocked</span>
+                </div>
+                <div class="state-pill-card">
+                  <img src="assets/illustrations/trackers-stopped.png" alt="Trackers Stopped" />
+                  <span class="state-pill-label">Trackers Stopped</span>
+                </div>
+                <div class="state-pill-card active">
+                  <img src="assets/illustrations/netshield-on-level-2.png" alt="Level 2 Protection" />
+                  <span class="state-pill-label">Full Protection On</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spotlight 2: VPN Accelerator & High-Speed WireGuard -->
+          <div class="spotlight-row reverse reveal-on-scroll">
+            <div class="spotlight-content">
+              <div class="spotlight-kicker">VPN Accelerator</div>
+              <h3 class="spotlight-title">Boost VPN speeds by up to 400% over long distances</h3>
+              <p class="spotlight-text">
+                Distance and TCP congestion normally degrade VPN throughput. VPN Accelerator uses multi-threaded packet processing and optimized TCP flow control to deliver full gigabit speeds even when connected across continents.
+              </p>
+              <ul class="spotlight-bullets">
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Smart server selection</strong> automatically picks low-load nodes in every country.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Native WireGuard kernel integration</strong> for sub-second handshakes and minimal CPU overhead.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Stable long-session keepalives</strong> prevent random disconnects during gaming or downloads.</span>
+                </li>
+              </ul>
+              <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
+                Experience VPN Accelerator
+              </a>
+            </div>
+
+            <div class="spotlight-visual">
+              <img
+                src="assets/illustrations/upsell-speed-large.png"
+                alt="VPN Accelerator Speed"
+                class="visual-main-img"
+              />
+              <div class="state-strip-grid two-col">
+                <div class="state-pill-card">
+                  <img src="assets/illustrations/vpn-accelerator-off.png" alt="Standard Mode" />
+                  <span class="state-pill-label">Standard Routing</span>
+                </div>
+                <div class="state-pill-card active">
+                  <img src="assets/illustrations/vpn-accelerator-on.png" alt="VPN Accelerator On" />
+                  <span class="state-pill-label">VPN Accelerator Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spotlight 3: Global Streaming & Content Access -->
+          <div class="spotlight-row reveal-on-scroll">
+            <div class="spotlight-content">
+              <div class="spotlight-kicker">High-Speed Streaming &amp; P2P</div>
+              <h3 class="spotlight-title">Watch your favorite content from anywhere in 4K</h3>
+              <p class="spotlight-text">
+                Access region-locked broadcasts, live sports, and global entertainment libraries without buffering or bandwidth throttling from your ISP.
+              </p>
+              <ul class="spotlight-bullets">
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>No data caps or speed limits</strong> — stream in 4K UHD with zero ISP throttling.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Dedicated P2P &amp; BitTorrent routing</strong> with active port forwarding support.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>One-click country switching</strong> across North America, Europe, and Asia-Pacific.</span>
+                </li>
+              </ul>
+              <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
+                Download for Windows
+              </a>
+            </div>
+
+            <div class="spotlight-visual">
+              <img
+                src="assets/illustrations/upsell-streaming-large.png"
+                alt="Global Streaming"
+                class="visual-main-img"
+              />
+              <div class="streaming-badges-grid">
+                <div class="streaming-badge-item"><img src="assets/streaming/netflix.png" alt="Netflix" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/disney-plus.png" alt="Disney+" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/prime-video.png" alt="Prime Video" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/bbc-iplayer.png" alt="BBC iPlayer" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/hbo-max.png" alt="Max" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/hulu.png" alt="Hulu" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/espn.png" alt="ESPN" /></div>
+                <div class="streaming-badge-item"><img src="assets/streaming/f1.png" alt="F1 TV" /></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spotlight 4: Secure Core & Advanced Kill Switch -->
+          <div class="spotlight-row reverse reveal-on-scroll" id="security">
+            <div class="spotlight-content">
+              <div class="spotlight-kicker">Secure Core &amp; Kill Switch</div>
+              <h3 class="spotlight-title">Multi-hop routing and leak-proof network defense</h3>
+              <p class="spotlight-text">
+                Secure Core routes your traffic through hardened servers in privacy-friendly jurisdictions (Switzerland, Iceland, and Sweden) before exiting to your destination country, while Advanced Kill Switch blocks all non-VPN traffic if your connection drops.
+              </p>
+              <ul class="spotlight-bullets">
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Double-hop encryption</strong> protects your real IP even if an exit node is monitored.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Standard &amp; Permanent Kill Switch</strong> prevents accidental IP or DNS leaks across reboots.</span>
+                </li>
+                <li>
+                  <span class="bullet-check">&#10003;</span>
+                  <span><strong>Split Tunneling (Standard &amp; Inverse)</strong> lets you choose exactly which apps use the VPN.</span>
+                </li>
+              </ul>
+              <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
+                Get Full Protection
+              </a>
+            </div>
+
+            <div class="spotlight-visual">
+              <img
+                src="assets/illustrations/upsell-secure-core-large.png"
+                alt="Secure Core Multi-Hop Architecture"
+                class="visual-main-img"
+              />
+              <div class="state-strip-grid">
+                <div class="state-pill-card">
+                  <img src="assets/illustrations/secure-core-connection.png" alt="Secure Core" />
+                  <span class="state-pill-label">Multi-Hop Tunnel</span>
+                </div>
+                <div class="state-pill-card">
+                  <img src="assets/illustrations/kill-switch-on-standard.png" alt="Standard Kill Switch" />
+                  <span class="state-pill-label">Kill Switch On</span>
+                </div>
+                <div class="state-pill-card active">
+                  <img src="assets/illustrations/kill-switch-on-advanced.png" alt="Advanced Kill Switch" />
+                  <span class="state-pill-label">Advanced Lock</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Complete Feature Suite Bento Grid (Official Proton Illustrations) -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-tag">Complete Feature Suite</span>
+            <h2 class="section-title">Every advanced tool built right into the client</h2>
+            <p class="section-desc">
+              Designed for power users, gamers, and privacy advocates — configure every detail of your connection directly from the Proton VPN Next desktop interface.
+            </p>
+          </div>
+
+          <div class="bento-grid reveal-on-scroll">
+            <!-- Card 1: Custom Profiles -->
+            <div class="bento-card">
+              <div>
+                <div class="bento-art-wrap">
+                  <img src="assets/illustrations/upsell-profiles-large.png" alt="Custom Connection Profiles" />
+                </div>
+                <div class="bento-tag-row">
+                  <span class="bento-feature-tag">One-Click Presets</span>
+                  <span class="bento-included-pill">Built-in</span>
+                </div>
+                <h3 class="bento-title">Custom Connection Profiles</h3>
+                <p class="bento-desc">
+                  Create tailored presets for Streaming, Gaming, P2P Downloads, or Work with custom protocols, countries, and NetShield settings.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: Split Tunneling -->
+            <div class="bento-card">
+              <div>
+                <div class="bento-art-wrap">
+                  <img src="assets/illustrations/upsell-split-tunneling-large.png" alt="Split Tunneling" />
+                </div>
+                <div class="bento-tag-row">
+                  <span class="bento-feature-tag">App &amp; IP Routing</span>
+                  <span class="bento-included-pill">Built-in</span>
+                </div>
+                <h3 class="bento-title">Split Tunneling</h3>
+                <p class="bento-desc">
+                  Exclude specific apps or IP addresses from the VPN tunnel — or use Inverse mode so only chosen apps route through the VPN.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: Port Forwarding -->
+            <div class="bento-card">
+              <div>
+                <div class="bento-art-wrap">
+                  <img src="assets/illustrations/upsell-port-forwarding-large.png" alt="Port Forwarding" />
+                </div>
+                <div class="bento-tag-row">
+                  <span class="bento-feature-tag">NAT Bypass</span>
+                  <span class="bento-included-pill">Built-in</span>
+                </div>
+                <h3 class="bento-title">NAT-PMP Port Forwarding</h3>
+                <p class="bento-desc">
+                  Maximize P2P seeding speeds and host game servers behind the VPN with one-click dynamic port assignment and copyable port numbers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4: Tor over VPN -->
+            <div class="bento-card">
+              <div>
+                <div class="bento-art-wrap">
+                  <img src="assets/illustrations/upsell-tor-large.png" alt="Tor over VPN" />
+                </div>
+                <div class="bento-tag-row">
+                  <span class="bento-feature-tag">Onion Routing</span>
+                  <span class="bento-included-pill">Built-in</span>
+                </div>
+                <h3 class="bento-title">Tor over VPN</h3>
+                <p class="bento-desc">
+                  Route traffic through the Tor anonymity network with a single click, accessing .onion sites directly in your standard browser.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 5: P2P & BitTorrent -->
+            <div class="bento-card">
+              <div>
+                <div class="bento-art-wrap">
+                  <img src="assets/illustrations/upsell-p2p-large.png" alt="P2P File Sharing" />
+                </div>
+                <div class="bento-tag-row">
+                  <span class="bento-feature-tag">High-Bandwidth</span>
+                  <span class="bento-included-pill">Built-in</span>
+                </div>
+                <h3 class="bento-title">Dedicated P2P Support</h3>
+                <p class="bento-desc">
+                  Optimized high-throughput servers designed for large file transfers and peer-to-peer sharing without bandwidth throttling.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 6: Advanced Customization -->
+            <div class="bento-card">
+              <div>
+                <div class="bento-art-wrap">
+                  <img src="assets/illustrations/upsell-customisation-large.png" alt="Advanced Customization" />
+                </div>
+                <div class="bento-tag-row">
+                  <span class="bento-feature-tag">Network Controls</span>
+                  <span class="bento-included-pill">Built-in</span>
+                </div>
+                <h3 class="bento-title">Custom DNS &amp; NAT Type</h3>
+                <p class="bento-desc">
+                  Configure custom DNS servers, toggle Moderate NAT (Type 2) for online multiplayer gaming, and switch between WireGuard and OpenVPN.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Global High-Speed Server Network Section -->
+      <section class="section" id="network">
+        <div class="container">
+          <div class="network-showcase reveal-on-scroll">
+            <div class="network-top-row">
+              <div>
+                <span class="section-tag">Global Server Network</span>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 16px;">
+                  Connect across the globe with intelligent server balancing
+                </h2>
+                <p class="section-desc" style="text-align: left;">
+                  Choose your preferred country or let Fastest Country &amp; Random Server balancing connect you to the lowest-load 10 Gbps server automatically. Clicking "Change Server" cycles cleanly to a fresh node every time.
+                </p>
+
+                <div class="network-stats-row">
+                  <div class="network-stat-box">
+                    <div class="network-stat-num">10<span>Gbps</span></div>
+                    <div class="network-stat-label">High-capacity server links</div>
+                  </div>
+                  <div class="network-stat-box">
+                    <div class="network-stat-num">100<span>%</span></div>
+                    <div class="network-stat-label">Unlimited data &amp; bandwidth</div>
+                  </div>
+                  <div class="network-stat-box">
+                    <div class="network-stat-num">&lt;1<span>s</span></div>
+                    <div class="network-stat-label">WireGuard handshake speed</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-globe-art">
+                <img
+                  src="assets/illustrations/upsell-worldwide-coverage-large.png"
+                  alt="Worldwide VPN Server Coverage"
+                />
+              </div>
+            </div>
+
+            <!-- Official World Map Backdrop -->
+            <div class="network-map-backdrop">
+              <img src="assets/world-map.svg" alt="Proton VPN Global Server Map" class="map-img" />
+            </div>
+
+            <!-- Official Country Flag Cards -->
+            <div class="country-flags-grid">
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/Fastest.svg" alt="Fastest" />
+                  <span class="country-name">Fastest Country</span>
+                </div>
+                <span class="country-status">Auto</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/US.svg" alt="United States" />
+                  <span class="country-name">United States</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/CH.svg" alt="Switzerland" />
+                  <span class="country-name">Switzerland</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/NL.svg" alt="Netherlands" />
+                  <span class="country-name">Netherlands</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/JP.svg" alt="Japan" />
+                  <span class="country-name">Japan</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/DE.svg" alt="Germany" />
+                  <span class="country-name">Germany</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/UK.svg" alt="United Kingdom" />
+                  <span class="country-name">United Kingdom</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/CA.svg" alt="Canada" />
+                  <span class="country-name">Canada</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/FR.svg" alt="France" />
+                  <span class="country-name">France</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/SG.svg" alt="Singapore" />
+                  <span class="country-name">Singapore</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/SE.svg" alt="Sweden" />
+                  <span class="country-name">Sweden</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/NO.svg" alt="Norway" />
+                  <span class="country-name">Norway</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/RO.svg" alt="Romania" />
+                  <span class="country-name">Romania</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/PL.svg" alt="Poland" />
+                  <span class="country-name">Poland</span>
+                </div>
+                <span class="country-status">10 Gbps</span>
+              </div>
+              <div class="country-card">
+                <div class="country-card-left">
+                  <img src="assets/flags/Random.svg" alt="Random Country" />
+                  <span class="country-name">Random Server</span>
+                </div>
+                <span class="country-status">Rotate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Dedicated Windows Download Section (welcome.png + Instant Setup) -->
+      <section class="section section-alt" id="download">
+        <div class="container">
+          <div class="download-hero-box reveal-on-scroll">
+            <div>
+              <span class="section-tag">Download for Windows</span>
+              <h2 class="section-title" style="text-align: left; margin-bottom: 14px;">
+                Ready in under two seconds.
+              </h2>
+              <p class="section-desc" style="text-align: left;">
+                Proton VPN Next ships with a custom high-speed native installer (`ProtonNext-Setup.exe`) that extracts all 2,313 application files in ~1.45 seconds, configures Desktop &amp; Start Menu shortcuts, and launches straight into the redesigned client.
+              </p>
+
+              <div class="download-specs-list">
+                <div class="download-spec-item">
+                  <div class="spec-label">Latest Version</div>
+                  <div class="spec-val">v1.0.2 (64-bit Windows)</div>
+                </div>
+                <div class="download-spec-item">
+                  <div class="spec-label">Installation Speed</div>
+                  <div class="spec-val">~1.45 Seconds (Multi-core)</div>
+                </div>
+                <div class="download-spec-item">
+                  <div class="spec-label">Supported OS</div>
+                  <div class="spec-val">Windows 10 &amp; Windows 11</div>
+                </div>
+                <div class="download-spec-item">
+                  <div class="spec-label">Protocols Included</div>
+                  <div class="spec-val">WireGuard, OpenVPN, Stealth</div>
+                </div>
+              </div>
+
+              <div class="hero-cta-group" style="justify-content: flex-start; margin-bottom: 0;">
+                <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-xl">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download ProtonNext-Setup.exe
+                </a>
+                <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+
+            <div class="download-art-col">
+              <img src="assets/illustrations/welcome.png" alt="Proton VPN Next Prism Artwork" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Frequently Asked Questions -->
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-tag">FAQ</span>
+            <h2 class="section-title">Frequently asked questions</h2>
+            <p class="section-desc">
+              Everything you need to know about installing and using Proton VPN Next on Windows.
+            </p>
+          </div>
+
+          <div class="faq-list reveal-on-scroll">
+            <div class="faq-item open">
+              <button class="faq-question" type="button">
+                <span>How do I install Proton VPN Next on Windows?</span>
+                <span class="faq-icon">&#9662;</span>
+              </button>
+              <div class="faq-answer" style="max-height: 220px;">
+                <div class="faq-answer-inner">
+                  Download <code>ProtonNext-Setup.exe</code> using the button above and run the installer. The native multi-threaded setup wizard extracts the entire WinUI 3 desktop suite in under 2 seconds, creates Desktop and Start Menu shortcuts, and launches Proton VPN Next immediately.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>How does server selection and "Change Server" work?</span>
+                <span class="faq-icon">&#9662;</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  When you connect to any country or profile, Proton VPN Next balances across available servers in that region instead of always picking #1. Clicking "Change Server" while connected automatically excludes your active server and rotates you to a fresh server node with zero cooldown timer.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>What VPN protocols are supported?</span>
+                <span class="faq-icon">&#9662;</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Proton VPN Next supports Smart Protocol selection as well as manual selection of WireGuard (UDP), WireGuard (TCP), WireGuard (TLS/Stealth), OpenVPN (UDP), and OpenVPN (TCP).
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>Where is the source code hosted?</span>
+                <span class="faq-icon">&#9662;</span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  The complete C# / .NET 8 WinUI 3 client source code, native installer source, and automated GitHub Actions build pipelines are publicly available in the <a href="https://github.com/jabirking-ux/ProtonNext" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">jabirking-ux/ProtonNext</a> repository on GitHub.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 11. Official Dark Footer -->
+    <footer class="site-footer">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">FAQ</span>
-          <h2 class="section-title">Frequently asked questions</h2>
-          <p class="section-desc">
-            Everything you need to know about installing and using Proton VPN Next on Windows.
-          </p>
+        <div class="footer-grid">
+          <div>
+            <a href="#top" class="brand-logo">
+              <img src="assets/product-logo.svg" alt="Proton VPN" class="logo-svg" />
+              <span class="brand-next-badge">NEXT</span>
+            </a>
+            <p class="footer-brand-desc">
+              High-speed Swiss VPN desktop client for Windows 10 &amp; 11. Built with native WinUI 3, WireGuard, NetShield, and Secure Core.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Product</div>
+            <ul class="footer-links">
+              <li><a href="#overview">Redesigned Client</a></li>
+              <li><a href="#features">NetShield Ad-blocker</a></li>
+              <li><a href="#features">VPN Accelerator</a></li>
+              <li><a href="#security">Secure Core &amp; Kill Switch</a></li>
+              <li><a href="#network">Server Network</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Downloads</div>
+            <ul class="footer-links">
+              <li><a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe">Windows Installer (.exe)</a></li>
+              <li><a href="https://github.com/jabirking-ux/ProtonNext/releases/latest" target="_blank" rel="noopener">Release Notes (v1.0.2)</a></li>
+              <li><a href="https://github.com/jabirking-ux/ProtonNext/actions" target="_blank" rel="noopener">CI/CD Build Status</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Open Source</div>
+            <ul class="footer-links">
+              <li><a href="https://github.com/jabirking-ux/ProtonNext" target="_blank" rel="noopener">GitHub Repository</a></li>
+              <li><a href="https://github.com/jabirking-ux/ProtonNext/issues" target="_blank" rel="noopener">Report an Issue</a></li>
+              <li><a href="#faq">FAQ &amp; Documentation</a></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="faq-list">
-          <div class="faq-item open">
-            <button class="faq-question" type="button">
-              <span>How do I install Proton VPN Next on Windows?</span>
-              <span class="faq-icon">&#9662;</span>
-            </button>
-            <div class="faq-answer" style="max-height: 220px;">
-              <div class="faq-answer-inner">
-                Download <code>ProtonNext-Setup.exe</code> using the button above and run the installer. The native multi-threaded setup wizard extracts the entire WinUI 3 desktop suite in under 2 seconds, creates Desktop and Start Menu shortcuts, and launches Proton VPN Next immediately.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>How does server selection and "Change Server" work?</span>
-              <span class="faq-icon">&#9662;</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                When you connect to any country or profile, Proton VPN Next balances across available servers in that region instead of always picking #1. Clicking "Change Server" while connected automatically excludes your active server and rotates you to a fresh server node with zero cooldown timer.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>What VPN protocols are supported?</span>
-              <span class="faq-icon">&#9662;</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                Proton VPN Next supports Smart Protocol selection as well as manual selection of WireGuard (UDP), WireGuard (TCP), WireGuard (TLS/Stealth), OpenVPN (UDP), and OpenVPN (TCP).
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <span>Where is the source code hosted?</span>
-              <span class="faq-icon">&#9662;</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                The complete C# / .NET 8 WinUI 3 client source code, native installer source, and automated GitHub Actions build pipelines are publicly available in the <a href="https://github.com/jabirking-ux/ProtonNext" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">jabirking-ux/ProtonNext</a> repository on GitHub.
-              </div>
-            </div>
-          </div>
+        <div class="footer-bottom">
+          <div>&copy; 2026 Proton VPN Next Project. Open-source software licensed under GPLv3.</div>
+          <div>Native Dark Mode &bull; Windows 10 / 11 (x64)</div>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- 10. Sticky Scroll Download Bar -->
+  </div>
+
+  <!-- 12. Sticky Scroll Download Bar -->
   <div class="sticky-download-bar" id="stickyDownloadBar" aria-hidden="true">
     <div class="sticky-bar-left">
       <img src="assets/product-logo.svg" alt="Proton VPN" />
@@ -783,57 +875,6 @@
       Download App
     </a>
   </div>
-
-  <!-- 11. Official Dark Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="#top" class="brand-logo">
-            <img src="assets/product-logo.svg" alt="Proton VPN" class="logo-svg" />
-            <span class="brand-next-badge">NEXT</span>
-          </a>
-          <p class="footer-brand-desc">
-            High-speed Swiss VPN desktop client for Windows 10 &amp; 11. Built with native WinUI 3, WireGuard, NetShield, and Secure Core.
-          </p>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Product</div>
-          <ul class="footer-links">
-            <li><a href="#overview">Redesigned Client</a></li>
-            <li><a href="#features">NetShield Ad-blocker</a></li>
-            <li><a href="#features">VPN Accelerator</a></li>
-            <li><a href="#security">Secure Core &amp; Kill Switch</a></li>
-            <li><a href="#network">Server Network</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Downloads</div>
-          <ul class="footer-links">
-            <li><a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe">Windows Installer (.exe)</a></li>
-            <li><a href="https://github.com/jabirking-ux/ProtonNext/releases/latest" target="_blank" rel="noopener">Release Notes (v1.0.2)</a></li>
-            <li><a href="https://github.com/jabirking-ux/ProtonNext/actions" target="_blank" rel="noopener">CI/CD Build Status</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Open Source</div>
-          <ul class="footer-links">
-            <li><a href="https://github.com/jabirking-ux/ProtonNext" target="_blank" rel="noopener">GitHub Repository</a></li>
-            <li><a href="https://github.com/jabirking-ux/ProtonNext/issues" target="_blank" rel="noopener">Report an Issue</a></li>
-            <li><a href="#faq">FAQ &amp; Documentation</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>&copy; 2026 Proton VPN Next Project. Open-source software licensed under GPLv3.</div>
-        <div>Native Dark Mode &bull; Windows 10 / 11 (x64)</div>
-      </div>
-    </div>
-  </footer>
 
   <script src="app.js"></script>
 </body>
