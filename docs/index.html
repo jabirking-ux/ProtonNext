@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#0B0A0F" />
+  <meta name="theme-color" content="#08070B" />
   <title>Proton VPN Next — Redesigned. Swiss Privacy &amp; High-Speed Security</title>
   <meta name="description" content="Proton VPN Next for Windows — Redesigned from the ground up with WireGuard, VPN Accelerator, NetShield Ad-blocker, Secure Core, and global high-speed servers." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +14,10 @@
 </head>
 <body id="top">
 
-  <!-- 1. Fixed Official Proton VPN Next Navigation Header (Minimal at 0px, Solidifies on Scroll) -->
+  <!-- 0. Global Top Scroll Progress Line -->
+  <div class="scroll-progress-line" id="scrollProgressBar"></div>
+
+  <!-- 1. Fixed Official Proton VPN Next Navigation Header -->
   <header class="site-header" id="siteHeader">
     <div class="container nav-inner">
       <a href="#top" class="brand-logo" aria-label="Proton VPN Next Home">
@@ -40,14 +43,47 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download App
         </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="#overview" class="mobile-nav-link">Overview</a>
+    <a href="#features" class="mobile-nav-link">Features</a>
+    <a href="#telemetry" class="mobile-nav-link">Telemetry</a>
+    <a href="#security" class="mobile-nav-link">Security</a>
+    <a href="#network" class="mobile-nav-link">Servers</a>
+    <a href="#download" class="mobile-nav-link">Download</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm" style="margin-top: 10px;">
+      Download ProtonNext-Setup.exe
+    </a>
+  </div>
 
   <!-- 2. Multi-Beat Scrollytelling Splash Intro (Like Anthropic Claude Opus Launch Page) -->
   <section class="intro-scroll-track" id="introTrack" aria-label="Proton VPN Next Redesigned Introduction">
     <div class="intro-sticky-viewport">
       <div class="intro-ambient-grid"></div>
+
+      <!-- Scrollytelling Beat Dots Indicator -->
+      <nav class="intro-beats-indicator" id="introBeatsIndicator" aria-label="Scrollytelling beats navigation">
+        <button class="beat-dot-btn active" data-beat="0" aria-label="Beat 1: Welcome &amp; Redesigned">
+          <span class="beat-dot"></span>
+          <span class="beat-dot-label">01. Redesigned</span>
+        </button>
+        <button class="beat-dot-btn" data-beat="1" aria-label="Beat 2: All-New Client Preview">
+          <span class="beat-dot"></span>
+          <span class="beat-dot-label">02. Windows Client</span>
+        </button>
+        <button class="beat-dot-btn" data-beat="2" aria-label="Beat 3: Main Product Suite">
+          <span class="beat-dot"></span>
+          <span class="beat-dot-label">03. Full Suite</span>
+        </button>
+      </nav>
 
       <!-- Beat 1 (0px): Seamlessly Masked welcome-unlimited.png + "Redesigned." -->
       <div class="intro-stage-primary" id="introStagePrimary">
@@ -209,7 +245,7 @@
             </div>
           </div>
 
-          <!-- Official "What's New in the Redesign" Trio (From WhatsNewOverlayView.xaml) -->
+          <!-- Official "What's New in the Redesign" Trio -->
           <div class="whatsnew-trio-grid reveal-on-scroll">
             <div class="whatsnew-card">
               <img src="assets/illustrations/taskbar-app.png" alt="New system tray app" />
@@ -280,7 +316,7 @@
         </div>
       </section>
 
-      <!-- 6. Deep-Dive Feature Spotlights (Official Proton Artwork + State Graphics) -->
+      <!-- 6. Deep-Dive Feature Spotlights (Interactive NetShield & Speed Panels) -->
       <section class="section" id="features">
         <div class="container">
           <div class="section-header reveal-on-scroll">
@@ -291,7 +327,7 @@
             </p>
           </div>
 
-          <!-- Spotlight 1: NetShield Ad-blocker -->
+          <!-- Spotlight 1: Interactive NetShield Ad-blocker -->
           <div class="spotlight-row reveal-on-scroll">
             <div class="spotlight-content">
               <div class="spotlight-kicker">NetShield Ad-Blocker</div>
@@ -324,24 +360,43 @@
                 alt="NetShield Ad-blocker"
                 class="visual-main-img"
               />
-              <div class="state-strip-grid">
-                <div class="state-pill-card">
-                  <img src="assets/illustrations/ads-blocked.png" alt="Ads Blocked" />
-                  <span class="state-pill-label">Ads Blocked</span>
+              
+              <!-- Interactive NetShield Controller -->
+              <div class="interactive-netshield-panel">
+                <div class="netshield-mode-buttons">
+                  <button class="netshield-btn" data-level="0" type="button">
+                    <img src="assets/illustrations/netshield-off.png" alt="Off" class="netshield-btn-icon" />
+                    <span>Off</span>
+                  </button>
+                  <button class="netshield-btn" data-level="1" type="button">
+                    <img src="assets/illustrations/netshield-on-level-1.png" alt="Level 1" class="netshield-btn-icon" />
+                    <span>Malware Only</span>
+                  </button>
+                  <button class="netshield-btn active" data-level="2" type="button">
+                    <img src="assets/illustrations/netshield-on-level-2.png" alt="Level 2" class="netshield-btn-icon" />
+                    <span>Full Shield</span>
+                  </button>
                 </div>
-                <div class="state-pill-card">
-                  <img src="assets/illustrations/trackers-stopped.png" alt="Trackers Stopped" />
-                  <span class="state-pill-label">Trackers Stopped</span>
-                </div>
-                <div class="state-pill-card active">
-                  <img src="assets/illustrations/netshield-on-level-2.png" alt="Level 2 Protection" />
-                  <span class="state-pill-label">Full Protection On</span>
+
+                <div class="netshield-stats-display" id="netshieldStats">
+                  <div class="stat-metric">
+                    <div class="stat-metric-val green" id="statAdsBlocked">14,892</div>
+                    <div class="stat-metric-label">Ads Blocked</div>
+                  </div>
+                  <div class="stat-metric">
+                    <div class="stat-metric-val" id="statTrackersStopped">3,410</div>
+                    <div class="stat-metric-label">Trackers Stopped</div>
+                  </div>
+                  <div class="stat-metric">
+                    <div class="stat-metric-val green" id="statDataSaved">412 MB</div>
+                    <div class="stat-metric-label">Data Saved</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Spotlight 2: VPN Accelerator & High-Speed WireGuard -->
+          <!-- Spotlight 2: Interactive VPN Accelerator & High-Speed WireGuard -->
           <div class="spotlight-row reverse reveal-on-scroll">
             <div class="spotlight-content">
               <div class="spotlight-kicker">VPN Accelerator</div>
@@ -374,14 +429,39 @@
                 alt="VPN Accelerator Speed"
                 class="visual-main-img"
               />
-              <div class="state-strip-grid two-col">
-                <div class="state-pill-card">
-                  <img src="assets/illustrations/vpn-accelerator-off.png" alt="Standard Mode" />
-                  <span class="state-pill-label">Standard Routing</span>
+
+              <!-- Interactive VPN Accelerator Speed Gauge -->
+              <div class="interactive-speed-panel">
+                <div class="speed-toggle-row">
+                  <button class="speed-mode-chip" data-mode="off" type="button">Standard Routing</button>
+                  <button class="speed-mode-chip active" data-mode="on" type="button">VPN Accelerator ON</button>
                 </div>
-                <div class="state-pill-card active">
-                  <img src="assets/illustrations/vpn-accelerator-on.png" alt="VPN Accelerator On" />
-                  <span class="state-pill-label">VPN Accelerator Active</span>
+
+                <div class="speed-gauge-card">
+                  <div class="speed-bar-wrapper">
+                    <div class="speed-bar-header">
+                      <span>Throughput Velocity</span>
+                      <strong id="speedGaugeNumber" style="color: var(--vpn-green);">842 Mbps</strong>
+                    </div>
+                    <div class="speed-bar-track">
+                      <div class="speed-bar-fill" id="speedGaugeFill" style="width: 92%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="speed-metrics-trio">
+                    <div>
+                      <div class="speed-submetric-val" id="speedLatency">24 ms</div>
+                      <div class="speed-submetric-lbl">Avg. Latency</div>
+                    </div>
+                    <div>
+                      <div class="speed-submetric-val" id="speedPacketLoss" style="color: var(--vpn-green);">0.0%</div>
+                      <div class="speed-submetric-lbl">Packet Loss</div>
+                    </div>
+                    <div>
+                      <div class="speed-submetric-val" id="speedBoostLabel" style="color: var(--primary);">+480%</div>
+                      <div class="speed-submetric-lbl">Speed Boost</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -485,7 +565,7 @@
         </div>
       </section>
 
-      <!-- 7. Real-Time Client Telemetry & Network Intelligence (Official *-thumbnail.png Cards) -->
+      <!-- 7. Real-Time Client Telemetry & Network Intelligence -->
       <section class="section section-alt" id="telemetry">
         <div class="container">
           <div class="section-header reveal-on-scroll">
@@ -516,7 +596,7 @@
               <div class="telemetry-card-banner">
                 <img src="assets/illustrations/ip-thumbnail.png" alt="IP Address Masking" />
               </div>
-              <div class="telemetry-card-card-body telemetry-card-body">
+              <div class="telemetry-card-body">
                 <div class="telemetry-card-kicker">Identity Shield</div>
                 <h3 class="telemetry-card-title">Instant IPv4 &amp; IPv6 Masking</h3>
                 <p class="telemetry-card-desc">
@@ -584,7 +664,7 @@
         </div>
       </section>
 
-      <!-- 8. Complete Feature Suite Bento Grid (Official Proton Illustrations) -->
+      <!-- 8. Complete Feature Suite Bento Grid -->
       <section class="section">
         <div class="container">
           <div class="section-header reveal-on-scroll">
@@ -701,7 +781,7 @@
         </div>
       </section>
 
-      <!-- 9. Global High-Speed Server Network Section -->
+      <!-- 9. Global High-Speed Server Network Section with Interactive Explorer -->
       <section class="section section-alt" id="network">
         <div class="container">
           <div class="network-showcase reveal-on-scroll">
@@ -744,119 +824,254 @@
               <img src="assets/world-map.svg" alt="Proton VPN Global Server Map" class="map-img" />
             </div>
 
-            <!-- Official Country Flag Cards -->
-            <div class="country-flags-grid">
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/Fastest.svg" alt="Fastest" />
-                  <span class="country-name">Fastest Country</span>
-                </div>
-                <span class="country-status">Auto</span>
+            <!-- Interactive Server Filter & Search Toolbar -->
+            <div class="server-filter-toolbar">
+              <div class="server-region-tabs" id="serverRegionTabs">
+                <button class="region-tab-btn active" data-region="all" type="button">All (15)</button>
+                <button class="region-tab-btn" data-region="europe" type="button">Europe</button>
+                <button class="region-tab-btn" data-region="americas" type="button">Americas</button>
+                <button class="region-tab-btn" data-region="asia" type="button">Asia-Pacific</button>
+                <button class="region-tab-btn" data-region="special" type="button">Auto Balancing</button>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/US.svg" alt="United States" />
-                  <span class="country-name">United States</span>
-                </div>
-                <span class="country-status">10 Gbps</span>
+
+              <div class="server-search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="serverSearchInput" placeholder="Filter countries or latency..." />
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/CH.svg" alt="Switzerland" />
-                  <span class="country-name">Switzerland</span>
+            </div>
+
+            <!-- Country Flag Cards with Live Latency and Load Metrics -->
+            <div class="country-flags-grid" id="countryCardsGrid">
+              <!-- Fastest -->
+              <div class="country-card" data-region="special" data-country="fastest country">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/Fastest.svg" alt="Fastest" />
+                    <span class="country-name">Fastest Country</span>
+                  </div>
+                  <span class="country-ping-pill">12 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 18% Load</span>
+                  <span class="country-spec-pill">Auto Routing</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/NL.svg" alt="Netherlands" />
-                  <span class="country-name">Netherlands</span>
+
+              <!-- Switzerland -->
+              <div class="country-card" data-region="europe" data-country="switzerland ch geneva zurich">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/CH.svg" alt="Switzerland" />
+                    <span class="country-name">Switzerland</span>
+                  </div>
+                  <span class="country-ping-pill">14 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 22% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; P2P</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/JP.svg" alt="Japan" />
-                  <span class="country-name">Japan</span>
+
+              <!-- United States -->
+              <div class="country-card" data-region="americas" data-country="united states us new york los angeles">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/US.svg" alt="United States" />
+                    <span class="country-name">United States</span>
+                  </div>
+                  <span class="country-ping-pill">38 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 34% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; 4K</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/DE.svg" alt="Germany" />
-                  <span class="country-name">Germany</span>
+
+              <!-- Netherlands -->
+              <div class="country-card" data-region="europe" data-country="netherlands nl amsterdam">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/NL.svg" alt="Netherlands" />
+                    <span class="country-name">Netherlands</span>
+                  </div>
+                  <span class="country-ping-pill">18 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 28% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; Tor</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/UK.svg" alt="United Kingdom" />
-                  <span class="country-name">United Kingdom</span>
+
+              <!-- Japan -->
+              <div class="country-card" data-region="asia" data-country="japan jp tokyo">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/JP.svg" alt="Japan" />
+                    <span class="country-name">Japan</span>
+                  </div>
+                  <span class="country-ping-pill">82 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 26% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; 4K</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/CA.svg" alt="Canada" />
-                  <span class="country-name">Canada</span>
+
+              <!-- Germany -->
+              <div class="country-card" data-region="europe" data-country="germany de frankfurt berlin">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/DE.svg" alt="Germany" />
+                    <span class="country-name">Germany</span>
+                  </div>
+                  <span class="country-ping-pill">21 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 31% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; P2P</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/FR.svg" alt="France" />
-                  <span class="country-name">France</span>
+
+              <!-- United Kingdom -->
+              <div class="country-card" data-region="europe" data-country="united kingdom uk london manchester">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/UK.svg" alt="United Kingdom" />
+                    <span class="country-name">United Kingdom</span>
+                  </div>
+                  <span class="country-ping-pill">23 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 35% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; BBC</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/SG.svg" alt="Singapore" />
-                  <span class="country-name">Singapore</span>
+
+              <!-- Canada -->
+              <div class="country-card" data-region="americas" data-country="canada ca toronto montreal vancouver">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/CA.svg" alt="Canada" />
+                    <span class="country-name">Canada</span>
+                  </div>
+                  <span class="country-ping-pill">42 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 29% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; P2P</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/SE.svg" alt="Sweden" />
-                  <span class="country-name">Sweden</span>
+
+              <!-- France -->
+              <div class="country-card" data-region="europe" data-country="france fr paris">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/FR.svg" alt="France" />
+                    <span class="country-name">France</span>
+                  </div>
+                  <span class="country-ping-pill">25 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 30% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; 4K</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/NO.svg" alt="Norway" />
-                  <span class="country-name">Norway</span>
+
+              <!-- Singapore -->
+              <div class="country-card" data-region="asia" data-country="singapore sg">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/SG.svg" alt="Singapore" />
+                    <span class="country-name">Singapore</span>
+                  </div>
+                  <span class="country-ping-pill">89 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 27% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; Asia Hub</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/RO.svg" alt="Romania" />
-                  <span class="country-name">Romania</span>
+
+              <!-- Sweden -->
+              <div class="country-card" data-region="europe" data-country="sweden se stockholm">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/SE.svg" alt="Sweden" />
+                    <span class="country-name">Sweden</span>
+                  </div>
+                  <span class="country-ping-pill">29 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 19% Load</span>
+                  <span class="country-spec-pill">Secure Core</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/PL.svg" alt="Poland" />
-                  <span class="country-name">Poland</span>
+
+              <!-- Norway -->
+              <div class="country-card" data-region="europe" data-country="norway no oslo">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/NO.svg" alt="Norway" />
+                    <span class="country-name">Norway</span>
+                  </div>
+                  <span class="country-ping-pill">31 ms</span>
                 </div>
-                <span class="country-status">10 Gbps</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 21% Load</span>
+                  <span class="country-spec-pill">10 Gbps</span>
+                </div>
               </div>
-              <div class="country-card">
-                <div class="country-card-left">
-                  <img src="assets/flags/Random.svg" alt="Random Country" />
-                  <span class="country-name">Random Server</span>
+
+              <!-- Romania -->
+              <div class="country-card" data-region="europe" data-country="romania ro bucharest">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/RO.svg" alt="Romania" />
+                    <span class="country-name">Romania</span>
+                  </div>
+                  <span class="country-ping-pill">34 ms</span>
                 </div>
-                <span class="country-status">Rotate</span>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 23% Load</span>
+                  <span class="country-spec-pill">10 Gbps &bull; P2P</span>
+                </div>
+              </div>
+
+              <!-- Poland -->
+              <div class="country-card" data-region="europe" data-country="poland pl warsaw">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/PL.svg" alt="Poland" />
+                    <span class="country-name">Poland</span>
+                  </div>
+                  <span class="country-ping-pill">33 ms</span>
+                </div>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> 25% Load</span>
+                  <span class="country-spec-pill">10 Gbps</span>
+                </div>
+              </div>
+
+              <!-- Random Country -->
+              <div class="country-card" data-region="special" data-country="random country rotation">
+                <div class="country-card-header">
+                  <div class="country-card-left">
+                    <img src="assets/flags/Random.svg" alt="Random Country" />
+                    <span class="country-name">Random Server</span>
+                  </div>
+                  <span class="country-ping-pill" style="color: var(--primary);">Rotate</span>
+                </div>
+                <div class="country-card-footer">
+                  <span class="country-load-bar"><span class="load-mini-dot"></span> Dynamic</span>
+                  <span class="country-spec-pill">Zero Cooldown</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 10. Dedicated Windows Download Section (welcome.png + Instant Setup) -->
+      <!-- 10. Dedicated Windows Download Section (welcome.png + Instant Setup + Checksum) -->
       <section class="section" id="download">
         <div class="container">
           <div class="download-hero-box reveal-on-scroll">
@@ -879,13 +1094,25 @@
                   <div class="spec-val">~1.45 Seconds (Multi-core)</div>
                 </div>
                 <div class="download-spec-item">
-                  <div class="spec-label">Supported OS</div>
-                  <div class="spec-val">Windows 10 &amp; Windows 11</div>
+                  <div class="spec-label">Installer Size</div>
+                  <div class="spec-val">209.2 MB (Standalone)</div>
                 </div>
                 <div class="download-spec-item">
                   <div class="spec-label">Protocols Included</div>
                   <div class="spec-val">WireGuard, OpenVPN, Stealth</div>
                 </div>
+              </div>
+
+              <!-- Cryptographic Checksum Card -->
+              <div class="checksum-verify-box">
+                <div class="checksum-info">
+                  <span class="checksum-label">SHA-256 Checksum</span>
+                  <code class="checksum-hash" id="checksumValue">7F6C53095F39826DC9753EE19FFC78F592E97C398209E4FE195ED63975982F8A</code>
+                </div>
+                <button class="copy-hash-btn" id="copyHashBtn" type="button" aria-label="Copy SHA-256 Checksum">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copy Hash</span>
+                </button>
               </div>
 
               <div class="hero-cta-group" style="justify-content: flex-start; margin-bottom: 0;">
@@ -1023,7 +1250,7 @@
 
   </div>
 
-  <!-- 13. Sticky Scroll Download Bar -->
+  <!-- 13. Sticky Scroll Download Bar with Back to Top -->
   <div class="sticky-download-bar" id="stickyDownloadBar" aria-hidden="true">
     <div class="sticky-bar-left">
       <img src="assets/product-logo.svg" alt="Proton VPN" />
@@ -1032,10 +1259,15 @@
         Proton VPN Next for Windows <span>&bull; Redesigned Desktop Client (v1.0.2)</span>
       </div>
     </div>
-    <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download App
-    </a>
+    <div class="sticky-bar-actions">
+      <a href="https://github.com/jabirking-ux/ProtonNext/releases/latest/download/ProtonNext-Setup.exe" class="btn btn-primary btn-sm">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download App
+      </a>
+      <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to Top" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </button>
+    </div>
   </div>
 
   <script src="app.js"></script>

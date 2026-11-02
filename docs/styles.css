@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Proton VPN Next — Official Proton Dark Theme + Multi-Beat Scrollytelling
+   Proton VPN Next - Official Proton Dark Theme & Interactive Showcase
    Tokens derived from ProtonVPN.Client.Common.UI/Styles/Colors.xaml (Dark)
    ========================================================================== */
 
@@ -7,23 +7,25 @@
   color-scheme: dark;
 
   /* Official Proton Dark Palette */
-  --bg-deep: #0B0A0F;
+  --bg-deep: #08070B;
   --bg-norm: #16141C;
   --bg-elevated: #1D1A26;
   --bg-weak: #292733;
   --bg-strong: #3F3B4C;
   --bg-card: rgba(41, 39, 51, 0.52);
+  --bg-card-hover: rgba(49, 46, 61, 0.72);
 
   /* Typography */
   --text-norm: #FFFFFF;
   --text-weak: #A7A4B5;
   --text-hint: #757285;
+  --text-muted: #575466;
 
   /* Borders */
   --border-norm: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.16);
   --border-purple: rgba(138, 110, 255, 0.45);
-  --border-green: rgba(44, 255, 204, 0.35);
+  --border-green: rgba(44, 255, 204, 0.38);
 
   /* Brand & Accents */
   --primary: #8A6EFF;
@@ -32,10 +34,11 @@
   --interaction-active: #5E3BE8;
   --vpn-green: #2CFFCC;
   --signal-success: #4BB99D;
+  --signal-warning: #FFB340;
   --signal-danger: #F7607B;
 
   /* Layout */
-  --container-max: 1220px;
+  --container-max: 1240px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -68,6 +71,7 @@ body {
   background-color: var(--bg-norm);
   color: var(--text-norm);
   overflow-x: hidden;
+  position: relative;
 }
 
 ::selection {
@@ -93,6 +97,22 @@ svg {
 }
 
 /* ==========================================================================
+   0. Top Global Scroll Progress Bar
+   ========================================================================== */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #6D4AFF 0%, #8A6EFF 50%, #2CFFCC 100%);
+  z-index: 200;
+  box-shadow: 0 0 10px rgba(44, 255, 204, 0.6);
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* ==========================================================================
    1. Fixed Navigation Header (Minimal Over Splash, Solidifies on Scroll)
    ========================================================================== */
 .site-header {
@@ -101,15 +121,15 @@ svg {
   left: 0;
   right: 0;
   z-index: 120;
-  background: rgba(11, 10, 15, 0.01);
+  background: rgba(8, 7, 11, 0.01);
   border-bottom: 1px solid transparent;
   transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
 
 .site-header.scrolled {
-  background: rgba(22, 20, 28, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(22, 20, 28, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom-color: var(--border-norm);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
 }
@@ -119,7 +139,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 
 .brand-logo {
@@ -143,7 +163,7 @@ svg {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: 6px;
-  background: linear-gradient(135deg, rgba(109, 74, 255, 0.32) 0%, rgba(44, 255, 204, 0.22) 100%);
+  background: linear-gradient(135deg, rgba(109, 74, 255, 0.35) 0%, rgba(44, 255, 204, 0.25) 100%);
   border: 1px solid rgba(138, 110, 255, 0.55);
   color: #FFFFFF;
 }
@@ -171,6 +191,7 @@ svg {
   color: var(--text-weak);
   transition: color 0.15s ease;
   padding: 6px 0;
+  position: relative;
 }
 
 .nav-links a:hover,
@@ -178,10 +199,75 @@ svg {
   color: var(--text-norm);
 }
 
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--vpn-green);
+  border-radius: 2px;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-norm);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile Drawer */
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  background: rgba(18, 16, 24, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-norm);
+  padding: 24px;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 119;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.mobile-nav-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-drawer a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-weak);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-norm);
+}
+
+.mobile-nav-drawer a:hover {
+  color: var(--text-norm);
 }
 
 /* Official Proton Buttons */
@@ -245,9 +331,6 @@ svg {
 
 /* ==========================================================================
    2. 3-Beat Scrollytelling Launch Track (Anthropic / Apple Keynote Style)
-   Beat 1 (0.00 - 0.38): welcome-unlimited.png seamlessly masked + "Redesigned."
-   Beat 2 (0.38 - 0.72): redesign.png rises & locks + 3 What's New callouts
-   Beat 3 (0.72 - 1.00): Transitions smoothly into Main Download Hub
    ========================================================================== */
 .intro-scroll-track {
   position: relative;
@@ -266,8 +349,8 @@ svg {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(circle at 50% 38%, rgba(109, 74, 255, 0.28) 0%, rgba(11, 10, 15, 0) 64%),
-    radial-gradient(circle at 50% 62%, rgba(44, 255, 204, 0.14) 0%, rgba(11, 10, 15, 0) 60%),
+    radial-gradient(circle at 50% 36%, rgba(109, 74, 255, 0.32) 0%, rgba(8, 7, 11, 0) 65%),
+    radial-gradient(circle at 50% 64%, rgba(44, 255, 204, 0.16) 0%, rgba(8, 7, 11, 0) 62%),
     var(--bg-deep);
 }
 
@@ -283,6 +366,60 @@ svg {
   pointer-events: none;
 }
 
+/* Scrollytelling Navigation Dots on the Side */
+.intro-beats-indicator {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beat-dot-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px;
+}
+
+.beat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.25s ease;
+}
+
+.beat-dot-label {
+  font-size: 11px;
+  color: var(--text-weak);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.beat-dot-btn:hover .beat-dot-label,
+.beat-dot-btn.active .beat-dot-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.beat-dot-btn.active .beat-dot {
+  background: var(--vpn-green);
+  box-shadow: 0 0 12px var(--vpn-green);
+  transform: scale(1.4);
+}
+
 /* Beat 1: Centerpiece welcome-unlimited.png + "Redesigned." */
 .intro-stage-primary {
   position: relative;
@@ -296,14 +433,12 @@ svg {
   will-change: transform, opacity, filter;
 }
 
-/* Seamless Dark Feathering for welcome-unlimited.png */
 .welcome-banner-frame {
   position: relative;
   width: min(90vw, 760px);
   margin: 0 auto 14px;
   border-radius: 28px;
   overflow: hidden;
-  /* Radial + vertical feathering so the white bottom edge of the PNG melts into dark mode */
   mask-image: radial-gradient(ellipse 88% 78% at 50% 44%, #000 52%, rgba(0, 0, 0, 0.5) 74%, transparent 98%);
   -webkit-mask-image: radial-gradient(ellipse 88% 78% at 50% 44%, #000 52%, rgba(0, 0, 0, 0.5) 74%, transparent 98%);
   filter: drop-shadow(0 24px 64px rgba(109, 74, 255, 0.45));
@@ -393,7 +528,6 @@ svg {
   position: relative;
 }
 
-/* Subtle bottom dark fade over redesign.png so the white bottom edge blends cleanly */
 .intro-redesign-window::after {
   content: '';
   position: absolute;
@@ -450,7 +584,7 @@ svg {
   line-height: 1.38;
 }
 
-/* Scroll Down Prompt at bottom of first screen */
+/* Scroll Down Prompt */
 .intro-scroll-cue {
   position: absolute;
   bottom: 30px;
@@ -509,7 +643,7 @@ svg {
 }
 
 /* ==========================================================================
-   3. Main Website Reveal Container (Appears as you scroll down)
+   3. Main Website Reveal Container
    ========================================================================== */
 .main-site-wrapper {
   position: relative;
@@ -519,7 +653,6 @@ svg {
   box-shadow: 0 -30px 90px rgba(0, 0, 0, 0.85);
 }
 
-/* Top Swiss Privacy Utility Bar */
 .top-utility-bar {
   background: var(--bg-deep);
   border-bottom: 1px solid var(--border-norm);
@@ -570,7 +703,7 @@ svg {
 }
 
 /* ==========================================================================
-   4. Main Product Hero & Download Hub + What's New Trio
+   4. Main Product Hero & Download Hub
    ========================================================================== */
 .product-hero-section {
   position: relative;
@@ -667,7 +800,6 @@ svg {
   box-shadow: 0 0 10px var(--vpn-green);
 }
 
-/* Official Redesign Showcase Frame */
 .hero-showcase-wrapper {
   position: relative;
   max-width: 1080px;
@@ -745,7 +877,6 @@ svg {
   color: var(--text-norm);
 }
 
-/* Official "What's New in the Redesign" 3-Column Feature Cards */
 .whatsnew-trio-grid {
   max-width: 1080px;
   margin: 0 auto;
@@ -898,7 +1029,7 @@ svg {
 }
 
 /* ==========================================================================
-   7. Feature Spotlights (2-Column Official Proton Sections)
+   7. Interactive Feature Spotlights (NetShield, Speed, Streaming, Secure Core)
    ========================================================================== */
 .spotlight-row {
   display: grid;
@@ -984,7 +1115,7 @@ svg {
   background: linear-gradient(160deg, rgba(41, 39, 51, 0.72) 0%, rgba(22, 20, 28, 0.92) 100%);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-xl);
-  padding: 36px;
+  padding: 34px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42);
@@ -1003,23 +1134,195 @@ svg {
 
 .visual-main-img {
   width: 100%;
-  max-height: 250px;
+  max-height: 240px;
   object-fit: contain;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.45));
 }
 
-/* Official Mini State Cards inside Spotlights */
+/* Interactive NetShield Level Selector Inside Visual */
+.interactive-netshield-panel {
+  border-top: 1px solid var(--border-norm);
+  padding-top: 20px;
+}
+
+.netshield-mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.netshield-btn {
+  background: rgba(15, 13, 20, 0.7);
+  border: 1px solid var(--border-norm);
+  color: var(--text-weak);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.netshield-btn:hover {
+  background: rgba(41, 39, 51, 0.75);
+  color: var(--text-norm);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.netshield-btn.active {
+  background: rgba(44, 255, 204, 0.08);
+  border-color: var(--border-green);
+  color: var(--vpn-green);
+}
+
+.netshield-btn-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* NetShield Telemetry Numbers Bar */
+.netshield-stats-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: rgba(11, 10, 15, 0.65);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.stat-metric {
+  text-align: center;
+}
+
+.stat-metric-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.stat-metric-val.green {
+  color: var(--vpn-green);
+}
+
+.stat-metric-label {
+  font-size: 11px;
+  color: var(--text-weak);
+}
+
+/* Interactive VPN Accelerator Speed Gauge Dashboard */
+.interactive-speed-panel {
+  border-top: 1px solid var(--border-norm);
+  padding-top: 20px;
+}
+
+.speed-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(11, 10, 15, 0.72);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-pill);
+  padding: 6px 8px;
+  margin-bottom: 16px;
+}
+
+.speed-mode-chip {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-weak);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.speed-mode-chip.active {
+  background: var(--interaction-norm);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(109, 74, 255, 0.45);
+}
+
+.speed-gauge-card {
+  background: rgba(15, 13, 20, 0.7);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.speed-bar-wrapper {
+  margin-bottom: 12px;
+}
+
+.speed-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-weak);
+  margin-bottom: 6px;
+}
+
+.speed-bar-track {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+.speed-bar-fill {
+  height: 100%;
+  width: 92%;
+  background: linear-gradient(90deg, #6D4AFF 0%, #2CFFCC 100%);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 12px rgba(44, 255, 204, 0.5);
+}
+
+.speed-metrics-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.speed-submetric-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-norm);
+}
+
+.speed-submetric-lbl {
+  font-size: 11px;
+  color: var(--text-weak);
+}
+
+/* State Strip Cards inside Secure Core */
 .state-strip-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   border-top: 1px solid var(--border-norm);
   padding-top: 20px;
-}
-
-.state-strip-grid.two-col {
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .state-pill-card {
@@ -1241,7 +1544,7 @@ svg {
 }
 
 /* ==========================================================================
-   10. Global Server Network Section (world-map.svg + Country Flags)
+   10. Interactive Global Server Explorer & Filters
    ========================================================================== */
 .network-showcase {
   position: relative;
@@ -1257,7 +1560,7 @@ svg {
   grid-template-columns: 1.15fr 0.85fr;
   gap: 40px;
   align-items: center;
-  margin-bottom: 44px;
+  margin-bottom: 36px;
 }
 
 .network-stats-row {
@@ -1309,37 +1612,120 @@ svg {
   background: rgba(15, 13, 20, 0.78);
   border: 1px solid var(--border-norm);
   padding: 28px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .network-map-backdrop .map-img {
   width: 100%;
-  max-height: 310px;
+  max-height: 290px;
   object-fit: contain;
   opacity: 0.72;
 }
 
+/* Interactive Server Explorer Controls */
+.server-filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  background: rgba(15, 13, 20, 0.65);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+}
+
+.server-region-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.region-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-weak);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.region-tab-btn:hover {
+  color: var(--text-norm);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.region-tab-btn.active {
+  background: var(--interaction-norm);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(109, 74, 255, 0.35);
+}
+
+.server-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  min-width: 240px;
+}
+
+.server-search-box svg {
+  color: var(--text-hint);
+  flex-shrink: 0;
+}
+
+.server-search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-norm);
+  width: 100%;
+}
+
+.server-search-box input::placeholder {
+  color: var(--text-hint);
+}
+
+/* Country Flags Interactive Grid */
 .country-flags-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 14px;
 }
 
 .country-card {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 10px;
-  padding: 12px 15px;
+  padding: 14px 16px;
   border-radius: var(--radius-md);
   background: rgba(41, 39, 51, 0.45);
   border: 1px solid var(--border-norm);
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .country-card:hover {
   border-color: var(--border-purple);
-  background: rgba(41, 39, 51, 0.8);
+  background: rgba(41, 39, 51, 0.85);
+  transform: translateY(-2px);
+}
+
+.country-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .country-card-left {
@@ -1361,14 +1747,48 @@ svg {
   color: var(--text-norm);
 }
 
-.country-status {
-  font-size: 11.5px;
-  font-weight: 600;
+.country-ping-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background: rgba(44, 255, 204, 0.12);
   color: var(--vpn-green);
+  border: 1px solid rgba(44, 255, 204, 0.28);
+}
+
+.country-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--text-weak);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 8px;
+}
+
+.country-load-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.load-mini-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vpn-green);
+}
+
+.country-spec-pill {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-hint);
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
-   11. Download & Native Setup Banner (welcome.png + ProtonNext-Setup.exe)
+   11. Download & Native Setup Banner + Checksum Verification
    ========================================================================== */
 .download-hero-box {
   background:
@@ -1388,7 +1808,7 @@ svg {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
-  margin: 28px 0 34px;
+  margin: 26px 0 28px;
 }
 
 .download-spec-item {
@@ -1408,6 +1828,70 @@ svg {
   font-size: 15px;
   font-weight: 700;
   color: var(--text-norm);
+}
+
+/* Checksum Verification Box */
+.checksum-verify-box {
+  background: rgba(11, 10, 15, 0.85);
+  border: 1px solid var(--border-norm);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.checksum-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.checksum-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+
+.checksum-hash {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--text-weak);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copy-hash-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-strong);
+  color: var(--text-norm);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+}
+
+.copy-hash-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.copy-hash-btn.copied {
+  background: rgba(44, 255, 204, 0.15);
+  border-color: var(--border-green);
+  color: var(--vpn-green);
 }
 
 .download-art-col {
@@ -1507,7 +1991,7 @@ svg {
 }
 
 /* ==========================================================================
-   13. Sticky Bottom Download Bar on Scroll
+   13. Sticky Bottom Download Bar on Scroll + Back to Top
    ========================================================================== */
 .sticky-download-bar {
   position: fixed;
@@ -1558,11 +2042,36 @@ svg {
   margin-left: 6px;
 }
 
+.sticky-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-to-top-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-norm);
+  color: var(--text-weak);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.back-to-top-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--text-norm);
+}
+
 /* ==========================================================================
    14. Footer
    ========================================================================== */
 .site-footer {
-  background: #0B0A0F;
+  background: #08070B;
   border-top: 1px solid var(--border-norm);
   padding: 72px 0 48px;
   color: var(--text-weak);
@@ -1652,6 +2161,12 @@ svg {
   .nav-links {
     display: none;
   }
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+  .intro-beats-indicator {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1665,7 +2180,9 @@ svg {
   .state-strip-grid,
   .network-stats-row,
   .download-specs-list,
-  .footer-grid {
+  .footer-grid,
+  .netshield-mode-buttons,
+  .country-flags-grid {
     grid-template-columns: 1fr;
   }
   .streaming-badges-grid {
@@ -1677,5 +2194,9 @@ svg {
   }
   .sticky-bar-text span {
     display: none;
+  }
+  .checksum-verify-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
